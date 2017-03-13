@@ -1,0 +1,17 @@
+.modal.dd-modal {
+
+  .modal-header {
+    background: $soft_purple;
+    color: $white;
+    text-transform: uppercase;
+  }
+
+  .dd-btn.btn.dd-modal-confirm-btn {
+    background: $soft_purple;
+  }
+
+  .dd-btn.btn.dd-modal-cancel-btn {
+    color: $soft_purple;
+    border-color: $soft_purple;
+  }
+}

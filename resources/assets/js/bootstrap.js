@@ -1,4 +1,4 @@
-
+window.swal = require('sweetalert');
 window._ = require('lodash');
 
 /**
@@ -25,12 +25,15 @@ window.Vue = require('vue');
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
 
-window.axios.defaults.headers.common = {
+import axios from 'axios';
+
+axios.defaults.headers.common = {
     'X-CSRF-TOKEN': window.Laravel.csrfToken,
     'X-Requested-With': 'XMLHttpRequest'
 };
+
+Vue.prototype.$http = axios;
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

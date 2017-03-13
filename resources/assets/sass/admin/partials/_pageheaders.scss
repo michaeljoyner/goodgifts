@@ -1,0 +1,17 @@
+.gg-page-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+
+  .header-title {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+  }
+
+  .page-actions {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+  }
+}

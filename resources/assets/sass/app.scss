@@ -7,3 +7,12 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import "shared/sweetalert";
+@import "admin/partials/spinner";
+
+@import "admin/partials/editor";
+@import "admin/partials/modalvue";
+@import "admin/partials/pageheaders";
+@import "admin/partials/toggleswitch";
+@import "admin/partials/articlepublisher";

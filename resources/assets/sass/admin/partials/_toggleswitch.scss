@@ -1,0 +1,53 @@
+.toggle-switch-component {
+
+  input[type=checkbox] {
+    display: none;
+  }
+
+  label {
+    display: inline-block;
+    max-width: 150px;
+    min-width: 100px;
+    border: 2px solid #ccc;
+    border-radius: 11px;
+    height: 32px;
+  }
+
+  .switch-holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    position: relative;
+
+    .text-label {
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
+      max-width: 50%;
+      padding: 0 5px;
+    }
+
+    .switch-cover {
+      width: 50%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      background: #ccc;
+      border-radius: 8px 0px 0px 8px;
+      transform: translate3d(0,0,0);
+      transition: .3s;
+    }
+  }
+
+  input[type=checkbox]:checked + label {
+    border-color: dodgerblue;
+
+    .switch-cover {
+      transform: translate3d(100%,0,0);
+      background: dodgerblue;
+      border-radius: 0px 8px 8px 0px;
+    }
+  }
+
+}
