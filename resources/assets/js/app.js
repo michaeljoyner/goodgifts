@@ -16,6 +16,7 @@ Vue.component('modal', require('./components/Modal.vue'));
 Vue.component('editor', require('./components/Editor.vue'));
 Vue.component('toggle-switch', require('./components/Toggleswitch.vue'));
 Vue.component('article-publisher', require('./components/ArticlePublisher.vue'));
+Vue.component('single-upload', require('./components/Singleupload.vue'));
 
 window.eventHub = new Vue();
 

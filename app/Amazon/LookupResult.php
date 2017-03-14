@@ -1,22 +1,21 @@
 <?php
 
 
-namespace App\Products;
+namespace App\Amazon;
 
 
 use App\Products\Product;
 
-class AmazonSearchResults
+class LookupResult
 {
-
     private $xml;
-
+    
     public function __construct($xml)
     {
         $this->xml = $xml;
     }
 
-    public function getProducts()
+    public function getProduct()
     {
         $sxl = new \SimpleXMLElement($this->xml);
 
@@ -27,7 +26,7 @@ class AmazonSearchResults
 
         return collect($prods)->map(function ($item) {
             return new Product($this->extractProductAttributesFromSimpleXMLElement($item));
-        });
+        })->first();
     }
 
     protected function extractProductAttributesFromSimpleXMLElement($xmlElement)

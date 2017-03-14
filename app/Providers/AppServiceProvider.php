@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Products\Lookup;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(Lookup::class, function() {
+            return new \App\Amazon\ProductLookup;
+        });
     }
 }

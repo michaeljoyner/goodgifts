@@ -102,10 +102,52 @@ class ArticlesTest extends TestCase
     {
         $article = factory(Article::class)->create();
 
-        $image = $article->addImage(UploadedFile::fake()->image('testimage.png'));
+        $article->addImage(UploadedFile::fake()->image('testimage.png'));
 
         $this->assertCount(1, $article->getMedia());
 
         $article->clearMediaCollection();
+    }
+
+    /**
+     *@test
+     */
+    public function a_title_image_can_be_added_to_an_article()
+    {
+        $article = factory(Article::class)->create();
+
+        $image = $article->setTitleImage(UploadedFile::fake()->image('title-test.jpg'));
+        $this->assertTrue($image->fresh()->getCustomProperty('is_title'));
+
+        $this->assertEquals($image->getUrl('web'), $article->fresh()->titleImage('web'));
+    }
+
+    /**
+     *@test
+     */
+    public function a_pre_existing_title_image_is_deleted_when_a_title_image_is_set()
+    {
+        $article = factory(Article::class)->create();
+        $firstTitleImg = $article->setTitleImage(UploadedFile::fake()->image('first.png'));
+        $firstFilePath = $firstTitleImg->getPath();
+        $this->assertTrue(file_exists($firstFilePath));
+
+        $second = $article->fresh()->setTitleImage(UploadedFile::fake()->image('second.png'));
+
+
+        $this->assertEquals($second->getUrl(), $article->fresh()->titleImage());
+
+        $this->assertDatabaseMissing('media', ['id' => $firstTitleImg->id]);
+        $this->assertFalse(file_exists($firstFilePath));
+    }
+
+    /**
+     *@test
+     */
+    public function an_article_has_a_default_title_image()
+    {
+        $article = factory(Article::class)->create();
+
+        $this->assertEquals(Article::DEFAULT_TITLE_IMG, $article->titleImage('web'));
     }
 }

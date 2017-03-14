@@ -50,4 +50,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::post('articles/{article}/publish', 'ArticlePublishingController@update');
 
     Route::post('articles/{article}/images', 'ArticleImagesController@store');
+
+    Route::post('articles/{article}/titleimage', 'ArticleTitleImageController@update');
+
+    Route::post('services/products/lookup', 'ProductLookupController@show');
 });

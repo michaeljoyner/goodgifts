@@ -50,7 +50,7 @@
 
         computed: {
             isLive() {
-               return moment(this.publish_date).isBefore();
+               return moment(this.publish_date).isBefore() && this.publish;
             }
         },
 

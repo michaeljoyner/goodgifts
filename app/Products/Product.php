@@ -11,6 +11,7 @@ class Product
     public $description;
     public $price;
     public $image;
+    public $itemid;
 
     public function __construct($params)
     {

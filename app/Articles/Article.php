@@ -12,6 +12,8 @@ class Article extends Model implements HasMediaConversions
 {
     use Sluggable, HasMediaTrait;
 
+    const DEFAULT_TITLE_IMG = '/images/defaults/article.jpg';
+
     protected $fillable = ['title', 'description', 'body'];
 
     protected $casts = ['published' => 'boolean'];
@@ -67,5 +69,36 @@ class Article extends Model implements HasMediaConversions
     public function addImage($image)
     {
         return $this->addMedia($image)->preservingOriginal()->toCollection();
+    }
+
+    public function setTitleImage($image)
+    {
+        $this->removeExistingTitleImages();
+        $image = $this->addImage($image);
+        $image->setCustomProperty('is_title', true);
+        $image->save();
+        return $image;
+    }
+
+    protected function removeExistingTitleImages()
+    {
+        $this->getMedia()->filter(function($image) {
+            return $image->hasCustomProperty('is_title') && $image->getCustomProperty('is_title');
+        })->each(function($titleImage) {
+            $titleImage->delete();
+        });
+    }
+
+    public function titleImage($conversion = '')
+    {
+        $image = $this->getMedia()->filter(function($image) {
+            return $image->hasCustomProperty('is_title') && $image->getCustomProperty('is_title');
+        })->first();
+
+        if($image) {
+            return $image->getUrl($conversion);
+        }
+
+        return static::DEFAULT_TITLE_IMG;
     }
 }
