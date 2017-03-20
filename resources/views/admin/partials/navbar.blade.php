@@ -29,13 +29,9 @@
                         <li><a href="/admin/articles">Articles</a></li>
                     </ul>
                 </li>
-                <li><a href="">Bios</a></li>
-                <li><a href="">Affiliates</a></li>
-                <li><a href="">About Page</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="">Users</a></li>
                 <li class="dropdown">
                     <a href="#"
                        class="dropdown-toggle"

@@ -4,6 +4,7 @@
 namespace Tests\Unit\Products;
 
 
+use Illuminate\Support\Collection;
 use Tests\TestCase;
 
 class FakeProductLookupTest extends TestCase
@@ -11,12 +12,13 @@ class FakeProductLookupTest extends TestCase
     /**
      *@test
      */
-    public function it_returns_a_fake_product_on_lookup_by_url()
+    public function it_returns_an_collection_of_fake_products_on_lookup_by_url()
     {
         $lookup = new \App\Products\FakeLookup();
 
-        $product = $lookup->withId('TEST_ID');
+        $products = $lookup->withId('TEST_ID');
 
-        $this->assertInstanceOf(\App\Products\Product::class, $product);
+        $this->assertInstanceOf(Collection::class, $products);
+        $this->assertInstanceOf(\App\Products\Product::class, $products->first());
     }
 }

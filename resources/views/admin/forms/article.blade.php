@@ -14,6 +14,13 @@
         @endif
         <textarea name="description" class="form-control">{{ old('description') ?? $article->description }}</textarea>
     </div>
+    <div class="form-group{{ $errors->has('intro') ? ' has-error' : '' }}">
+        <label for="intro">Intro: </label>
+        @if($errors->has('intro'))
+        <span class="error-message">{{ $errors->first('intro') }}</span>
+        @endif
+        <textarea name="intro" class="form-control">{{ old('intro') ?? $article->intro }}</textarea>
+    </div>
     <div class="form-group">
         <button type="submit" class="btn">Save Changes</button>
     </div>

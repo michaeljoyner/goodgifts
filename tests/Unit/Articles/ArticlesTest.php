@@ -150,4 +150,33 @@ class ArticlesTest extends TestCase
 
         $this->assertEquals(Article::DEFAULT_TITLE_IMG, $article->titleImage('web'));
     }
+
+    /**
+     * @test
+     */
+    public function articles_may_be_scoped_to_published_only()
+    {
+        factory(Article::class, 3)->create(['published' => false, 'published_on' => null]);
+        factory(Article::class, 3)->create(['published' => true, 'published_on' => Carbon::now()]);
+
+        $results = Article::published()->get();
+
+        $this->assertCount(3, $results);
+        $results->each(function($article) {
+            $this->assertTrue($article->isPublished());
+        });
+    }
+
+    /**
+     *@test
+     */
+    public function the_published_scope_also_filters_out_articles_published_but_only_for_a_future_date()
+    {
+        factory(Article::class, 3)->create(['published' => false, 'published_on' => null]);
+        factory(Article::class, 3)->create(['published' => true, 'published_on' => Carbon::parse('+5 days')]);
+
+        $results = Article::published()->get();
+
+        $this->assertCount(0, $results);
+    }
 }

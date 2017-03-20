@@ -1,0 +1,22 @@
+.page-header {
+  background: $brand_dark;
+  padding: 30px;
+
+  h1 {
+    font-family: $script;
+    color: $brand_yellow;
+    margin-top: 0;
+
+    &:hover {
+      color: $brand_blue;
+    }
+
+    @include respond-to(phone) { font-size: 80%; }
+
+    span {
+      font-family: $sans_serif;
+      text-transform: uppercase;
+      font-size: 70%;
+    }
+  }
+}

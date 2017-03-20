@@ -1,0 +1,16 @@
+.gg-form {
+  margin: 1em auto;
+
+  label {
+    text-transform: uppercase;
+  }
+
+  textarea {
+    min-height: 100px;
+    resize: none;
+  }
+
+  &.modal-form {
+    width: 95%;
+  }
+}

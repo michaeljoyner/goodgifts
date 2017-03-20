@@ -14,7 +14,7 @@ class Article extends Model implements HasMediaConversions
 
     const DEFAULT_TITLE_IMG = '/images/defaults/article.jpg';
 
-    protected $fillable = ['title', 'description', 'body'];
+    protected $fillable = ['title', 'description', 'body', 'intro'];
 
     protected $casts = ['published' => 'boolean'];
 
@@ -35,6 +35,11 @@ class Article extends Model implements HasMediaConversions
                 'onUpdate' => $this->hasNeverBeenPublished()
             ]
         ];
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->where('published', true)->whereDate('published_on', '<=', Carbon::now()->format('Y-m-d'));
     }
 
     public function isPublished()

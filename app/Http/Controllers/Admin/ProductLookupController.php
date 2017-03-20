@@ -11,15 +11,6 @@ class ProductLookupController extends Controller
     {
         $this->validate(request(), ['itemid' => 'required']);
 
-        $product = $lookup->withId(request('itemid'));
-
-        return response()->json([
-            'title' => $product->title,
-            'image' => $product->image,
-            'description' => $product->description,
-            'price' => $product->price,
-            'link' => $product->link,
-            'itemid' => $product->itemid
-        ]);
+        return $lookup->withId(request('itemid'));
     }
 }

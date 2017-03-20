@@ -9,6 +9,7 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 @import "shared/sweetalert";
+@import "shared/typography";
 @import "admin/partials/spinner";
 
 @import "admin/partials/editor";
@@ -17,3 +18,7 @@
 @import "admin/partials/toggleswitch";
 @import "admin/partials/articlepublisher";
 @import "admin/partials/singleupload";
+@import "admin/partials/formmodals";
+@import "admin/partials/forms";
+
+@import "admin/editor/productmodals";

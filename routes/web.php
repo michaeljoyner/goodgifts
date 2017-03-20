@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'PagesController@home');
+Route::get('/articles/{slug}', 'PagesController@article');
 
 Route::get('gifts', 'GiftSearchController@index');
 

@@ -15,7 +15,7 @@ class LookupResult
         $this->xml = $xml;
     }
 
-    public function getProduct()
+    public function getProducts()
     {
         $sxl = new \SimpleXMLElement($this->xml);
 
@@ -26,7 +26,7 @@ class LookupResult
 
         return collect($prods)->map(function ($item) {
             return new Product($this->extractProductAttributesFromSimpleXMLElement($item));
-        })->first();
+        });
     }
 
     protected function extractProductAttributesFromSimpleXMLElement($xmlElement)

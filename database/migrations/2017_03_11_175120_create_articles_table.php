@@ -18,6 +18,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('description');
+            $table->text('intro')->nullable();
             $table->text('body')->nullable();
             $table->boolean('published')->default(0);
             $table->date('published_on')->nullable();

@@ -5,6 +5,7 @@ namespace Tests\Unit\Amazon;
 
 
 
+use Illuminate\Support\Collection;
 use Tests\TestCase;
 
 class LookupResultTest extends TestCase
@@ -12,11 +13,15 @@ class LookupResultTest extends TestCase
     /**
      *@test
      */
-    public function it_returns_a_product_from_a_successful_lookup()
+    public function it_returns_a_collection_of_products_from_a_successful_lookup()
     {
         $responseXML = file_get_contents('tests/fixtures/amazon_lookup_success.xml');
         $lookupResult = new \App\Amazon\LookupResult($responseXML);
-        $product = $lookupResult->getProduct();
+        $collection = $lookupResult->getProducts();
+
+        $this->assertInstanceOf(Collection::class, $collection);
+
+        $product = $collection->first();
 
         $this->assertEquals('$13.99', $product->price);
         $this->assertEquals('The Murder of Roger Ackroyd: A Hercule Poirot Mystery (Hercule Poirot Mysteries)', $product->title);

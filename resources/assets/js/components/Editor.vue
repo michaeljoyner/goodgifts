@@ -51,6 +51,104 @@
                 </button>
             </div>
         </modal>
+        <modal :show="productModalOpen" :wider="true">
+            <div slot="header">
+                <h5>Add an Amazon Product</h5>
+            </div>
+            <div slot="body">
+                <form action=""
+                      @submit.prevent.stop="fetchProduct"
+                      v-show="!products.length"
+                      class="form-horizontal editor-product-modal-form"
+                >
+                    <div class="form-group">
+                        <label for="amazon-url-input">Amazon url: </label>
+                        <textarea class="form-control"
+                                  placeholder="You can separate links with a comma"
+                                  v-model="amazon_url"
+                        ></textarea>
+                        <button class="btn btn-default pull-right btn-info" type="submit">Go!</button>
+                    </div>
+                </form>
+                <div class="product-preview" v-show="products.length">
+                    <div class="product-preview-box" v-for="product in products">
+                        <p class="lead">{{ product.title }}</p>
+                        <img :src="product.image" alt="" width="100">
+                        <p class="product-price">{{ product.price }}</p>
+                    </div>
+                </div>
+            </div>
+            <div slot="footer">
+                <button class="btn dd-btn btn-grey"
+                        v-show="products.length"
+                        v-on:click="resetProduct">
+                    Reset
+                </button>
+                <button class="btn dd-btn btn-grey"
+                        v-on:click="productModalOpen = false">
+                    Cancel
+                </button>
+                <button class="btn dd-btn btn-light"
+                        v-on:click="insertProduct"
+                        :disabled="!products.length"
+                >
+                    Insert
+                </button>
+            </div>
+        </modal>
+        <modal :show="productLinkModalOpen" :wider="true">
+            <div slot="header">
+                <h5>Insert Amazon Text Link</h5>
+            </div>
+            <div slot="body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label>Link Text: </label>
+                        <input type="text" v-model="product_link_text" class="form-control">
+                    </div>
+                </div>
+                <form action=""
+                      @submit.prevent.stop="fetchLinkProduct"
+                      v-show="!product_link"
+                      class=" editor-product-modal-form form-horizontal"
+                >
+                    <div class="form-group">
+                        <label>Amazon url: </label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Amazon url..."
+                                   v-model="amazon_product_link">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-info" type="submit">Go!</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+                <div class="product-preview" v-show="product_link">
+                    <div class="product-link-preview-box">
+                        <p class="lead">{{ link_product.title }}</p>
+                        <img :src="link_product.image" alt="" width="100">
+                        <p class="product-price">{{ link_product.price }}</p>
+                    </div>
+                </div>
+            </div>
+            <div slot="footer">
+                <button class="btn dd-btn btn-grey"
+                        v-show="product_link"
+                        v-on:click="resetProductLink">
+                    Reset
+                </button>
+                <button class="btn dd-btn btn-grey"
+                        v-on:click="productLinkModalOpen = false">
+                    Cancel
+                </button>
+                <button class="btn dd-btn btn-light"
+                        v-on:click="insertProductLink"
+                        :disabled="!product_link"
+                >
+                    Insert
+                </button>
+            </div>
+        </modal>
     </div>
 </template>
 
@@ -70,7 +168,15 @@
                 save_status: '',
                 save_success: false,
                 show_save_indicator: false,
-                is_dirty: false
+                is_dirty: false,
+                products: [],
+                productModalOpen: false,
+                amazon_url: '',
+                product_link: '',
+                amazon_product_link: '',
+                product_link_text: '',
+                link_product: {title: '', image: '', price: ''},
+                productLinkModalOpen: false
             }
         },
 
@@ -90,6 +196,8 @@
             config.setup = (ed) => {
                 ed.addButton('insert-image-btn', this.makeButton('/images/assets/insert_photo_black.png', this.openUploadModal, ''));
                 ed.addButton('save_button', this.makeButton('/images/assets/save_button_icon.png', () => this.saveContent(false), 'Save'));
+                ed.addButton('product_button', this.makeButton('/images/assets/gift_icon.png', () => this.productModalOpen = true));
+                ed.addButton('product_link_button', this.makeButton('/images/assets/link_icon.png', () => this.openProductLinkModal()));
             }
             this.$nextTick(() => tinymce.init(config)
                     .then((editors) => this.editor = editors[0])
@@ -234,6 +342,68 @@
             flashSaveStatus() {
                 this.show_save_indicator = true;
                 window.setTimeout(() => this.show_save_indicator = false, 2000);
+            },
+
+            fetchProduct() {
+                this.$http.post('/admin/services/products/lookup', {itemid: this.amazon_url})
+                        .then(({data}) => this.products = data)
+                        .catch(err => console.log(err));
+            },
+
+            resetProduct() {
+                this.amazon_url = '';
+                this.products = [];
+            },
+
+            insertProduct() {
+                const contents = this.products.map(product => this.makeProductBox(product)).join('');
+                let container = `<div class="product-card-container count-${this.products.length}">${contents}</div><p></p>`
+                this.editor.insertContent(container);
+                this.resetProduct();
+                this.productModalOpen = false;
+            },
+
+
+            makeProductBox(product) {
+                const imgTag = `<div class="product-image-box"><img src="${product.image}" alt="${product.title}"></div>`;
+                return `<div class="amazon-product-card">
+                                        <p class="amazon-product-title">${product.title}</p>
+                                        ${imgTag}
+                                        <p class="product-description">${product.description}</p>
+                                        <a href="${product.link}">At Amazon for ${product.price}</a>
+                                    </div>`;
+            },
+
+            resetProductLink() {
+                this.link_product = {title: '', image: '', price: ''};
+                this.product_link = '';
+                this.amazon_product_link = '';
+                this.product_link_text = '';
+            },
+
+            insertProductLink() {
+                const link = `<a href="${this.link_product.link}">${this.product_link_text}</a>`;
+                this.editor.selection.setContent(link);
+
+                this.resetProductLink();
+                this.productLinkModalOpen = false;
+            },
+
+            setLinkData(data) {
+                const product = data[0];
+                this.link_product = product;
+                this.product_link = product.link;
+            },
+
+            fetchLinkProduct() {
+                this.$http.post('/admin/services/products/lookup', {itemid: this.amazon_product_link})
+                        .then(({data}) => this.setLinkData(data))
+                        .catch(err => console.log(err));
+            },
+
+            openProductLinkModal() {
+                this.product_link_text = this.editor.selection.getContent();
+                this.productLinkModalOpen = true;
             }
         }
     }

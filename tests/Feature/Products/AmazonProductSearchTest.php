@@ -30,7 +30,6 @@ class AmazonProductSearchTest extends TestCase
             'Sort' => 'salesrank',
         ]);
 
-//        dd($results);
 
         $this->assertInstanceOf(Collection::class, $results);
         $this->assertInstanceOf(\App\Products\Product::class, $results->first());

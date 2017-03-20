@@ -23,6 +23,13 @@
                         @endif
                         <textarea name="description" class="form-control">{{ old('description') }}</textarea>
                     </div>
+                    <div class="form-group{{ $errors->has('intro') ? ' has-error' : '' }}">
+                        <label for="intro">Intro: </label>
+                        @if($errors->has('intro'))
+                        <span class="error-message">{{ $errors->first('intro') }}</span>
+                        @endif
+                        <textarea name="intro" class="form-control">{{ old('intro') }}</textarea>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn dd-btn btn-light dd-modal-cancel-btn" data-dismiss="modal">Cancel

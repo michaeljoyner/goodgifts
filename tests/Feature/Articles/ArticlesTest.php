@@ -21,7 +21,8 @@ class ArticlesTest extends TestCase
         $this->disableExceptionHandling();
         $articleData = [
             'title'       => 'The Test Title of all Time',
-            'description' => 'The best test description ever'
+            'description' => 'The best test description ever',
+            'intro'       => 'This is the intro to the test article'
         ];
         $response = $this->asLoggedInUser()->post('/admin/articles', $articleData);
 

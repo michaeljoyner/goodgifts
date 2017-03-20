@@ -1,0 +1,42 @@
+.main-hero {
+  width: 100%;
+  height: 40vw;
+  background: $brand_dark;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .page-title {
+    font-family: $script;
+    font-size: 8em;
+    color: $brand_yellow;
+    //transform: rotate(-10deg);
+    
+    @include respond-to(phone) {
+      font-size: 2.5em;
+    }
+
+    @include respond-to(largetablet) {
+      font-size: 5em;
+    }
+  }
+
+  .page-subtitle {
+    position: absolute;
+    font-family: $sans_serif;
+    left: calc(50% - 5em);
+    top: calc(50% + 1.75em);
+    color: $brand_yellow;
+    font-size: 2em;
+    text-transform: uppercase;
+
+    @include respond-to(phone) {
+      font-size: 0.65em;
+    }
+
+    @include respond-to(largetablet) {
+      font-size: 1.2em;
+    }
+  }
+}

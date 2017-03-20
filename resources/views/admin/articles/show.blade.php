@@ -16,7 +16,10 @@
                     <p><strong>Publish Date: </strong>{{ $article->published_on ? $article->published_on->toFormattedDateString() : 'Never Published'}}</p>
                     <p><strong>Last Updated: </strong>{{ $article->updated_at->toFormattedDateString() }}</p>
                 </div>
+                <p class="small-heading">SEO Description</p>
                 <p class="article-description lead">{{ $article->description }}</p>
+                <p class="small-heading">Intro</p>
+                <p class="lead">{{ $article->intro }}</p>
             </div>
             <div class="col-md-5 text-center">
                 <div class="single-image-uploader-box">

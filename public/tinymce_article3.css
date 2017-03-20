@@ -1,0 +1,54 @@
+.product-card-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.product-card-container.count-1 .amazon-product-card {
+    width: 50%;
+}
+
+.product-card-container.count-2 .amazon-product-card {
+    width: 40%;
+}
+
+.product-card-container.count-3 .amazon-product-card {
+    width: 30%;
+}
+
+.amazon-product-card {
+    display: inline-block;
+    margin: 2em auto;
+    padding: 20px;
+    border: 4px solid #de830a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.amazon-product-card img {
+    display: block;
+    margin: 1em auto;
+    max-width: 90%;
+    max-height: 250px;
+}
+
+
+.amazon-product-card .amazon-product-title {
+    font-family: 'Fredoka One';
+    font-size: 1.2em;
+}
+
+.amazon-product-card .product-description {
+    display: none;
+}
+
+.amazon-product-card a {
+    display: block;
+    width: 90%;
+    background: #1f1c1c;
+    color: #de830a;
+    margin: 10px auto;
+    padding: 8px;
+    text-align: center;
+}

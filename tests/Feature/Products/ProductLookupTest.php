@@ -6,6 +6,7 @@ namespace Tests\Feature\Products;
 
 use App\Products\FakeLookup;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Collection;
 use Tests\TestCase;
 
 class ProductLookupTest extends TestCase
@@ -29,14 +30,34 @@ class ProductLookupTest extends TestCase
         $response = $this->asLoggedInUser()->json('POST', '/admin/services/products/lookup', ['itemid' => 'TEST123']);
 
         $response->assertStatus(200);
-        $response->assertExactJson([
-            'itemid'      => 'TEST123',
+        $results = $response->decodeResponseJson();
+
+        $this->assertCount(1, $results);
+
+        $this->assertContains([
             'title'       => 'Fake title',
             'link'        => 'Fake link',
             'description' => 'Fake description',
+            'price'       => 'Fake price',
             'image'       => 'Fake image',
-            'price'       => 'Fake price'
-        ]);
+            'itemid'      => 'TEST123',
+        ], $results);
+    }
+
+    /**
+     *@test
+     */
+    public function multiple_products_can_be_looked_up()
+    {
+        $this->disableExceptionHandling();
+        $productUrls = 'http://amazon.com/testurl-one, http://amazon.com/testurl-two';
+
+        $response = $this->asLoggedInUser()->json('POST', '/admin/services/products/lookup', ['itemid' => $productUrls]);
+
+        $response->assertStatus(200);
+        $results = $response->decodeResponseJson();
+
+        $this->assertCount(2, $results);
     }
 
     /**
