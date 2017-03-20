@@ -6,6 +6,7 @@
         <div class="page-actions">
             <a href="/admin/articles/{{ $article->id }}/edit" class="btn">Edit Info</a>
             <a href="/admin/articles/{{ $article->id }}/body/edit" class="btn">Edit Article</a>
+            <a href="/admin/articles/{{ $article->id }}/preview" class="btn">Preview</a>
         </div>
     </header>
     <section class="article-show">

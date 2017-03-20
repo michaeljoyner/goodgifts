@@ -15,7 +15,7 @@ class PagesController extends Controller
 
     public function article($slug)
     {
-        $article = Article::where('slug', $slug)->firstOrFail();
+        $article = Article::published()->where('slug', $slug)->firstOrFail();
 
         return view('front.articles.page')->with(compact('article'));
     }

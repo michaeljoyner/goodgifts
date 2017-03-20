@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::get('articles', 'ArticlesController@index');
     Route::get('articles/{article}', 'ArticlesController@show');
     Route::get('articles/{article}/edit', 'ArticlesController@edit');
+    Route::get('articles/{article}/preview', 'ArticlesPreviewController@show');
     Route::get('articles/{article}/body/edit', 'ArticleBodyController@edit');
     Route::patch('articles/{article}/body', 'ArticleBodyController@update');
     Route::post('articles', 'ArticlesController@store');
