@@ -1,0 +1,15 @@
+.btn {
+  display: inline-block;
+  //padding: 3px 5px;
+  text-align: center;
+  //margin: 1em;
+  background: $white;
+  color: $admin_blue;
+  border: 2px solid $admin_blue;
+  border-radius: 5px;
+
+  &:hover {
+    background: $admin_blue;
+    color: $white;
+  }
+}

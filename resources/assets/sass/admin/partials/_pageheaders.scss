@@ -3,6 +3,10 @@
   align-items: center;
   margin-bottom: 50px;
 
+  @include respond-to(phone) {
+    flex-wrap: wrap;
+  }
+
   .header-title {
     flex-grow: 1;
     flex-shrink: 1;

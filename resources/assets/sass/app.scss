@@ -8,6 +8,8 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+@import "mixins/media";
+
 @import "shared/sweetalert";
 @import "shared/typography";
 @import "admin/partials/spinner";
@@ -20,5 +22,6 @@
 @import "admin/partials/singleupload";
 @import "admin/partials/formmodals";
 @import "admin/partials/forms";
+@import "admin/partials/buttons";
 
 @import "admin/editor/productmodals";

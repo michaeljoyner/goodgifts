@@ -6,6 +6,7 @@
     margin: 0 auto;
     display: block;
     border: 6px solid dodgerblue;
+    max-width: 100%;
 
     &.processing {
       filter: grayscale(100%);
