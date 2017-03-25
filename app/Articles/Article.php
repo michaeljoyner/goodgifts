@@ -7,6 +7,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Symfony\Component\DomCrawler\Crawler;
 
 class Article extends Model implements HasMediaConversions
 {
@@ -106,4 +107,23 @@ class Article extends Model implements HasMediaConversions
 
         return static::DEFAULT_TITLE_IMG;
     }
+
+    public function mentionedProducts()
+    {
+        $crawler = new Crawler($this->body);
+        $products = [];
+
+        $crawler->filter('.amazon-product-card')->each(function($node) use (&$products) {
+            $products[] = [
+                'itemid' => $node->attr('data-amzn-id'),
+                'title' => $node->filter('.amazon-product-title')->first()->text(),
+                'link' => $node->filter('a')->first()->attr('href'),
+                'image' => $node->filter('img')->first()->attr('src'),
+                'price' => substr($node->filter('a')->first()->text(), 14),
+            ];
+        });
+
+        return $products;
+    }
+
 }

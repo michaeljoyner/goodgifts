@@ -40,6 +40,9 @@
                 ></article-publisher>
             </div>
         </div>
+        <div class="article-products-section">
+            <article-products article-id="{{ $article->id }}"></article-products>
+        </div>
 
     </section>
 @endsection

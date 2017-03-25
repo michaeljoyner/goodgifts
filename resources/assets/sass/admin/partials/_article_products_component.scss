@@ -1,0 +1,42 @@
+.article-products-component {
+
+  .article-product {
+    margin: 10px;
+    border: 1px solid $mid_grey;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: space-between;
+
+    @include respond-to(phone) {
+      width: 90%;
+      margin: 0 auto;
+      flex-direction: column;
+      padding: 10px;
+    }
+
+    img {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: auto;
+      width: 80px;
+    }
+
+    .title {
+      text-transform: uppercase;
+      font-weight: 700;
+      flex-grow: 1;
+      flex-shrink: 1;
+      padding: 0 15px;
+      flex-basis: auto;
+    }
+
+    span {
+      color: $admin_blue;
+      width: 100px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: auto;
+    }
+  }
+}
