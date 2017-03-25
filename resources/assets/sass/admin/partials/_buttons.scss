@@ -13,3 +13,23 @@
     color: $white;
   }
 }
+
+.btn.btn-red {
+  color: $admin_red;
+  border: 2px solid $admin_red;
+
+  &:hover {
+    background: $admin_red;
+    color: $white;
+  }
+}
+
+.btn.btn-grey {
+  color: $mid_grey;
+  border: 2px solid $mid_grey;
+
+  &:hover {
+    background: $mid_grey;
+    color: $brand_dark;
+  }
+}

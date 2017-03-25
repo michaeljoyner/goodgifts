@@ -79,16 +79,16 @@
                 </div>
             </div>
             <div slot="footer">
-                <button class="btn dd-btn btn-grey"
+                <button class="btn btn-red"
                         v-show="products.length"
                         v-on:click="resetProduct">
                     Reset
                 </button>
-                <button class="btn dd-btn btn-grey"
+                <button class="btn btn-grey"
                         v-on:click="productModalOpen = false">
                     Cancel
                 </button>
-                <button class="btn dd-btn btn-light"
+                <button class="btn"
                         v-on:click="insertProduct"
                         :disabled="!products.length"
                 >
@@ -132,16 +132,16 @@
                 </div>
             </div>
             <div slot="footer">
-                <button class="btn dd-btn btn-grey"
+                <button class="btn btn-red"
                         v-show="product_link"
                         v-on:click="resetProductLink">
                     Reset
                 </button>
-                <button class="btn dd-btn btn-grey"
+                <button class="btn btn-grey"
                         v-on:click="productLinkModalOpen = false">
                     Cancel
                 </button>
-                <button class="btn dd-btn btn-light"
+                <button class="btn"
                         v-on:click="insertProductLink"
                         :disabled="!product_link"
                 >
