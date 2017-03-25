@@ -16,3 +16,4 @@ workspace.xml
 /public/js/**/*
 /public/css/**/*
 /public/build
+/public/mix-manifest.json
