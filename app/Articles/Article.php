@@ -2,6 +2,7 @@
 
 namespace App\Articles;
 
+use App\Products\Lookup;
 use App\Products\Product;
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -130,6 +131,26 @@ class Article extends Model implements HasMediaConversions
     public function products()
     {
         return $this->belongsToMany(Product::class);
+    }
+
+    public function syncMentionedProducts()
+    {
+        $unsyncedItemIdChunks = collect($this->mentionedProducts())->filter(function($product) {
+            return ! Product::where('itemid', $product['itemid'])->first();
+        })->map(function($product) {
+            return $product['itemid'];
+        })->chunk(10);
+
+        foreach($unsyncedItemIdChunks as $chunk) {
+            $lookup = app()->make(Lookup::class);
+
+            $products = $lookup->withId(implode(',', $chunk->toArray()))->map(function($product) {
+                $product->save();
+                return $product->fresh();
+            });
+
+            $this->products()->attach($products->pluck('id')->toArray());
+        }
     }
 
 }
