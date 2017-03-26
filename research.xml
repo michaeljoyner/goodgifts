@@ -1,0 +1,423 @@
+<?xml version="1.0" ?>
+<ItemLookupResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+    <OperationRequest>
+        <HTTPHeaders>
+            <Header Name="UserAgent" Value="GuzzleHttp/6.2.1 curl/7.51.0 PHP/7.0.15"></Header>
+        </HTTPHeaders>
+        <RequestId>74db3c2c-2211-49e3-a289-c3105a0e9440</RequestId>
+        <Arguments>
+            <Argument Name="AWSAccessKeyId" Value="AKIAIYHMBBZCAVFTSEKQ"></Argument>
+            <Argument Name="AssociateTag" Value="goodgiftsforg-20"></Argument>
+            <Argument Name="ItemId" Value="0062457713"></Argument>
+            <Argument Name="Operation" Value="ItemLookup"></Argument>
+            <Argument Name="ResponseGroup" Value="Images,Large"></Argument>
+            <Argument Name="Service" Value="AWSECommerceService"></Argument>
+            <Argument Name="Timestamp" Value="2017-03-26T11:54:29.000Z"></Argument>
+            <Argument Name="Signature" Value="VCVbp5C0Fpd5SPRbfJVKvB4adncZIqzPiWTWs3NK5f0="></Argument>
+        </Arguments>
+        <RequestProcessingTime>0.0495154880000000</RequestProcessingTime>
+    </OperationRequest>
+    <Items>
+        <Request>
+            <IsValid>True</IsValid>
+            <ItemLookupRequest>
+                <IdType>ASIN</IdType>
+                <ItemId>0062457713</ItemId>
+                <ResponseGroup>Images</ResponseGroup>
+                <ResponseGroup>Large</ResponseGroup>
+                <VariationPage>All</VariationPage>
+            </ItemLookupRequest>
+        </Request>
+        <Item>
+            <ASIN>0062457713</ASIN>
+            <DetailPageURL>
+                https://www.amazon.com/Subtle-Art-Not-Giving-Counterintuitive/dp/0062457713%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0062457713
+            </DetailPageURL>
+            <ItemLinks>
+                <ItemLink>
+                    <Description>Technical Details</Description>
+                    <URL>
+                        https://www.amazon.com/Subtle-Art-Not-Giving-Counterintuitive/dp/tech-data/0062457713%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                    </URL>
+                </ItemLink>
+                <ItemLink>
+                    <Description>Add To Baby Registry</Description>
+                    <URL>
+                        https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3D0062457713%26SubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                    </URL>
+                </ItemLink>
+                <ItemLink>
+                    <Description>Add To Wedding Registry</Description>
+                    <URL>
+                        https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3D0062457713%26SubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                    </URL>
+                </ItemLink>
+                <ItemLink>
+                    <Description>Add To Wishlist</Description>
+                    <URL>
+                        https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3D0062457713%26SubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                    </URL>
+                </ItemLink>
+                <ItemLink>
+                    <Description>Tell A Friend</Description>
+                    <URL>
+                        https://www.amazon.com/gp/pdp/taf/0062457713%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                    </URL>
+                </ItemLink>
+                <ItemLink>
+                    <Description>All Customer Reviews</Description>
+                    <URL>
+                        https://www.amazon.com/review/product/0062457713%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                    </URL>
+                </ItemLink>
+                <ItemLink>
+                    <Description>All Offers</Description>
+                    <URL>
+                        https://www.amazon.com/gp/offer-listing/0062457713%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                    </URL>
+                </ItemLink>
+            </ItemLinks>
+            <SalesRank>16</SalesRank>
+            <SmallImage>
+                <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL._SL75_.jpg</URL>
+                <Height Units="pixels">75</Height>
+                <Width Units="pixels">50</Width>
+            </SmallImage>
+            <MediumImage>
+                <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL._SL160_.jpg</URL>
+                <Height Units="pixels">160</Height>
+                <Width Units="pixels">107</Width>
+            </MediumImage>
+            <LargeImage>
+                <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL.jpg</URL>
+                <Height Units="pixels">500</Height>
+                <Width Units="pixels">334</Width>
+            </LargeImage>
+            <ImageSets>
+                <ImageSet Category="variant">
+                    <SwatchImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/51pCXWFd7CL._SL30_.jpg</URL>
+                        <Height Units="pixels">30</Height>
+                        <Width Units="pixels">20</Width>
+                    </SwatchImage>
+                    <SmallImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/51pCXWFd7CL._SL75_.jpg</URL>
+                        <Height Units="pixels">75</Height>
+                        <Width Units="pixels">50</Width>
+                    </SmallImage>
+                    <ThumbnailImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/51pCXWFd7CL._SL75_.jpg</URL>
+                        <Height Units="pixels">75</Height>
+                        <Width Units="pixels">50</Width>
+                    </ThumbnailImage>
+                    <TinyImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/51pCXWFd7CL._SL110_.jpg</URL>
+                        <Height Units="pixels">110</Height>
+                        <Width Units="pixels">73</Width>
+                    </TinyImage>
+                    <MediumImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/51pCXWFd7CL._SL160_.jpg</URL>
+                        <Height Units="pixels">160</Height>
+                        <Width Units="pixels">106</Width>
+                    </MediumImage>
+                    <LargeImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/51pCXWFd7CL.jpg</URL>
+                        <Height Units="pixels">500</Height>
+                        <Width Units="pixels">331</Width>
+                    </LargeImage>
+                </ImageSet>
+                <ImageSet Category="primary">
+                    <SwatchImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL._SL30_.jpg</URL>
+                        <Height Units="pixels">30</Height>
+                        <Width Units="pixels">20</Width>
+                    </SwatchImage>
+                    <SmallImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL._SL75_.jpg</URL>
+                        <Height Units="pixels">75</Height>
+                        <Width Units="pixels">50</Width>
+                    </SmallImage>
+                    <ThumbnailImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL._SL75_.jpg</URL>
+                        <Height Units="pixels">75</Height>
+                        <Width Units="pixels">50</Width>
+                    </ThumbnailImage>
+                    <TinyImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL._SL110_.jpg</URL>
+                        <Height Units="pixels">110</Height>
+                        <Width Units="pixels">73</Width>
+                    </TinyImage>
+                    <MediumImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL._SL160_.jpg</URL>
+                        <Height Units="pixels">160</Height>
+                        <Width Units="pixels">107</Width>
+                    </MediumImage>
+                    <LargeImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL.jpg</URL>
+                        <Height Units="pixels">500</Height>
+                        <Width Units="pixels">334</Width>
+                    </LargeImage>
+                </ImageSet>
+            </ImageSets>
+            <ItemAttributes>
+                <Author>Mark Manson</Author>
+                <Binding>Hardcover</Binding>
+                <EAN>9780062457714</EAN>
+                <EANList>
+                    <EANListElement>9780062457714</EANListElement>
+                </EANList>
+                <Edition>First Edition</Edition>
+                <ISBN>0062457713</ISBN>
+                <ItemDimensions>
+                    <Height Units="hundredths-inches">825</Height>
+                    <Length Units="hundredths-inches">550</Length>
+                    <Weight Units="hundredths-pounds">142</Weight>
+                    <Width Units="hundredths-inches">81</Width>
+                </ItemDimensions>
+                <Label>HarperOne</Label>
+                <Languages>
+                    <Language>
+                        <Name>English</Name>
+                        <Type>Published</Type>
+                    </Language>
+                    <Language>
+                        <Name>English</Name>
+                        <Type>Original Language</Type>
+                    </Language>
+                    <Language>
+                        <Name>English</Name>
+                        <Type>Unknown</Type>
+                    </Language>
+                </Languages>
+                <ListPrice>
+                    <Amount>2499</Amount>
+                    <CurrencyCode>USD</CurrencyCode>
+                    <FormattedPrice>$24.99</FormattedPrice>
+                </ListPrice>
+                <Manufacturer>HarperOne</Manufacturer>
+                <NumberOfItems>1</NumberOfItems>
+                <NumberOfPages>224</NumberOfPages>
+                <PackageDimensions>
+                    <Height Units="hundredths-inches">100</Height>
+                    <Length Units="hundredths-inches">820</Length>
+                    <Weight Units="hundredths-pounds">80</Weight>
+                    <Width Units="hundredths-inches">550</Width>
+                </PackageDimensions>
+                <PackageQuantity>1</PackageQuantity>
+                <ProductGroup>Book</ProductGroup>
+                <ProductTypeName>ABIS_BOOK</ProductTypeName>
+                <PublicationDate>2016-09-13</PublicationDate>
+                <Publisher>HarperOne</Publisher>
+                <ReleaseDate>2016-09-13</ReleaseDate>
+                <Studio>HarperOne</Studio>
+                <Title>The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life</Title>
+            </ItemAttributes>
+            <OfferSummary>
+                <LowestNewPrice>
+                    <Amount>900</Amount>
+                    <CurrencyCode>USD</CurrencyCode>
+                    <FormattedPrice>$9.00</FormattedPrice>
+                </LowestNewPrice>
+                <LowestUsedPrice>
+                    <Amount>1201</Amount>
+                    <CurrencyCode>USD</CurrencyCode>
+                    <FormattedPrice>$12.01</FormattedPrice>
+                </LowestUsedPrice>
+                <TotalNew>66</TotalNew>
+                <TotalUsed>21</TotalUsed>
+                <TotalCollectible>0</TotalCollectible>
+                <TotalRefurbished>0</TotalRefurbished>
+            </OfferSummary>
+            <Offers>
+                <TotalOffers>1</TotalOffers>
+                <TotalOfferPages>1</TotalOfferPages>
+                <MoreOffersUrl>
+                    https://www.amazon.com/gp/offer-listing/0062457713%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                </MoreOffersUrl>
+                <Offer>
+                    <OfferAttributes>
+                        <Condition>New</Condition>
+                    </OfferAttributes>
+                    <OfferListing>
+                        <OfferListingId>
+                            pHSbdaDfqCzRUkZsQKrD5SnLUUzU7aD0Hdaj92jcIr2HjjMEDat4CzDHqatqA12iaZhHsr3cdU0sP2g8sefmTDM0SR5K9OUjoQH96JDLHMr1iuk0MSmkHA%3D%3D
+                        </OfferListingId>
+                        <Price>
+                            <Amount>1359</Amount>
+                            <CurrencyCode>USD</CurrencyCode>
+                            <FormattedPrice>$13.59</FormattedPrice>
+                        </Price>
+                        <AmountSaved>
+                            <Amount>1140</Amount>
+                            <CurrencyCode>USD</CurrencyCode>
+                            <FormattedPrice>$11.40</FormattedPrice>
+                        </AmountSaved>
+                        <PercentageSaved>46</PercentageSaved>
+                        <Availability>Usually ships in 24 hours</Availability>
+                        <AvailabilityAttributes>
+                            <AvailabilityType>now</AvailabilityType>
+                            <MinimumHours>0</MinimumHours>
+                            <MaximumHours>0</MaximumHours>
+                        </AvailabilityAttributes>
+                        <IsEligibleForSuperSaverShipping>1</IsEligibleForSuperSaverShipping>
+                        <IsEligibleForPrime>1</IsEligibleForPrime>
+                    </OfferListing>
+                </Offer>
+            </Offers>
+            <CustomerReviews>
+                <IFrameURL>https://www.amazon.com/reviews/iframe?akid=AKIAIYHMBBZCAVFTSEKQ&amp;alinkCode=xm2&amp;asin=0062457713&amp;atag=goodgiftsforg-20&amp;exp=2017-03-27T11%3A54%3A30Z&amp;v=2&amp;sig=W6BRT6osytNDmV3FuhKJ%2FUblWFUJ4flhpKp3N0nrYvo%3D</IFrameURL>
+                <HasReviews>true</HasReviews>
+            </CustomerReviews>
+            <EditorialReviews>
+                <EditorialReview>
+                    <Source>Product Description</Source>
+                    <Content>&lt;p&gt;&lt;strong&gt;&lt;em&gt;New York Times&lt;/em&gt; Bestseller&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;In
+                        this generation-defining self-help guide, a superstar blogger cuts through the crap to show us
+                        how to stop trying to be "positive" all the time so that we can truly become better, happier
+                        people.&lt;/p&gt;&lt;p&gt;For decades, we’ve been told that positive thinking is the key to a
+                        happy, rich life. "F**k positivity," Mark Manson says. "Let’s be honest, shit is f**ked and we
+                        have to live with it." In his wildly popular Internet blog, Manson doesn’t sugarcoat or
+                        equivocate. He tells it like it is—a dose of raw, refreshing, honest truth that is sorely
+                        lacking today. &lt;em&gt;The Subtle Art of Not Giving a F**k&lt;/em&gt; is his antidote to the
+                        coddling, let’s-all-feel-good mindset that has infected modern society and spoiled a generation,
+                        rewarding them with gold medals just for showing up. &lt;/p&gt;&lt;p&gt;Manson makes the
+                        argument, backed both by academic research and well-timed poop jokes, that improving our lives
+                        hinges not on our ability to turn lemons into lemonade, but on learning to stomach lemons
+                        better. Human beings are flawed and limited—"not everybody can be extraordinary, there are
+                        winners and losers in society, and some of it is not fair or your fault." Manson advises us to
+                        get to know our limitations and accept them. Once we embrace our fears, faults, and
+                        uncertainties, once we stop running and avoiding and start confronting painful truths, we can
+                        begin to find the courage, perseverance, honesty, responsibility, curiosity, and forgiveness we
+                        seek. &lt;/p&gt;&lt;p&gt;There are only so many things we can give a f**k about so we need to
+                        figure out which ones really matter, Manson makes clear. While money is nice, caring about what
+                        you do with your life is better, because true wealth is about experience. A much-needed
+                        grab-you-by-the-shoulders-and-look-you-in-the-eye moment of real-talk, filled with entertaining
+                        stories and profane, ruthless humor, &lt;em&gt;The Subtle Art of Not Giving a F**k&lt;/em&gt; is
+                        a refreshing slap for a generation to help them lead contented, grounded
+                        lives.&lt;/p&gt;</Content>
+                    <IsLinkSuppressed>0</IsLinkSuppressed>
+                </EditorialReview>
+            </EditorialReviews>
+            <SimilarProducts>
+                <SimilarProduct>
+                    <ASIN>1539393828</ASIN>
+                    <Title>Unfu*k Yourself: Get out of your head and into your life</Title>
+                </SimilarProduct>
+                <SimilarProduct>
+                    <ASIN>0762447699</ASIN>
+                    <Title>You Are a Badass: How to Stop Doubting Your Greatness and Start Living an Awesome Life
+                    </Title>
+                </SimilarProduct>
+                <SimilarProduct>
+                    <ASIN>1535575085</ASIN>
+                    <Title>Declutter Your Mind: How to Stop Worrying, Relieve Anxiety, and Eliminate Negative Thinking
+                    </Title>
+                </SimilarProduct>
+                <SimilarProduct>
+                    <ASIN>1476789991</ASIN>
+                    <Title>F*ck Feelings: One Shrink's Practical Advice for Managing All Life's Impossible Problems
+                    </Title>
+                </SimilarProduct>
+                <SimilarProduct>
+                    <ASIN>1463750358</ASIN>
+                    <Title>Models: Attract Women Through Honesty</Title>
+                </SimilarProduct>
+                <SimilarProduct>
+                    <ASIN>0062358308</ASIN>
+                    <Title>13 Things Mentally Strong People Don't Do: Take Back Your Power, Embrace Change, Face Your
+                        Fears, and Train Your Brain for Happiness and Success
+                    </Title>
+                </SimilarProduct>
+                <SimilarProduct>
+                    <ASIN>0735222975</ASIN>
+                    <Title>You Are a Badass at Making Money: Master the Mindset of Wealth</Title>
+                </SimilarProduct>
+                <SimilarProduct>
+                    <ASIN>1328683788</ASIN>
+                    <Title>Tools of Titans: The Tactics, Routines, and Habits of Billionaires, Icons, and World-Class
+                        Performers
+                    </Title>
+                </SimilarProduct>
+                <SimilarProduct>
+                    <ASIN>1540552632</ASIN>
+                    <Title>The Art of Witty Banter: Be Clever, Be Quick, Be Interesting - Create Captivatin</Title>
+                </SimilarProduct>
+                <SimilarProduct>
+                    <ASIN>1543149278</ASIN>
+                    <Title>The Science of Attraction: Flirting, Sex, and How to Engineer Chemistry and Love</Title>
+                </SimilarProduct>
+            </SimilarProducts>
+            <BrowseNodes>
+                <BrowseNode>
+                    <BrowseNodeId>4739</BrowseNodeId>
+                    <Name>Happiness</Name>
+                    <Ancestors>
+                        <BrowseNode>
+                            <BrowseNodeId>4736</BrowseNodeId>
+                            <Name>Self-Help</Name>
+                            <Ancestors>
+                                <BrowseNode>
+                                    <BrowseNodeId>1000</BrowseNodeId>
+                                    <Name>Subjects</Name>
+                                    <IsCategoryRoot>1</IsCategoryRoot>
+                                    <Ancestors>
+                                        <BrowseNode>
+                                            <BrowseNodeId>283155</BrowseNodeId>
+                                            <Name>Books</Name>
+                                        </BrowseNode>
+                                    </Ancestors>
+                                </BrowseNode>
+                            </Ancestors>
+                        </BrowseNode>
+                    </Ancestors>
+                </BrowseNode>
+                <BrowseNode>
+                    <BrowseNodeId>4744</BrowseNodeId>
+                    <Name>Motivational</Name>
+                    <Ancestors>
+                        <BrowseNode>
+                            <BrowseNodeId>4736</BrowseNodeId>
+                            <Name>Self-Help</Name>
+                            <Ancestors>
+                                <BrowseNode>
+                                    <BrowseNodeId>1000</BrowseNodeId>
+                                    <Name>Subjects</Name>
+                                    <IsCategoryRoot>1</IsCategoryRoot>
+                                    <Ancestors>
+                                        <BrowseNode>
+                                            <BrowseNodeId>283155</BrowseNodeId>
+                                            <Name>Books</Name>
+                                        </BrowseNode>
+                                    </Ancestors>
+                                </BrowseNode>
+                            </Ancestors>
+                        </BrowseNode>
+                    </Ancestors>
+                </BrowseNode>
+                <BrowseNode>
+                    <BrowseNodeId>4749</BrowseNodeId>
+                    <Name>Success</Name>
+                    <Ancestors>
+                        <BrowseNode>
+                            <BrowseNodeId>4736</BrowseNodeId>
+                            <Name>Self-Help</Name>
+                            <Ancestors>
+                                <BrowseNode>
+                                    <BrowseNodeId>1000</BrowseNodeId>
+                                    <Name>Subjects</Name>
+                                    <IsCategoryRoot>1</IsCategoryRoot>
+                                    <Ancestors>
+                                        <BrowseNode>
+                                            <BrowseNodeId>283155</BrowseNodeId>
+                                            <Name>Books</Name>
+                                        </BrowseNode>
+                                    </Ancestors>
+                                </BrowseNode>
+                            </Ancestors>
+                        </BrowseNode>
+                    </Ancestors>
+                </BrowseNode>
+            </BrowseNodes>
+        </Item>
+    </Items>
+</ItemLookupResponse>

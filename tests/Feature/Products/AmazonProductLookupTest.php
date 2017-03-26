@@ -37,7 +37,7 @@ class AmazonProductLookupTest extends TestCase
     {
         $this->disableExceptionHandling();
         $urls = 'https://www.amazon.com/Grave-Before-Shave-Beard-Balm/dp/B00LQD3IEU/ref=sr_1_4_s_it?s=beauty&ie=UTF8&qid=1489640971&sr=1-4&keywords=beard+balms&refinements=p_72%3A1248873011
-, https://www.amazon.com/Murder-Roger-Ackroyd-Hercule-Mysteries/dp/0062073567/';
+,https://www.amazon.com/Apple-MC380Z-A-Wireless-Trackpad/dp/B003XLYAWC/ref=sr_1_fkmr1_2?ie=UTF8&qid=1490530495&sr=8-2-fkmr1&keywords=aplle+trackpad';
 
         $response = $this->asLoggedInUser()->json('POST', '/admin/services/products/lookup', ['itemid' => $urls]);
 
@@ -49,6 +49,6 @@ class AmazonProductLookupTest extends TestCase
         $this->assertArrayHasKey('title', $results[0]);
         $this->assertArrayHasKey('title', $results[1]);
         $this->assertTrue(str_contains($results[0]['title'], 'Beard') || str_contains($results[1]['title'], 'Beard'));
-        $this->assertTrue(str_contains($results[0]['title'], 'Ackroyd') || str_contains($results[1]['title'], 'Ackroyd'));
+        $this->assertTrue(str_contains($results[0]['title'], 'Apple') || str_contains($results[1]['title'], 'Apple'));
     }
 }

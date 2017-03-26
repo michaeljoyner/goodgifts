@@ -23,7 +23,7 @@ class LookupResultTest extends TestCase
 
         $product = $collection->first();
 
-        $this->assertEquals('$13.99', $product->price);
+        $this->assertEquals('$5.79', $product->price);
         $this->assertEquals('The Murder of Roger Ackroyd: A Hercule Poirot Mystery (Hercule Poirot Mysteries)', $product->title);
         $this->assertEquals('https://images-na.ssl-images-amazon.com/images/I/51jXImzFE2L.jpg', $product->image);
         $this->assertEquals('0062073567', $product->itemid);
