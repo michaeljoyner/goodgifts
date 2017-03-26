@@ -32,7 +32,7 @@ class LookupResult
     protected function extractProductAttributesFromSimpleXMLElement($xmlElement)
     {
         return [
-            'title'       => (string)$xmlElement->ItemAttributes->Title,
+            'title'       => substr((string)$xmlElement->ItemAttributes->Title, 0, 180),
             'link'        => (string)$xmlElement->DetailPageURL,
             'image'       => $this->extractPrimaryLargeImageSrcFromItem($xmlElement),
             'description' => (string)$xmlElement->EditorialReviews->EditorialReview->Content,
