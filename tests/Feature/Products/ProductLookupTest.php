@@ -50,7 +50,7 @@ class ProductLookupTest extends TestCase
     public function multiple_products_can_be_looked_up()
     {
         $this->disableExceptionHandling();
-        $productUrls = 'http://amazon.com/testurl-one, http://amazon.com/testurl-two';
+        $productUrls = 'http://amazon.com/testurl-one/dp/B00TEST111/test, http://amazon.com/testurl-two/dp/B00TEST222/test';
 
         $response = $this->asLoggedInUser()->json('POST', '/admin/services/products/lookup', ['itemid' => $productUrls]);
 

@@ -24,8 +24,7 @@ class AmazonProductLookupTest extends TestCase
         $response = $this->asLoggedInUser()->json('POST', '/admin/services/products/lookup', ['itemid' => $url]);
 
         $response->assertStatus(200);
-        $product = $response->decodeResponseJson();
-
+        $product = $response->decodeResponseJson()[0];
         $this->assertContains('Ackroyd', $product['title']);
         $this->assertContains($product['itemid'], $url);
     }

@@ -18,6 +18,8 @@ Vue.component('toggle-switch', require('./components/Toggleswitch.vue'));
 Vue.component('article-publisher', require('./components/ArticlePublisher.vue'));
 Vue.component('single-upload', require('./components/Singleupload.vue'));
 Vue.component('article-products', require('./components/ArticleProducts.vue'));
+Vue.component('article-products-app', require('./components/ArticleProductApp.vue'));
+Vue.component('product-link-maker', require('./components/ProductLinkGenerator.vue'));
 
 window.eventHub = new Vue();
 

@@ -4,22 +4,17 @@
 namespace App\Products;
 
 
-class Product
-{
-    public $title;
-    public $link;
-    public $description;
-    public $price;
-    public $image;
-    public $itemid;
+use App\Articles\Article;
+use Illuminate\Database\Eloquent\Model;
 
-    public function __construct($params)
+class Product extends Model
+{
+    protected $table = 'products';
+
+    protected $fillable = ['title', 'itemid', 'price', 'description', 'link', 'image'];
+
+    public function articles()
     {
-        $this->title = trim($params['title']);
-        $this->price = trim($params['price']);
-        $this->description = trim($params['description']);
-        $this->link = trim($params['link']);
-        $this->image = trim($params['image']);
-        $this->itemid = trim($params['itemid']);
+        return $this->belongsToMany(Article::class);
     }
 }

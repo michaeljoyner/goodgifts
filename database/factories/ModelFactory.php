@@ -32,3 +32,14 @@ $factory->define(App\Articles\Article::class, function (Faker\Generator $faker) 
         'published_on' => null
     ];
 });
+
+$factory->define(App\Products\Product::class, function (Faker\Generator $faker) {
+    return [
+        'itemid' => 'B01TEST000',
+        'title' => 'Factory Product',
+        'description' => $faker->paragraph,
+        'link' => $faker->url,
+        'image' => 'factory-url',
+        'price' => '$DUMMY'
+    ];
+});

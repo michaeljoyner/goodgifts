@@ -5,6 +5,8 @@ namespace Tests\Feature\Articles;
 
 
 use App\Articles\Article;
+use App\Products\FakeLookup;
+use App\Products\Product;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
@@ -13,57 +15,104 @@ class ArticleProductsTest extends TestCase
     use DatabaseMigrations;
 
     /**
-     *@test
+     * @test
      */
-    public function the_products_mentioned_in_a_given_article_can_be_fetched()
+    public function the_products_attached_to_a_given_article_can_be_fetched()
     {
         $this->disableExceptionHandling();
-        $products = [
-            [
-                'itemid' => 'ABC123',
-                'title' => 'Example One',
-                'link' => 'https://example.com/1',
-                'image' => 'test-image-link-1',
-                'price' => 'test-price-1'
-            ],
-            [
-                'itemid' => 'ABC456',
-                'title' => 'Example Two',
-                'link' => 'https://example.com/2',
-                'image' => 'test-image-link-2',
-                'price' => 'test-price-2'
-            ],
-            [
-                'itemid' => 'ABC789',
-                'title' => 'Example Three',
-                'link' => 'https://example.com/3',
-                'image' => 'test-image-link-3',
-                'price' => 'test-price-3'
-            ]
-        ];
-        $article = $this->makeArticleWithProducts($products);
+        $article = factory(Article::class)->create();
+        $products = factory(Product::class, 2)->create();
+        $article->products()->attach($products->pluck('id')->toArray());
 
-        $response = $this->asLoggedInUser()->json('GET', '/admin/services/articles/' . $article->id . '/products');
+        $response = $this->asLoggedInUser()->json('GET', '/admin/articles/' . $article->id . '/products');
         $response->assertStatus(200);
-        $results = $response->decodeResponseJson();
+        $responseData = $response->decodeResponseJson();
 
-        foreach($products as $product) {
-            $this->assertContains($product, $results);
-        }
-
+        $this->assertCount(2, $responseData);
     }
 
-    protected function makeArticleWithProducts($products)
+    /**
+     * @test
+     */
+    public function a_product_can_be_added_to_an_article()
     {
+        $this->disableExceptionHandling();
+        $this->app->bind(\App\Products\Lookup::class, function ($app) {
+            return new FakeLookup();
+        });
+        $article = factory(Article::class)->create();
+        $productUrl = 'https://amazon.com/a-test-product/dp/B00TEST123/go-get-me';
 
-        $productHtmlTemplate = '<div class="amazon-product-card" data-amzn-id="%s"><p class="amazon-product-title">%s</p><img src="%s" alt="%s"><a href="%s">At Amazon for %s</a></div>';
+        $response = $this->asLoggedInUser()
+            ->post('/admin/articles/' . $article->id . '/products', ['item_ids' => $productUrl]);
+        $response->assertStatus(200);
+        $reponseData = $response->decodeResponseJson();
 
-        $products = collect($products)->map(function($product) use ($productHtmlTemplate) {
-            return sprintf($productHtmlTemplate, $product['itemid'], $product['title'], $product['image'], $product['title'], $product['link'], $product['price']);
-        })->toArray();
+        $this->assertDatabaseHas('products', ['itemid' => 'B00TEST123']);
+        $this->assertCount(1, $article->products);
+        $this->assertEquals('B00TEST123', $article->products->first()->itemid);
 
-        $body = implode('', $products);
-
-        return factory(Article::class)->create(['body' => $body]);
+        $this->assertCount(1, $reponseData);
+        $this->assertEquals('B00TEST123', $reponseData[0]['itemid']);
     }
+
+    /**
+     *@test
+     */
+    public function a_product_that_already_exists_in_the_database_does_not_need_to_be_looked_up()
+    {
+        $this->disableExceptionHandling();
+        $lookup = $this->createMock(FakeLookup::class);
+        $lookup->expects($this->never())->method('withId');
+        $this->app->bind(\App\Products\Lookup::class, function ($app) use ($lookup) {
+            return $lookup;
+        });
+        factory(Product::class)->create(['itemid' => 'B00TEST666']);
+
+        $article = factory(Article::class)->create();
+        $productUrl = 'https://amazon.com/a-test-product/dp/B00TEST666/go-get-me';
+
+        $response = $this->asLoggedInUser()
+            ->post('/admin/articles/' . $article->id . '/products', ['item_ids' => $productUrl]);
+        $response->assertStatus(200);
+
+        $this->assertCount(1, $article->products);
+        $this->assertEquals('B00TEST666', $article->products->first()->itemid);
+        $this->assertCount(1, Product::all());
+
+
+    }
+
+    /**
+     *@test
+     */
+    public function a_product_can_be_removed_from_an_article()
+    {
+        $article = factory(Article::class)->create();
+        $product = factory(Product::class)->create();
+        $article->products()->attach($product->id);
+
+        $response = $this->asLoggedInUser()->delete('/admin/articles/' . $article->id . '/products/' . $product->id);
+        $response->assertStatus(200);
+
+        $this->assertCount(0, $article->fresh()->products);
+    }
+
+    /**
+     *@test
+     */
+    public function removing_a_product_that_is_only_attached_to_that_given_article_also_deletes_the_product()
+    {
+        $article = factory(Article::class)->create();
+        $product = factory(Product::class)->create();
+        $article->products()->attach($product->id);
+
+        $response = $this->asLoggedInUser()->delete('/admin/articles/' . $article->id . '/products/' . $product->id);
+        $response->assertStatus(200);
+
+        $this->assertCount(0, $article->fresh()->products);
+        $this->assertDatabaseMissing('products', ['id' => $product->id]);
+    }
+
+
 }

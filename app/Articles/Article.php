@@ -2,6 +2,7 @@
 
 namespace App\Articles;
 
+use App\Products\Product;
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
@@ -124,6 +125,11 @@ class Article extends Model implements HasMediaConversions
         });
 
         return $products;
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
     }
 
 }

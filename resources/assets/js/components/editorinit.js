@@ -2,7 +2,7 @@ module.exports = {
     selector: '#post-body',
     plugins: ['link', 'image', 'paste', 'fullscreen'],
     menubar: false,
-    toolbar: 'undo redo | styleselect | bold italic | bullist numlist | link insert-image-btn | fullscreen save_button | product_button product_link_button',
+    toolbar: 'undo redo | styleselect | bold italic | bullist numlist | link insert-image-btn | fullscreen save_button | product_button product_link_button product_link_make_button',
     paste_data_images: true,
     height: 700,
     body_class: 'article-body-content',

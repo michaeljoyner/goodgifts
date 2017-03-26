@@ -33,10 +33,7 @@ class ProductLookup implements Lookup
     private function extractId($urls)
     {
         $ids = collect($urls)->map(function($url) {
-            $matches = [];
-            preg_match('/(?:dp|o|gp|-)\/(B[0-9]{2}[0-9A-Z]{7}|[0-9]{9}(?:X|[0-9]))/', $url, $matches);
-
-            return $matches[1];
+            return AmazonId::parse($url);
         })->toArray();
 
         return implode(',', $ids);

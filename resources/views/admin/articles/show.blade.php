@@ -4,6 +4,7 @@
     <header class="gg-page-header">
         <h1 class="header-title">{{ $article->title }}</h1>
         <div class="page-actions">
+            <a href="/admin/articles/{{ $article->id }}/products/app" class="btn">Products</a>
             <a href="/admin/articles/{{ $article->id }}/edit" class="btn">Edit Info</a>
             <a href="/admin/articles/{{ $article->id }}/body/edit" class="btn">Edit Article</a>
             <a href="/admin/articles/{{ $article->id }}/preview" class="btn" target="_blank">Preview</a>
