@@ -7,13 +7,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
     <link rel="stylesheet" href="{{ mix('css/fapp.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Rokkitt|Pacifico" rel="stylesheet">
     @yield('head')
     <script>
         var Laravel = {
             csrfToken: '{{ csrf_token() }}'
         }
     </script>
-    <link href="https://fonts.googleapis.com/css?family=Days+One|Fredoka+One|Rokkitt|Rubik+Mono+One|Fascinate|Fascinate+Inline|Pacifico|Patua+One|Shrikhand" rel="stylesheet">
 </head>
 <body class="@yield('bodyclass', 'scripted')">
 <!--[if lt IE 8]>

@@ -4,227 +4,460 @@
         <HTTPHeaders>
             <Header Name="UserAgent" Value="GuzzleHttp/6.2.1 curl/7.51.0 PHP/7.0.15"></Header>
         </HTTPHeaders>
-        <RequestId>74db3c2c-2211-49e3-a289-c3105a0e9440</RequestId>
+        <RequestId>b06f79e5-b33d-4e9c-9fec-e78d376839c3</RequestId>
         <Arguments>
             <Argument Name="AWSAccessKeyId" Value="AKIAIYHMBBZCAVFTSEKQ"></Argument>
             <Argument Name="AssociateTag" Value="goodgiftsforg-20"></Argument>
-            <Argument Name="ItemId" Value="0062457713"></Argument>
+            <Argument Name="ItemId" Value="B06X3VJ2NS"></Argument>
             <Argument Name="Operation" Value="ItemLookup"></Argument>
             <Argument Name="ResponseGroup" Value="Images,Large"></Argument>
             <Argument Name="Service" Value="AWSECommerceService"></Argument>
-            <Argument Name="Timestamp" Value="2017-03-26T11:54:29.000Z"></Argument>
-            <Argument Name="Signature" Value="VCVbp5C0Fpd5SPRbfJVKvB4adncZIqzPiWTWs3NK5f0="></Argument>
+            <Argument Name="Timestamp" Value="2017-03-26T13:25:40.000Z"></Argument>
+            <Argument Name="Signature" Value="dkNgmeLliRyev7PHNgVK7qHklSIbSaZkjb6H+Ntav+o="></Argument>
         </Arguments>
-        <RequestProcessingTime>0.0495154880000000</RequestProcessingTime>
+        <RequestProcessingTime>0.0240793700000000</RequestProcessingTime>
     </OperationRequest>
     <Items>
         <Request>
             <IsValid>True</IsValid>
             <ItemLookupRequest>
                 <IdType>ASIN</IdType>
-                <ItemId>0062457713</ItemId>
+                <ItemId>B06X3VJ2NS</ItemId>
                 <ResponseGroup>Images</ResponseGroup>
                 <ResponseGroup>Large</ResponseGroup>
                 <VariationPage>All</VariationPage>
             </ItemLookupRequest>
         </Request>
         <Item>
-            <ASIN>0062457713</ASIN>
+            <ASIN>B06X3VJ2NS</ASIN>
+            <ParentASIN>B06WVBG85L</ParentASIN>
             <DetailPageURL>
-                https://www.amazon.com/Subtle-Art-Not-Giving-Counterintuitive/dp/0062457713%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0062457713
+                https://www.amazon.com/-Drift-UH-ES296-Electric-Scooter-Harley/dp/B06X3VJ2NS%3Fpsc%3D1%26SubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB06X3VJ2NS
             </DetailPageURL>
             <ItemLinks>
                 <ItemLink>
                     <Description>Technical Details</Description>
                     <URL>
-                        https://www.amazon.com/Subtle-Art-Not-Giving-Counterintuitive/dp/tech-data/0062457713%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                        https://www.amazon.com/-Drift-UH-ES296-Electric-Scooter-Harley/dp/tech-data/B06X3VJ2NS%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB06X3VJ2NS
                     </URL>
                 </ItemLink>
                 <ItemLink>
                     <Description>Add To Baby Registry</Description>
                     <URL>
-                        https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3D0062457713%26SubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                        https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB06X3VJ2NS%26SubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB06X3VJ2NS
                     </URL>
                 </ItemLink>
                 <ItemLink>
                     <Description>Add To Wedding Registry</Description>
                     <URL>
-                        https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3D0062457713%26SubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                        https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB06X3VJ2NS%26SubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB06X3VJ2NS
                     </URL>
                 </ItemLink>
                 <ItemLink>
                     <Description>Add To Wishlist</Description>
                     <URL>
-                        https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3D0062457713%26SubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                        https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB06X3VJ2NS%26SubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB06X3VJ2NS
                     </URL>
                 </ItemLink>
                 <ItemLink>
                     <Description>Tell A Friend</Description>
                     <URL>
-                        https://www.amazon.com/gp/pdp/taf/0062457713%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                        https://www.amazon.com/gp/pdp/taf/B06X3VJ2NS%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB06X3VJ2NS
                     </URL>
                 </ItemLink>
                 <ItemLink>
                     <Description>All Customer Reviews</Description>
                     <URL>
-                        https://www.amazon.com/review/product/0062457713%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                        https://www.amazon.com/review/product/B06X3VJ2NS%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB06X3VJ2NS
                     </URL>
                 </ItemLink>
                 <ItemLink>
                     <Description>All Offers</Description>
                     <URL>
-                        https://www.amazon.com/gp/offer-listing/0062457713%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                        https://www.amazon.com/gp/offer-listing/B06X3VJ2NS%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB06X3VJ2NS
                     </URL>
                 </ItemLink>
             </ItemLinks>
-            <SalesRank>16</SalesRank>
             <SmallImage>
-                <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL._SL75_.jpg</URL>
+                <URL>https://images-na.ssl-images-amazon.com/images/I/41DfHruGgPL._SL75_.jpg</URL>
                 <Height Units="pixels">75</Height>
-                <Width Units="pixels">50</Width>
+                <Width Units="pixels">69</Width>
             </SmallImage>
             <MediumImage>
-                <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL._SL160_.jpg</URL>
+                <URL>https://images-na.ssl-images-amazon.com/images/I/41DfHruGgPL._SL160_.jpg</URL>
                 <Height Units="pixels">160</Height>
-                <Width Units="pixels">107</Width>
+                <Width Units="pixels">146</Width>
             </MediumImage>
             <LargeImage>
-                <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL.jpg</URL>
+                <URL>https://images-na.ssl-images-amazon.com/images/I/41DfHruGgPL.jpg</URL>
                 <Height Units="pixels">500</Height>
-                <Width Units="pixels">334</Width>
+                <Width Units="pixels">457</Width>
             </LargeImage>
             <ImageSets>
-                <ImageSet Category="variant">
+                <ImageSet Category="swatch">
                     <SwatchImage>
-                        <URL>https://images-na.ssl-images-amazon.com/images/I/51pCXWFd7CL._SL30_.jpg</URL>
-                        <Height Units="pixels">30</Height>
-                        <Width Units="pixels">20</Width>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41LK5-0uqXL._SL30_.jpg</URL>
+                        <Height Units="pixels">29</Height>
+                        <Width Units="pixels">30</Width>
                     </SwatchImage>
                     <SmallImage>
-                        <URL>https://images-na.ssl-images-amazon.com/images/I/51pCXWFd7CL._SL75_.jpg</URL>
-                        <Height Units="pixels">75</Height>
-                        <Width Units="pixels">50</Width>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41LK5-0uqXL._SL75_.jpg</URL>
+                        <Height Units="pixels">72</Height>
+                        <Width Units="pixels">75</Width>
                     </SmallImage>
                     <ThumbnailImage>
-                        <URL>https://images-na.ssl-images-amazon.com/images/I/51pCXWFd7CL._SL75_.jpg</URL>
-                        <Height Units="pixels">75</Height>
-                        <Width Units="pixels">50</Width>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41LK5-0uqXL._SL75_.jpg</URL>
+                        <Height Units="pixels">72</Height>
+                        <Width Units="pixels">75</Width>
                     </ThumbnailImage>
                     <TinyImage>
-                        <URL>https://images-na.ssl-images-amazon.com/images/I/51pCXWFd7CL._SL110_.jpg</URL>
-                        <Height Units="pixels">110</Height>
-                        <Width Units="pixels">73</Width>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41LK5-0uqXL._SL110_.jpg</URL>
+                        <Height Units="pixels">105</Height>
+                        <Width Units="pixels">110</Width>
                     </TinyImage>
                     <MediumImage>
-                        <URL>https://images-na.ssl-images-amazon.com/images/I/51pCXWFd7CL._SL160_.jpg</URL>
-                        <Height Units="pixels">160</Height>
-                        <Width Units="pixels">106</Width>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41LK5-0uqXL._SL160_.jpg</URL>
+                        <Height Units="pixels">153</Height>
+                        <Width Units="pixels">160</Width>
                     </MediumImage>
                     <LargeImage>
-                        <URL>https://images-na.ssl-images-amazon.com/images/I/51pCXWFd7CL.jpg</URL>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41LK5-0uqXL.jpg</URL>
+                        <Height Units="pixels">477</Height>
+                        <Width Units="pixels">500</Width>
+                    </LargeImage>
+                </ImageSet>
+                <ImageSet Category="variant">
+                    <SwatchImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/31p8b4sbinL._SL30_.jpg</URL>
+                        <Height Units="pixels">16</Height>
+                        <Width Units="pixels">30</Width>
+                    </SwatchImage>
+                    <SmallImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/31p8b4sbinL._SL75_.jpg</URL>
+                        <Height Units="pixels">40</Height>
+                        <Width Units="pixels">75</Width>
+                    </SmallImage>
+                    <ThumbnailImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/31p8b4sbinL._SL75_.jpg</URL>
+                        <Height Units="pixels">40</Height>
+                        <Width Units="pixels">75</Width>
+                    </ThumbnailImage>
+                    <TinyImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/31p8b4sbinL._SL110_.jpg</URL>
+                        <Height Units="pixels">59</Height>
+                        <Width Units="pixels">110</Width>
+                    </TinyImage>
+                    <MediumImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/31p8b4sbinL._SL160_.jpg</URL>
+                        <Height Units="pixels">85</Height>
+                        <Width Units="pixels">160</Width>
+                    </MediumImage>
+                    <LargeImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/31p8b4sbinL.jpg</URL>
+                        <Height Units="pixels">266</Height>
+                        <Width Units="pixels">500</Width>
+                    </LargeImage>
+                </ImageSet>
+                <ImageSet Category="variant">
+                    <SwatchImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41LJFDimGSL._SL30_.jpg</URL>
+                        <Height Units="pixels">16</Height>
+                        <Width Units="pixels">30</Width>
+                    </SwatchImage>
+                    <SmallImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41LJFDimGSL._SL75_.jpg</URL>
+                        <Height Units="pixels">40</Height>
+                        <Width Units="pixels">75</Width>
+                    </SmallImage>
+                    <ThumbnailImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41LJFDimGSL._SL75_.jpg</URL>
+                        <Height Units="pixels">40</Height>
+                        <Width Units="pixels">75</Width>
+                    </ThumbnailImage>
+                    <TinyImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41LJFDimGSL._SL110_.jpg</URL>
+                        <Height Units="pixels">59</Height>
+                        <Width Units="pixels">110</Width>
+                    </TinyImage>
+                    <MediumImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41LJFDimGSL._SL160_.jpg</URL>
+                        <Height Units="pixels">86</Height>
+                        <Width Units="pixels">160</Width>
+                    </MediumImage>
+                    <LargeImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41LJFDimGSL.jpg</URL>
+                        <Height Units="pixels">269</Height>
+                        <Width Units="pixels">500</Width>
+                    </LargeImage>
+                </ImageSet>
+                <ImageSet Category="variant">
+                    <SwatchImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41nfh4sfdDL._SL30_.jpg</URL>
+                        <Height Units="pixels">20</Height>
+                        <Width Units="pixels">30</Width>
+                    </SwatchImage>
+                    <SmallImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41nfh4sfdDL._SL75_.jpg</URL>
+                        <Height Units="pixels">50</Height>
+                        <Width Units="pixels">75</Width>
+                    </SmallImage>
+                    <ThumbnailImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41nfh4sfdDL._SL75_.jpg</URL>
+                        <Height Units="pixels">50</Height>
+                        <Width Units="pixels">75</Width>
+                    </ThumbnailImage>
+                    <TinyImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41nfh4sfdDL._SL110_.jpg</URL>
+                        <Height Units="pixels">73</Height>
+                        <Width Units="pixels">110</Width>
+                    </TinyImage>
+                    <MediumImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41nfh4sfdDL._SL160_.jpg</URL>
+                        <Height Units="pixels">107</Height>
+                        <Width Units="pixels">160</Width>
+                    </MediumImage>
+                    <LargeImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41nfh4sfdDL.jpg</URL>
+                        <Height Units="pixels">333</Height>
+                        <Width Units="pixels">500</Width>
+                    </LargeImage>
+                </ImageSet>
+                <ImageSet Category="variant">
+                    <SwatchImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41p8HBk-31L._SL30_.jpg</URL>
+                        <Height Units="pixels">15</Height>
+                        <Width Units="pixels">30</Width>
+                    </SwatchImage>
+                    <SmallImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41p8HBk-31L._SL75_.jpg</URL>
+                        <Height Units="pixels">38</Height>
+                        <Width Units="pixels">75</Width>
+                    </SmallImage>
+                    <ThumbnailImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41p8HBk-31L._SL75_.jpg</URL>
+                        <Height Units="pixels">38</Height>
+                        <Width Units="pixels">75</Width>
+                    </ThumbnailImage>
+                    <TinyImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41p8HBk-31L._SL110_.jpg</URL>
+                        <Height Units="pixels">55</Height>
+                        <Width Units="pixels">110</Width>
+                    </TinyImage>
+                    <MediumImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41p8HBk-31L._SL160_.jpg</URL>
+                        <Height Units="pixels">80</Height>
+                        <Width Units="pixels">160</Width>
+                    </MediumImage>
+                    <LargeImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41p8HBk-31L.jpg</URL>
+                        <Height Units="pixels">251</Height>
+                        <Width Units="pixels">500</Width>
+                    </LargeImage>
+                </ImageSet>
+                <ImageSet Category="variant">
+                    <SwatchImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41fcExhzT%2BL._SL30_.jpg</URL>
+                        <Height Units="pixels">30</Height>
+                        <Width Units="pixels">23</Width>
+                    </SwatchImage>
+                    <SmallImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41fcExhzT%2BL._SL75_.jpg</URL>
+                        <Height Units="pixels">75</Height>
+                        <Width Units="pixels">57</Width>
+                    </SmallImage>
+                    <ThumbnailImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41fcExhzT%2BL._SL75_.jpg</URL>
+                        <Height Units="pixels">75</Height>
+                        <Width Units="pixels">57</Width>
+                    </ThumbnailImage>
+                    <TinyImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41fcExhzT%2BL._SL110_.jpg</URL>
+                        <Height Units="pixels">110</Height>
+                        <Width Units="pixels">84</Width>
+                    </TinyImage>
+                    <MediumImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41fcExhzT%2BL._SL160_.jpg</URL>
+                        <Height Units="pixels">160</Height>
+                        <Width Units="pixels">122</Width>
+                    </MediumImage>
+                    <LargeImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41fcExhzT%2BL.jpg</URL>
                         <Height Units="pixels">500</Height>
-                        <Width Units="pixels">331</Width>
+                        <Width Units="pixels">382</Width>
+                    </LargeImage>
+                </ImageSet>
+                <ImageSet Category="variant">
+                    <SwatchImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41sAeF4EUvL._SL30_.jpg</URL>
+                        <Height Units="pixels">30</Height>
+                        <Width Units="pixels">29</Width>
+                    </SwatchImage>
+                    <SmallImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41sAeF4EUvL._SL75_.jpg</URL>
+                        <Height Units="pixels">75</Height>
+                        <Width Units="pixels">72</Width>
+                    </SmallImage>
+                    <ThumbnailImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41sAeF4EUvL._SL75_.jpg</URL>
+                        <Height Units="pixels">75</Height>
+                        <Width Units="pixels">72</Width>
+                    </ThumbnailImage>
+                    <TinyImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41sAeF4EUvL._SL110_.jpg</URL>
+                        <Height Units="pixels">110</Height>
+                        <Width Units="pixels">105</Width>
+                    </TinyImage>
+                    <MediumImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41sAeF4EUvL._SL160_.jpg</URL>
+                        <Height Units="pixels">160</Height>
+                        <Width Units="pixels">153</Width>
+                    </MediumImage>
+                    <LargeImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41sAeF4EUvL.jpg</URL>
+                        <Height Units="pixels">500</Height>
+                        <Width Units="pixels">478</Width>
+                    </LargeImage>
+                </ImageSet>
+                <ImageSet Category="variant">
+                    <SwatchImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/4162YFWFZaL._SL30_.jpg</URL>
+                        <Height Units="pixels">30</Height>
+                        <Width Units="pixels">23</Width>
+                    </SwatchImage>
+                    <SmallImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/4162YFWFZaL._SL75_.jpg</URL>
+                        <Height Units="pixels">75</Height>
+                        <Width Units="pixels">57</Width>
+                    </SmallImage>
+                    <ThumbnailImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/4162YFWFZaL._SL75_.jpg</URL>
+                        <Height Units="pixels">75</Height>
+                        <Width Units="pixels">57</Width>
+                    </ThumbnailImage>
+                    <TinyImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/4162YFWFZaL._SL110_.jpg</URL>
+                        <Height Units="pixels">110</Height>
+                        <Width Units="pixels">84</Width>
+                    </TinyImage>
+                    <MediumImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/4162YFWFZaL._SL160_.jpg</URL>
+                        <Height Units="pixels">160</Height>
+                        <Width Units="pixels">122</Width>
+                    </MediumImage>
+                    <LargeImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/4162YFWFZaL.jpg</URL>
+                        <Height Units="pixels">500</Height>
+                        <Width Units="pixels">382</Width>
+                    </LargeImage>
+                </ImageSet>
+                <ImageSet Category="variant">
+                    <SwatchImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41BmJ55I9CL._SL30_.jpg</URL>
+                        <Height Units="pixels">19</Height>
+                        <Width Units="pixels">30</Width>
+                    </SwatchImage>
+                    <SmallImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41BmJ55I9CL._SL75_.jpg</URL>
+                        <Height Units="pixels">47</Height>
+                        <Width Units="pixels">75</Width>
+                    </SmallImage>
+                    <ThumbnailImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41BmJ55I9CL._SL75_.jpg</URL>
+                        <Height Units="pixels">47</Height>
+                        <Width Units="pixels">75</Width>
+                    </ThumbnailImage>
+                    <TinyImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41BmJ55I9CL._SL110_.jpg</URL>
+                        <Height Units="pixels">70</Height>
+                        <Width Units="pixels">110</Width>
+                    </TinyImage>
+                    <MediumImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41BmJ55I9CL._SL160_.jpg</URL>
+                        <Height Units="pixels">101</Height>
+                        <Width Units="pixels">160</Width>
+                    </MediumImage>
+                    <LargeImage>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41BmJ55I9CL.jpg</URL>
+                        <Height Units="pixels">316</Height>
+                        <Width Units="pixels">500</Width>
                     </LargeImage>
                 </ImageSet>
                 <ImageSet Category="primary">
                     <SwatchImage>
-                        <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL._SL30_.jpg</URL>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41DfHruGgPL._SL30_.jpg</URL>
                         <Height Units="pixels">30</Height>
-                        <Width Units="pixels">20</Width>
+                        <Width Units="pixels">27</Width>
                     </SwatchImage>
                     <SmallImage>
-                        <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL._SL75_.jpg</URL>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41DfHruGgPL._SL75_.jpg</URL>
                         <Height Units="pixels">75</Height>
-                        <Width Units="pixels">50</Width>
+                        <Width Units="pixels">69</Width>
                     </SmallImage>
                     <ThumbnailImage>
-                        <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL._SL75_.jpg</URL>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41DfHruGgPL._SL75_.jpg</URL>
                         <Height Units="pixels">75</Height>
-                        <Width Units="pixels">50</Width>
+                        <Width Units="pixels">69</Width>
                     </ThumbnailImage>
                     <TinyImage>
-                        <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL._SL110_.jpg</URL>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41DfHruGgPL._SL110_.jpg</URL>
                         <Height Units="pixels">110</Height>
-                        <Width Units="pixels">73</Width>
+                        <Width Units="pixels">101</Width>
                     </TinyImage>
                     <MediumImage>
-                        <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL._SL160_.jpg</URL>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41DfHruGgPL._SL160_.jpg</URL>
                         <Height Units="pixels">160</Height>
-                        <Width Units="pixels">107</Width>
+                        <Width Units="pixels">146</Width>
                     </MediumImage>
                     <LargeImage>
-                        <URL>https://images-na.ssl-images-amazon.com/images/I/51C2AkS3QdL.jpg</URL>
+                        <URL>https://images-na.ssl-images-amazon.com/images/I/41DfHruGgPL.jpg</URL>
                         <Height Units="pixels">500</Height>
-                        <Width Units="pixels">334</Width>
+                        <Width Units="pixels">457</Width>
                     </LargeImage>
                 </ImageSet>
             </ImageSets>
             <ItemAttributes>
-                <Author>Mark Manson</Author>
-                <Binding>Hardcover</Binding>
-                <EAN>9780062457714</EAN>
+                <Brand>E-Drift</Brand>
+                <Color>White</Color>
+                <EAN>4635871975056</EAN>
                 <EANList>
-                    <EANListElement>9780062457714</EANListElement>
+                    <EANListElement>4635871975056</EANListElement>
                 </EANList>
-                <Edition>First Edition</Edition>
-                <ISBN>0062457713</ISBN>
-                <ItemDimensions>
-                    <Height Units="hundredths-inches">825</Height>
-                    <Length Units="hundredths-inches">550</Length>
-                    <Weight Units="hundredths-pounds">142</Weight>
-                    <Width Units="hundredths-inches">81</Width>
-                </ItemDimensions>
-                <Label>HarperOne</Label>
-                <Languages>
-                    <Language>
-                        <Name>English</Name>
-                        <Type>Published</Type>
-                    </Language>
-                    <Language>
-                        <Name>English</Name>
-                        <Type>Original Language</Type>
-                    </Language>
-                    <Language>
-                        <Name>English</Name>
-                        <Type>Unknown</Type>
-                    </Language>
-                </Languages>
+                <Feature>Travel in upwards of 25MPH and 50 miles per charge. You don't pay for gas, no DMV fees, no
+                    insurance premiums, street legal. and no license required! (check with your local laws)
+                </Feature>
+                <Feature>Steering is kept at a minimum as you lean into your turns. But don't worry, you can stop on a
+                    dime, all thanks to the powerful Hydraulic Disc Brake system.
+                </Feature>
+                <Feature>Electric 1500W Hub Motor, 60 Volt 20A Battery, Twist And Go Throttle.</Feature>
+                <Feature>18 Month Limited Warrant, LED Front Light connection, Keyed ignition with Digital Gauge
+                </Feature>
+                <IsAutographed>0</IsAutographed>
+                <IsMemorabilia>0</IsMemorabilia>
+                <Label>E-Drift</Label>
+                <LegalDisclaimer>check with your local laws</LegalDisclaimer>
                 <ListPrice>
-                    <Amount>2499</Amount>
+                    <Amount>189700</Amount>
                     <CurrencyCode>USD</CurrencyCode>
-                    <FormattedPrice>$24.99</FormattedPrice>
+                    <FormattedPrice>$1,897.00</FormattedPrice>
                 </ListPrice>
-                <Manufacturer>HarperOne</Manufacturer>
-                <NumberOfItems>1</NumberOfItems>
-                <NumberOfPages>224</NumberOfPages>
-                <PackageDimensions>
-                    <Height Units="hundredths-inches">100</Height>
-                    <Length Units="hundredths-inches">820</Length>
-                    <Weight Units="hundredths-pounds">80</Weight>
-                    <Width Units="hundredths-inches">550</Width>
-                </PackageDimensions>
-                <PackageQuantity>1</PackageQuantity>
-                <ProductGroup>Book</ProductGroup>
-                <ProductTypeName>ABIS_BOOK</ProductTypeName>
-                <PublicationDate>2016-09-13</PublicationDate>
-                <Publisher>HarperOne</Publisher>
-                <ReleaseDate>2016-09-13</ReleaseDate>
-                <Studio>HarperOne</Studio>
-                <Title>The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life</Title>
+                <Manufacturer>E-Drift</Manufacturer>
+                <MPN>UH-ES296</MPN>
+                <PartNumber>UH-ES296</PartNumber>
+                <ProductGroup>Sports</ProductGroup>
+                <ProductTypeName>OUTDOOR_RECREATION_PRODUCT</ProductTypeName>
+                <Publisher>E-Drift</Publisher>
+                <Studio>E-Drift</Studio>
+                <Title>E-Drift UH-ES296 Electric Fat Tire Scooter Moped 1500w Hub Motor 27MPH Harley E-Bike (White)
+                </Title>
             </ItemAttributes>
             <OfferSummary>
                 <LowestNewPrice>
-                    <Amount>900</Amount>
+                    <Amount>109700</Amount>
                     <CurrencyCode>USD</CurrencyCode>
-                    <FormattedPrice>$9.00</FormattedPrice>
+                    <FormattedPrice>$1,097.00</FormattedPrice>
                 </LowestNewPrice>
-                <LowestUsedPrice>
-                    <Amount>1201</Amount>
-                    <CurrencyCode>USD</CurrencyCode>
-                    <FormattedPrice>$12.01</FormattedPrice>
-                </LowestUsedPrice>
-                <TotalNew>66</TotalNew>
-                <TotalUsed>21</TotalUsed>
+                <TotalNew>1</TotalNew>
+                <TotalUsed>0</TotalUsed>
                 <TotalCollectible>0</TotalCollectible>
                 <TotalRefurbished>0</TotalRefurbished>
             </OfferSummary>
@@ -232,7 +465,7 @@
                 <TotalOffers>1</TotalOffers>
                 <TotalOfferPages>1</TotalOfferPages>
                 <MoreOffersUrl>
-                    https://www.amazon.com/gp/offer-listing/0062457713%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0062457713
+                    https://www.amazon.com/gp/offer-listing/B06X3VJ2NS%3FSubscriptionId%3DAKIAIYHMBBZCAVFTSEKQ%26tag%3Dgoodgiftsforg-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB06X3VJ2NS
                 </MoreOffersUrl>
                 <Offer>
                     <OfferAttributes>
@@ -240,176 +473,103 @@
                     </OfferAttributes>
                     <OfferListing>
                         <OfferListingId>
-                            pHSbdaDfqCzRUkZsQKrD5SnLUUzU7aD0Hdaj92jcIr2HjjMEDat4CzDHqatqA12iaZhHsr3cdU0sP2g8sefmTDM0SR5K9OUjoQH96JDLHMr1iuk0MSmkHA%3D%3D
+                            HDuhaAcMYiUzbEM3%2BcWBjqUcsX81msDUT43%2BeVh0IYgPMH8x5KIm0naHqrHH%2FJs4mAYA0G5RTioq0TjgzccGZa8R3SwWevRqlQxtfQEdIgN%2Bet8GA%2BUQQxrNQJ67MPWCsOLPux8uI9PvSUFAVjJK6dZzn1LAl3Sh
                         </OfferListingId>
                         <Price>
-                            <Amount>1359</Amount>
+                            <Amount>189700</Amount>
                             <CurrencyCode>USD</CurrencyCode>
-                            <FormattedPrice>$13.59</FormattedPrice>
+                            <FormattedPrice>$1,897.00</FormattedPrice>
                         </Price>
-                        <AmountSaved>
-                            <Amount>1140</Amount>
+                        <SalePrice>
+                            <Amount>109700</Amount>
                             <CurrencyCode>USD</CurrencyCode>
-                            <FormattedPrice>$11.40</FormattedPrice>
+                            <FormattedPrice>$1,097.00</FormattedPrice>
+                        </SalePrice>
+                        <AmountSaved>
+                            <Amount>80000</Amount>
+                            <CurrencyCode>USD</CurrencyCode>
+                            <FormattedPrice>$800.00</FormattedPrice>
                         </AmountSaved>
-                        <PercentageSaved>46</PercentageSaved>
-                        <Availability>Usually ships in 24 hours</Availability>
+                        <PercentageSaved>42</PercentageSaved>
+                        <Availability>Usually ships in 1-2 business days</Availability>
                         <AvailabilityAttributes>
                             <AvailabilityType>now</AvailabilityType>
-                            <MinimumHours>0</MinimumHours>
-                            <MaximumHours>0</MaximumHours>
+                            <MinimumHours>24</MinimumHours>
+                            <MaximumHours>48</MaximumHours>
                         </AvailabilityAttributes>
-                        <IsEligibleForSuperSaverShipping>1</IsEligibleForSuperSaverShipping>
-                        <IsEligibleForPrime>1</IsEligibleForPrime>
+                        <IsEligibleForSuperSaverShipping>0</IsEligibleForSuperSaverShipping>
+                        <IsEligibleForPrime>0</IsEligibleForPrime>
                     </OfferListing>
                 </Offer>
             </Offers>
             <CustomerReviews>
-                <IFrameURL>https://www.amazon.com/reviews/iframe?akid=AKIAIYHMBBZCAVFTSEKQ&amp;alinkCode=xm2&amp;asin=0062457713&amp;atag=goodgiftsforg-20&amp;exp=2017-03-27T11%3A54%3A30Z&amp;v=2&amp;sig=W6BRT6osytNDmV3FuhKJ%2FUblWFUJ4flhpKp3N0nrYvo%3D</IFrameURL>
+                <IFrameURL>https://www.amazon.com/reviews/iframe?akid=AKIAIYHMBBZCAVFTSEKQ&amp;alinkCode=xm2&amp;asin=B06X3VJ2NS&amp;atag=goodgiftsforg-20&amp;exp=2017-03-27T13%3A25%3A42Z&amp;v=2&amp;sig=GR2BJo7L6sB%2FyR%2B8CMPfoL%2FOJlMaHv3by6b82IVF2ac%3D</IFrameURL>
                 <HasReviews>true</HasReviews>
             </CustomerReviews>
             <EditorialReviews>
                 <EditorialReview>
                     <Source>Product Description</Source>
-                    <Content>&lt;p&gt;&lt;strong&gt;&lt;em&gt;New York Times&lt;/em&gt; Bestseller&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;In
-                        this generation-defining self-help guide, a superstar blogger cuts through the crap to show us
-                        how to stop trying to be "positive" all the time so that we can truly become better, happier
-                        people.&lt;/p&gt;&lt;p&gt;For decades, we’ve been told that positive thinking is the key to a
-                        happy, rich life. "F**k positivity," Mark Manson says. "Let’s be honest, shit is f**ked and we
-                        have to live with it." In his wildly popular Internet blog, Manson doesn’t sugarcoat or
-                        equivocate. He tells it like it is—a dose of raw, refreshing, honest truth that is sorely
-                        lacking today. &lt;em&gt;The Subtle Art of Not Giving a F**k&lt;/em&gt; is his antidote to the
-                        coddling, let’s-all-feel-good mindset that has infected modern society and spoiled a generation,
-                        rewarding them with gold medals just for showing up. &lt;/p&gt;&lt;p&gt;Manson makes the
-                        argument, backed both by academic research and well-timed poop jokes, that improving our lives
-                        hinges not on our ability to turn lemons into lemonade, but on learning to stomach lemons
-                        better. Human beings are flawed and limited—"not everybody can be extraordinary, there are
-                        winners and losers in society, and some of it is not fair or your fault." Manson advises us to
-                        get to know our limitations and accept them. Once we embrace our fears, faults, and
-                        uncertainties, once we stop running and avoiding and start confronting painful truths, we can
-                        begin to find the courage, perseverance, honesty, responsibility, curiosity, and forgiveness we
-                        seek. &lt;/p&gt;&lt;p&gt;There are only so many things we can give a f**k about so we need to
-                        figure out which ones really matter, Manson makes clear. While money is nice, caring about what
-                        you do with your life is better, because true wealth is about experience. A much-needed
-                        grab-you-by-the-shoulders-and-look-you-in-the-eye moment of real-talk, filled with entertaining
-                        stories and profane, ruthless humor, &lt;em&gt;The Subtle Art of Not Giving a F**k&lt;/em&gt; is
-                        a refreshing slap for a generation to help them lead contented, grounded
-                        lives.&lt;/p&gt;</Content>
+                    <Content>This UH-ES296 comes with a POWER PACKAGE. Power Package is an agreement from us that if
+                        within 12 months of purchase if the battery(s) on the unit are deemed non-chargeable or
+                        defective we send out a new set with the return of the old set. This is a $500 value and goes 6
+                        month beyond most normal manufacturer warranties. The all new, 2017UH-ES296 "Fat Tire" Electric
+                        Scooter is a minimalist-modern-chopper that is optimally designed for fast 'n' fun recreational
+                        use. It is capable of speeds up to 27 mph. A powerful 1500 watt motor helps the you to achieve
+                        optimum performance, while staying environmentally friendly. This scooter is 100% electric, and
+                        its built-in rechargeable battery allows it to travel up 50 miles on a single charge. Super-wide
+                        tires give this elegant beast a mean stance and a menacing presence, with the added benefit of
+                        keeping you glued to the road. Specifications: Weight: 100 lbs Wheelbase: 51" LxWxH: 69 x 31 x
+                        43 in Motor and Power: Electric Wheel Hub Motor 1500w Battery: Lithium Ion, 60v, 20Ah Charge
+                        Time: 1-3 Hours Speed: Up to 27mph Range Per Charge: Up to 50 Miles Throttle: Twist and Go 3
+                        Speed Brakes: Hydraulic Disc with 160mm Rotors Frame Material: Steel Fenders: ABS Plastic Tires
+                        Front/Rear: 225/55-8 Weight Capacity: 350 Lbs. Battery Indicator: Yes
+                    </Content>
                     <IsLinkSuppressed>0</IsLinkSuppressed>
                 </EditorialReview>
             </EditorialReviews>
-            <SimilarProducts>
-                <SimilarProduct>
-                    <ASIN>1539393828</ASIN>
-                    <Title>Unfu*k Yourself: Get out of your head and into your life</Title>
-                </SimilarProduct>
-                <SimilarProduct>
-                    <ASIN>0762447699</ASIN>
-                    <Title>You Are a Badass: How to Stop Doubting Your Greatness and Start Living an Awesome Life
-                    </Title>
-                </SimilarProduct>
-                <SimilarProduct>
-                    <ASIN>1535575085</ASIN>
-                    <Title>Declutter Your Mind: How to Stop Worrying, Relieve Anxiety, and Eliminate Negative Thinking
-                    </Title>
-                </SimilarProduct>
-                <SimilarProduct>
-                    <ASIN>1476789991</ASIN>
-                    <Title>F*ck Feelings: One Shrink's Practical Advice for Managing All Life's Impossible Problems
-                    </Title>
-                </SimilarProduct>
-                <SimilarProduct>
-                    <ASIN>1463750358</ASIN>
-                    <Title>Models: Attract Women Through Honesty</Title>
-                </SimilarProduct>
-                <SimilarProduct>
-                    <ASIN>0062358308</ASIN>
-                    <Title>13 Things Mentally Strong People Don't Do: Take Back Your Power, Embrace Change, Face Your
-                        Fears, and Train Your Brain for Happiness and Success
-                    </Title>
-                </SimilarProduct>
-                <SimilarProduct>
-                    <ASIN>0735222975</ASIN>
-                    <Title>You Are a Badass at Making Money: Master the Mindset of Wealth</Title>
-                </SimilarProduct>
-                <SimilarProduct>
-                    <ASIN>1328683788</ASIN>
-                    <Title>Tools of Titans: The Tactics, Routines, and Habits of Billionaires, Icons, and World-Class
-                        Performers
-                    </Title>
-                </SimilarProduct>
-                <SimilarProduct>
-                    <ASIN>1540552632</ASIN>
-                    <Title>The Art of Witty Banter: Be Clever, Be Quick, Be Interesting - Create Captivatin</Title>
-                </SimilarProduct>
-                <SimilarProduct>
-                    <ASIN>1543149278</ASIN>
-                    <Title>The Science of Attraction: Flirting, Sex, and How to Engineer Chemistry and Love</Title>
-                </SimilarProduct>
-            </SimilarProducts>
             <BrowseNodes>
                 <BrowseNode>
-                    <BrowseNodeId>4739</BrowseNodeId>
-                    <Name>Happiness</Name>
-                    <Ancestors>
+                    <BrowseNodeId>2345825011</BrowseNodeId>
+                    <Name>Scooters</Name>
+                    <Children>
                         <BrowseNode>
-                            <BrowseNodeId>4736</BrowseNodeId>
-                            <Name>Self-Help</Name>
-                            <Ancestors>
-                                <BrowseNode>
-                                    <BrowseNodeId>1000</BrowseNodeId>
-                                    <Name>Subjects</Name>
-                                    <IsCategoryRoot>1</IsCategoryRoot>
-                                    <Ancestors>
-                                        <BrowseNode>
-                                            <BrowseNodeId>283155</BrowseNodeId>
-                                            <Name>Books</Name>
-                                        </BrowseNode>
-                                    </Ancestors>
-                                </BrowseNode>
-                            </Ancestors>
+                            <BrowseNodeId>13280971</BrowseNodeId>
+                            <Name>Kick Scooters</Name>
                         </BrowseNode>
-                    </Ancestors>
-                </BrowseNode>
-                <BrowseNode>
-                    <BrowseNodeId>4744</BrowseNodeId>
-                    <Name>Motivational</Name>
-                    <Ancestors>
                         <BrowseNode>
-                            <BrowseNodeId>4736</BrowseNodeId>
-                            <Name>Self-Help</Name>
-                            <Ancestors>
-                                <BrowseNode>
-                                    <BrowseNodeId>1000</BrowseNodeId>
-                                    <Name>Subjects</Name>
-                                    <IsCategoryRoot>1</IsCategoryRoot>
-                                    <Ancestors>
-                                        <BrowseNode>
-                                            <BrowseNodeId>283155</BrowseNodeId>
-                                            <Name>Books</Name>
-                                        </BrowseNode>
-                                    </Ancestors>
-                                </BrowseNode>
-                            </Ancestors>
+                            <BrowseNodeId>13130176011</BrowseNodeId>
+                            <Name>Self Balancing Scooters</Name>
                         </BrowseNode>
-                    </Ancestors>
-                </BrowseNode>
-                <BrowseNode>
-                    <BrowseNodeId>4749</BrowseNodeId>
-                    <Name>Success</Name>
+                        <BrowseNode>
+                            <BrowseNodeId>13130177011</BrowseNodeId>
+                            <Name>Stunt Scooters</Name>
+                        </BrowseNode>
+                    </Children>
                     <Ancestors>
                         <BrowseNode>
-                            <BrowseNodeId>4736</BrowseNodeId>
-                            <Name>Self-Help</Name>
+                            <BrowseNodeId>11063781</BrowseNodeId>
+                            <Name>Scooters &amp; Equipment</Name>
                             <Ancestors>
                                 <BrowseNode>
-                                    <BrowseNodeId>1000</BrowseNodeId>
-                                    <Name>Subjects</Name>
-                                    <IsCategoryRoot>1</IsCategoryRoot>
+                                    <BrowseNodeId>11051398011</BrowseNodeId>
+                                    <Name>Skates, Skateboards &amp; Scooters</Name>
                                     <Ancestors>
                                         <BrowseNode>
-                                            <BrowseNodeId>283155</BrowseNodeId>
-                                            <Name>Books</Name>
+                                            <BrowseNodeId>706814011</BrowseNodeId>
+                                            <Name>Outdoor Recreation</Name>
+                                            <Ancestors>
+                                                <BrowseNode>
+                                                    <BrowseNodeId>3375301</BrowseNodeId>
+                                                    <Name>Categories</Name>
+                                                    <IsCategoryRoot>1</IsCategoryRoot>
+                                                    <Ancestors>
+                                                        <BrowseNode>
+                                                            <BrowseNodeId>3375251</BrowseNodeId>
+                                                            <Name>Sports &amp; Outdoors</Name>
+                                                        </BrowseNode>
+                                                    </Ancestors>
+                                                </BrowseNode>
+                                            </Ancestors>
                                         </BrowseNode>
                                     </Ancestors>
                                 </BrowseNode>

@@ -1,5 +1,17 @@
 @extends('front.base')
 
+@section('title')
+{{ $article->title }}
+@endsection
+
+@section('head')
+    @include('front.partials.ogmeta', [
+        'ogImage' => $article->titleImage(),
+        'ogTitle' => $article->title,
+        'ogDescription' => $article->description
+    ])
+@endsection
+
 @section('content')
     <header class="page-header">
         <a href="/">
