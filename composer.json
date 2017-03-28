@@ -11,6 +11,7 @@
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "spatie/laravel-medialibrary": "^4.0",
+        "spatie/laravel-sitemap": "^2.1",
         "symfony/dom-crawler": "^3.2"
     },
     "require-dev": {

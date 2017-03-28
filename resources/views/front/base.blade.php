@@ -31,5 +31,14 @@
     ga('create','UA-51468211-10','auto');ga('send','pageview')
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+<script type='application/ld+json'>
+{
+  "@context": "http://www.schema.org",
+  "@type": "WebSite",
+  "name": "Good Gifts For Guys",
+  "alternateName": "Gift guides and ideas for the men in your life",
+  "url": "https://goodgiftsforguys.com"
+}
+ </script>
 </body>
 </html>
