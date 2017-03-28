@@ -5,7 +5,7 @@
   display: flex;
 
   @include respond-to(phone) {
-    flex-wrap: wrap;
+    flex-direction: column;
   }
 
   .image-box {
