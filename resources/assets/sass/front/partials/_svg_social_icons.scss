@@ -1,0 +1,27 @@
+.social-icon-svg {
+  width: 40px;
+  max-height: 40px;
+  margin: 0;
+
+  &:hover {
+    .colour-fill {
+      fill: $brand_yellow;
+    }
+
+    .colour-stroke {
+      stroke: $brand_yellow;
+    }
+  }
+
+  .colour-fill {
+    fill: $brand_dark;
+  }
+
+  .colour-stroke {
+    stroke: $brand_dark;
+  }
+}
+
+.social-sharing-icons {
+  text-align: center;
+}

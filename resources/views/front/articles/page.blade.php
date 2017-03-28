@@ -20,10 +20,12 @@
     </header>
     <article class="article-page-content">
         <h1 class="article-page-title">{{ $article->title }}</h1>
-        <p class="article-date"><span>@include('svgicons.calendar')</span>{{ $article->updated_at->toFormattedDateString() }}</p>
+        <p class="article-date"><span>@include('svgicons.calendar')</span><br>{{ $article->updated_at->toFormattedDateString() }}</p>
+        @include('front.partials.sharing_icons')
         <img src="{{ $article->titleImage('web') }}" class="article-title-image" alt="{{ $article->title }}">
         <div class="article-body">
             {!! $article->body !!}
         </div>
+        @include('front.partials.sharing_icons')
     </article>
 @endsection
