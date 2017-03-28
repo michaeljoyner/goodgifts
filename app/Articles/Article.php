@@ -66,9 +66,10 @@ class Article extends Model implements HasMediaConversions
         return $this->published;
     }
 
-    public function retract()
+    public function retract($publish_date = null)
     {
         $this->published = false;
+        $this->published_on = $publish_date;
         $this->save();
 
         return $this->published;

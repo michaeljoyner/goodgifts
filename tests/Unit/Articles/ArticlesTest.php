@@ -73,6 +73,19 @@ class ArticlesTest extends TestCase
     /**
      *@test
      */
+    public function an_articles_published_at_date_is_still_updated_when_retracted()
+    {
+        $article = factory(Article::class)->create(['published' => true, 'published_on' => Carbon::parse('-10 days')]);
+
+        $article->retract(Carbon::now()->format('Y-m-d'));
+
+        $this->assertFalse($article->fresh()->isPublished());
+        $this->assertTrue($article->fresh()->published_on->isToday());
+    }
+
+    /**
+     *@test
+     */
     public function an_articles_slug_will_update_only_if_it_has_not_been_published()
     {
         $article = factory(Article::class)->create(['title' => 'test example title']);

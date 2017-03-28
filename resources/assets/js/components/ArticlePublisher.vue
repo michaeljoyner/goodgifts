@@ -5,16 +5,8 @@
         <p>Should this be published?</p>
         <toggle-switch :initial-status="initialState" v-on:switch-toggled="setPublishStatus"></toggle-switch>
         <label for="publish-date-input">Publish Date: </label>
-        <input type="date" v-model="publish_date">
-        <button class="btn" @click="update">
-            <span v-show="!saving">Save</span>
-            <div class="spinner" v-show="saving">
-                <div class="bounce1"></div>
-                <div class="bounce2"></div>
-                <div class="bounce3"></div>
-            </div>
-        </button>
-        <p class="alert" v-show="isLive">It's Live!</p>
+        <input type="date" v-model="publish_date" @change="update">
+        <p class="alert">STATUS:<br>{{ publish_status }}</p>
     </div>
 </template>
 
@@ -49,8 +41,20 @@
         },
 
         computed: {
-            isLive() {
-               return moment(this.publish_date).isBefore() && this.publish;
+            publish_status() {
+                if(this.saving) {
+                    return 'Saving...';
+                }
+
+                if(! this.publish) {
+                    return 'Draft.';
+                }
+
+                if(this.publish && this.publish_date && moment(this.publish_date).isAfter()) {
+                    return 'Ready and Waiting';
+                }
+
+                return 'It is live.'
             }
         },
 
@@ -94,6 +98,7 @@
 
             setPublishStatus({state}) {
                 this.publish = state;
+                this.update();
             }
         }
     }

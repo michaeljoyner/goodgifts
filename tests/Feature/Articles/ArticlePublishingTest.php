@@ -36,7 +36,7 @@ class ArticlePublishingTest extends TestCase
     {
         $article = factory(Article::class)->create(['published' => true, 'published_on' => Carbon::parse('-30 days')]);
 
-        $response = $this->asLoggedInUser()->post('/admin/articles/' . $article->id . '/publish', ['publish' => false]);
+        $response = $this->asLoggedInUser()->post('/admin/articles/' . $article->id . '/publish', ['publish' => false, 'published_on' => Carbon::parse('-30 days')->format('Y-m-d')]);
 
         $response->assertStatus(200);
         $response->assertJson(['published' => false, 'published_on' => Carbon::parse('-30 days')->format('Y-m-d')]);

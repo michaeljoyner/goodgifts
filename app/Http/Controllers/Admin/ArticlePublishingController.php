@@ -15,7 +15,7 @@ class ArticlePublishingController extends Controller
             'published_on' => 'date'
         ]);
 
-        $request->publish ? $article->publish(request('published_on', null)) : $article->retract();
+        $request->publish ? $article->publish(request('published_on', null)) : $article->retract(request('published_on', null));
 
         return response()->json([
             'published' => $article->fresh()->published,
