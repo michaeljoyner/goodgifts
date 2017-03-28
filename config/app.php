@@ -169,6 +169,7 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+        Spatie\Sitemap\SitemapServiceProvider::class,
         /*
          * Application Service Providers...
          */

@@ -38,6 +38,10 @@ return [
     'botman' => [
         'facebook_token' => env('FACEBOOK_TOKEN'),
         'facebook_app_secret' => env('FACEBOOK_SECRET'),
+    ],
+
+    'sitemap' => [
+        'filename' => (env('SITEMAP_NAME', 'sitemap.xml'))
     ]
 
 ];

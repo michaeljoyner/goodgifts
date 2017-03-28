@@ -2,29 +2,28 @@
 
 namespace App\Console\Commands;
 
-use App\Articles\Article;
 use Illuminate\Console\Command;
+use Spatie\Sitemap\SitemapGenerator;
 
-class SyncMentionedProducts extends Command
+class GenerateSitemap extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'article_products:sync';
+    protected $signature = 'sitemap:generate';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Extracts mentioned products in articles and saves them to db if necessary';
+    protected $description = 'Generates a sitemap';
 
     /**
      * Create a new command instance.
      *
-     * @return void
      */
     public function __construct()
     {
@@ -38,9 +37,7 @@ class SyncMentionedProducts extends Command
      */
     public function handle()
     {
-        Article::all()->each(function($article) {
-            $article->syncMentionedProducts();
-            $this->info('Synced ' . $article->title);
-        });
+        $filename = config('services.sitemap.filename');
+        SitemapGenerator::create('https://goodgiftsforguys.com')->writeToFile(public_path($filename));
     }
 }

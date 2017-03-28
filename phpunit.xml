@@ -29,5 +29,6 @@
         <env name="QUEUE_DRIVER" value="sync"/>
         <env name="DB_CONNECTION" value="testing"/>
         <env name="MEDIA_FILE_SYSTEM" value="test_media"/>
+        <env name="SITEMAP_NAME" value="test_sitemap.xml"/>
     </php>
 </phpunit>
