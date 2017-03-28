@@ -34,7 +34,7 @@ abstract class AmazonProductListingResult
             'link'        => (string)$xmlElement->DetailPageURL,
             'image'       => $this->extractPrimaryLargeImageSrcFromItem($xmlElement),
             'description' => (string)$xmlElement->EditorialReviews->EditorialReview->Content,
-            'price'       => (string)$xmlElement->Offers->Offer->OfferListing ? (string)$xmlElement->Offers->Offer->OfferListing->Price->FormattedPrice : '',
+            'price'       => (string)$xmlElement->ItemAttributes->ListPrice->FormattedPrice,
             'itemid' => (string)$xmlElement->ASIN
         ];
     }
