@@ -34,7 +34,7 @@ class Article extends Model implements HasMediaConversions
     {
         return [
             'slug' => [
-                'source' => 'title',
+                'source'   => 'title',
                 'onUpdate' => $this->hasNeverBeenPublished()
             ]
         ];
@@ -47,7 +47,7 @@ class Article extends Model implements HasMediaConversions
 
     public function isPublished()
     {
-        return $this->published && !is_null($this->published_on) && (! $this->published_on->isFuture());
+        return $this->published && !is_null($this->published_on) && (!$this->published_on->isFuture());
     }
 
     protected function hasNeverBeenPublished()
@@ -57,7 +57,7 @@ class Article extends Model implements HasMediaConversions
 
     public function publish($publish_date = null)
     {
-        if(is_null($this->published_on) || $publish_date) {
+        if (is_null($this->published_on) || $publish_date) {
             $this->published_on = $publish_date ? Carbon::parse($publish_date) : Carbon::now();
         }
         $this->published = true;
@@ -86,25 +86,26 @@ class Article extends Model implements HasMediaConversions
         $image = $this->addImage($image);
         $image->setCustomProperty('is_title', true);
         $image->save();
+
         return $image;
     }
 
     protected function removeExistingTitleImages()
     {
-        $this->getMedia()->filter(function($image) {
+        $this->getMedia()->filter(function ($image) {
             return $image->hasCustomProperty('is_title') && $image->getCustomProperty('is_title');
-        })->each(function($titleImage) {
+        })->each(function ($titleImage) {
             $titleImage->delete();
         });
     }
 
     public function titleImage($conversion = '')
     {
-        $image = $this->getMedia()->filter(function($image) {
+        $image = $this->getMedia()->filter(function ($image) {
             return $image->hasCustomProperty('is_title') && $image->getCustomProperty('is_title');
         })->first();
 
-        if($image) {
+        if ($image) {
             return $image->getUrl($conversion);
         }
 
@@ -116,13 +117,13 @@ class Article extends Model implements HasMediaConversions
         $crawler = new Crawler($this->body);
         $products = [];
 
-        $crawler->filter('.amazon-product-card')->each(function($node) use (&$products) {
+        $crawler->filter('.amazon-product-card')->each(function ($node) use (&$products) {
             $products[] = [
                 'itemid' => $node->attr('data-amzn-id'),
-                'title' => $node->filter('.amazon-product-title')->first()->text(),
-                'link' => $node->filter('a')->first()->attr('href'),
-                'image' => $node->filter('img')->first()->attr('src'),
-                'price' => substr($node->filter('a')->first()->text(), 14),
+                'title'  => $node->filter('.amazon-product-title')->first()->text(),
+                'link'   => $node->filter('a')->first()->attr('href'),
+                'image'  => $node->filter('img')->first()->attr('src'),
+                'price'  => substr($node->filter('a')->first()->text(), 14),
             ];
         });
 
@@ -136,22 +137,48 @@ class Article extends Model implements HasMediaConversions
 
     public function syncMentionedProducts()
     {
-        $unsyncedItemIdChunks = collect($this->mentionedProducts())->filter(function($product) {
-            return ! Product::where('itemid', $product['itemid'])->first();
-        })->map(function($product) {
+        $unsyncedItemIdChunks = collect($this->mentionedProducts())->filter(function ($product) {
+            return !Product::where('itemid', $product['itemid'])->first();
+        })->map(function ($product) {
             return $product['itemid'];
         })->chunk(10);
 
-        foreach($unsyncedItemIdChunks as $chunk) {
+        foreach ($unsyncedItemIdChunks as $chunk) {
             $lookup = app()->make(Lookup::class);
 
-            $products = $lookup->withId(implode(',', $chunk->toArray()))->map(function($product) {
+            $products = $lookup->withId(implode(',', $chunk->toArray()))->map(function ($product) {
                 $product->save();
+
                 return $product->fresh();
             });
 
             $this->products()->attach($products->pluck('id')->toArray());
         }
     }
+
+    public function updateBodyWithProduct($product)
+    {
+        $crawler = new Crawler($this->body);
+        $newproduct = $crawler->filter('[data-amzn-id=' . $product->itemid . ']');
+        $newproduct->getNode(0)->nodeValue = $this->makeProductHtml($product->toArray());
+
+        $this->body = $this->reformattedCrawlerHtml($crawler->html());
+        $this->save();
+    }
+
+    protected function makeProductHtml($product)
+    {
+        $productHtmlTemplate = '<p class="amazon-product-title">%s</p><div class="product-image-box"><img src="%s" alt="%s"></div><a href="%s">At Amazon for %s</a>';
+
+        return sprintf($productHtmlTemplate, $product['title'], $product['image'],
+            $product['title'], $product['link'], $product['price']);
+    }
+
+    protected function reformattedCrawlerHtml($html)
+    {
+        $html = html_entity_decode($html);
+        return mb_substr($html, 6, -7);
+    }
+
 
 }

@@ -4,6 +4,8 @@ namespace App\Console;
 
 use App\Console\Commands\GenerateSitemap;
 use App\Console\Commands\SyncMentionedProducts;
+use App\Console\Commands\UpdateArticleProducts;
+use App\Console\Commands\UpdateProducts;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -16,7 +18,9 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         SyncMentionedProducts::class,
-        GenerateSitemap::class
+        GenerateSitemap::class,
+        UpdateProducts::class,
+        UpdateArticleProducts::class
     ];
 
     /**
