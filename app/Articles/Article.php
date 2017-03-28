@@ -170,8 +170,10 @@ class Article extends Model implements HasMediaConversions
     {
         $productHtmlTemplate = '<p class="amazon-product-title">%s</p><div class="product-image-box"><img src="%s" alt="%s"></div><a href="%s">At Amazon for %s</a>';
 
-        return sprintf($productHtmlTemplate, $product['title'], $product['image'],
+        $html = sprintf($productHtmlTemplate, $product['title'], $product['image'],
             $product['title'], $product['link'], $product['price']);
+
+        return htmlspecialchars($html);
     }
 
     protected function reformattedCrawlerHtml($html)
