@@ -172,7 +172,7 @@
             },
 
             textLinkHtml(product) {
-                const link = `<a href="${product.link}" data-amzn-id="${product.itemid}" class="amzn-text-link">${this.link_text}</a>`;
+                const link = `<a href="${product.link}" class="amzn-text-link">${this.link_text}</a>`;
                 return link;
             }
         }
