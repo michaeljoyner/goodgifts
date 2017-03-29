@@ -38,6 +38,36 @@ class ArticleProductsTest extends TestCase
 
     }
 
+    /**
+     *@test
+     */
+    public function an_article_with_a_numeric_first_itemid_can_be_properly_updated()
+    {
+        $product = [[
+            'itemid' => '158008334X',
+            'title' => 'The title',
+            'price' => 'The price',
+            'image' => 'image',
+            'link' => 'link'
+        ]];
+
+        $article = $this->makeArticleWithProducts($product);
+
+        $updatedProduct = factory(Product::class)->create([
+            'itemid' => '158008334X',
+            'title' => 'Totally updated title',
+            'price' => 'UPDATED-PRICE',
+            'image' => 'new-image',
+            'link' => 'updated-link'
+        ]);
+
+        $article->updateBodyWithProduct($updatedProduct);
+
+        $updatedHtml = $this->getProductHtml($updatedProduct->toArray());
+
+        $this->assertContains($updatedHtml, $article->fresh()->body);
+    }
+
     protected function getProductHtml($product)
     {
         $productHtmlTemplate = '<div class="amazon-product-card" data-amzn-id="%s"><p class="amazon-product-title">%s</p><div class="product-image-box"><img src="%s" alt="%s"></div><a href="%s">At Amazon for %s</a></div>';

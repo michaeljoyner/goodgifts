@@ -28,7 +28,7 @@ class AmazonProductSearchResultsTest extends TestCase
                         /&gt;Stranded by a violent storm, and haunted by a nursery rhyme counting down one by one . . .
                         as one by one . . . they begin to die.&lt;/p&gt;&lt;p&gt;"Seven . . ."&lt;br /&gt;Which among
                         them is the killer and will any of them survive?&lt;/p&gt;'), $products->first()->description);
-        $this->assertEquals('$6.00', $products->first()->price);
+        $this->assertEquals('$7.99', $products->first()->price);
         $this->assertEquals('https://images-na.ssl-images-amazon.com/images/I/51ToGkqvjAL.jpg',
             $products->first()->image);
         $this->assertEquals('0062073486', $products->first()->itemid);

@@ -159,7 +159,8 @@ class Article extends Model implements HasMediaConversions
     public function updateBodyWithProduct($product)
     {
         $crawler = new Crawler($this->body);
-        $newproduct = $crawler->filter('[data-amzn-id=' . $product->itemid . ']');
+        $query = '//*[@data-amzn-id="' . $product->itemid . '"]';
+        $newproduct = $crawler->filterXPath($query);
         $newproduct->getNode(0)->nodeValue = $this->makeProductHtml($product->toArray());
 
         $this->body = $this->reformattedCrawlerHtml($crawler->html());
