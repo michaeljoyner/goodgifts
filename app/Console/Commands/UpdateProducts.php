@@ -38,23 +38,6 @@ class UpdateProducts extends Command
      */
     public function handle()
     {
-//        Product::all()->chunk(10)->each(function ($batch) {
-//            $lookup = app()->make(Lookup::class);
-//            $itemIds = implode(',', $batch->pluck('itemid')->toArray());
-//            $updatedProducts = $lookup->withId($itemIds);
-//
-//            $updatedProducts->each(function ($updatedProduct) {
-//                $product = Product::where('itemid', $updatedProduct->itemid)->first();
-//                if ($product) {
-//                    $product->update([
-//                        'title' => $updatedProduct->title,
-//                        'image' => $updatedProduct->image,
-//                        'price' => $updatedProduct->price,
-//                        'link'  => $updatedProduct->link
-//                    ]);
-//                }
-//            });
-//        });
         $update = new \App\Products\ProductUpdate(Product::all());
         $update->execute();
     }

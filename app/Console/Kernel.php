@@ -33,6 +33,8 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('sitemap:generate')->dailyAt('13:00');
         $schedule->command('article_products:sync')->dailyAt('14:00');
+        $schedule->command('products:update')->dailyAt('15:00');
+        $schedule->command('article_products:update')->dailyAt('16:00');
     }
 
     /**

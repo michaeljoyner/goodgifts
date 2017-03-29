@@ -23,7 +23,12 @@ class ProductUpdate
     protected function updateBatch($batch)
     {
         $lookup = app()->make(Lookup::class);
-        $updatedProducts = $lookup->withId($this->extractBatchItemIds($batch));
+
+        try {
+            $updatedProducts = $lookup->withId($this->extractBatchItemIds($batch));
+        } catch(\Exception $e) {
+            $updatedProducts = collect([]);
+        }
 
         $updatedProducts->each(function ($updatedProduct) {
             $this->updateProductRecord($updatedProduct);

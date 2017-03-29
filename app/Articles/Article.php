@@ -158,15 +158,20 @@ class Article extends Model implements HasMediaConversions
 
     public function updateBodyWithProduct($product)
     {
-        //remove nbsp
-        $html = preg_replace('/&nbsp;/', '', $this->body);
-        $crawler = new Crawler();
-        $crawler->addHtmlContent(html_entity_decode($html));
-        $query = '//*[@data-amzn-id="' . $product->itemid . '"]';
-        $newproduct = $crawler->filterXPath($query);
-        $newproduct->getNode(0)->nodeValue = $this->makeProductHtml($product->toArray());
+        try {
+            $html = preg_replace('/&nbsp;/', '', $this->body);
+            $crawler = new Crawler();
+            $crawler->addHtmlContent(html_entity_decode($html));
+            $query = '//*[@data-amzn-id="' . $product->itemid . '"]';
+            $newproduct = $crawler->filterXPath($query);
+            $newproduct->getNode(0)->nodeValue = $this->makeProductHtml($product->toArray());
+            $newbody = $this->reformattedCrawlerHtml($crawler->html());
+        } catch (\Exception $e) {
+            return;
+        }
 
-        $this->body = $this->reformattedCrawlerHtml($crawler->html());
+
+        $this->body = $newbody;
         $this->save();
     }
 
@@ -183,6 +188,7 @@ class Article extends Model implements HasMediaConversions
     protected function reformattedCrawlerHtml($html)
     {
         $html = html_entity_decode($html);
+
         return mb_substr($html, 6, -7);
     }
 
