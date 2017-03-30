@@ -177,9 +177,9 @@ class Article extends Model implements HasMediaConversions
 
     protected function makeProductHtml($product)
     {
-        $productHtmlTemplate = '<p class="amazon-product-title">%s</p><div class="product-image-box"><img src="%s" alt="%s"></div><a href="%s">At Amazon for %s</a>';
+        $productHtmlTemplate = '<p class="amazon-product-title">%s</p><div class="product-image-box"><a href="%s"><img src="%s" alt="%s"></a></div><a href="%s">At Amazon for %s</a>';
 
-        $html = sprintf($productHtmlTemplate, $product['title'], $product['image'],
+        $html = sprintf($productHtmlTemplate, $product['title'], $product['link'], $product['image'],
             $product['title'], $product['link'], $product['price']);
 
         return htmlspecialchars($html);

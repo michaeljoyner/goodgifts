@@ -163,7 +163,7 @@
 
 
             makeProductBox(product) {
-                const imgTag = `<div class="product-image-box"><img src="${product.image}" alt="${product.title}"></div>`;
+                const imgTag = `<div class="product-image-box"><a href="${product.link}"><img src="${product.image}" alt="${product.title}"></a></div>`;
                 return `<div class="amazon-product-card" data-amzn-id="${product.itemid}">
                                         <p class="amazon-product-title">${product.title}</p>
                                         ${imgTag}
