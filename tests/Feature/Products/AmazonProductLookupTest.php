@@ -20,6 +20,7 @@ class AmazonProductLookupTest extends TestCase
         $this->disableExceptionHandling();
         //url for Murder of Roger Ackroyd by Agatha Christie on Amazon. Changes to product can break test
         $url = 'https://www.amazon.com/Murder-Roger-Ackroyd-Hercule-Mysteries/dp/0062073567/';
+
         $response = $this->asLoggedInUser()->json('POST', '/admin/services/products/lookup', ['itemid' => $url]);
 
         $response->assertStatus(200);

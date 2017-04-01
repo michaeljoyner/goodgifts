@@ -29,14 +29,34 @@ abstract class AmazonProductListingResult
 
     protected function extractProductAttributesFromSimpleXMLElement($xmlElement)
     {
+        $availability = $this->checkProductAvailability($xmlElement);
         return [
             'title'       => substr((string)$xmlElement->ItemAttributes->Title, 0, 180),
             'link'        => (string)$xmlElement->DetailPageURL,
             'image'       => $this->extractPrimaryLargeImageSrcFromItem($xmlElement),
             'description' => (string)$xmlElement->EditorialReviews->EditorialReview->Content,
-            'price'       => (string)$xmlElement->ItemAttributes->ListPrice->FormattedPrice,
-            'itemid' => (string)$xmlElement->ASIN
+            'price'       => $availability ? $this->getBestPrice($xmlElement) : '',
+            'itemid' => (string)$xmlElement->ASIN,
+            'available' => $availability
         ];
+    }
+
+    protected function checkProductAvailability($xml)
+    {
+        return isset($xml->Offers->Offer->OfferListing);
+    }
+
+    protected function getBestPrice($xml)
+    {
+        if(isset($xml->Offers->Offer->OfferListing->SalePrice)) {
+            return (string)$xml->Offers->Offer->OfferListing->SalePrice->FormattedPrice;
+        }
+
+        if(isset($xml->Offers->Offer->OfferListing->Price)) {
+            return (string)$xml->Offers->Offer->OfferListing->Price->FormattedPrice;
+        }
+
+        return (string)$xml->ItemAttributes->ListPrice->FormattedPrice;
     }
 
     protected function extractPrimaryLargeImageSrcFromItem($xmlElement)
