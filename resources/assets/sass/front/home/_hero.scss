@@ -1,11 +1,13 @@
 .main-hero {
   width: 100%;
-  height: 40vw;
+  height: 30vw;
   background: $brand_dark;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+
+  @include respond-to(phone) {height: 60vw;}
 
   .page-title {
     font-family: $script;
