@@ -8,6 +8,9 @@
         </div>
     </header>
     <section class="issues-table-section">
+        @if($issues->count() < 1)
+            <p class="lead">There are no issues to report</p>
+        @else
         <table class="table table-responsive">
             <thead>
             <tr>
@@ -26,5 +29,6 @@
             @endforeach
             </tbody>
         </table>
+        @endif
     </section>
 @endsection
