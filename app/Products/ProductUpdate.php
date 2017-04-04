@@ -4,6 +4,11 @@
 namespace App\Products;
 
 
+use App\Issues\BatchUpdateIssue;
+use App\Issues\IncompleteUpdateIssue;
+use App\Issues\Issue;
+use App\Issues\UnavailableProductIssue;
+
 class ProductUpdate
 {
     private $products;
@@ -15,8 +20,8 @@ class ProductUpdate
 
     public function execute()
     {
-        $this->products->chunk(10)->each(function($batch) {
-           $this->updateBatch($batch);
+        $this->products->chunk(10)->each(function ($batch) {
+            $this->updateBatch($batch);
         });
     }
 
@@ -26,16 +31,39 @@ class ProductUpdate
 
         try {
             $updatedProducts = $lookup->withId($this->extractBatchItemIds($batch));
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
+            Issue::createBatchUpdateIssue($e->getMessage(), [
+                'product_ids' => implode(',', $batch->pluck('id')->toArray())
+            ]);
             $updatedProducts = collect([]);
         }
 
+        $missedLookups = $batch->filter(function ($product) use ($batch, $updatedProducts) {
+            $missedItems = $batch->pluck('itemid')->diff($updatedProducts->pluck('itemid'));
+
+            return $missedItems->contains($product->itemid);
+        });
+
+        if ($missedLookups->count() > 0) {
+            Issue::createIncompleteUpdateIssue('Some products were never returned from the lookup',
+                ['product_ids' => implode(',', $missedLookups->pluck('id')->toArray())]);
+        }
+
         $updatedProducts->each(function ($updatedProduct) {
-            $this->updateProductRecord($updatedProduct);
+            if ($updatedProduct->available === false) {
+                $existingProduct = Product::where('itemid', $updatedProduct->itemid)->first();
+                if ($existingProduct) {
+                    Issue::createUnavailableProductIssue($existingProduct->title . ' is not currently available',
+                        ['product_id' => $existingProduct->id]);
+                }
+            } else {
+                $this->updateProductRecord($updatedProduct);
+            }
         });
     }
 
-    protected function extractBatchItemIds($batch) {
+    protected function extractBatchItemIds($batch)
+    {
         return implode(',', $batch->pluck('itemid')->toArray());
     }
 

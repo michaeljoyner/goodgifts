@@ -57,6 +57,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::post('articles/{article}/products', 'ArticlesProductsController@store');
     Route::delete('articles/{article}/products/{product}', 'ArticlesProductsController@remove');
 
+    Route::get('issues', 'IssuesController@index');
+    Route::get('issues/{issue}', 'IssuesController@show');
+    Route::delete('issues/{issue}', 'IssuesController@delete');
+
     Route::post('services/products/lookup', 'ProductLookupController@show');
 
     Route::get('services/articles/{article}/products', 'ArticleMentionedProductsController@index');

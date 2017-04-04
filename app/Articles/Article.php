@@ -2,6 +2,7 @@
 
 namespace App\Articles;
 
+use App\Issues\ArticleUpdateIssue;
 use App\Products\Lookup;
 use App\Products\Product;
 use Carbon\Carbon;
@@ -167,6 +168,7 @@ class Article extends Model implements HasMediaConversions
             $newproduct->getNode(0)->nodeValue = $this->makeProductHtml($product->toArray());
             $newbody = $this->reformattedCrawlerHtml($crawler->html());
         } catch (\Exception $e) {
+            ArticleUpdateIssue::create(['product_id' => $product->id, 'article_id' => $this->id]);
             return;
         }
 
