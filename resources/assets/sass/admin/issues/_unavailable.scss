@@ -1,0 +1,14 @@
+.unavailable-product-card {
+  width: 90%;
+  margin: 1em auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid $admin_blue;
+
+  img {
+    max-width: 100px;
+    max-height: 150px;
+  }
+}

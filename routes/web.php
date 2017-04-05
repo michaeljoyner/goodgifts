@@ -37,6 +37,8 @@ Route::get('/home', 'HomeController@index');
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'DashboardController@show');
 
+    Route::delete('products/{product}', 'ProductsController@delete');
+
     Route::get('articles', 'ArticlesController@index');
     Route::get('articles/{article}', 'ArticlesController@show');
     Route::get('articles/{article}/edit', 'ArticlesController@edit');
@@ -56,6 +58,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::get('articles/{article}/products', 'ArticlesProductsController@index');
     Route::post('articles/{article}/products', 'ArticlesProductsController@store');
     Route::delete('articles/{article}/products/{product}', 'ArticlesProductsController@remove');
+
+    Route::post('issues/batchupdate/{issue}/resolve', 'BatchUpdateIssueResolvingController@handle');
 
     Route::get('issues', 'IssuesController@index');
     Route::get('issues/{issue}', 'IssuesController@show');
