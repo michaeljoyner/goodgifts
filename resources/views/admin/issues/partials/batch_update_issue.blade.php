@@ -12,7 +12,7 @@
             @endif
         @endforeach
     </ul>
-    <form action="/admin/issues/batchupdate/{{ $issue->issue->id }}" method="POST">
+    <form action="/admin/issues/batchupdate/{{ $issue->issue->id }}/resolve" method="POST">
         {!! csrf_field() !!}
         <button class="btn btn-red">Attempt to Resolve</button>
     </form>
