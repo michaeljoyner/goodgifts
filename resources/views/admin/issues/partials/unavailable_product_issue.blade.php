@@ -2,6 +2,7 @@
 <div class="unavailable-product-card">
     <img src="{{ $issue->issue->product->image }}" alt="">
     <p>{{ $issue->issue->product->title }}</p>
+    <a href="{{ $issue->issue->product->link }}" class="btn" target="_blank">See on Amazon</a>
     @include('admin.partials.deletebutton', [
         'objectName' => $issue->issue->product->title,
         'deleteFormAction' => '/admin/products/' . $issue->issue->product->id
