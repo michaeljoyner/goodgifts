@@ -60,6 +60,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::delete('articles/{article}/products/{product}', 'ArticlesProductsController@remove');
 
     Route::post('issues/batchupdate/{issue}/resolve', 'BatchUpdateIssueResolvingController@handle');
+    Route::post('issues/incompleteupdate/{issue}/resolve', 'IncompleteUpdateIssueResolvingController@handle');
 
     Route::get('issues', 'IssuesController@index');
     Route::get('issues/{issue}', 'IssuesController@show');
