@@ -12,7 +12,7 @@
     </header>
     <section>
         <p class="lead">{{ $issue->message }}</p>
-        @include('admin.issues.partials.' . snake_case($issue->issue_type))
+        @include('admin.issues.partials.' . snake_case(class_basename($issue->issue_type)))
     </section>
     @include('admin.partials.deletemodal')
 @endsection
