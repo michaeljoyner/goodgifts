@@ -58,7 +58,7 @@ class ProductUpdate
         if($updatedProducts->count() === 0) {
             return;
         }
-        
+
         $missedLookups = $batch->filter(function ($product) use ($batch, $updatedProducts) {
             $missedItems = $batch->pluck('itemid')->diff($updatedProducts->pluck('itemid'));
 
