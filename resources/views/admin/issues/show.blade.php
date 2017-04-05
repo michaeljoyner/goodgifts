@@ -2,7 +2,7 @@
 
 @section('content')
     <header class="gg-page-header">
-        <h1 class="header-title">Issues</h1>
+        <h1 class="header-title">{{ class_basename($issue->issue_type) }}</h1>
         <div class="page-actions">
             @include('admin.partials.deletebutton', [
                 'objectName' => $issue->isue_type,
@@ -12,6 +12,7 @@
     </header>
     <section>
         <p class="lead">{{ $issue->message }}</p>
+        @include('admin.issues.partials.' . snake_case($issue->issue_type))
     </section>
     @include('admin.partials.deletemodal')
 @endsection
