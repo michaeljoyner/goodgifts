@@ -86,4 +86,22 @@ class ProductUpdateIssueTest extends TestCase
         $this->assertCount(1, IncompleteUpdateIssue::all());
         $this->assertTrue(IncompleteUpdateIssue::first()->products()->count() > 0);
     }
+
+    /**
+     *@test
+     */
+    public function a_batch_update_failure_does_not_create_a_matching_incomplete_update_issue()
+    {
+        $this->app->bind(Lookup::class, function() {
+            return new \App\Products\FailingLookup();
+        });
+
+        $product1 = factory(Product::class)->create(['itemid' => 'ITEMID1']);
+        $product2 = factory(Product::class)->create(['itemid' => 'ITEMID2']);
+
+        Artisan::call('products:update');
+
+        $this->assertCount(1, BatchUpdateIssue::all());
+        $this->assertCount(0, IncompleteUpdateIssue::all());
+    }
 }

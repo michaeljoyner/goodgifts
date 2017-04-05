@@ -38,16 +38,7 @@ class ProductUpdate
             $updatedProducts = collect([]);
         }
 
-        $missedLookups = $batch->filter(function ($product) use ($batch, $updatedProducts) {
-            $missedItems = $batch->pluck('itemid')->diff($updatedProducts->pluck('itemid'));
-
-            return $missedItems->contains($product->itemid);
-        });
-
-        if ($missedLookups->count() > 0) {
-            Issue::createIncompleteUpdateIssue('Some products were never returned from the lookup',
-                ['product_ids' => implode(',', $missedLookups->pluck('id')->toArray())]);
-        }
+        $this->checkMissedLookups($batch, $updatedProducts);
 
         $updatedProducts->each(function ($updatedProduct) {
             if ($updatedProduct->available === false) {
@@ -60,6 +51,24 @@ class ProductUpdate
                 $this->updateProductRecord($updatedProduct);
             }
         });
+    }
+
+    protected function checkMissedLookups($batch, $updatedProducts)
+    {
+        if($updatedProducts->count() === 0) {
+            return;
+        }
+        
+        $missedLookups = $batch->filter(function ($product) use ($batch, $updatedProducts) {
+            $missedItems = $batch->pluck('itemid')->diff($updatedProducts->pluck('itemid'));
+
+            return $missedItems->contains($product->itemid);
+        });
+
+        if ($missedLookups->count() > 0) {
+            Issue::createIncompleteUpdateIssue('Some products were never returned from the lookup',
+                ['product_ids' => implode(',', $missedLookups->pluck('id')->toArray())]);
+        }
     }
 
     protected function extractBatchItemIds($batch)

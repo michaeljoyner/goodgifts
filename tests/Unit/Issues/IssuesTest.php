@@ -71,6 +71,8 @@ class IssuesTest extends TestCase
         $this->assertEquals(ArticleUpdateIssue::first()->id, $issue->issue->id);
     }
 
+
+
     /**
      *@test
      */
