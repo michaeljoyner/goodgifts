@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}"/>
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     @yield('head')
+    <script charset="UTF-8" src="//cdn.sendpulse.com/28edd3380a1c17cf65b137fe96516659/js/push/34627b6bccbae17bbc28edb20d8c659f_1.js" async></script>
     <script>
         var Laravel = {
             csrfToken: '{{ csrf_token() }}'
