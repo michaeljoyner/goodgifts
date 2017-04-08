@@ -14,6 +14,7 @@
             csrfToken: '{{ csrf_token() }}'
         }
     </script>
+    <script charset="UTF-8" src="//cdn.sendpulse.com/28edd3380a1c17cf65b137fe96516659/js/push/34627b6bccbae17bbc28edb20d8c659f_1.js" async></script>
 </head>
 <body class="@yield('bodyclass', 'scripted')">
 <!--[if lt IE 8]>
