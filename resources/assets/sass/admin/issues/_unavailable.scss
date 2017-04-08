@@ -7,6 +7,14 @@
   padding: 20px;
   border: 1px solid $admin_blue;
 
+  @include respond-to(phone) {
+    flex-direction: column;
+
+    .btn {
+      margin-top: 20px;
+    }
+  }
+
   img {
     max-width: 100px;
     max-height: 150px;

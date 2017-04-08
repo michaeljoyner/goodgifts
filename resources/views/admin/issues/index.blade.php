@@ -16,15 +16,15 @@
             <tr>
                 <th>Date</th>
                 <th>Issue Type</th>
-                <th>Message</th>
+                <th class="issue-table-message-field">Message</th>
             </tr>
             </thead>
             <tbody>
             @foreach($issues as $issue)
                 <tr>
                     <td>{{ $issue->created_at->diffForHumans() }}</td>
-                    <td><a href="/admin/issues/{{ $issue->id }}">{{ $issue->issue_type }}</a></td>
-                    <td>{{ $issue->message }}</td>
+                    <td><a href="/admin/issues/{{ $issue->id }}">{{ class_basename($issue->issue_type) }}</a></td>
+                    <td class="issue-table-message-field">{{ $issue->message }}</td>
                 </tr>
             @endforeach
             </tbody>
