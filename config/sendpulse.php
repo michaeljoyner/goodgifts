@@ -13,7 +13,7 @@ return array(
 
     'apiUserId' => env('SEND_PULSE_ID'),
 
-    'apiSecret' => env('SEND_PULSE_ID'),
+    'apiSecret' => env('SEND_PULSE_SECRET'),
 
     /*
     |--------------------------------------------------------------------------
