@@ -27,7 +27,9 @@ class ProductUpdate
 
     protected function updateBatch($batch)
     {
-        sleep(1);
+        if(env('APP_ENV') === 'production') {
+            sleep(1);
+        }
         $lookup = app()->make(Lookup::class);
 
         try {
