@@ -2,6 +2,7 @@
 
 namespace App\Issues;
 
+use App\Events\IssueCreated;
 use App\Events\IssueDeleted;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +13,8 @@ class Issue extends Model
     protected $fillable = ['message', 'issue_id', 'issue_type'];
 
     protected $events = [
-        'deleting' => IssueDeleted::class
+        'deleting' => IssueDeleted::class,
+        'created' => IssueCreated::class,
     ];
 
     public static function createBatchUpdateIssue($message, $issueAttributes)

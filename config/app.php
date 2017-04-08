@@ -170,6 +170,7 @@ return [
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         Spatie\Sitemap\SitemapServiceProvider::class,
+        SendPulse\SendPulseLaravel\SendPulseLaravelServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -227,6 +228,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'SendPulse' => SendPulse\SendPulseLaravel\SendPulseFacade::class
 
     ],
 

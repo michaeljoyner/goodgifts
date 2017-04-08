@@ -18,6 +18,9 @@ class EventServiceProvider extends ServiceProvider
         IssueDeleted::class => [
             IssueDeletedListener::class,
         ],
+        'App\Events\IssueCreated' => [
+            'App\Listeners\SendIssueNotification'
+        ]
     ];
 
     /**
