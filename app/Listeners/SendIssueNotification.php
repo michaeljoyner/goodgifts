@@ -27,7 +27,7 @@ class SendIssueNotification
             return;
         }
 
-        SendPulse::createPushTask([
+        \SendPulse::createPushTask([
             'title' => 'An issue has arisen!',
             'body' => 'We have experienced a ' . class_basename($event->issue->issue_type),
             'website_id' => '38463',
