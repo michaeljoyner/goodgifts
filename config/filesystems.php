@@ -45,32 +45,40 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root'   => storage_path('app'),
         ],
 
         'media' => [
             'driver' => 'local',
-            'root' => public_path('media'),
+            'root'   => public_path('media'),
         ],
 
         'test_media' => [
             'driver' => 'local',
-            'root' => public_path('test_media'),
+            'root'   => public_path('test_media'),
         ],
 
         'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'driver'     => 'local',
+            'root'       => storage_path('app/public'),
+            'url'        => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
 
         's3' => [
             'driver' => 's3',
-            'key' => env('AWS_KEY'),
+            'key'    => env('AWS_KEY'),
             'secret' => env('AWS_SECRET'),
             'region' => env('AWS_REGION'),
             'bucket' => env('AWS_BUCKET'),
+        ],
+
+        'backup' => [
+            'driver' => 's3',
+            'key'    => env('AMAZON_S3_KEY'),
+            'secret' => env('AMAZON_S3_SECRET'),
+            'region' => env('AMAZON_REGION'),
+            'bucket' => 'goodgifts-bkp',
         ],
 
     ],

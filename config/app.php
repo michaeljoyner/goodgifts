@@ -171,6 +171,7 @@ return [
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         Spatie\Sitemap\SitemapServiceProvider::class,
         SendPulse\SendPulseLaravel\SendPulseLaravelServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
         /*
          * Application Service Providers...
          */
