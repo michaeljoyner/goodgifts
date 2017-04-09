@@ -20,6 +20,7 @@ Vue.component('single-upload', require('./components/Singleupload.vue'));
 Vue.component('article-products', require('./components/ArticleProducts.vue'));
 Vue.component('article-products-app', require('./components/ArticleProductApp.vue'));
 Vue.component('product-link-maker', require('./components/ProductLinkGenerator.vue'));
+Vue.component('line-chart', require('./components/LineChart.vue'));
 
 window.eventHub = new Vue();
 

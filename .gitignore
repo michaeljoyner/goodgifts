@@ -2,6 +2,7 @@
 /public/storage
 /public/hot
 /storage/*.key
+/storage/app/laravel-google-analytics/service-account-credentials.json
 /vendor
 /.idea
 Homestead.json

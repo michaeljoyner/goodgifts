@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', 'PagesController@home');
 Route::get('/articles/{slug}', 'PagesController@article');
 
@@ -69,4 +70,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::post('services/products/lookup', 'ProductLookupController@show');
 
     Route::get('services/articles/{article}/products', 'ArticleMentionedProductsController@index');
+
+    Route::get('services/analytics/visitors', 'AnalyticsController@visitors');
+
 });
