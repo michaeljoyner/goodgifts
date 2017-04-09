@@ -9,7 +9,7 @@
             @if($errors->has('email'))
             <span class="error-message">{{ $errors->first('email') }}</span>
             @endif
-            <input type="text" name="email" value="{{ old('email') }}" class="form-control">
+            <input type="text" name="email" value="{{ old('email') }}" class="form-control" autofocus>
         </div>
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
             <label for="password">Password: </label>
@@ -17,6 +17,14 @@
             <span class="error-message">{{ $errors->first('password') }}</span>
             @endif
             <input type="password" name="password" value="{{ old('password') }}" class="form-control">
+        </div>
+        <div class="form-group{{ $errors->has('remember') ? ' has-error' : '' }}">
+            <label for="remember">Remember Me:
+                <input type="checkbox" name="remember" @if(old('remeber')) checked @endif id="remember">
+                @if($errors->has('remember'))
+                    <span class="error-message">{{ $errors->first('remember') }}</span>
+                @endif
+            </label>
         </div>
         <div class="form-group">
             <button type="submit" class="btn">Login</button>
