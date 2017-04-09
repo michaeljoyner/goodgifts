@@ -38,6 +38,11 @@ $text-color: #636b6f;
 
 // Navbar
 $navbar-default-bg: #fff;
+$navbar-inverse-bg: $brand_dark;
+$navbar-inverse-color: $brand_yellow;
+$navbar-inverse-link-active-color: $white;
+$navbar-inverse-link-color: $white;
+$navbar-border-radius: 0;
 
 // Buttons
 $btn-default-color: $text-color;
