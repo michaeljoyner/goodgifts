@@ -20,7 +20,7 @@
         </div>
         <div class="form-group{{ $errors->has('remember') ? ' has-error' : '' }}">
             <label for="remember">Remember Me:
-                <input type="checkbox" name="remember" @if(old('remeber')) checked @endif id="remember">
+                <input type="checkbox" name="remember" @if(old('remember')) checked @endif id="remember">
                 @if($errors->has('remember'))
                     <span class="error-message">{{ $errors->first('remember') }}</span>
                 @endif
