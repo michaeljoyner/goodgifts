@@ -39,5 +39,7 @@ class BatchUpdateTest extends TestCase
         $products->each(function($product) {
             $this->assertEquals('Fake title', $product->fresh()->title);
         });
+
+        $this->assertDatabaseMissing('issues', ['id' => $issue->id]);
     }
 }

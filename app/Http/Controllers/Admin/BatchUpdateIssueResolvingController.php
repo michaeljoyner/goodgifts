@@ -15,7 +15,7 @@ class BatchUpdateIssueResolvingController extends Controller
             (new ProductUpdate(collect([$product])))->execute();
         });
 
-        $issue->delete();
+        $issue->resolve();
         return redirect('/admin/issues');
     }
 }

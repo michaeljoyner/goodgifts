@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class UnavailableProductIssue extends Model
 {
+    use Resolvable;
+
     protected $table = 'unavailable_product_issues';
 
     protected $fillable = ['product_id'];

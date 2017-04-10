@@ -87,4 +87,19 @@ class IssuesTest extends TestCase
         $this->assertCount(0, Issue::all());
         $this->assertCount(0, ArticleUpdateIssue::all());
     }
+
+    /**
+     *@test
+     */
+    public function a_sub_issue_can_be_resolved()
+    {
+        $issue = Issue::createArticleUpdateIssue('Failed to update article', ['product_id' => 1, 'article_id' => 1]);
+        $subIssue = $issue->issue;
+        $this->assertInstanceOf(ArticleUpdateIssue::class, $subIssue);
+
+        $subIssue->resolve();
+
+        $this->assertCount(0, Issue::all());
+        $this->assertCount(0, ArticleUpdateIssue::all());
+    }
 }
