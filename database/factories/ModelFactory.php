@@ -35,7 +35,7 @@ $factory->define(App\Articles\Article::class, function (Faker\Generator $faker) 
 
 $factory->define(App\Products\Product::class, function (Faker\Generator $faker) {
     return [
-        'itemid' => 'B01TEST000',
+        'itemid' => 'B01TEST' . $faker->numberBetween(100,999),
         'title' => 'Factory Product',
         'description' => $faker->paragraph,
         'link' => $faker->url,

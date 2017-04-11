@@ -6,12 +6,14 @@ namespace Tests\Unit\Articles;
 
 
 use App\Articles\Article;
+use App\Products\Product;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\MakesArticlesWithProducts;
 use Tests\TestCase;
 
 class ArticleUpdateTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseMigrations, MakesArticlesWithProducts;
 
     /**
      *@test
@@ -39,5 +41,25 @@ class ArticleUpdateTest extends TestCase
         $issue = \App\Issues\ArticleUpdateIssue::first();
         $this->assertEquals($article->id, $issue->article_id);
         $this->assertEquals($product->id, $issue->product_id);
+    }
+
+    /**
+     *@test
+     */
+    public function updating_an_article_with_the_same_products_should_not_change_the_body()
+    {
+        $products = factory(Product::class, 10)->create();
+        $article = $this->makeArticleWithProducts($products->map->toArray());
+
+        $products->each(function($product) use ($article) {
+            $article->updateBodyWithProduct($product);
+        });
+        $secondBody = $article->fresh()->body;
+        $article = $article->fresh();
+        $products->each(function($product) use ($article) {
+            $article->updateBodyWithProduct($product);
+        });
+        $thirdBody = $article->fresh()->body;
+        $this->assertEquals($secondBody, $thirdBody);
     }
 }

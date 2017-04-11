@@ -160,7 +160,8 @@ class Article extends Model implements HasMediaConversions
     public function updateBodyWithProduct($product)
     {
         try {
-            $html = preg_replace('/&nbsp;/', '', $this->body);
+//            $html = preg_replace('/&nbsp;/', '', $this->body);
+            $html = $this->body;
             $crawler = new Crawler();
             $crawler->addHtmlContent(html_entity_decode($html));
             $query = '//*[@data-amzn-id="' . $product->itemid . '"]';
