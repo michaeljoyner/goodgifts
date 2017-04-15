@@ -55,8 +55,23 @@
 
             fetchLinkProduct() {
                 this.$http.post(`/admin/articles/${this.articleId}/products`, {item_ids: this.amazon_product_link})
-                        .then(({data}) => this.products = data)
-                        .catch(err => console.log(err));
+                        .then(({data}) => this.onSuccess(data))
+                        .catch(err => this.onFailure(err.response));
+            },
+
+            onSuccess(data) {
+                this.products = data;
+                this.amazon_product_link = '';
+            },
+
+            onFailure(err) {
+                console.log(err);
+                eventHub.$emit('user-alert', {
+                    type: 'error',
+                    title: 'Oh Shit',
+                    text: 'Unable to process item. Refresh and try again or give up.',
+                    confirm: true
+                });
             },
 
             removeProduct(product) {
