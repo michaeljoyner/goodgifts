@@ -45,7 +45,7 @@ class ArticleProductsUpdateTest extends TestCase
         $this->assertContains('<div class="amazon-product-card" data-amzn-id="' . $product->itemid . '">', $article->body);
         $this->assertContains('<p class="amazon-product-title">' . $product->title . '</p>', $article->body);
         $this->assertContains('<img src="' . $product->image . '" alt="' . $product->title . '">', $article->body);
-        $this->assertContains('<a href="' . $product->link . '">At Amazon for ' . $product->price . '</a>', $article->body);
+        $this->assertContains('<a href="' . $product->link . '"><span class="vendor-name">amazon</span><span class="inner-price">' . $product->price . '</span></a>', $article->body);
     }
 
     protected function getAdditionalProducts()

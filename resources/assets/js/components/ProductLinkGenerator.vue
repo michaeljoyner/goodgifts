@@ -167,7 +167,7 @@
                 return `<div class="amazon-product-card" data-amzn-id="${product.itemid}">
                                         <p class="amazon-product-title">${product.title}</p>
                                         ${imgTag}
-                                        <a href="${product.link}">At Amazon for ${product.price}</a>
+                                        <a href="${product.link}"><span class="vendor-name">amazon</span><span class="inner-price">${product.price}</span></a>
                                     </div>`;
             },
 

@@ -37,7 +37,7 @@ trait MakesArticlesWithProducts
 
     protected function makeArticleWithProducts($products)
     {
-        $productHtmlTemplate = '<div class="amazon-product-card" data-amzn-id="%s"><p class="amazon-product-title">%s</p><img src="%s" alt="%s"><a href="%s">At Amazon for %s</a></div>';
+        $productHtmlTemplate = '<div class="amazon-product-card" data-amzn-id="%s"><p class="amazon-product-title">%s</p><img src="%s" alt="%s"><a href="%s"><span class="vendor-name">amazon</span><span class="inner-price">%s</span></a></div>';
 
         $products = collect($products)->map(function ($product) use ($productHtmlTemplate) {
             $str = '';
