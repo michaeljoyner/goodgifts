@@ -1,7 +1,7 @@
 @extends('front.base')
 
 @section('title')
-    Good Gifts For Guys | Great gift ideas for the men in your life.
+    Good Gifts For Guys
 @endsection
 
 @section('head')
