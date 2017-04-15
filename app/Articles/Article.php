@@ -124,11 +124,20 @@ class Article extends Model implements HasMediaConversions
                 'title'  => $node->filter('.amazon-product-title')->first()->text(),
                 'link'   => $node->filter('a')->first()->attr('href'),
                 'image'  => $node->filter('img')->first()->attr('src'),
-                'price'  => $node->filter('.inner-price')->first()->text(),
+                'price'  => $this->extractPriceFromNode($node),
             ];
         });
 
         return $products;
+    }
+
+    protected function extractPriceFromNode($node)
+    {
+        if($node->filter('.inner-price')->count()) {
+            return $node->filter('.inner-price')->first()->text();
+        }
+
+        return substr($node->filter('a')->first()->text(), 14);
     }
 
     public function products()
