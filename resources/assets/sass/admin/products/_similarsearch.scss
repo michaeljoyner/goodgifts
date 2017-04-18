@@ -1,0 +1,51 @@
+.similar-search-component {
+
+  .product-listing {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > * {
+      width: 240px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: auto;
+    }
+
+    .similar-product-card {
+      border: 1px solid $admin_blue;
+      margin: 2em;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      .product-title {
+        width: 95%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .img-box {
+        height: 200px;
+        width: 100%;
+        background: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 200px;
+      }
+
+      .btn {
+        margin: 10px 0;
+      }
+    }
+  }
+}

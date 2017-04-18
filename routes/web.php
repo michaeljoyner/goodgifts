@@ -40,6 +40,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
 
     Route::delete('products/{product}', 'ProductsController@delete');
 
+    Route::get('products/{product}/similar', 'SimilarProductsController@show');
+
     Route::get('articles', 'ArticlesController@index');
     Route::get('articles/{article}', 'ArticlesController@show');
     Route::get('articles/{article}/edit', 'ArticlesController@edit');
@@ -68,6 +70,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::delete('issues/{issue}', 'IssuesController@delete');
 
     Route::post('services/products/lookup', 'ProductLookupController@show');
+    Route::get('services/products/similar/{itemid}', 'SimilarProductsController@index');
 
     Route::get('services/articles/{article}/products', 'ArticleMentionedProductsController@index');
 

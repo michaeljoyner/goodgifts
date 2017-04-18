@@ -3,6 +3,7 @@
     <img src="{{ $issue->issue->product->image }}" alt="">
     <p>{{ $issue->issue->product->title }}</p>
     <a href="{{ $issue->issue->product->link }}" class="btn" target="_blank">See on Amazon</a>
+    <a href="/admin/products/{{ $issue->issue->product->id }}/similar" class="btn">Check Similar Shit</a>
     @include('admin.partials.deletebutton', [
         'objectName' => $issue->issue->product->title,
         'deleteFormAction' => '/admin/products/' . $issue->issue->product->id
