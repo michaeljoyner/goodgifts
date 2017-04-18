@@ -5,6 +5,7 @@ namespace App\Articles;
 use App\Issues\ArticleUpdateIssue;
 use App\Products\Lookup;
 use App\Products\Product;
+use App\Products\ProductHtml;
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
@@ -169,7 +170,6 @@ class Article extends Model implements HasMediaConversions
     public function updateBodyWithProduct($product)
     {
         try {
-//            $html = preg_replace('/&nbsp;/', '', $this->body);
             $html = $this->body;
             $crawler = new Crawler();
             $crawler->addHtmlContent(html_entity_decode($html));
@@ -189,12 +189,7 @@ class Article extends Model implements HasMediaConversions
 
     protected function makeProductHtml($product)
     {
-        $productHtmlTemplate = '<p class="amazon-product-title">%s</p><div class="product-image-box"><a href="%s"><img src="%s" alt="%s"></a></div><a href="%s"><span class="vendor-name">amazon</span><span class="inner-price">%s</span></a>';
-
-        $html = sprintf($productHtmlTemplate, $product['title'], $product['link'], $product['image'],
-            $product['title'], $product['link'], $product['price']);
-
-        return htmlspecialchars($html);
+        return htmlspecialchars(ProductHtml::innerFor($product));
     }
 
     protected function reformattedCrawlerHtml($html)

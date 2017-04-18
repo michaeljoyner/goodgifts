@@ -5,6 +5,7 @@ namespace Tests;
 
 
 use App\Articles\Article;
+use App\Products\ProductHtml;
 
 trait MakesArticlesWithProducts
 {
@@ -37,19 +38,21 @@ trait MakesArticlesWithProducts
 
     protected function makeArticleWithProducts($products)
     {
-        $productHtmlTemplate = '<div class="amazon-product-card" data-amzn-id="%s"><p class="amazon-product-title">%s</p><img src="%s" alt="%s"><a href="%s"><span class="vendor-name">amazon</span><span class="inner-price">%s</span></a></div>';
-
-        $products = collect($products)->map(function ($product) use ($productHtmlTemplate) {
+        $products = collect($products)->map(function ($product) {
             $str = '';
             $str .= '<h4>A product sub title</h4>';
             $str .= '<p>This is some product information and text that might be interpreted by someone as an invitation to by some of their good from a store online, kidding, it is just dummy text.</p>';
-            $str .= sprintf($productHtmlTemplate, $product['itemid'], $product['title'], $product['image'],
-                $product['title'], $product['link'], $product['price']);
+            $str .= $this->makeProductHtml($product);
             return $str;
         })->toArray();
 
         $body = implode('', $products);
 
         return factory(Article::class)->create(['body' => $body]);
+    }
+
+    protected function makeProductHtml($product)
+    {
+        return ProductHtml::for($product);
     }
 }
