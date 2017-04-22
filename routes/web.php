@@ -69,10 +69,18 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::get('issues/{issue}', 'IssuesController@show');
     Route::delete('issues/{issue}', 'IssuesController@delete');
 
+    Route::get('cards/search', 'CardsSearchController@show');
+    Route::get('cards', 'CardsController@index');
+    Route::post('cards', 'CardsController@store');
+    Route::delete('cards/{card}', 'CardsController@delete');
+
     Route::post('services/products/lookup', 'ProductLookupController@show');
     Route::get('services/products/similar/{itemid}', 'SimilarProductsController@index');
 
     Route::get('services/articles/{article}/products', 'ArticleMentionedProductsController@index');
+
+    Route::get('services/cards/search', 'CardsSearchController@index');
+    Route::get('services/cards/index', 'CardsIndexController@index');
 
     Route::get('services/analytics/visitors', 'AnalyticsController@visitors');
 

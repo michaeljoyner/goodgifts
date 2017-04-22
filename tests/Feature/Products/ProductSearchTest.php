@@ -19,10 +19,9 @@ class ProductSearchTest extends TestCase
         $response->assertStatus(200)
             ->assertJsonStructure([
                 [
-                    'name',
-                    'image_src',
-                    'description',
-                    'rating',
+                    'title',
+                    'image',
+                    'price',
                     'link'
                 ]
             ]);

@@ -46,4 +46,9 @@ abstract class TestCase extends BaseTestCase
 
         });
     }
+
+    protected function assertModelDeleted($model)
+    {
+        return $this->assertNull($model->find($model->id));
+    }
 }

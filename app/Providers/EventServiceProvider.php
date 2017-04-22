@@ -20,6 +20,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\IssueCreated' => [
             'App\Listeners\SendIssueNotification'
+        ],
+        'App\Events\CardDeleted' => [
+            'App\Listeners\ClearDeletedCardProduct'
         ]
     ];
 

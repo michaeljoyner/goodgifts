@@ -21,6 +21,8 @@ Vue.component('article-products', require('./components/ArticleProducts.vue'));
 Vue.component('article-products-app', require('./components/ArticleProductApp.vue'));
 Vue.component('product-link-maker', require('./components/ProductLinkGenerator.vue'));
 Vue.component('similar-search', require('./components/SimilaritySearch.vue'));
+Vue.component('card-search', require('./components/CardSearchApp.vue'));
+Vue.component('card-collection', require('./components/CardCollection.vue'));
 Vue.component('line-chart', require('./components/LineChart.vue'));
 
 window.eventHub = new Vue();
