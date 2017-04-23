@@ -52,10 +52,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::post('articles/{article}', 'ArticlesController@update');
 
     Route::post('articles/{article}/publish', 'ArticlePublishingController@update');
-
     Route::post('articles/{article}/images', 'ArticleImagesController@store');
-
     Route::post('articles/{article}/titleimage', 'ArticleTitleImageController@update');
+    Route::get('articles/{article}/poster', 'ArticlePosterController@show');
 
     Route::get('articles/{article}/products/app', 'ArticlesProductsController@show');
     Route::get('articles/{article}/products', 'ArticlesProductsController@index');
