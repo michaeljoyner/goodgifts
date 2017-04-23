@@ -3,18 +3,25 @@
 @section('head')
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
     <style>
+        .article-poster-picture-maker {
+            position: relative;
+            width: 1200px;
+        }
+
         .article-poster-picture-maker h1 {
             font-family: 'Fredoka One';
-            font-size: 48px;
+            font-size: 70px;
             padding: 0 15px;
             position: absolute;
             color: rgb(222,131,10);
             line-height: 1.4;
             background: rgba(46,40,40,0.8);
+            bottom: 15px;
+            left: 30px;
         }
 
         .article-poster-picture-maker img {
-            max-width: 1200px;
+            width: 100%;
         }
     </style>
 @endsection
