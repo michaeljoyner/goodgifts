@@ -23,7 +23,7 @@ class Article extends Model implements HasMediaConversions
 
     protected $casts = ['published' => 'boolean'];
 
-    protected $dates = ['published_on'];
+    protected $dates = ['published_on', 'body_updated_on'];
 
     public function registerMediaConversions()
     {
@@ -112,6 +112,20 @@ class Article extends Model implements HasMediaConversions
         }
 
         return static::DEFAULT_TITLE_IMG;
+    }
+
+    public function setBody($content)
+    {
+        $this->body = $content;
+        $this->body_updated_on = Carbon::now();
+        $this->save();
+
+        return $this->body;
+    }
+
+    public function lastUpdated()
+    {
+        return $this->body_updated_on ?? $this->published_on ?? $this->created_at;
     }
 
     public function mentionedProducts()

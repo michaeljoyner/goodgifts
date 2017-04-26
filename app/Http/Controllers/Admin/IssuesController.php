@@ -21,7 +21,7 @@ class IssuesController extends Controller
         if(! $issue) {
             return redirect('/admin/issues');
         }
-        
+
         return view('admin.issues.show')->with(compact('issue'));
     }
 

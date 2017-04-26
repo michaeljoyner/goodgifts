@@ -15,6 +15,6 @@ class ArticleBodyController extends Controller
 
     public function update(Request $request, Article $article)
     {
-        $article->update(['body' => $request->body]);
+        $article->setBody($request->body);
     }
 }
