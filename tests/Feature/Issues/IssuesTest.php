@@ -22,4 +22,15 @@ class IssuesTest extends TestCase
 
         $this->assertDatabaseMissing('issues', ['id' => $issue->id]);
     }
+
+    /**
+     *@test
+     */
+    public function attempting_to_view_a_non_existent_issue_just_redirects_to_issues_page()
+    {
+        $response = $this->asLoggedInUser()->get('/admin/issues/44');
+
+        $response->assertStatus(302);
+        $response->assertRedirect('/admin/issues');
+    }
 }

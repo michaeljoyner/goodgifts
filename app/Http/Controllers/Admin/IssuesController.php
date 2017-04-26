@@ -14,8 +14,14 @@ class IssuesController extends Controller
         return view('admin.issues.index')->with(compact('issues'));
     }
 
-    public function show(Issue $issue)
+    public function show($issue)
     {
+        $issue = Issue::find($issue);
+
+        if(! $issue) {
+            return redirect('/admin/issues');
+        }
+        
         return view('admin.issues.show')->with(compact('issue'));
     }
 
