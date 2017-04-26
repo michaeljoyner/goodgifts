@@ -1,0 +1,30 @@
+{
+  "@context": "http://www.schema.org",
+  "@type": "Article",
+  "name": "Good Gifts For Guys",
+  "alternateName": "Gift guides and ideas for the men in your life",
+  "url": "https://goodgiftsforguys.com/good-stuff",
+  "dateModified": "2017-05-05",
+  "author": "goodgiftsforguys",
+  "datePublished": "2017-05-05",
+  "headline": "Wow hey",
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://goodgiftsforguys.com/logo.png",
+    "height": "400px",
+    "width": "400px"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "url": "http://goodgiftsforguys.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://goodgiftsforguys.com/logo.png"
+    },
+    "name": "Good Gifts for Guys"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://cathscafe.example.com/"
+  }
+}
