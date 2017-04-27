@@ -29,3 +29,7 @@
         @include('front.partials.sharing_icons')
     </article>
 @endsection
+
+@section('bodyscripts')
+    @include('front.partials.article_structured_data')
+@endsection

@@ -31,3 +31,15 @@
     </article>
     @endforeach
 @endsection
+
+@section('bodyscripts')
+    <script type='application/ld+json'>
+    {
+      "@context": "http://www.schema.org",
+      "@type": "WebSite",
+      "name": "Good Gifts For Guys",
+      "alternateName": "Gift guides and ideas for the men in your life",
+      "url": "https://goodgiftsforguys.com"
+    }
+ </script>
+@endsection
