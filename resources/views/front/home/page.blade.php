@@ -14,6 +14,7 @@
 
 @section('content')
     <header class="main-hero">
+        <a class="facebook-link" href="https://facebook.com/goodgiftsforguys" target="_blank">@include('svgicons.social.facebook-f')</a>
         <h1 class="page-title">Good Gifts</h1>
         <h2 class="page-subtitle">For Guys.</h2>
     </header>

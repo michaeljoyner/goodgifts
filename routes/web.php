@@ -14,6 +14,7 @@
 
 Route::get('/', 'PagesController@home');
 Route::get('/articles/{slug}', 'PagesController@article');
+Route::get('/articles/{slug}/plain-text', 'ArticleTextController@show')->middleware('auth.basic');
 
 Route::get('gifts', 'GiftSearchController@index');
 
@@ -33,6 +34,8 @@ Route::post('admin/logout', 'Auth\LoginController@logout')->name('logout');
 //$this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/home', 'HomeController@index');
+
+
 
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
