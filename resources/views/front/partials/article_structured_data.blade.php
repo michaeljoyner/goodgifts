@@ -1,3 +1,4 @@
+@if($article->isPublished())
 <script type="application/ld+json">
     {
   "@context": "http://www.schema.org",
@@ -30,3 +31,4 @@
   }
 }
 </script>
+@endif
