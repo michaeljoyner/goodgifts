@@ -37,4 +37,5 @@
         <h1>{{ $article->title }}</h1>
         <img src="{{ $article->titleImage() }}" alt="">
     </section>
+    <a href="{{ $article->titleImage() }}" class="btn" download="">Get Image</a>
 @endsection

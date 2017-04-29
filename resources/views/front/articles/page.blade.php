@@ -17,6 +17,9 @@
         <a href="/">
             <h1 class="page-title">Good Gifts <span>For guys</span></h1>
         </a>
+        <a href="https://facebook.com/goodgiftsforguys" class="facebook-link">
+            @include('svgicons.social.facebook-f')
+        </a>
     </header>
     <article class="article-page-content">
         <h1 class="article-page-title">{{ $article->title }}</h1>
