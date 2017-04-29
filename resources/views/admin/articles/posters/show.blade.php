@@ -31,11 +31,12 @@
         <h1 class="header-title">Make me a poster pic</h1>
         <div class="page-actions">
             <a href="/admin/articles/{{ $article->id }}" class="btn">Back</a>
+            <a href="{{ $article->titleImage() }}" class="btn" download="">Get Image</a>
         </div>
     </header>
     <section class="article-poster-picture-maker">
         <h1>{{ $article->title }}</h1>
         <img src="{{ $article->titleImage() }}" alt="">
     </section>
-    <a href="{{ $article->titleImage() }}" class="btn" download="">Get Image</a>
+
 @endsection
