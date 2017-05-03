@@ -17,9 +17,14 @@ class CardsController extends Controller
     public function store(Lookup $lookup)
     {
         $product = $lookup->withId(request('itemid'))->first();
-        $product->save();
+        if($product && $product->available) {
+            $product->save();
+            Card::create(['product_id' => $product->fresh()->id]);
+            return $product->fresh();
+        }
 
-        return Card::create(['product_id' => $product->fresh()->id]);
+        return response('No card created', 422);
+
     }
 
     public function delete(Card $card)

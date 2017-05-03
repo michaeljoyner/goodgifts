@@ -17,7 +17,8 @@ class FakeLookup implements Lookup
                 'description' => 'Fake description',
                 'image' => 'Fake image',
                 'price' => 'Fake price',
-                'itemid' => $itemId
+                'itemid' => $itemId,
+                'available' => true
             ]);
         });
     }

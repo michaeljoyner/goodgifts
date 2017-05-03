@@ -41,18 +41,20 @@ class ProductLookupTest extends TestCase
             'price'       => 'Fake price',
             'image'       => 'Fake image',
             'itemid'      => 'TEST123',
+            'available'   => true
         ], $results);
     }
 
     /**
-     *@test
+     * @test
      */
     public function multiple_products_can_be_looked_up()
     {
         $this->disableExceptionHandling();
         $productUrls = 'http://amazon.com/testurl-one/dp/B00TEST111/test, http://amazon.com/testurl-two/dp/B00TEST222/test';
 
-        $response = $this->asLoggedInUser()->json('POST', '/admin/services/products/lookup', ['itemid' => $productUrls]);
+        $response = $this->asLoggedInUser()->json('POST', '/admin/services/products/lookup',
+            ['itemid' => $productUrls]);
 
         $response->assertStatus(200);
         $results = $response->decodeResponseJson();
