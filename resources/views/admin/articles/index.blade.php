@@ -15,7 +15,7 @@
             <li class="list-group-item"><a href="/admin/articles/{{ $article->id }}">{{ $article->title }}</a></li>
             @endforeach
         </ul>
-
+        {!! $articles->links() !!}
     </section>
     @include('admin.forms.modals.article')
 @endsection
