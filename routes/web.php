@@ -18,6 +18,8 @@ Route::get('/articles/{slug}/plain-text', 'ArticleTextController@show')->middlew
 
 Route::get('gifts', 'GiftSearchController@index');
 
+Route::post('recommendations/request', 'RecommendationRequestsController@store');
+
 
 Route::get('admin/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('admin/login', 'Auth\LoginController@login');
@@ -75,6 +77,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::get('cards', 'CardsController@index');
     Route::post('cards', 'CardsController@store');
     Route::delete('cards/{card}', 'CardsController@delete');
+
+    Route::get('recommendations/requests', 'RecommendationRequestsController@index');
 
     Route::post('services/products/lookup', 'ProductLookupController@show');
     Route::get('services/products/similar/{itemid}', 'SimilarProductsController@index');

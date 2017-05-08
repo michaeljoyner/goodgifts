@@ -11,6 +11,10 @@ body {
   padding: 0;
   color: $brand_dark;
   font-family: $body_font;
+
+  &.modal-open {
+    overflow: hidden;
+  }
 }
 
 a, a:visited, a:hover, a:active {

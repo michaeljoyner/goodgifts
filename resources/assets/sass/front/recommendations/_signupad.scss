@@ -1,0 +1,40 @@
+.reminder-signup-component {
+  width: 95%;
+  max-width: 800px;
+  margin: 2em auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid $brand_yellow;
+
+  .signup-ad-header {
+    margin: 15px 0;
+    font-family: $sans_serif;
+    color: $brand_dark;
+    text-align: center;
+  }
+
+  .signup-ad-copy {
+    text-align: center;
+  }
+  
+  .signup-cta {
+    display: inline-block;
+    width: 12em;
+    text-transform: uppercase;
+    color: $brand_dark;
+    background: $brand_yellow;
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 8px 0;
+    text-align: center;
+    font-family: $sans_serif;
+    cursor: pointer;
+
+    &:hover {
+      background: $brand_dark;
+      color: $brand_yellow;
+    }
+  }
+}

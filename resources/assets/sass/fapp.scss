@@ -4,6 +4,8 @@
 
 @import "shared/typography";
 
+@import "admin/partials/modalvue";
+
 @import "front/partials/footer";
 @import "front/partials/svgicons";
 @import "front/partials/pageheader";
@@ -16,3 +18,7 @@
 //articles
 @import "front/articles/page";
 @import "front/articles/amazoncard";
+
+//recommendations
+@import "front/recommendations/signupmodal";
+@import "front/recommendations/signupad";

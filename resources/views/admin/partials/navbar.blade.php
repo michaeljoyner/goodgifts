@@ -33,6 +33,7 @@
                         <li><a href="/admin/cards/search">Search</a></li>
                     </ul>
                 </li>
+                <li><a href="/admin/recommendations/requests">Sign Ups</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

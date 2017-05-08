@@ -18,6 +18,7 @@
         <h1 class="page-title">Good Gifts</h1>
         <h2 class="page-subtitle">For Guys.</h2>
     </header>
+
     @foreach($articles as $article)
     <article class="article-listing">
         <div class="image-box">
@@ -30,6 +31,9 @@
             <p class="article-description">{{ $article->intro }}</p>
         </div>
     </article>
+        @if(Auth::check() && $loop->iteration === 3)
+            <reminder-signup></reminder-signup>
+        @endif
     @endforeach
 @endsection
 

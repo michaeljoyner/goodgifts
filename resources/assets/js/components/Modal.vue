@@ -3,7 +3,8 @@
 </style>
 
 <template>
-    <div class="modal-mask" v-show="show" transition="modal">
+    <transition name="modal">
+    <div class="modal-mask" v-show="show">
         <div class="modal-wrapper">
             <div class="modal-container" :class="{'wide': wider}">
 
@@ -30,6 +31,7 @@
             </div>
         </div>
     </div>
+    </transition>
 </template>
 
 <script>
