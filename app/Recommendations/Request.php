@@ -2,6 +2,7 @@
 
 namespace App\Recommendations;
 
+use App\Events\RecommendationRequested;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,6 +13,10 @@ class Request extends Model
     protected $fillable = ['email', 'interests', 'birthday', 'sender', 'recipient', 'budget'];
 
     protected $dates = ['birthday'];
+
+    protected $events = [
+        'created' => RecommendationRequested::class
+    ];
 
     public function setBirthdayAttribute($birthday)
     {
