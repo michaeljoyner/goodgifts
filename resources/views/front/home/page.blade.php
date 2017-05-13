@@ -23,7 +23,7 @@
     <article class="article-listing">
         <div class="image-box">
             <a href="/articles/{{ $article->slug }}">
-                <img class="article-title-image" src="{{ $article->titleImage('web') }}" alt="{{ $article->title }}">
+                <img class="article-title-image" src="{{ $article->titleImage('thumb') }}" alt="{{ $article->title }}">
             </a>
         </div>
         <div class="text-box">
