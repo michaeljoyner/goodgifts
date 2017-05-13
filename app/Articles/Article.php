@@ -28,7 +28,7 @@ class Article extends Model implements HasMediaConversions
     public function registerMediaConversions()
     {
         $this->addMediaConversion('thumb')
-            ->setManipulations(['w' => 320, 'h' => 213, 'fit' => 'crop', 'fm' => 'src'])
+            ->setManipulations(['w' => 500, 'h' => 333, 'fit' => 'crop', 'fm' => 'src'])
             ->performOnCollections('default');
         $this->addMediaConversion('web')
             ->setManipulations(['w' => 800, 'h' => 500, 'fit' => 'max', 'fm' => 'src'])
