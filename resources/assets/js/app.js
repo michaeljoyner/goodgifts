@@ -24,6 +24,8 @@ Vue.component('similar-search', require('./components/SimilaritySearch.vue'));
 Vue.component('card-search', require('./components/CardSearchApp.vue'));
 Vue.component('card-collection', require('./components/CardCollection.vue'));
 Vue.component('line-chart', require('./components/LineChart.vue'));
+Vue.component('interest-tagger', require('./components/InterestTagger.vue'));
+Vue.component('type-ahead', require('./components/Typeahead.vue'));
 
 window.eventHub = new Vue();
 

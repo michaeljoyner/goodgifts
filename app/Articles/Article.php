@@ -2,6 +2,7 @@
 
 namespace App\Articles;
 
+use App\Interests\Interest;
 use App\Issues\ArticleUpdateIssue;
 use App\Products\Lookup;
 use App\Products\Product;
@@ -214,6 +215,23 @@ class Article extends Model implements HasMediaConversions
         $html = html_entity_decode($html);
 
         return mb_substr($html, 6, -7);
+    }
+
+    public function interests()
+    {
+        return $this->belongsToMany(Interest::class);
+    }
+
+    public function setInterests($interests)
+    {
+        $this->interests()->sync(Interest::createList($interests)->pluck('id'));
+
+        return $this->fresh()->interests;
+    }
+
+    public function hasInterest($interest)
+    {
+        return $this->interests->pluck('interest')->contains($interest);
     }
 
 

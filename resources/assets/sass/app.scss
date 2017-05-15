@@ -24,6 +24,8 @@
 @import "admin/partials/forms";
 @import "admin/partials/buttons";
 @import "admin/partials/article_products_component";
+@import "admin/partials/typeahead";
+
 
 @import "admin/editor/productmodals";
 @import "admin/editor/link_maker";
@@ -32,3 +34,5 @@
 @import "admin/issues/index";
 
 @import "admin/products/similarsearch";
+
+@import "admin/interests/tagger";

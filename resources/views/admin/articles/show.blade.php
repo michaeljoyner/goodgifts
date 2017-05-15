@@ -42,6 +42,7 @@
                 ></article-publisher>
             </div>
         </div>
+        <interest-tagger article-id="{{ $article->id }}"></interest-tagger>
         <div class="article-products-section">
             <article-products article-id="{{ $article->id }}"></article-products>
         </div>

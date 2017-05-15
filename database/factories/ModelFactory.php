@@ -43,3 +43,9 @@ $factory->define(App\Products\Product::class, function (Faker\Generator $faker) 
         'price' => '$DUMMY'
     ];
 });
+
+$factory->define(App\Interests\Interest::class, function (Faker\Generator $faker) {
+    return [
+        'interest' => $faker->word
+    ];
+});

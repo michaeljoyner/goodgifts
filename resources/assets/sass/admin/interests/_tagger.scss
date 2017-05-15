@@ -1,0 +1,33 @@
+.interest-tagger-component {
+  background: $white;
+  padding: 15px;
+
+  .component-title {
+    text-transform: uppercase;
+    color: $admin_blue;
+  }
+
+  .current-interests {
+    padding-bottom: 20px;
+    & > div {
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 5px;
+      padding: 4px 6px;
+      height: 25px;
+      border-radius: 5px;
+      border: 1px solid $admin_blue;
+      font-size: 1em;
+
+      .close-icon {
+        border-radius: 50%;
+        color: $admin_red;
+        text-align: right;
+        font-size: 25px;
+        margin-left: 15px;
+        cursor: default;
+      }
+    }
+  }
+}
