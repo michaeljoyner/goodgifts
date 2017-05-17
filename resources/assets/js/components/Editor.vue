@@ -274,7 +274,7 @@
                         if(swap.link_text === '') {
                             this.editor.dom.setOuterHTML(link, `<a class="amzn-text-link" href="${swap.new_product.link}">${link.innerHTML}</a>`);
                         } else {
-                            this.editor.dom.setOuterHTML(link, swap.link_text_html);
+                            this.editor.dom.setOuterHTML(link, swap.text_link_html);
                         }
                     }
                 });
