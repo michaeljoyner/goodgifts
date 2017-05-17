@@ -26,6 +26,7 @@ Vue.component('card-collection', require('./components/CardCollection.vue'));
 Vue.component('line-chart', require('./components/LineChart.vue'));
 Vue.component('interest-tagger', require('./components/InterestTagger.vue'));
 Vue.component('type-ahead', require('./components/Typeahead.vue'));
+Vue.component('product-swapper', require('./components/ProductSwapSelector.vue'));
 
 window.eventHub = new Vue();
 

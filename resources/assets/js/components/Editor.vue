@@ -56,6 +56,7 @@
                 :article-id="postId"
                 v-on:product-link-made="insertLinkHtml"
         ></product-link-maker>
+        <product-swapper :article-id="postId" ref="swapper" v-on:product-swap="swapProducts"></product-swapper>
     </div>
 </template>
 
@@ -96,6 +97,8 @@
                 ed.addButton('insert-image-btn', this.makeButton('/images/assets/insert_photo_black.png', this.openUploadModal, ''));
                 ed.addButton('save_button', this.makeButton('/images/assets/save_button_icon.png', () => this.saveContent(false), 'Save'));
                 ed.addButton('product_link_make_button', this.makeButton('/images/assets/gift_icon.png', () => this.showProductLinkModal()));
+                ed.addButton('h4_button', this.makeButton('/images/assets/h4_button.png', () => this.insertHeadingFour(), ''));
+                ed.addButton('swap_button', this.makeButton('/images/assets/swap_button.png', () => this.showSwapModal(), ''));
             }
             this.$nextTick(() => tinymce.init(config)
                     .then((editors) => this.editor = editors[0])
@@ -249,6 +252,36 @@
 
             insertLinkHtml({html}) {
                 this.editor.selection.setContent(html);
+            },
+
+            insertHeadingFour() {
+                const text = this.editor.selection.getContent();
+                if(text) {
+                    this.editor.dom.setOuterHTML(this.editor.selection.getNode(), `<h4>${text}</h4>`);
+                } else {
+                    this.editor.insertContent(`<h4></h4>`);
+                }
+            },
+
+            showSwapModal() {
+                this.$refs.swapper.$emit('req-product-swap');
+            },
+
+            swapProducts(swap) {
+                const anchors = this.editor.$('.amzn-text-link');
+                anchors.each((i, link) => {
+                    if(link.href.indexOf(swap.old_product.itemid) !== -1) {
+                        if(swap.link_text === '') {
+                            this.editor.dom.setOuterHTML(link, `<a class="amzn-text-link" href="${swap.new_product.link}">${link.innerHTML}</a>`);
+                        } else {
+                            this.editor.dom.setOuterHTML(link, swap.link_text_html);
+                        }
+                    }
+                });
+                const product_cards = this.editor.$(`.amazon-product-card[data-amzn-id=${swap.old_product.itemid}]`);
+                product_cards.each((i, card) => {
+                    this.editor.dom.setOuterHTML(card, swap.product_card_html);
+                });
             }
         }
     }

@@ -2,10 +2,12 @@
 
 <template>
     <div class="reminder-signup-component">
-        <h2 class="signup-ad-header">Get Free Gift Recommendations</h2>
-        <span @click="openModal" class="signup-cta">Sign up now!</span>
-        <p class="signup-ad-copy">Need help with gifts for a guy?</p>
-        <p class="signup-ad-copy">Simply sign up and we'll send you custom and curated recommendations based on his interests (and your budget) exactly one month before his birthday. For free.</p>
+        <h2 class="signup-ad-header">How about this for a crazy idea?</h2>
+
+        <p class="signup-ad-copy">We take his interests, mix them with your budget and send you a customized gift list 30 days before his birthday.</p>
+        <p class="signup-ad-copy">Yay or Nay?</p>
+        <span @click="openModal" class="signup-cta">Yay!</span>
+        <p class="signup-ad-copy">Oh, and it's totally free.</p>
         <modal :show="modalOpen" :wider="true" class="recommendation-signup-modal">
             <div slot="header">
 
@@ -90,16 +92,20 @@
                     <div class="form-group" :class="{'has-error': errors.interests}">
                         <label for="interests">His interests: </label>
                         <span class="error-message" v-show="errors.interests">{{ errors.interests }}</span>
-                        <input type="text" v-model="form.interests" class="form-control" placeholder="Outdoors, craft beer, his kitchen, etc" required>
+                        <input type="text"
+                               v-model="form.interests"
+                               class="form-control"
+                               placeholder="Outdoors, design, cooking, office, etc"
+                               required
+                        >
                     </div>
                     <div class="form-group">
                         <label>What's your budget?</label>
-                        <small class="small-instruction">Use the slider to set your budget and we will only give you options you care about.</small>
-                        <p class="budget-text">{{ budget_block }}</p>
+                        <p class="budget-text">{{ budget_text }}</p>
                         <range-slider class="slider"
                                       min="0"
-                                      max="100"
-                                      step="1"
+                                      max="1050"
+                                      step="10"
                                       v-model="form.budget"
                         ></range-slider>
 
@@ -110,13 +116,13 @@
                                 @click="closeModal"
                                 :disabled="sending"
                                 class="signup-btn"
-                        >Cancel
+                        >Maybe later
                         </button>
                         <button type="submit"
                                 class="signup-btn action-button"
                                 :disabled="sending"
-                                v-text="sending ? 'sending' : 'do it!'"
-                        >Do it!
+                                v-text="sending ? 'sending' : `Hit it!`"
+                        >
                         </button>
                     </div>
                 </form>
@@ -155,7 +161,7 @@
                     sender: '',
                     recipient: '',
                     birthday: {month: "03", day: "15"},
-                    budget: 30,
+                    budget: 100,
                     interests: '',
                     email: ''
                 },
@@ -171,8 +177,8 @@
                 fresh: true,
                 sending: false,
                 messages: {
-                    success: 'Yay! That was an outrageous success',
-                    error: 'Oh dear, that did not go according to plan. Please refresh and try again, thanks.',
+                    success: 'Rest easy, our minions are already hard at work. Your list will arrive 30 days before his next birthday.',
+                    error: 'Oh hell, it looks like we need a mulligan. Please refresh and try again. Sorry.',
                     invalid: 'There was a problem with your input, please check below.'
                 },
                 requestStatus: 'success',
@@ -197,13 +203,20 @@
                         .pop().label;
             },
 
+            budget_text() {
+              if(this.form.budget < 1000) {
+                  return `US$${this.form.budget}`;
+              }
+                return `No expenses spared!`;
+            },
+
             lead_text() {
                 if(this.sending) {
                     return 'Sending...';
                 }
 
                 if(this.fresh && this.requestStatus === 'success') {
-                    return 'Get free gift recommendations based on his interests sent directly to you a month before his birthday.';
+                    return 'High five! Glad to have you on board. We just need a few details.';
                 }
 
                 return this.messages[this.requestStatus];
@@ -265,12 +278,12 @@
 
             clearForm() {
               this.form = {
-                  sender: '',
+                  sender: this.form.sender,
                   recipient: '',
                   birthday: {month: "03", day: "15"},
-                  budget: 30,
+                  budget: 100,
                   interests: '',
-                  email: ''
+                  email: this.form.email
               };
             },
 

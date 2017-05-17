@@ -14,6 +14,7 @@ require('./frontstrap');
  */
 Vue.component('modal', require('./components/Modal.vue'));
 Vue.component('reminder-signup', require('./components/ReminderSignupForm.vue'));
+Vue.component('giftlist-request-form', require('./components/GiftListRequestForm.vue'));
 
 
 window.eventHub = new Vue();

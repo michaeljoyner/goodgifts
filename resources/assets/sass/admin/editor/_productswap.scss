@@ -1,0 +1,46 @@
+.product-swap-component {
+
+  .product-small-list-box {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px 0;
+
+    .product-box {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: auto;
+      width: 50%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 5px 0;
+      border-bottom: 1px solid $mid-grey;
+      border-right: 1px solid $mid-grey;
+
+      &.selected {
+        background: rgba($admin_blue, .2);
+      }
+
+      span {
+        width: 78%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .product-small-list-box.has-selection {
+    .product-box:not(.selected) {
+      display: none;
+    }
+  }
+
+  .mentioned-products {
+    border: 2px solid $brand_dark;
+  }
+
+  .stored-products {
+    border: 2px solid $brand_yellow;
+  }
+}

@@ -27,6 +27,6 @@ class SignupWelcomeMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('You are the best')->markdown('emails.recommendations.welcome');
+        return $this->subject('There will be consequences')->markdown('emails.recommendations.welcome');
     }
 }

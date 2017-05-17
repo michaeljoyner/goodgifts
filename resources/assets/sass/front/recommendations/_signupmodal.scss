@@ -171,6 +171,11 @@
       font-size: 70%;
     }
 
+    input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px $white inset;
+      -webkit-text-fill-color: $brand_dark !important;
+    }
+
     input.form-control {
       height: 32px;
       padding-left: 5px;

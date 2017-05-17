@@ -32,7 +32,12 @@
         </div>
     </article>
         @if(Auth::check() && $loop->iteration === 3)
-            <reminder-signup></reminder-signup>
+            {{--<reminder-signup></reminder-signup>--}}
+            <div class="reminder-signup-component">
+                <h3 class="signup-ad-header">Hey You</h3>
+                <p class="signup-ad-copy">Sign up for this stuff</p>
+                <giftlist-request-form button-text="okay"></giftlist-request-form>
+            </div>
         @endif
     @endforeach
 @endsection
