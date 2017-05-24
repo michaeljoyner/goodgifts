@@ -1,0 +1,50 @@
+.main-hero .social-hero-links {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.social-hero-links {
+  display: flex;
+  align-items: center;
+
+  .social-hero-link {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 10px;
+
+    @include respond-to(phone) {
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .colour-fill {
+      fill: $mid-grey;
+    }
+
+    .colour-stroke {
+      stroke: $mid-grey;
+    }
+
+    &:hover {
+      border-color: $brand_yellow;
+      .colour-fill {
+        fill: $brand_yellow;
+      }
+
+      .colour-stroke {
+        stroke: $brand_yellow;
+      }
+    }
+  }
+}
+
+.instagram-link {
+
+}
+
+.facebook-link {
+
+}

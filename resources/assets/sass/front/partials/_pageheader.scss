@@ -22,29 +22,4 @@
       font-size: 70%;
     }
   }
-
-  .facebook-link {
-    border: 1px solid $mid-grey;
-    border-radius: 5px;
-    padding: 4px;
-
-    @include respond-to(phone) {
-      svg {
-        width: 20px;
-        height: 20px;
-        padding: 3px;
-      }
-    }
-
-    svg path {
-      fill: $mid-grey;
-    }
-
-    &:hover {
-      border-color: $brand_yellow;
-      svg path {
-        fill: $brand_yellow;
-      }
-    }
-  }
 }
