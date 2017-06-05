@@ -13,12 +13,7 @@
 @endsection
 
 @section('content')
-    <header class="page-header">
-        <a href="/">
-            <h1 class="page-title">Good Gifts <span>For guys</span></h1>
-        </a>
-        @include('front.partials.socialherolinks')
-    </header>
+    @include('front.partials.standardheader')
     <article class="article-page-content">
         <h1 class="article-page-title">{{ $article->title }}</h1>
         <p class="article-date"><span>@include('svgicons.calendar')</span><br>{{ $article->lastUpdated()->toFormattedDateString() }}</p>

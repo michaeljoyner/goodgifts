@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 class RecommendationRequestsController extends Controller
 {
 
-
+    public function show()
+    {
+        return view('front.recommendations.signup');
+    }
 
     public function store()
     {

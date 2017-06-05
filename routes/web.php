@@ -16,8 +16,10 @@ Route::get('/', 'PagesController@home');
 Route::get('/articles/{slug}', 'PagesController@article');
 Route::get('/articles/{slug}/plain-text', 'ArticleTextController@show')->middleware('auth.basic');
 
+
 Route::get('gifts', 'GiftSearchController@index');
 
+Route::get('recommendations/signup', 'RecommendationRequestsController@show');
 Route::post('recommendations/request', 'RecommendationRequestsController@store');
 
 

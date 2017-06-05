@@ -1,0 +1,56 @@
+.signup-page-main-section {
+  width: 95%;
+  max-width: 960px;
+  margin: 0 auto;
+
+  .signup-form {
+
+    .form-section {
+      background: $eggshell;
+      padding: 20px;
+      margin: 20px 0;
+      display: flex;
+      justify-content: space-between;
+
+      & > * {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
+        max-width: 450px;
+      }
+    }
+
+    .form-text-box {
+      width: 45%;
+
+      h3 {
+        margin-top: 0;
+      }
+    }
+
+    .form-input-box {
+      width: 55%;
+    }
+
+    .form-group {
+      margin: 10px 0;
+
+      label {
+        text-transform: uppercase;
+        font-size: 80%;
+        font-weight: 300;
+        color: $brand_blue;
+      }
+
+      .form-control {
+        width: 100%;
+      }
+    }
+
+    input {
+      height: 32px;
+      padding-left: 5px;
+      border-radius: 0;
+    }
+  }
+}
