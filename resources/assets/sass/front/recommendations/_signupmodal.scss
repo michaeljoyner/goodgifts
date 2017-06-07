@@ -118,38 +118,38 @@
 
   }
 
-  .style-select {
-    height: 32px;
-    border: 1px solid $brand_yellow;
-    display: inline-block;
-    overflow: hidden;
-    position: relative;
-    vertical-align: middle;
-    background: url(images/down-caret.svg);
-    background-repeat: no-repeat;
-    background-position-x: 100%;
-
-    &.month {
-      width: 7em;
-    }
-
-    &.day {
-      width: 3em;
-    }
-
-    select {
-      width: calc(100% + 20px);
-      display: inline-block;
-      border: none;
-      height: 32px;
-      background: transparent;
-      font-size: 80%;
-
-      &:focus {
-        outline: none;
-      }
-    }
-  }
+  //.style-select {
+  //  height: 32px;
+  //  border: 1px solid $brand_yellow;
+  //  display: inline-block;
+  //  overflow: hidden;
+  //  position: relative;
+  //  vertical-align: middle;
+  //  background: url(images/down-caret.svg);
+  //  background-repeat: no-repeat;
+  //  background-position-x: 100%;
+  //
+  //  &.month {
+  //    width: 7em;
+  //  }
+  //
+  //  &.day {
+  //    width: 3em;
+  //  }
+  //
+  //  select {
+  //    width: calc(100% + 20px);
+  //    display: inline-block;
+  //    border: none;
+  //    height: 32px;
+  //    background: transparent;
+  //    font-size: 80%;
+  //
+  //    &:focus {
+  //      outline: none;
+  //    }
+  //  }
+  //}
 
   .form-group {
     margin: 15px 0;
