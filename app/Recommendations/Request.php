@@ -10,7 +10,7 @@ class Request extends Model
 {
     protected $table = 'requests';
 
-    protected $fillable = ['email', 'interests', 'birthday', 'sender', 'recipient', 'budget'];
+    protected $fillable = ['email', 'interests', 'birthday', 'sender', 'recipient', 'budget', 'age_group'];
 
     protected $dates = ['birthday'];
 

@@ -17,11 +17,17 @@ class RecommendationRequestsController extends Controller
         $this->validate(request(), [
             'email' => 'required|email',
             'interests' => 'required',
-            'birthday' => ['required', 'regex:/^(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/']
+            'birthday_day' => ['required', 'regex:/^(0[1-9]|[12][0-9]|3[01])$/'],
+            'birthday_month' => ['required', 'regex:/^(0[1-9]|1[0-2])$/']
         ]);
 
-        \App\Recommendations\Request::create(request()->only('email', 'interests', 'birthday', 'sender', 'recipient', 'budget'));
+        \App\Recommendations\Request::create(array_merge(request()->only('email', 'interests', 'sender', 'recipient', 'budget', 'age_group'), ['birthday' => request('birthday_month') . '-' . request('birthday_day')]));
 
-        return response()->json('ok');
+        return redirect('/recommendations/thanks');
+    }
+
+    public function thanks()
+    {
+        return view('front.recommendations.thanks');
     }
 }

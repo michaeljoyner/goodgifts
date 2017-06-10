@@ -20,6 +20,7 @@ Route::get('/articles/{slug}/plain-text', 'ArticleTextController@show')->middlew
 
 Route::get('recommendations/signup', 'RecommendationRequestsController@show');
 Route::post('recommendations/request', 'RecommendationRequestsController@store');
+Route::get('recommendations/thanks', 'RecommendationRequestsController@thanks');
 
 
 Route::get('admin/login', 'Auth\LoginController@showLoginForm')->name('login');

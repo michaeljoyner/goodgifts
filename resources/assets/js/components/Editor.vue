@@ -57,6 +57,7 @@
                 v-on:product-link-made="insertLinkHtml"
         ></product-link-maker>
         <product-swapper :article-id="postId" ref="swapper" v-on:product-swap="swapProducts"></product-swapper>
+        <product-remover ref="remover" v-on:remove-product="removeProductCard"></product-remover>
     </div>
 </template>
 
@@ -99,6 +100,7 @@
                 ed.addButton('product_link_make_button', this.makeButton('/images/assets/gift_icon.png', () => this.showProductLinkModal()));
                 ed.addButton('h4_button', this.makeButton('/images/assets/h4_button.png', () => this.insertHeadingFour(), ''));
                 ed.addButton('swap_button', this.makeButton('/images/assets/swap_button.png', () => this.showSwapModal(), ''));
+                ed.addButton('rem_prod_button', this.makeButton('/images/assets/delete_icon.png', () => this.requestRemoveProductCard(), ''));
             }
             this.$nextTick(() => tinymce.init(config)
                     .then((editors) => this.editor = editors[0])
@@ -281,6 +283,45 @@
                 const product_cards = this.editor.$(`.amazon-product-card[data-amzn-id=${swap.old_product.itemid}]`);
                 product_cards.each((i, card) => {
                     this.editor.dom.setOuterHTML(card, swap.product_card_html);
+                });
+            },
+
+            requestRemoveProductCard() {
+                this.$refs.remover.$emit('req-remove-product-card', this.getArticleMentionProducts());
+            },
+
+            removeProductCard({itemid}) {
+                const card = this.editor.$(`.amazon-product-card[data-amzn-id=${itemid}]`)[0];
+                const container = card.parentNode;
+
+                if(container.classList.contains('count-1')) {
+                    return container.parentNode.removeChild(container);
+                }
+
+                if(container.classList.contains('count-2')) {
+                    container.classList.remove('count-2');
+                    container.classList.add('count-1');
+                }
+
+                if(container.classList.contains('count-3')) {
+                    container.classList.remove('count-3');
+                    container.classList.add('count-2');
+                }
+
+                container.removeChild(card);
+//                console.log(container);
+            },
+
+            getArticleMentionProducts() {
+                let prods = [];
+                this.editor.$('.amazon-product-card').each((i, card) => prods.push(card));
+
+                return prods.map(p => {
+                    return {
+                        title: p.querySelector('.amazon-product-title').innerHTML,
+                        itemid: p.getAttribute('data-amzn-id'),
+                        image: p.querySelector('img').src,
+                    }
                 });
             }
         }

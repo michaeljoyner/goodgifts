@@ -17,7 +17,8 @@
     <section class="signup-page-main-section">
         <h1>Need help finding the perfect gift for him?</h1>
         <p>Worry not, we have your back.</p>
-        <form class="signup-form" action="">
+        <form class="signup-form" action="/recommendations/request" method="POST">
+            {!! csrf_field() !!}
             <div class="form-section">
                 <div class="form-text-box">
                     <h3>All About You</h3>
@@ -36,7 +37,7 @@
                         @if($errors->has('email'))
                         <span class="error-message">{{ $errors->first('email') }}</span>
                         @endif
-                        <input type="text" name="email" value="{{ old('email') }}" class="form-control">
+                        <input type="text" name="email" value="{{ old('email') }}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Your Budget</label>
@@ -90,7 +91,7 @@
                         <label for="birthday">His Birthday</label><br>
                         <span class="error-message"></span>
                         <div class="style-select month">
-                            <select name="month" id="month">
+                            <select name="birthday_month" id="month">
                                 <option value="01">January</option>
                                 <option value="02">February</option>
                                 <option value="03">March</option>
@@ -106,7 +107,7 @@
                             </select>
                         </div>
                         <div class="style-select day">
-                            <select name="day" id="day">
+                            <select name="birthday_day" id="day">
                                 <option value="01">1</option>
                                 <option value="02">2</option>
                                 <option value="03">3</option>
@@ -176,30 +177,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium asperiores delectus eligendi expedita laborum nobis nostrum omnis quo quos tenetur! Ad eos fugit laboriosam repudiandae sed voluptates! Aliquid, debitis, modi?</p>
                 </div>
                 <div class="form-input-box">
-                    <div class="selected-interests">
-                        <label>His interests are: </label><br>
-                        <span class="chosen-interest">Snow angels</span>
-                        <span class="chosen-interest">Figure skating</span>
-                        <span class="chosen-interest">Dance</span>
-                    </div>
-                    <div class="interest-options">
-                        <small class="instruction-line">Click on an interest below to add it to his list.</small>
-                        <span class="potential-interest">Swimming</span>
-                        <span class="potential-interest">Jumping</span>
-                        <span class="potential-interest">Yoga</span>
-                        <span class="potential-interest">Badminton</span>
-                        <span class="potential-interest">Naked Wrestling</span>
-                        <span class="potential-interest">Sharks</span>
-                        <span class="potential-interest">Coffee and Tea</span>
-                        <span class="potential-interest">Drinking</span>
-                    </div>
-                    <div class="add-interests">
-                        <small class="instruction-line">Or add any other interest of his below</small>
-                        <div class="buttoned-input">
-                            <input type="text" name="add_interest">
-                            <button>Add</button>
-                        </div>
-                    </div>
+                    <interests-chooser :interest-list="['swimming', 'jumping', 'yoga', 'badminton', 'naked wrestling', 'sharks', 'coffee and tea', 'drinking', 'dogs', 'cats', 'donkeys']"></interests-chooser>
                 </div>
             </div>
             <div class="form-section">

@@ -1,0 +1,108 @@
+<style></style>
+
+<template>
+    <div class="interests-chooser-component">
+        <div class="selected-interests">
+            <p v-show="!selected_interests.length">Select interests from below or just type what you think fits.</p>
+            <label v-show="selected_interests.length">His interests are: </label><br>
+            <span v-for="selected in selected_interests"
+                  class="chosen-interest"
+            >
+                <span>{{ selected }}</span>
+                <span @click="removeFromSelected(selected)">&times;</span>
+            </span>
+            <!--<span class="chosen-interest">Snow angels</span>-->
+            <!--<span class="chosen-interest">Figure skating</span>-->
+            <!--<span class="chosen-interest">Dance</span>-->
+        </div>
+        <div class="interest-options">
+            <small class="instruction-line">Click on an interest below to add it to his list.</small>
+            <span v-for="interest in interests_paginator"
+                  @click="addInterest(interest)"
+                  class="potential-interest"
+                  :class="{'used': selected_interests.indexOf(interest) !== -1}"
+            >{{ interest }}</span>
+            <!--<span class="potential-interest">Swimming</span>-->
+            <!--<span class="potential-interest">Jumping</span>-->
+            <!--<span class="potential-interest">Yoga</span>-->
+            <!--<span class="potential-interest">Badminton</span>-->
+            <!--<span class="potential-interest">Naked Wrestling</span>-->
+            <!--<span class="potential-interest">Sharks</span>-->
+            <!--<span class="potential-interest">Coffee and Tea</span>-->
+            <!--<span class="potential-interest">Drinking</span>-->
+            <div class="paginator-link" v-show="interestList.length > page_length">
+                <a @click.prevent="changePage">see more interests</a>
+            </div>
+        </div>
+        <div class="add-interests">
+            <small class="instruction-line">Or add any other interest of his below</small>
+            <div class="buttoned-input">
+                <input type="text" name="add_interest" v-model="custom" @keyup.enter="addCustomInterests">
+                <button @click.prevent="addCustomInterests">Add</button>
+            </div>
+        </div>
+        <input type="hidden" name="interests" :value="interests_string">
+    </div>
+</template>
+
+<script type="text/babel">
+    export default {
+
+        props: ['interest-list'],
+
+        data() {
+            return {
+                selected_interests: [],
+                page: 1,
+                page_length: 8,
+                custom: ''
+            };
+        },
+
+        computed: {
+
+            interests_paginator() {
+                if (this.interestList.length < this.page_length) {
+                    return this.interestList;
+                }
+
+                const start = (this.page - 1) * this.page_length;
+
+                return this.interestList.slice(start, start + this.page_length);
+            },
+
+            interests_string() {
+                return this.selected_interests.join(',');
+            }
+        },
+
+        methods: {
+            addInterest(interest) {
+                interest.split(',')
+                        .map(interest => interest.trim())
+                        .filter(interest => this.selected_interests.indexOf(interest) === -1)
+                        .forEach(interest => this.selected_interests.push(interest));
+            },
+
+            addCustomInterests() {
+                if (this.custom === '') {
+                    return;
+                }
+                this.addInterest(this.custom);
+                this.custom = '';
+            },
+
+            changePage() {
+                if ((this.page * this.page_length) < this.interestList.length) {
+                    return this.page++;
+                }
+
+                this.page = 1;
+            },
+
+            removeFromSelected(interest) {
+                this.selected_interests.splice(this.selected_interests.indexOf(interest), 1);
+            }
+        }
+    }
+</script>

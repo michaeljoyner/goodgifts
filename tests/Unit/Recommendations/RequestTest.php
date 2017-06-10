@@ -21,9 +21,10 @@ class RequestTest extends TestCase
             'email'     => 'joe@example.com',
             'sender'    => 'Joe Soap',
             'recipient' => 'Junior Soap',
-            'birthday'  => Carbon::parse('+2 months')->format('m-d'),
+            'birthday'  => Carbon::now()->addMonths(2)->format('m-d'),
             'interests' => 'running,jumping,masturbating'
-        ]);
+        ])->fresh();
+
 
         $this->assertTrue(Carbon::parse('+2 months')->isSameDay($request->birthday));
     }
@@ -39,7 +40,7 @@ class RequestTest extends TestCase
             'recipient' => 'Junior Soap',
             'birthday'  => Carbon::parse('+2 months')->format('m-d'),
             'interests' => 'running,jumping,masturbating'
-        ]);
+        ])->fresh();
 
         $this->assertTrue(Carbon::parse('+2 months')->isSameDay($request->birthday));
     }
@@ -55,7 +56,7 @@ class RequestTest extends TestCase
             'recipient' => 'Junior Soap',
             'birthday'  => Carbon::parse('-2 months')->format('m-d'),
             'interests' => 'running,jumping,masturbating'
-        ]);
+        ])->fresh();
 
         $this->assertTrue(Carbon::parse('-2 months')->addYear()->isSameDay($request->birthday));
     }

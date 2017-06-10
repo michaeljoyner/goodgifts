@@ -5,6 +5,7 @@ namespace Tests\Feature\Recommendations;
 
 
 use App\Recommendations\Request;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
@@ -23,8 +24,10 @@ class RequestTest extends TestCase
             'email'     => 'joe@example.com',
             'sender'    => 'Joe Soap',
             'recipient' => 'Junior Soap',
-            'birthday'  => '05-05',
-            'interests' => 'running,jumping,masturbating'
+            'birthday_day'  => Carbon::now()->addMonths(1)->format('d'),
+            'birthday_month' => Carbon::now()->addMonths(1)->format('m'),
+            'interests' => 'running,jumping,masturbating',
+            'age_group' => 'mature'
         ]);
 
         $response->assertStatus(200);
@@ -33,8 +36,11 @@ class RequestTest extends TestCase
         $this->assertDatabaseHas('requests', [
             'email'     => 'joe@example.com',
             'sender'    => 'Joe Soap',
-            'recipient' => 'Junior Soap'
+            'recipient' => 'Junior Soap',
+            'age_group' => 'mature',
+            'birthday' => Carbon::now()->addMonths(1)->format('Y-m-d') . ' 00:00:00'
         ]);
+
     }
 
     /**
@@ -67,7 +73,7 @@ class RequestTest extends TestCase
         ]);
 
         $response->assertStatus(422);
-        $response->assertJsonStructure(['birthday']);
+        $response->assertJsonStructure(['birthday_month', 'birthday_day']);
         $this->assertCount(0, Request::all());
     }
 
@@ -85,7 +91,7 @@ class RequestTest extends TestCase
         ]);
 
         $response->assertStatus(422);
-        $response->assertJsonStructure(['birthday']);
+        $response->assertJsonStructure(['birthday_month', 'birthday_day']);
         $this->assertCount(0, Request::all());
     }
 
