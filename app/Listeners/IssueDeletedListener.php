@@ -26,6 +26,8 @@ class IssueDeletedListener
      */
     public function handle(IssueDeleted $event)
     {
-        $event->issue->issue->delete();
+        if($event->issue->issue) {
+            $event->issue->issue->delete();
+        }
     }
 }
