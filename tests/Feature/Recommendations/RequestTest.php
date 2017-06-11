@@ -30,7 +30,8 @@ class RequestTest extends TestCase
             'age_group' => 'mature'
         ]);
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
+        $response->assertSessionMissing('errors');
 
         $this->assertCount(1, Request::all());
         $this->assertDatabaseHas('requests', [

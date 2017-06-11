@@ -17,4 +17,13 @@ class UnavailableProductIssue extends Model
     {
         return $this->belongsTo(Product::class, 'product_id');
     }
+
+    public static function pruneDuplicates()
+    {
+        static::all()->groupBy('product_id')->each(function($group) {
+           $group->sortByDesc('created_at')->values()->slice(1)->each(function($issue) {
+               $issue->delete();
+           });
+        });
+    }
 }

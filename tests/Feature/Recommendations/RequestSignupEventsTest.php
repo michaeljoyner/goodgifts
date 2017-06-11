@@ -26,9 +26,11 @@ class RequestSignupEventsTest extends TestCase
             'email'     => 'joe@example.com',
             'sender'    => 'Joe Soap',
             'recipient' => 'Junior Soap',
-            'birthday'  => '05-05',
-            'interests' => 'running,jumping,masturbating'
-        ])->assertStatus(200);
+            'birthday_day'  => '05',
+            'birthday_month'  => '05',
+            'interests' => 'running,jumping,masturbating',
+            'age_group' => 'mature'
+        ])->assertStatus(302);
 
         Mail::assertSent(SignupWelcomeMail::class, function($mail) {
            return $mail->request->sender === 'Joe Soap';
