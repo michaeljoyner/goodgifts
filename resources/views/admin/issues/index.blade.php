@@ -25,7 +25,7 @@
                     <td>{{ $issue->created_at->diffForHumans() }}</td>
                     <td><a href="/admin/issues/{{ $issue->id }}">{{ class_basename($issue->issue_type) }}</a></td>
                     <td>
-                        @if($issue instanceof \App\Issues\UnavailableProductIssue)
+                        @if($issue->issue instanceof \App\Issues\UnavailableProductIssue)
                             <img src="{{ $issue->issue->product->image }}" alt="" height="50px">
                         @endif
                     </td>
