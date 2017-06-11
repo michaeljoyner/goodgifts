@@ -26,7 +26,7 @@
                     <td><a href="/admin/issues/{{ $issue->id }}">{{ class_basename($issue->issue_type) }}</a></td>
                     <td>
                         @if($issue->issue instanceof \App\Issues\UnavailableProductIssue)
-                            <img src="{{ $issue->issue->product->image }}" alt="" height="50px">
+                            <img src="{{ $issue->issue->product->image ?? '' }}" alt="" height="50px">
                         @endif
                     </td>
                 </tr>
