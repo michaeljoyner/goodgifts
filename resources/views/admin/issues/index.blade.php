@@ -16,7 +16,7 @@
             <tr>
                 <th>Date</th>
                 <th>Issue Type</th>
-                <th class="issue-table-message-field">Message</th>
+                <th>Product</th>
             </tr>
             </thead>
             <tbody>
@@ -24,7 +24,11 @@
                 <tr>
                     <td>{{ $issue->created_at->diffForHumans() }}</td>
                     <td><a href="/admin/issues/{{ $issue->id }}">{{ class_basename($issue->issue_type) }}</a></td>
-                    <td class="issue-table-message-field">{{ $issue->message }}</td>
+                    <td>
+                        @if($issue instanceof \App\Issues\UnavailableProductIssue)
+                            <img src="{{ $issue->issue->product->image }}" alt="" height="50px">
+                        @endif
+                    </td>
                 </tr>
             @endforeach
             </tbody>
