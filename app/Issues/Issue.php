@@ -52,6 +52,4 @@ class Issue extends Model
     {
         return (new $this->issue_type)->find($this->issue_id);
     }
-
-
 }

@@ -22,7 +22,7 @@ class UnavailableProductIssue extends Model
     {
         static::all()->groupBy('product_id')->each(function($group) {
            $group->sortByDesc('created_at')->values()->slice(1)->each(function($issue) {
-               $issue->delete();
+               $issue->resolve();
            });
         });
     }

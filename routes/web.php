@@ -18,7 +18,7 @@ Route::get('/articles/{slug}/plain-text', 'ArticleTextController@show')->middlew
 
 
 
-Route::get('recommendations/signup', 'RecommendationRequestsController@show');
+Route::get('recommendations/signup', 'RecommendationRequestsController@show')->middleware('auth');
 Route::post('recommendations/request', 'RecommendationRequestsController@store');
 Route::get('recommendations/thanks', 'RecommendationRequestsController@thanks');
 

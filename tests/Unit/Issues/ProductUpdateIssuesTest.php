@@ -6,6 +6,7 @@ namespace Tests\Unit\Issues;
 
 use App\Issues\BatchUpdateIssue;
 use App\Issues\IncompleteUpdateIssue;
+use App\Issues\Issue;
 use App\Products\Product;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -35,9 +36,10 @@ class ProductUpdateIssuesTest extends TestCase
     public function batch_update_issues_older_than_a_given_number_of_hours_can_be_deleted()
     {
         foreach(range(1,5) as $index) {
-            $issue = BatchUpdateIssue::create(['product_ids' => '1,2,3']);
-            $issue->created_at = Carbon::now()->subHours($index * 5);
-            $issue->save();
+            $issue = Issue::createBatchUpdateIssue('TEST', ['product_ids' => '1,2,3']);
+            $batch = $issue->issue;
+            $batch->created_at = Carbon::now()->subHours($index * 5);
+            $batch->save();
         }
 
         BatchUpdateIssue::clearOlderThan(12);
@@ -54,10 +56,12 @@ class ProductUpdateIssuesTest extends TestCase
     public function incomplete_update_issues_older_than_a_given_number_of_hours_can_be_deleted()
     {
         foreach(range(1,5) as $index) {
-            $issue = IncompleteUpdateIssue::create(['product_ids' => '1,2,3']);
-            $issue->created_at = Carbon::now()->subHours($index * 5);
-            $issue->save();
+            $issue = Issue::createIncompleteUpdateIssue('TEST', ['product_ids' => '1,2,3']);
+            $incomplete = $issue->issue;
+            $incomplete->created_at = Carbon::now()->subHours($index * 5);
+            $incomplete->save();
         }
+
 
         IncompleteUpdateIssue::clearOlderThan(12);
 

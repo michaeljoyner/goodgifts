@@ -13,7 +13,7 @@ trait ClearsOldModels
         static::all()->filter(function($issue) use ($hours) {
             return $issue->created_at->lt(Carbon::now()->subHours($hours));
         })->each(function($issue) {
-            $issue->delete();
+            $issue->resolve();
         });
     }
 }

@@ -102,4 +102,6 @@ class IssuesTest extends TestCase
         $this->assertCount(0, Issue::all());
         $this->assertCount(0, ArticleUpdateIssue::all());
     }
+
+
 }

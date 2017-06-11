@@ -4,6 +4,7 @@
 namespace Tests\Unit\Issues;
 
 
+use App\Issues\Issue;
 use App\Issues\UnavailableProductIssue;
 use App\Products\Product;
 use Carbon\Carbon;
@@ -35,26 +36,26 @@ class UnavailableProductIssuesTest extends TestCase
         $product3 = factory(Product::class)->create();
 
         foreach(range(1,4) as $index) {
-            $issue = UnavailableProductIssue::create(['product_id' => $product->id]);
+            $issue = Issue::createUnavailableProductIssue('TEST', ['product_id' => $product->id]);
             if($index > 1) {
-                $issue->created_at = Carbon::now()->subDays($index);
-                $issue->save();
+                $issue->issue->created_at = Carbon::now()->subDays($index);
+                $issue->issue->save();
             }
         }
 
         foreach(range(1,5) as $index) {
-            $issue = UnavailableProductIssue::create(['product_id' => $product2->id]);
+            $issue = Issue::createUnavailableProductIssue('TEST', ['product_id' => $product2->id]);
             if($index > 1) {
-                $issue->created_at = Carbon::now()->subDays($index);
-                $issue->save();
+                $issue->issue->created_at = Carbon::now()->subDays($index);
+                $issue->issue->save();
             }
         }
 
         foreach(range(1,3) as $index) {
-            $issue = UnavailableProductIssue::create(['product_id' => $product3->id]);
+            $issue = Issue::createUnavailableProductIssue('TEST', ['product_id' => $product3->id]);
             if($index > 1) {
-                $issue->created_at = Carbon::now()->subDays($index);
-                $issue->save();
+                $issue->issue->created_at = Carbon::now()->subDays($index);
+                $issue->issue->save();
             }
         }
 
