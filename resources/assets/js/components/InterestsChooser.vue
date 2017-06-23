@@ -13,7 +13,7 @@
             </span>
         </div>
         <div class="interest-options">
-            <small class="instruction-line">Click on an interest below to add it to his list.</small>
+            <!--<small class="instruction-line">Click on an interest below to add it to his list.</small>-->
             <span v-for="interest in interests_paginator"
                   @click="addInterest(interest)"
                   class="potential-interest"
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="add-interests">
-            <small class="instruction-line">Or add any other interest of his below</small>
+            <small class="instruction-line">Add any other interest.</small>
             <div class="buttoned-input">
                 <input type="text" name="add_interest" v-model="custom" @keyup.enter="addCustomInterests">
                 <button @click.prevent="addCustomInterests">Add</button>

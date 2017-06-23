@@ -15,10 +15,11 @@
 @section('content')
     @include('front.partials.standardheader')
     <section class="signup-page-main-section">
-        <h1>Need a good gift? We'll give you a list.</h1>
-        <p>Just give us a budget to work with, the date you need the gift and a few of this interests. The 30 days before his big day, we'll send you a list of all the best gifts we can find for a guy like him.</p>
-        <p>It's a totally free service and we promise no ads or annoying emails, pinkie swear.</p>
-        <p>Just fill in the details and we'll get on it.</p>
+        <div class="lead-text">
+            <h1>Need a good gift?<br><br>We'll give you a list.</h1>
+            <p>Just give us a budget to work with, the date you need the gift and a few of this interests.</p><p>Then 30 days before his big day, we'll send you a list of all the best gifts we can find for a guy like him.</p>
+            <p>It's a totally free service and we promise no ads or annoying emails, pinkie swear.</p>
+        </div>
         <form class="signup-form" action="/recommendations/request" method="POST">
             {!! csrf_field() !!}
             <div class="form-section">
@@ -78,7 +79,7 @@
             </div>
             <div class="form-section">
                 <div class="form-text-box">
-                    <h3>About he lucky lad</h3>
+                    <h3>About Him</h3>
                     <p>Who is the gift for, when will you give him the gift and what age group does he fit into?</p>
                 </div>
                 <div class="form-input-box">
