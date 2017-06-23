@@ -1,9 +1,13 @@
 @component('mail::message')
-## You just did some very dangerous
+{{ $request->sender }}, you just asked goodgiftsforguys.com to create a gift list for {{ $request->recipient }}. And you better believe we're on the case. In fact, somebody just wrote "{{ $request->recipient }}" in the middle of the whiteboard and drew a circle around it, so you know it is serious.
 
-Hey {{ $request->sender }}, are you aware of what you have done?
+I better get in there before those swines finish the donuts, but we will be in touch again on {{ $request->birthday->subMonth()->toFormattedDateString() }} with that list, so don't you worry a second longer.
 
-You went ahead and asked goodgiftsforguys.com to send you a custom gift list for {{ $request->recipient }} on the {{ $request->birthday->subMonth()->toFormattedDateString() }}, which is one month before his birthday.
+Now go look at something that'll make you happy. You've earned it! I usually google sloths, or watch the chicken wears pants video, but that just me. Go on you beautiful creature!
 
+Have a great day.
 
+Much love,
+
+The GoodGifts Guys
 @endcomponent
