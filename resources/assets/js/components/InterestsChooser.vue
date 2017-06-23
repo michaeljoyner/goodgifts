@@ -3,7 +3,7 @@
 <template>
     <div class="interests-chooser-component">
         <div class="selected-interests">
-            <p v-show="!selected_interests.length">Select interests from below or just type what you think fits.</p>
+            <p v-show="!selected_interests.length">Click or type. Tell us what he likes.</p>
             <label v-show="selected_interests.length">His interests are: </label><br>
             <span v-for="selected in selected_interests"
                   class="chosen-interest"
@@ -11,9 +11,6 @@
                 <span>{{ selected }}</span>
                 <span @click="removeFromSelected(selected)">&times;</span>
             </span>
-            <!--<span class="chosen-interest">Snow angels</span>-->
-            <!--<span class="chosen-interest">Figure skating</span>-->
-            <!--<span class="chosen-interest">Dance</span>-->
         </div>
         <div class="interest-options">
             <small class="instruction-line">Click on an interest below to add it to his list.</small>
@@ -22,14 +19,6 @@
                   class="potential-interest"
                   :class="{'used': selected_interests.indexOf(interest) !== -1}"
             >{{ interest }}</span>
-            <!--<span class="potential-interest">Swimming</span>-->
-            <!--<span class="potential-interest">Jumping</span>-->
-            <!--<span class="potential-interest">Yoga</span>-->
-            <!--<span class="potential-interest">Badminton</span>-->
-            <!--<span class="potential-interest">Naked Wrestling</span>-->
-            <!--<span class="potential-interest">Sharks</span>-->
-            <!--<span class="potential-interest">Coffee and Tea</span>-->
-            <!--<span class="potential-interest">Drinking</span>-->
             <div class="paginator-link" v-show="interestList.length > page_length">
                 <a @click.prevent="changePage">see more interests</a>
             </div>

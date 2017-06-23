@@ -193,6 +193,11 @@
         border-radius: 4px;
         cursor: default;
 
+        &:hover {
+          background: $brand_dark;
+          color: $brand_yellow;
+        }
+
         &.used {
           background: lighten($mid-grey, 20%);
         }
@@ -258,6 +263,12 @@
         padding: 8px 15px;
         font-size: 1em;
         border-radius: 4px;
+        width: 100%;
+
+        &:hover {
+          background: $brand_dark;
+          color: $brand_yellow;
+        }
       }
     }
   }

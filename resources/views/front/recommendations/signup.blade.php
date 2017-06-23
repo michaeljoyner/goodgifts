@@ -15,14 +15,16 @@
 @section('content')
     @include('front.partials.standardheader')
     <section class="signup-page-main-section">
-        <h1>Need help finding the perfect gift for him?</h1>
-        <p>Worry not, we have your back.</p>
+        <h1>Need a good gift? We'll give you a list.</h1>
+        <p>Just give us a budget to work with, the date you need the gift and a few of this interests. The 30 days before his big day, we'll send you a list of all the best gifts we can find for a guy like him.</p>
+        <p>It's a totally free service and we promise no ads or annoying emails, pinkie swear.</p>
+        <p>Just fill in the details and we'll get on it.</p>
         <form class="signup-form" action="/recommendations/request" method="POST">
             {!! csrf_field() !!}
             <div class="form-section">
                 <div class="form-text-box">
-                    <h3>All About You</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur eius minima numquam quam.</p>
+                    <h3>About You</h3>
+                    <p>What should we call you, where should we send the list and how much are you willing to spend?</p>
                 </div>
                 <div class="form-input-box">
                     <div class="form-group{{ $errors->has('sender') ? ' has-error' : '' }}">
@@ -44,31 +46,31 @@
                         <div class="gg-radio-option">
                             <input type="radio" name="budget" id="low_budget" value="low">
                             <label for="low_budget">
-                                Low (less than $50)
+                                $50
                             </label>
                         </div>
                         <div class="gg-radio-option">
                             <input type="radio" name="budget" id="mid_budget" value="mid">
                             <label for="mid_budget">
-                                Fair (less than $100)
+                                $100
                             </label>
                         </div>
                         <div class="gg-radio-option">
                             <input type="radio" name="budget" id="big_budget" value="big">
                             <label for="big_budget">
-                                Big (up to $500)
+                                $500
                             </label>
                         </div>
                         <div class="gg-radio-option">
                             <input type="radio" name="budget" id="huge_budget" value="huge">
                             <label for="huge_budget">
-                                Huge (up to $1500)
+                                $1500
                             </label>
                         </div>
                         <div class="gg-radio-option">
                             <input type="radio" name="budget" id="limitless_budget" value="limitless">
                             <label for="limitless_budget">
-                                Limitless
+                                No limit
                             </label>
                         </div>
                     </div>
@@ -76,8 +78,8 @@
             </div>
             <div class="form-section">
                 <div class="form-text-box">
-                    <h3>Who is the lucky lad?</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur doloribus ducimus ea earum impedit incidunt ipsum laborum laudantium libero, necessitatibus, obcaecati quae quidem temporibus tenetur ut veniam voluptate voluptatibus!</p>
+                    <h3>About he lucky lad</h3>
+                    <p>Who is the gift for, when will you give him the gift and what age group does he fit into?</p>
                 </div>
                 <div class="form-input-box">
                     <div class="form-group{{ $errors->has('recipient') ? ' has-error' : '' }}">
@@ -88,7 +90,7 @@
                         <input type="text" name="recipient" value="{{ old('recipient') }}" class="form-control">
                     </div>
                     <div class="form-group{{ $errors->has('birthday') ? ' has-error' : '' }}">
-                        <label for="birthday">His Birthday</label><br>
+                        <label for="birthday">His big day</label><br>
                         <span class="error-message"></span>
                         <div class="style-select month">
                             <select name="birthday_month" id="month">
@@ -153,13 +155,13 @@
                         <div class="gg-radio-option">
                             <input type="radio" name="age_group" id="mid_age" value="mid">
                             <label for="mid_age">
-                                25 - 40
+                                25 - 39
                             </label>
                         </div>
                         <div class="gg-radio-option">
                             <input type="radio" name="age_group" id="mature" value="mature">
                             <label for="mature">
-                                41 - 60
+                                40 - 59
                             </label>
                         </div>
                         <div class="gg-radio-option">
@@ -173,8 +175,8 @@
             </div>
             <div class="form-section">
                 <div class="form-text-box">
-                    <h3>What does he like?</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium asperiores delectus eligendi expedita laborum nobis nostrum omnis quo quos tenetur! Ad eos fugit laboriosam repudiandae sed voluptates! Aliquid, debitis, modi?</p>
+                    <h3>What's his thing?</h3>
+                    <p>Tell us what makes him tick. We have given a few options to get you thinking, but don't shy to add some more. The more you give us, the more we can give you. We don't  judge.</p>
                 </div>
                 <div class="form-input-box">
                     <interests-chooser :interest-list="['swimming', 'jumping', 'yoga', 'badminton', 'naked wrestling', 'sharks', 'coffee and tea', 'drinking', 'dogs', 'cats', 'donkeys']"></interests-chooser>
@@ -183,10 +185,10 @@
             <div class="form-section">
                 <div class="form-text-box">
                     <h3>Let's do this</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto, aut autem consequuntur.</p>
+                    <p>We'll get on to that list ASAP! In the meantime, don't be shy to add a few more guys and get your gifty shopping for the year done.</p>
                 </div>
                 <div class="form-input-box submit-box">
-                    <button class="form-cta-button" type="submit">Hit it</button>
+                    <button class="form-cta-button" type="submit">Make my list</button>
                 </div>
             </div>
         </form>
