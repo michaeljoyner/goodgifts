@@ -43,7 +43,10 @@
     max-width: 800px;
     width: 95%;
     margin: 50px auto;
-    font-size: 90%;
+
+    @include respond-to(phone) {
+      font-size: 90%;
+    }
 
     h4 {
       font-family: $sans_serif;
