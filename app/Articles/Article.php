@@ -164,6 +164,16 @@ class Article extends Model implements HasMediaConversions
         return $this->belongsToMany(Product::class);
     }
 
+    public function attachProducts($products)
+    {
+        $this->products()->attach($products);
+    }
+
+    public function detachProducts($products)
+    {
+        $this->products()->detach($products);
+    }
+
     public function syncMentionedProducts()
     {
         $unsyncedItemIdChunks = collect($this->mentionedProducts())->filter(function ($product) {

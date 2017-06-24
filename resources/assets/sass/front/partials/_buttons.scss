@@ -1,0 +1,15 @@
+.action-button {
+  display: inline-block;
+  padding: 8px 12px;
+  background: $brand_yellow;
+  color: $brand_dark;
+  font-family: $sans_serif;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 10px $light_grey;
+  margin: 1em;
+
+  &:hover {
+    background: $brand_dark;
+    color: $brand_yellow;
+  }
+}

@@ -124,6 +124,63 @@ class ArticleProductsTest extends TestCase
         $this->assertNotContains('Â', $article->fresh()->body);
     }
 
+    /**
+     *@test
+     */
+    public function products_can_be_attached_to_an_article()
+    {
+        $article = factory(Article::class)->create();
+        $products = factory(Product::class, 2)->create();
+
+        $article->attachProducts($products);
+
+        $this->assertContains($products->first()->id, $article->fresh()->products->pluck('id')->toArray());
+        $this->assertContains($products->last()->id, $article->fresh()->products->pluck('id')->toArray());
+    }
+
+    /**
+     *@test
+     */
+    public function products_can_be_attached_to_an_article_by_id()
+    {
+        $article = factory(Article::class)->create();
+        $products = factory(Product::class, 2)->create();
+
+        $article->attachProducts($products->pluck('id')->toArray());
+
+        $this->assertContains($products->first()->id, $article->fresh()->products->pluck('id')->toArray());
+        $this->assertContains($products->last()->id, $article->fresh()->products->pluck('id')->toArray());
+    }
+
+    /**
+     *@test
+     */
+    public function a_single_product_can_be_attached_to_an_article()
+    {
+        $article = factory(Article::class)->create();
+        $product = factory(Product::class)->create();
+
+        $article->attachProducts($product);
+
+        $this->assertContains($product->id, $article->fresh()->products->pluck('id')->toArray());
+    }
+
+    /**
+     *@test
+     */
+    public function products_can_be_detached_from_an_article()
+    {
+        $article = factory(Article::class)->create();
+        $products = factory(Product::class, 2)->create();
+
+        $article->attachProducts($products);
+
+        $article->fresh()->detachProducts($products);
+
+        $this->assertNotContains($products->first()->id, $article->fresh()->products->pluck('id')->toArray());
+        $this->assertNotContains($products->last()->id, $article->fresh()->products->pluck('id')->toArray());
+    }
+
     protected function getProductHtml($product)
     {
         return ProductHtml::for($product);

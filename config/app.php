@@ -173,6 +173,8 @@ return [
         SendPulse\SendPulseLaravel\SendPulseLaravelServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
         Spatie\Analytics\AnalyticsServiceProvider::class,
+        Hemp\Presenter\PresenterServiceProvider::class,
+
         /*
          * Application Service Providers...
          */

@@ -35,10 +35,10 @@ class ArticlesProductsController extends Controller
                 $product->save();
                 return $product->fresh()->id;
             })->toArray();
-            $article->products()->attach($newids);
+            $article->attachProducts($newids);
         }
 
-        $article->products()->attach($existing->map(function($itemid) {
+        $article->attachProducts($existing->map(function($itemid) {
             return Product::where('itemid', $itemid)->first()->id;
         })->toArray());
 

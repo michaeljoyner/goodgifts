@@ -28,7 +28,6 @@ class Request extends Model
         $month = intval(substr($date, 0, 2));
         $day = intval(substr($date, 3, 2));
         $now = Carbon::now();
-
         $this_year = new Carbon($now->year . '-' . $month . '-' . $day);
         $next_year = new Carbon(($now->year + 1) . '-' . $month . '-' . $day);
         return Carbon::today()->gt($this_year) ? $next_year : $this_year;

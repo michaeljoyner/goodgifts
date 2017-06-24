@@ -1,0 +1,14 @@
+.thanks-container {
+  max-width: 600px;
+  width: 90%;
+  margin: 2em auto;
+  text-align: center;
+
+  h1 {
+    font-size: 50px;
+    font-family: $sans_serif;
+    span {
+      border-bottom: 3px solid lighten($brand_yellow, 20%);
+    }
+  }
+}
