@@ -57,7 +57,7 @@ class ArticleProductsTest extends TestCase
     }
 
     /**
-     *@test
+     * @test
      */
     public function a_product_that_already_exists_in_the_database_does_not_need_to_be_looked_up()
     {
@@ -84,7 +84,7 @@ class ArticleProductsTest extends TestCase
     }
 
     /**
-     *@test
+     * @test
      */
     public function a_product_can_be_removed_from_an_article()
     {
@@ -99,7 +99,7 @@ class ArticleProductsTest extends TestCase
     }
 
     /**
-     *@test
+     * @test
      */
     public function removing_a_product_that_is_only_attached_to_that_given_article_also_deletes_the_product()
     {
@@ -112,6 +112,29 @@ class ArticleProductsTest extends TestCase
 
         $this->assertCount(0, $article->fresh()->products);
         $this->assertDatabaseMissing('products', ['id' => $product->id]);
+    }
+
+    /**
+     * @test
+     */
+    public function an_article_product_may_have_a_what_and_why()
+    {
+        $this->disableExceptionHandling();
+        $article = factory(Article::class)->create();
+        $product = factory(Product::class)->create();
+        $article->products()->attach($product->id);
+
+        $response = $this->asLoggedInUser()->json('POST',
+            '/admin/articles/' . $article->id . '/products/' . $product->id . '/reasons',
+            ['what' => 'This says what it is', 'why' => 'this says why it is a good idea']);
+        $response->assertStatus(200);
+
+        $this->assertDatabaseHas('article_product', [
+            'article_id' => $article->id,
+            'product_id' => $product->id,
+            'what' => 'This says what it is',
+            'why' => 'this says why it is a good idea'
+        ]);
     }
 
 

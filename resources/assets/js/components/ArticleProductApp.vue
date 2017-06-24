@@ -20,11 +20,19 @@
             </form>
         </div>
         <div class="products-list-section article-products-component">
-            <div class="article-product" v-for="product in products">
-                <img :src="product.image" alt="" width="80px">
-                <p class="title">{{ product.title }}</p>
-                <span>{{ product.price }}</span>
-                <button class="btn btn-red" @click="removeProduct(product)">Remove</button>
+            <div v-for="product in products" class="article-product-outer">
+                <div class="article-product">
+                    <img :src="product.image" alt="" width="80px">
+                    <p class="title">{{ product.title }}</p>
+                    <span>{{ product.price }}</span>
+                    <a :href="product.link" class="btn" target="_blank">Amazon</a>
+                    <button class="btn btn-red" @click="removeProduct(product)">Remove</button>
+                </div>
+                <product-reason :article-id="articleId"
+                                :product-id="product.id"
+                                :reason-what="product.pivot.what"
+                                :reason-why="product.pivot.why"
+                ></product-reason>
             </div>
         </div>
     </div>

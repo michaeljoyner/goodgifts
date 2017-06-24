@@ -1,0 +1,32 @@
+.product-reason-form-component {
+  display: flex;
+  margin: 0 10px;
+
+  .button-box {
+    width: 100px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .form-inputs {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    padding-left: 10px;
+
+    input {
+      display: inline-block;
+      width: calc(100% - 80px);
+    }
+
+    &:not(.editable) {
+      input {
+        border: none;
+      }
+    }
+  }
+}

@@ -71,7 +71,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::get('articles/{article}/interests', 'ArticleInterestsController@index');
     Route::put('articles/{article}/interests', 'ArticleInterestsController@store');
 
-    Route::get('articles/{article}/suited_products', 'ArticleSuitedProductsController@index');
+    Route::post('articles/{article}/products/{product}/reasons', 'ProductReasonsController@update');
 
     Route::get('interests', 'InterestsController@index');
 

@@ -161,7 +161,7 @@ class Article extends Model implements HasMediaConversions
 
     public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class)->withPivot(['what', 'why']);
     }
 
     public function attachProducts($products)
