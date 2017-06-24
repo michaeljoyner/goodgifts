@@ -74,3 +74,9 @@ $factory->define(App\Products\SuitedProduct::class, function (Faker\Generator $f
         'why'        => $faker->sentence
     ];
 });
+
+$factory->define(App\Tags\Tag::class, function (Faker\Generator $faker) {
+    return [
+        'tag' => $faker->word
+    ];
+});

@@ -5,6 +5,7 @@ namespace App\Products;
 
 
 use App\Articles\Article;
+use App\Tags\Tag;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -16,5 +17,18 @@ class Product extends Model
     public function articles()
     {
         return $this->belongsToMany(Article::class);
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    public function setTags($tags)
+    {
+        $tag_ids = collect($tags)->map(function($tag) {
+            return Tag::firstOrCreate(['tag' => $tag]);
+        })->pluck('id')->toArray();
+        $this->tags()->sync($tag_ids);
     }
 }

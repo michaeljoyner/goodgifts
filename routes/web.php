@@ -75,6 +75,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
 
     Route::get('interests', 'InterestsController@index');
 
+    Route::post('products/{product}/tags', 'ProductTagsController@store');
+
     Route::post('issues/batchupdate/{issue}/resolve', 'BatchUpdateIssueResolvingController@handle');
     Route::post('issues/incompleteupdate/{issue}/resolve', 'IncompleteUpdateIssueResolvingController@handle');
 
