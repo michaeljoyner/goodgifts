@@ -29,13 +29,13 @@
     }
 
     &:hover {
-      border-color: $brand_yellow;
+      border-color: $brand_primary;
       .colour-fill {
-        fill: $brand_yellow;
+        fill: $brand_primary;
       }
 
       .colour-stroke {
-        stroke: $brand_yellow;
+        stroke: $brand_primary;
       }
     }
   }

@@ -48,7 +48,7 @@
 .amazon-product-card {
   margin: 2em auto;
   padding: 10px;
-  border: 1px solid $brand_yellow;
+  border: 1px solid $brand_primary;
   flex-grow: 0;
   flex-basis: auto;
   display: flex;
@@ -101,7 +101,7 @@
     display: block;
     width: 100%;
     //background: $brand_dark;
-    //color: $brand_yellow;
+    //color: $brand_primary;
     margin: 0;
     padding: 4px;
     text-align: right;
@@ -130,7 +130,7 @@
 
     .vendor-name {
       background: $brand_dark;
-      color: $brand_yellow;
+      color: $brand_primary;
       padding-left: 8px;
 
       &::after {
@@ -138,7 +138,7 @@
         height: 0;
         font-size: 0px;
         line-height: 0;
-        border-right: 1.15rem solid $brand_yellow;
+        border-right: 1.15rem solid $brand_primary;
         border-bottom: 1.15rem solid $brand_dark;
         width: 0;
         display: inline-block;
@@ -148,7 +148,7 @@
     }
 
     .inner-price {
-      background: $brand_yellow;
+      background: $brand_primary;
       color: $brand_dark;
       padding-right: 8px;
     }
@@ -156,7 +156,7 @@
 }
 
 .article-body .product-card-container .amazon-product-card a {
-  color: $brand_yellow;
+  color: $brand_primary;
   &:hover {
     color: $brand_blue;
   }

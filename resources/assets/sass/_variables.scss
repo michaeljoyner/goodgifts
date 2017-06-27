@@ -3,8 +3,8 @@
 $body-bg: #f5f8fa;
 
 $brand_red: #C02E1D;
-$brand_dark: #472f2f; //#2e2828
-$brand_yellow: #33e863; //#de830a
+$brand_dark: #4d2b25; //#2e2828
+$brand_primary: #6effac; //#de830a
 $brand_blue: #1e59c0;
 $light_grey: #cdcdcd;
 $eggshell: #ebf9f7;
@@ -25,7 +25,7 @@ $panel-default-border: $laravel-border-color;
 $panel-inner-border: $laravel-border-color;
 
 // Brands
-$brand-primary: #3097D1;
+//$brand-primary: #3097D1;
 $brand-info: #8eb4cb;
 $brand-success: #2ab27b;
 $brand-warning: #cbb956;
@@ -41,7 +41,7 @@ $text-color: #636b6f;
 // Navbar
 $navbar-default-bg: #fff;
 $navbar-inverse-bg: $brand_dark;
-$navbar-inverse-color: $brand_yellow;
+$navbar-inverse-color: $brand_primary;
 $navbar-inverse-link-active-color: $white;
 $navbar-inverse-link-color: $white;
 $navbar-border-radius: 0;

@@ -7,7 +7,7 @@
 
   .modal-body {
     margin-top: 0;
-    border: 8px solid $brand_yellow;
+    border: 8px solid $brand_primary;
     border-top: none;
     max-height: 95vh;
     padding: 20px 0 40px;
@@ -15,7 +15,7 @@
   }
 
   .modal-header {
-    background: $brand_yellow url(images/circuit-board.svg);
+    background: $brand_primary url(images/circuit-board.svg);
     height: 15px;
   }
 
@@ -32,7 +32,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: $brand_yellow;
+      background: $brand_primary;
       content: '';
       animation-name: waiting;
       animation-timing-function: ease-in-out;
@@ -102,8 +102,8 @@
     }
 
     &.action-button {
-      background: $brand_yellow;
-      border-color: $brand_yellow;
+      background: $brand_primary;
+      border-color: $brand_primary;
       color: $brand_dark;
 
       @include respond-to(phone) { order: 1; }
@@ -112,7 +112,7 @@
       &:hover {
         background: $brand_dark;
         border-color: $brand_dark;
-        color: $brand_yellow;
+        color: $brand_primary;
       }
     }
 
@@ -120,7 +120,7 @@
 
   //.style-select {
   //  height: 32px;
-  //  border: 1px solid $brand_yellow;
+  //  border: 1px solid $brand_primary;
   //  display: inline-block;
   //  overflow: hidden;
   //  position: relative;
@@ -179,7 +179,7 @@
     input.form-control {
       height: 32px;
       padding-left: 5px;
-      border: 1px solid $brand_yellow;
+      border: 1px solid $brand_primary;
       font-size: 80%;
       border-radius: 0;
     }
@@ -189,12 +189,12 @@
     width: 100%;
     margin-top: 15px;
     .range-slider-knob {
-      background: $brand_yellow;
-      border-color: $brand_yellow;
+      background: $brand_primary;
+      border-color: $brand_primary;
     }
 
     .range-slider-fill {
-      background: $brand_yellow;
+      background: $brand_primary;
     }
   }
 

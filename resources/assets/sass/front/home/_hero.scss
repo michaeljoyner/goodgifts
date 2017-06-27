@@ -12,7 +12,7 @@
   .page-title {
     font-family: $script;
     font-size: 8em;
-    color: $brand_yellow;
+    color: $brand_primary;
     //transform: rotate(-10deg);
     
     @include respond-to(phone) {
@@ -29,7 +29,7 @@
     font-family: $sans_serif;
     left: calc(50% - 5em);
     top: calc(50% + 1.75em);
-    color: $brand_yellow;
+    color: $brand_primary;
     font-size: 2em;
     text-transform: uppercase;
 

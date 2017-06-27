@@ -1,7 +1,7 @@
 .action-button {
   display: inline-block;
   padding: 8px 12px;
-  background: $brand_yellow;
+  background: $brand_primary;
   color: $brand_dark;
   font-family: $sans_serif;
   text-transform: uppercase;
@@ -10,6 +10,6 @@
 
   &:hover {
     background: $brand_dark;
-    color: $brand_yellow;
+    color: $brand_primary;
   }
 }
