@@ -42,9 +42,33 @@
                 ></article-publisher>
             </div>
         </div>
-        <interest-tagger article-id="{{ $article->id }}"></interest-tagger>
-        <div class="article-products-section">
-            <article-products article-id="{{ $article->id }}"></article-products>
+        <tag-repository></tag-repository>
+        <item-tagger
+                sync-url="/admin/articles/{{ $article->id }}/interests"
+                :initial-tags="{{ json_encode($article->interests->pluck('interest')->toArray()) }}"
+                tag-type="article"
+        ></item-tagger>
+        {{--<div class="article-products-section">--}}
+            {{--<article-products article-id="{{ $article->id }}"></article-products>--}}
+        {{--</div>--}}
+        <div class="article-products">
+            @foreach($article->products as $product)
+                <div class="article-product-tagging-card">
+                    <div class="product-details">
+                        <img src="{{ $product->image }}" alt="" width="80">
+                        <p class="title">{{ $product->title }}</p>
+                        <span class="price btn">{{ $product->price }}</span>
+                        <a class="btn" href="{{ $product->link }}">On Amazon</a>
+                    </div>
+                    <div class="product-tag-box">
+                        <item-tagger
+                                sync-url="/admin/products/{{ $product->id }}/tags"
+                                :initial-tags="{{ json_encode($product->tags->pluck('tag')->toArray()) }}"
+                                tag-type="product"
+                        ></item-tagger>
+                    </div>
+                </div>
+            @endforeach
         </div>
 
     </section>

@@ -24,11 +24,12 @@ Vue.component('similar-search', require('./components/SimilaritySearch.vue'));
 Vue.component('card-search', require('./components/CardSearchApp.vue'));
 Vue.component('card-collection', require('./components/CardCollection.vue'));
 Vue.component('line-chart', require('./components/LineChart.vue'));
-Vue.component('interest-tagger', require('./components/InterestTagger.vue'));
+Vue.component('item-tagger', require('./components/ItemTagger.vue'));
 Vue.component('type-ahead', require('./components/Typeahead.vue'));
 Vue.component('product-swapper', require('./components/ProductSwapSelector.vue'));
 Vue.component('product-remover', require('./components/RemoveProductModal.vue'));
 Vue.component('product-reason', require('./components/ReasonForm.vue'));
+Vue.component('tag-repository', require('./components/TagSuggestionRepository.vue'));
 
 window.eventHub = new Vue();
 

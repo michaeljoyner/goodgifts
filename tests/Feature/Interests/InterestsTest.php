@@ -16,14 +16,14 @@ class InterestsTest extends TestCase
     /**
      *@test
      */
-    public function interests_can_be_added_to_an_article()
+    public function interests_can_be_added_to_an_article_as_an_array()
     {
         $this->disableExceptionHandling();
         $article = factory(Article::class)->create();
-        $interests = 'running, jumping, testing';
+        $interests = ['running', 'jumping', 'testing'];
 
         $response = $this->asLoggedInUser()
-            ->put('/admin/articles/' . $article->id . '/interests', ['interests' => $interests]);
+            ->put('/admin/articles/' . $article->id . '/interests', ['tags' => $interests]);
 
         $response->assertStatus(200);
         $responseInterests = $response->decodeResponseJson();

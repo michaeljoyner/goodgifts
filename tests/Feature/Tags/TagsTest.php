@@ -22,7 +22,7 @@ class TagsTest extends TestCase
         $product = factory(Product::class)->create();
 
         $response = $this->asLoggedInUser()
-            ->json('POST', '/admin/products/' . $product->id . '/tags', ['tags' => ['TEST_1', 'TEST_2']]);
+            ->json('PUT', '/admin/products/' . $product->id . '/tags', ['tags' => ['TEST_1', 'TEST_2']]);
         $response->assertStatus(200);
         $this->assertEquals(['TEST_1', 'TEST_2'], $response->decodeResponseJson());
 
@@ -33,5 +33,21 @@ class TagsTest extends TestCase
             ['product_id' => $product->id, 'tag_id' => Tag::where('tag', 'TEST_1')->first()->id]);
         $this->assertDatabaseHas('product_tag',
             ['product_id' => $product->id, 'tag_id' => Tag::where('tag', 'TEST_1')->first()->id]);
+    }
+
+    /**
+     *@test
+     */
+    public function a_list_of_all_tags_can_be_fetched()
+    {
+        $this->disableExceptionHandling();
+        factory(Tag::class, 10)->create();
+
+        $response = $this->asLoggedInUser()->json('GET', '/admin/tags');
+        $response->assertStatus(200);
+
+        $this->assertEquals(Tag::all()->map(function($tag) {
+            return ['id' => $tag->id, 'name' => $tag->tag];
+        })->toArray(), $response->decodeResponseJson());
     }
 }

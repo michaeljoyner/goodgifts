@@ -24,13 +24,13 @@ class ArticleInterestsRequest extends FormRequest
     public function rules()
     {
         return [
-            'interests' => ''
+            'tags' => 'required|array'
         ];
     }
 
     public function interestList()
     {
-        return collect(explode(',', $this->interests))->map(function($interest) {
+        return collect($this->tags)->map(function($interest) {
             return trim($interest);
         })->reject(function($interest) {
             return $interest === "";
