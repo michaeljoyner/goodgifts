@@ -6,7 +6,7 @@
     <title>@yield('title', 'Good Gifts for Guys')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
     <link rel="stylesheet" href="{{ mix('css/fapp.css') }}">
-    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Droid+Serif|Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Droid+Serif|Lobster" rel="stylesheet">
     @yield('head')
     <script>
         var Laravel = {

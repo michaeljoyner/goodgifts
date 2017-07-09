@@ -1,18 +1,74 @@
 .main-hero {
   width: 100%;
-  height: 30vw;
-  background: $brand_dark;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-
-  @include respond-to(phone) {height: 60vw;}
+  overflow-x: hidden;
+  //height: 30vw;
+  //background: $brand_dark;
+  //display: flex;
+  //justify-content: center;
+  //align-items: center;
+  //position: relative;
 
   .page-title {
+
+    @include respond-to(phone) {
+      margin-bottom: 120px;
+    }
+    position: relative;
+    width: 550px;
+    margin: 0 auto 300px;
+    padding: 50px 0;
+    max-width: 100%;
+    text-align: center;
     font-family: $script;
-    font-size: 8em;
-    color: $brand_primary;
+    background: $brand_primary;
+    color: $eggshell;
+    font-family: 'Lobster';
+    text-shadow: lighten($brand_dark, 20%) 1px 1px,lighten($brand_dark, 20%) 0px 0px,lighten($brand_dark, 20%) 1px 1px,lighten($brand_dark, 20%) 2px 2px,lighten($brand_dark, 20%) 3px 3px,lighten($brand_dark, 20%) 4px 4px,lighten($brand_dark, 20%) 5px 5px,lighten($brand_dark, 20%) 6px 6px,lighten($brand_dark, 20%) 7px 7px,lighten($brand_dark, 20%) 8px 8px,lighten($brand_dark, 20%) 9px 9px,lighten($brand_dark, 20%) 10px 10px,lighten($brand_dark, 20%) 11px 11px,lighten($brand_dark, 20%) 12px 12px,lighten($brand_dark, 20%) 13px 13px,lighten($brand_dark, 20%) 14px 14px,lighten($brand_dark, 20%) 15px 15px,lighten($brand_dark, 20%) 16px 16px,lighten($brand_dark, 20%) 17px 17px,lighten($brand_dark, 20%) 18px 18px,lighten($brand_dark, 20%) 19px 19px,lighten($brand_dark, 20%) 20px 20px,lighten($brand_dark, 20%) 21px 21px,lighten($brand_dark, 20%) 22px 22px,lighten($brand_dark, 20%) 23px 23px,lighten($brand_dark, 20%) 24px 24px,lighten($brand_dark, 20%) 25px 25px,lighten($brand_dark, 20%) 26px 26px,lighten($brand_dark, 20%) 27px 27px,lighten($brand_dark, 20%) 28px 28px,lighten($brand_dark, 20%) 29px 29px;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -194px;
+      right: 80px;
+      width: 389px;
+      max-width: 100%;
+      height: 389px;
+      max-height: 100vw;
+      transform-origin: center;
+      transform: rotate(45deg);
+      background: $brand_primary;
+      z-index: -1;
+
+      @include respond-to(phone) {
+        width: 100%;
+        height: 200px;
+        transform-origin: bottom right;
+        transform: rotate(-15deg);
+        bottom: 0;
+        right: -18px;
+      }
+    }
+  }
+
+  .hero-tagline {
+    font-family: $sans_serif;
+    text-align: center;
+    font-size: 2em;
+    color: lighten($brand_dark, 20%);
+
+    @include respond-to(phone) {
+      font-size: 1em;
+      max-width: 70%;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+
+  .page-title {
+
+    font-size: 5em;
+    //color: $brand_primary;
     //transform: rotate(-10deg);
     
     @include respond-to(phone) {
@@ -21,24 +77,6 @@
 
     @include respond-to(largetablet) {
       font-size: 5em;
-    }
-  }
-
-  .page-subtitle {
-    position: absolute;
-    font-family: $sans_serif;
-    left: calc(50% - 5em);
-    top: calc(50% + 1.75em);
-    color: $brand_primary;
-    font-size: 2em;
-    text-transform: uppercase;
-
-    @include respond-to(phone) {
-      font-size: 0.65em;
-    }
-
-    @include respond-to(largetablet) {
-      font-size: 1.2em;
     }
   }
 

@@ -16,30 +16,42 @@
     <header class="main-hero">
         @include('front.partials.socialherolinks')
 
-        <h1 class="page-title">Good Gifts</h1>
-        <h2 class="page-subtitle">For Guys.</h2>
+        <h1 class="page-title">
+            <span>Good Gifts</span><br>
+            <span>For Guys.</span>
+        </h1>
+        <p class="hero-tagline">Custom gift lists for guys, sent straight to you.</p>
+        {{--<h2 class="page-subtitle"></h2>--}}
     </header>
+    <div class="article-grid">
+        @foreach($articles as $article)
+            {{--<article class="article-listing">--}}
+            {{--<div class="image-box">--}}
+            {{--<a href="/articles/{{ $article->slug }}">--}}
+            {{--<img class="article-title-image" src="{{ $article->titleImage('thumb') }}" alt="{{ $article->title }}">--}}
+            {{--</a>--}}
+            {{--</div>--}}
+            {{--<div class="text-box">--}}
+            {{--<h3 class="article-title"><a href="/articles/{{ $article->slug }}">{{ $article->title }}</a></h3>--}}
+            {{--<p class="article-description">{{ $article->intro }}</p>--}}
+            {{--</div>--}}
+            {{--</article>--}}
+            {{--@if(Auth::check() && $loop->iteration === 3)--}}
+            {{--<div class="reminder-signup-component">--}}
+            {{--<h3 class="signup-ad-header">Get a personalised gift list</h3>--}}
+            {{--<p class="signup-ad-copy">Totally free, sent straight to you.</p>--}}
+            {{--<a href="/recommendations/signup" class="action-button">Hell yeah</a>--}}
+            {{--</div>--}}
+            {{--@endif--}}
+            <article-preview image="{{ $article->titleImage('thumb') }}"
+                             title="{{ $article->title }}"
+                             preview_text="{{ $article->intro }}"
+                             article_link="/articles/{{ $article->slug }}"
+            ></article-preview>
+            {{--@include('front.home.articlecard')--}}
+        @endforeach
+    </div>
 
-    @foreach($articles as $article)
-    <article class="article-listing">
-        <div class="image-box">
-            <a href="/articles/{{ $article->slug }}">
-                <img class="article-title-image" src="{{ $article->titleImage('thumb') }}" alt="{{ $article->title }}">
-            </a>
-        </div>
-        <div class="text-box">
-            <h3 class="article-title"><a href="/articles/{{ $article->slug }}">{{ $article->title }}</a></h3>
-            <p class="article-description">{{ $article->intro }}</p>
-        </div>
-    </article>
-        @if(Auth::check() && $loop->iteration === 3)
-            <div class="reminder-signup-component">
-                <h3 class="signup-ad-header">Get a personalised gift list</h3>
-                <p class="signup-ad-copy">Totally free, sent straight to you.</p>
-                <a href="/recommendations/signup" class="action-button">Hell yeah</a>
-            </div>
-        @endif
-    @endforeach
 @endsection
 
 @section('bodyscripts')

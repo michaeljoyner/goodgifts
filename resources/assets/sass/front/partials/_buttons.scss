@@ -13,3 +13,13 @@
     color: $brand_primary;
   }
 }
+
+.btn-block {
+  display: block;
+  margin: 1em auto;
+  text-align: center;
+
+  &.restricted {
+    max-width: 250px;
+  }
+}

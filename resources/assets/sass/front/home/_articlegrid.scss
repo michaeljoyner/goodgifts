@@ -1,0 +1,26 @@
+.article-grid {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 2em auto;
+
+  .home-article-card {
+    flex-basis: 25%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    max-width: 350px;
+
+    @include respond-to(phone) {
+      flex-basis: 33%;
+    }
+
+    .image-wrapper {
+      font-size: 0px;
+      img {
+        width: 100%;
+      }
+    }
+
+
+  }
+}
