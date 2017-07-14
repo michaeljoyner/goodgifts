@@ -2,6 +2,7 @@
   position: absolute;
   top: 15px;
   right: 15px;
+  z-index: 10;
 
   @include respond-to(phone) {
     z-index: 5;
@@ -34,13 +35,13 @@
     }
 
     &:hover {
-      border-color: $brand_primary;
+      border-color: $brand_dark;
       .colour-fill {
-        fill: $brand_primary;
+        fill: $brand_dark;
       }
 
       .colour-stroke {
-        stroke: $brand_primary;
+        stroke: $brand_dark;
       }
     }
   }

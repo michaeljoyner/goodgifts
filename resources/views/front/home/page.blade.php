@@ -20,7 +20,9 @@
             <span>Good Gifts</span><br>
             <span>For Guys.</span>
         </h1>
-        <p class="hero-tagline">Custom gift lists for guys, sent straight to you.</p>
+        <p class="hero-tagline">Only the cool stuff.</p>
+        <p class="hero-sub-tag">Bite-size gift guides for inspiration.</p>
+        <p class="hero-sub-tag">Custom made gift lists for free.</p>
         {{--<h2 class="page-subtitle"></h2>--}}
     </header>
     <div class="article-grid">

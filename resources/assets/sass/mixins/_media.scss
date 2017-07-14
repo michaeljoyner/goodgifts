@@ -6,13 +6,13 @@
     //  @media only screen and (min-width: 426px) and (max-width: 767px) {@content;}
     //}
   @else if $media == largetablet {
-    @media only screen and (min-width: 720px) and (max-width: 1150px) {@content;}
+    @media only screen and (min-width: 720px) and (max-width: 1200px) {@content;}
   }
     //@else if $media == desktop {
     //  @media only screen and (min-width: 1000px) and (max-width: 1199px) {@content;}
     //}
   @else if $media == widedesktop {
-    @media only screen and (min-width: 1151px) and (max-width: 1399px) {@content;}
+    @media only screen and (min-width: 1201px) and (max-width: 1399px) {@content;}
   }
   @else if $media == superwidedesktop {
     @media only screen and (min-width: 1400px) {@content;}
