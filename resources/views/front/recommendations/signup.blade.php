@@ -16,9 +16,11 @@
     @include('front.partials.standardheader')
     <section class="signup-page-main-section">
         <div class="lead-text">
-            <h1>Need a good gift?<br><br>We'll give you a list.</h1>
-            <p>Just give us a budget to work with, the date you need the gift and a few of this interests.</p><p>Then 30 days before his big day, we'll send you a list of all the best gifts we can find for a guy like him.</p>
-            <p>It's a totally free service and we promise no ads or annoying emails, pinkie swear.</p>
+            <h1>This will only take a hot second.</h1>
+            <p>Here is how it works.</p>
+            <p>We just need your budget, the date you need the gift, and tell us what he's into. Then 30 days before, we'll send you a list of all the best gifts we could find.</p>
+            <p>Need the gift in a hurry? No stress. We'll work with the time we've got and get something to you.</p>
+            <p>It's totally free and we promise no ads or spam. Pinkie swear.</p>
         </div>
         <form class="signup-form" action="/recommendations/request" method="POST">
             {!! csrf_field() !!}

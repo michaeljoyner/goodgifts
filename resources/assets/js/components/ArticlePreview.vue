@@ -7,7 +7,6 @@
         </div>
         <modal :show="showModal">
             <div slot="header">
-                <div class="close-btn" @click="showModal = false">&times;</div>
             </div>
             <div slot="body">
                 <div class="image-bg-holder" :style="{ backgroundImage: `url(${image})`, height: '300px'}">
