@@ -1,6 +1,7 @@
 html {
   box-sizing: border-box;
   font-size: 20px;
+  height: 100%;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -11,6 +12,7 @@ body {
   padding: 0;
   color: $brand_dark;
   font-family: $body_font;
+  height: 100%;
 
   &.modal-open {
     overflow: hidden;
