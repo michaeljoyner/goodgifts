@@ -6,9 +6,11 @@
   justify-content: space-between;
 
   h1 {
-    font-family: $script;
+    font-family: $sans_serif;
     color: $brand_primary;
-    margin-top: 0;
+    margin: 0;
+    font-size: 120%;
+    text-transform: uppercase;
 
     &:hover {
       color: $brand_blue;
@@ -16,10 +18,5 @@
 
     @include respond-to(phone) { font-size: 80%; }
 
-    span {
-      font-family: $sans_serif;
-      text-transform: uppercase;
-      font-size: 70%;
-    }
   }
 }

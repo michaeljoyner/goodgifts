@@ -1,118 +1,97 @@
 .main-hero {
   width: 100%;
   overflow-x: hidden;
-  //height: 30vw;
+  height: 30vw;
+  overflow: hidden;
+  position: relative;
+
+  @include respond-to(phone) {
+    height: 60vw;
+  }
+
+  #canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*background: #d1ffff;*/
+    background: #C1604F;
+    width: 100%;
+    /*height: 480px;*/
+  }
   //background: $brand_dark;
   //display: flex;
   //justify-content: center;
   //align-items: center;
   //position: relative;
 
-  .page-title {
+  //.page-title {
+  //
+  //  @include respond-to(phone) {
+  //    margin-bottom: 120px;
+  //    background: $brand_primary;
+  //    text-align: center;
+  //    padding-left: 0;
+  //  }
 
-    @include respond-to(phone) {
-      margin-bottom: 120px;
-      background: $brand_primary;
-      text-align: center;
-      padding-left: 0;
-    }
+  //  position: relative;
+  //  //width: 550px;
+  //  width: 100%;
+  //  margin: 0 auto 150px;
+  //  padding: 50px 0 0 100px;
+  //  max-width: 100%;
+  //  //text-align: center;
+  //  font-family: $script;
+  //  //background: $brand_primary;
+  //  color: $eggshell;
+  //  font-family: 'Lobster';
+  //  text-shadow: lighten($brand_dark, 20%) 1px 1px,lighten($brand_dark, 20%) 0px 0px,lighten($brand_dark, 20%) 1px 1px,lighten($brand_dark, 20%) 2px 2px,lighten($brand_dark, 20%) 3px 3px,lighten($brand_dark, 20%) 4px 4px,lighten($brand_dark, 20%) 5px 5px,lighten($brand_dark, 20%) 6px 6px,lighten($brand_dark, 20%) 7px 7px,lighten($brand_dark, 20%) 8px 8px,lighten($brand_dark, 20%) 9px 9px,lighten($brand_dark, 20%) 10px 10px,lighten($brand_dark, 20%) 11px 11px,lighten($brand_dark, 20%) 12px 12px,lighten($brand_dark, 20%) 13px 13px,lighten($brand_dark, 20%) 14px 14px,lighten($brand_dark, 20%) 15px 15px,lighten($brand_dark, 20%) 16px 16px,lighten($brand_dark, 20%) 17px 17px,lighten($brand_dark, 20%) 18px 18px,lighten($brand_dark, 20%) 19px 19px,lighten($brand_dark, 20%) 20px 20px,lighten($brand_dark, 20%) 21px 21px,lighten($brand_dark, 20%) 22px 22px,lighten($brand_dark, 20%) 23px 23px,lighten($brand_dark, 20%) 24px 24px,lighten($brand_dark, 20%) 25px 25px,lighten($brand_dark, 20%) 26px 26px,lighten($brand_dark, 20%) 27px 27px,lighten($brand_dark, 20%) 28px 28px,lighten($brand_dark, 20%) 29px 29px;
+  //
+  //  &:after {
+  //    content: '';
+  //    display: block;
+  //    position: absolute;
+  //    //bottom: -194px;
+  //    //right: 80px;
+  //    width: 100%;
+  //    top: 0px;
+  //    left: 0;
+  //    max-width: 100%;
+  //    height: 440px;
+  //    //max-height: 100vw;
+  //    transform-origin: top left;
+  //    transform: rotate(-15deg);
+  //    background: $brand_primary;
+  //    z-index: -1;
+  //
+  //    @include respond-to(phone) {
+  //      width: 100%;
+  //      height: 200px;
+  //      transform-origin: bottom right;
+  //      transform: rotate(-15deg);
+  //      bottom: 0;
+  //      right: -18px;
+  //      top: -20px;
+  //    }
+  //  }
+  //}
+  //
 
-    position: relative;
-    //width: 550px;
-    width: 100%;
-    margin: 0 auto 150px;
-    padding: 50px 0 0 100px;
-    max-width: 100%;
-    //text-align: center;
-    font-family: $script;
-    //background: $brand_primary;
-    color: $eggshell;
-    font-family: 'Lobster';
-    text-shadow: lighten($brand_dark, 20%) 1px 1px,lighten($brand_dark, 20%) 0px 0px,lighten($brand_dark, 20%) 1px 1px,lighten($brand_dark, 20%) 2px 2px,lighten($brand_dark, 20%) 3px 3px,lighten($brand_dark, 20%) 4px 4px,lighten($brand_dark, 20%) 5px 5px,lighten($brand_dark, 20%) 6px 6px,lighten($brand_dark, 20%) 7px 7px,lighten($brand_dark, 20%) 8px 8px,lighten($brand_dark, 20%) 9px 9px,lighten($brand_dark, 20%) 10px 10px,lighten($brand_dark, 20%) 11px 11px,lighten($brand_dark, 20%) 12px 12px,lighten($brand_dark, 20%) 13px 13px,lighten($brand_dark, 20%) 14px 14px,lighten($brand_dark, 20%) 15px 15px,lighten($brand_dark, 20%) 16px 16px,lighten($brand_dark, 20%) 17px 17px,lighten($brand_dark, 20%) 18px 18px,lighten($brand_dark, 20%) 19px 19px,lighten($brand_dark, 20%) 20px 20px,lighten($brand_dark, 20%) 21px 21px,lighten($brand_dark, 20%) 22px 22px,lighten($brand_dark, 20%) 23px 23px,lighten($brand_dark, 20%) 24px 24px,lighten($brand_dark, 20%) 25px 25px,lighten($brand_dark, 20%) 26px 26px,lighten($brand_dark, 20%) 27px 27px,lighten($brand_dark, 20%) 28px 28px,lighten($brand_dark, 20%) 29px 29px;
-
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      //bottom: -194px;
-      //right: 80px;
-      width: 100%;
-      top: 0px;
-      left: 0;
-      max-width: 100%;
-      height: 440px;
-      //max-height: 100vw;
-      transform-origin: top left;
-      transform: rotate(-15deg);
-      background: $brand_primary;
-      z-index: -1;
-
-      @include respond-to(phone) {
-        width: 100%;
-        height: 200px;
-        transform-origin: bottom right;
-        transform: rotate(-15deg);
-        bottom: 0;
-        right: -18px;
-        top: -20px;
-      }
-    }
-  }
-
-  .hero-tagline {
-    font-family: $sans_serif;
-    text-align: center;
-    font-size: 2em;
-    color: lighten($brand_dark, 20%);
-    text-align: right;
-    //padding-right: 100px;
-    margin: 15px auto;
-    max-width: 1200px;
-
-    @include respond-to(phone) {
-      font-size: 1em;
-      max-width: 70%;
-      text-align: center;
-      margin: 0 auto;
-      padding-right: 0;
-    }
-
-    @include respond-to(largetablet) {
-      padding-right: 20px;
-    }
-  }
-
-  .hero-sub-tag {
-    text-align: right;
-    margin: 10px auto;
-    max-width: 1200px;
-    font-family: $sans_serif;
-    color: $mid-grey;
-
-    @include respond-to(largetablet) {
-      padding-right: 20px;
-    }
-
-    @include respond-to(phone) {
-      text-align: center;
-      font-size: 80%;
-    }
-  }
-
-  .page-title {
-
-    font-size: 4.5em;
-    //color: $brand_primary;
-    //transform: rotate(-10deg);
-    
-    @include respond-to(phone) {
-      font-size: 2.5em;
-    }
-
-    @include respond-to(largetablet) {
-      font-size: 4.5em;
-    }
-  }
+  //
+  //.page-title {
+  //
+  //  font-size: 4.5em;
+  //  //color: $brand_primary;
+  //  //transform: rotate(-10deg);
+  //
+  //  @include respond-to(phone) {
+  //    font-size: 2.5em;
+  //  }
+  //
+  //  @include respond-to(largetablet) {
+  //    font-size: 4.5em;
+  //  }
+  //}
 
 
 }
+

@@ -13,44 +13,22 @@
 @endsection
 
 @section('content')
+    @include('front.partials.socialherolinks')
     <header class="main-hero">
-        @include('front.partials.socialherolinks')
-
-        <h1 class="page-title">
-            <span>Good Gifts</span><br>
-            <span>For Guys.</span>
-        </h1>
-        <p class="hero-tagline">Only the cool stuff.</p>
-        <p class="hero-sub-tag">Bite-size gift guides for inspiration.</p>
-        <p class="hero-sub-tag">Custom made gift lists for free.</p>
-        {{--<h2 class="page-subtitle"></h2>--}}
+        <banner-canvas logo="/images/goodforguys.png" colour="#f88008"></banner-canvas>
     </header>
+    <div class="text-block">
+        <p class="hero-tagline">Only the cool stuff.</p>
+        <p class="hero-sub-tag">Bite-size gift guides for inspiration,</p>
+        <p class="hero-sub-tag">and custom made gift lists for free.</p>
+    </div>
     <div class="article-grid">
         @foreach($articles as $article)
-            {{--<article class="article-listing">--}}
-            {{--<div class="image-box">--}}
-            {{--<a href="/articles/{{ $article->slug }}">--}}
-            {{--<img class="article-title-image" src="{{ $article->titleImage('thumb') }}" alt="{{ $article->title }}">--}}
-            {{--</a>--}}
-            {{--</div>--}}
-            {{--<div class="text-box">--}}
-            {{--<h3 class="article-title"><a href="/articles/{{ $article->slug }}">{{ $article->title }}</a></h3>--}}
-            {{--<p class="article-description">{{ $article->intro }}</p>--}}
-            {{--</div>--}}
-            {{--</article>--}}
-            {{--@if(Auth::check() && $loop->iteration === 3)--}}
-            {{--<div class="reminder-signup-component">--}}
-            {{--<h3 class="signup-ad-header">Get a personalised gift list</h3>--}}
-            {{--<p class="signup-ad-copy">Totally free, sent straight to you.</p>--}}
-            {{--<a href="/recommendations/signup" class="action-button">Hell yeah</a>--}}
-            {{--</div>--}}
-            {{--@endif--}}
             <article-preview image="{{ $article->titleImage('thumb') }}"
                              title="{{ $article->title }}"
                              preview_text="{{ $article->intro }}"
                              article_link="/articles/{{ $article->slug }}"
             ></article-preview>
-            {{--@include('front.home.articlecard')--}}
         @endforeach
     </div>
 

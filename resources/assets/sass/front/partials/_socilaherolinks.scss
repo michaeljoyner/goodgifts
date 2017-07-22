@@ -1,8 +1,15 @@
-.main-hero .social-hero-links {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+.social-hero-links.home-socials {
+  //position: absolute;
+  //top: 0;
+  //left: 0;
   z-index: 10;
+  width: 100%;
+  background: $brand_dark;
+  text-align: right;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 
   @include respond-to(phone) {
     z-index: 5;
@@ -14,15 +21,17 @@
   align-items: center;
 
   .social-hero-link {
-    display: inline-block;
+    display: inline-flex;
     vertical-align: top;
     margin: 0 10px;
+    align-items: center;
+    justify-content: center;
 
     @include respond-to(phone) {
       margin: 0 5px;
       svg {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
       }
     }
 
@@ -35,13 +44,13 @@
     }
 
     &:hover {
-      border-color: $brand_dark;
+      border-color: $brand_primary;
       .colour-fill {
-        fill: $brand_dark;
+        fill: $brand_primary;
       }
 
       .colour-stroke {
-        stroke: $brand_dark;
+        stroke: $brand_primary;
       }
     }
   }
