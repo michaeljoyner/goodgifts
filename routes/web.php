@@ -1,10 +1,5 @@
 <?php
 
-Route::get('canvo', function() {
-    return view('canvo');
-});
-
-
 Route::get('/', 'PagesController@home');
 Route::get('/articles/{slug}', 'PagesController@article');
 Route::get('/articles/{slug}/plain-text', 'ArticleTextController@show')->middleware('auth.basic');
