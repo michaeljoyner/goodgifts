@@ -7,7 +7,7 @@
     font-family: $sans_serif;
     font-size: 2em;
     color: lighten($brand_dark, 20%);
-    text-align: right;
+    text-align: center;
     margin: 15px auto;
     color: $brand_dark;
 
@@ -17,21 +17,22 @@
       padding-right: 0;
     }
 
-    @include respond-to(largetablet) {
-      padding-right: 20px;
-    }
+    //@include respond-to(largetablet) {
+    //  padding-right: 20px;
+    //}
   }
 
   .hero-sub-tag {
-    text-align: right;
+    text-align: center;
     margin: 10px auto;
     max-width: 1200px;
     font-family: $sans_serif;
     color: $mid-grey;
+    max-width: 575px;
 
-    @include respond-to(largetablet) {
-      padding-right: 20px;
-    }
+    //@include respond-to(largetablet) {
+    //  padding-right: 20px;
+    //}
 
     @include respond-to(phone) {
       font-size: 80%;

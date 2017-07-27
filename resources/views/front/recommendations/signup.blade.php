@@ -16,7 +16,7 @@
     @include('front.partials.standardheader')
     <section class="signup-page-main-section">
         <div class="lead-text">
-            <h1>This will only take a hot second.</h1>
+            <h1>Just a hot second.</h1>
             <p>Here is how it works.</p>
             <p>We just need your budget, the date you need the gift, and tell us what he's into. Then 30 days before, we'll send you a list of all the best gifts we could find.</p>
             <p>Need the gift in a hurry? No stress. We'll work with the time we've got and get something to you.</p>
@@ -188,7 +188,7 @@
             <div class="form-section">
                 <div class="form-text-box">
                     <h3>Let's do this</h3>
-                    <p>We'll get on to that list ASAP! In the meantime, don't be shy to add a few more guys and get your gifty shopping for the year done.</p>
+                    <p>We'll get on to that list ASAP! In the meantime, don't be shy to add a few more guys and get your gift shopping for the year done.</p>
                 </div>
                 <div class="form-input-box submit-box">
                     <button class="form-cta-button" type="submit">Make my list</button>

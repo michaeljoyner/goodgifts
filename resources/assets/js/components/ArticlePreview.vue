@@ -16,7 +16,7 @@
                 <div class="preview-detail">
                     <h4 class="preview-title">{{ title }}</h4>
                     <p class="preview-text">{{ preview_text }}</p>
-                    <a :href="article_link" class="action-button btn-block restricted">Go to article</a>
+                    <a :href="article_link" class="action-button btn-block restricted">Check it out</a>
                 </div>
             </div>
             <div slot="footer">

@@ -18,9 +18,10 @@
         <banner-canvas logo="/images/goodforguys.png" colour="#f88008"></banner-canvas>
     </header>
     <div class="text-block">
-        <p class="hero-tagline">Only the cool stuff.</p>
-        <p class="hero-sub-tag">Bite-size gift guides for inspiration,</p>
-        <p class="hero-sub-tag">and custom made gift lists for free.</p>
+        <p class="hero-tagline">Oh hey there, sexy.</p>
+        <p class="hero-sub-tag">Yeah, we do gifts. Really cool ones, too.</p>
+        <p class="hero-sub-tag">You can check out our gift guides in the pics below.</p>
+        <p class="hero-sub-tag">But for the real honey, get a free custom gift list with all the best gifts sent straight to you, just when you need it.</p>
     </div>
     <div class="article-grid">
         @foreach($articles as $article)
@@ -30,6 +31,16 @@
                              article_link="/articles/{{ $article->slug }}"
             ></article-preview>
         @endforeach
+        @if($articles->count() % 3 !== 0)
+            <div class="article-grid-filler for-non-mobile">
+                <a href="/recommendations/signup">Get a custom list</a>
+            </div>
+        @endif
+        @if($articles->count() % 2 !== 0)
+            <div class="article-grid-filler mobile-only">
+                <a href="/recommendations/signup">Get a custom list</a>
+            </div>
+        @endif
     </div>
 
 @endsection
