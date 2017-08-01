@@ -21,7 +21,7 @@
         <p class="hero-tagline">Oh hey there, sexy.</p>
         <p class="hero-sub-tag">Yeah, we do gifts. Really cool ones, too.</p>
         <p class="hero-sub-tag">You can check out our gift guides in the pics below.</p>
-        <p class="hero-sub-tag">But for the real honey, get a free custom gift list with all the best gifts sent straight to you, just when you need it.</p>
+        <p class="hero-sub-tag">But for the real honey, get a free custom gift list - all the best gifts sent straight to you, just when you need it.</p>
     </div>
     <div class="article-grid">
         @foreach($articles as $article)
