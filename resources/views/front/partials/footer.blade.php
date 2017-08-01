@@ -1,3 +1,3 @@
 <footer class="main-footer">
-    <p>"feel good giving"</p>
+    <p>feel good giving</p>
 </footer>
