@@ -31,7 +31,7 @@
         mounted() {
             this.width = window.innerWidth;
             this.sunburst = new Sunburst({canvas: this.$el, logo_src: this.logo, colour: this.colour});
-            this.drawSunburst();
+            this.drawSunburst(false);
             window.addEventListener('resize', () => this.drawSunburst());
         },
 
@@ -52,7 +52,11 @@
                 };
             },
 
-            drawSunburst() {
+            drawSunburst(isRedraw) {
+                if(isRedraw && (window.innerWidth === this.width)) {
+                    return;
+                }
+
                 this.width = window.innerWidth;
                 this.sunburst.draw(this.sunburstDimensions());
             }
