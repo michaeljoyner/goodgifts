@@ -1,17 +1,24 @@
 .main-footer {
   width: 100%;
-  min-height: 300px;
+  min-height: 150px;
   background: $brand_dark;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: lighten($brand_dark, 20%);
-  font-family: $sans_serif;
-  font-size: 3em;
+
   margin-top: 30px;
-  text-align: center;
+
+
+
+  p {
+    text-shadow: 0 0 5px $brand_primary;
+    color: $brand_dark;
+    font-family: $sans_serif;
+    font-size: 4em;
+    text-align: center;
+  }
 
   @include respond-to(phone) {
-    font-size: 1.2em;
+    font-size: 2.5em;
   }
 }

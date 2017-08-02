@@ -16,11 +16,11 @@
     @include('front.partials.standardheader')
     <section class="signup-page-main-section">
         <div class="lead-text">
-            <h1>Just a hot second.</h1>
-            <p>Here is how it works.</p>
-            <p>We just need your budget, the date you need the gift, and tell us what he's into. Then 30 days before, we'll send you a list of all the best gifts we could find.</p>
-            <p>Need the gift in a hurry? No stress. We'll work with the time we've got and get something to you.</p>
-            <p>It's totally free and we promise no ads or spam. Pinkie swear.</p>
+            <h1>Just a custom list. Just in time.</h1>
+            <p>We'll find the best gifts based on his interests and send them to you 20 days before you need it.</p>
+            <p>If you don't have 20 days, we'll act fast.</p>
+            <p>We just need a budget, a date, and a few things he likes to get us started.</p>
+            <p>It's totally free and we promise no ads or spam. Scouts honor, pinkie swear.</p>
         </div>
         <form class="signup-form" action="/recommendations/request" method="POST">
             {!! csrf_field() !!}
