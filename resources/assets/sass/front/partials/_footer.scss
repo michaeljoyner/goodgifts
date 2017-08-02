@@ -16,9 +16,11 @@
     font-family: $sans_serif;
     font-size: 4em;
     text-align: center;
+
+    @include respond-to(phone) {
+      font-size: 1.75em;
+    }
   }
 
-  @include respond-to(phone) {
-    font-size: 2.5em;
-  }
+
 }
