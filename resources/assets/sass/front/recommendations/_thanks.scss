@@ -1,14 +1,21 @@
 .thanks-container {
   max-width: 600px;
   width: 90%;
-  margin: 2em auto;
+  margin: 150px auto 150px;
   text-align: center;
+
+  @include respond-to(phone) {
+    margin: 2em auto;
+  }
 
   h1 {
     font-size: 50px;
     font-family: $sans_serif;
-    span {
-      border-bottom: 3px solid lighten($brand_primary, 20%);
-    }
+  }
+
+  .logo {
+    width: 250px;
+    display: block;
+    margin: 50px auto;
   }
 }

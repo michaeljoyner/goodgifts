@@ -1,7 +1,10 @@
+body.home-page {
+  border-top: 10px solid $brand_dark;
+}
 .text-block {
   max-width: 1200px;
   width: 90%;
-  margin: 50px auto;
+  margin: 50px auto 20px;
 
   .hero-tagline {
     font-family: $sans_serif;
@@ -38,4 +41,25 @@
       font-size: 80%;
     }
   }
+}
+
+.social-links-home {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    margin: 0 10px;
+
+    svg path {
+      fill: $brand_dark;
+    }
+
+    &:hover svg path {
+      fill: $brand_primary;
+    }
+  }
+
+
 }
