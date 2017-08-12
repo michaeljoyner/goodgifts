@@ -33,7 +33,19 @@
                         <li><a href="/admin/cards/search">Search</a></li>
                     </ul>
                 </li>
-                <li><a href="/admin/recommendations/requests">Sign Ups</a></li>
+                <li class="dropdown">
+                    <a href="#"
+                       class="dropdown-toggle"
+                       data-toggle="dropdown"
+                       role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false"
+                    >Gift Lists <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/recommendations/requests">New Requests</a></li>
+                        <li><a href="/admin/giftlists">Current Lists</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

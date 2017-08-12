@@ -13,7 +13,6 @@
             </span>
         </div>
         <div class="interest-options">
-            <!--<small class="instruction-line">Click on an interest below to add it to his list.</small>-->
             <span v-for="interest in interests_paginator"
                   @click="addInterest(interest)"
                   class="potential-interest"

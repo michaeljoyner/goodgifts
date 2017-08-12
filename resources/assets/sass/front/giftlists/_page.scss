@@ -1,0 +1,35 @@
+.gift-list-page-container {
+  width: 95%;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .greeting {
+    margin: 50px 0;
+  }
+
+  .card-info-strip {
+    display: flex;
+    background: $white;
+    padding: 10px;
+
+    & > div {
+      width: 33%;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: auto;
+    }
+
+    .info-label {
+      text-transform: uppercase;
+      color: $brand_primary;
+      font-size: 80%;
+      margin: 0;
+      font-family: $sans_serif;
+    }
+
+    .info-text {
+      color: $brand_dark;
+      margin: 0;
+    }
+  }
+}

@@ -30,6 +30,10 @@ Vue.component('product-swapper', require('./components/ProductSwapSelector.vue')
 Vue.component('product-remover', require('./components/RemoveProductModal.vue'));
 Vue.component('product-reason', require('./components/ReasonForm.vue'));
 Vue.component('tag-repository', require('./components/TagSuggestionRepository.vue'));
+Vue.component('list-maker', require('./components/ListMaker.vue'));
+Vue.component('gift-suggestion', require('./components/Suggestion.vue'));
+Vue.component('list-writeup', require('./components/GiftListWriteupEditor.vue'));
+Vue.component('giftlist-articles', require('./components/GiftListArticles.vue'));
 
 window.eventHub = new Vue();
 

@@ -2,7 +2,7 @@
 
 @section('content')
     <header class="gg-page-header">
-        <h1 class="header-title">Recommendation SignUps</h1>
+        <h1 class="header-title">New Gift List Requests</h1>
         <div class="page-actions">
 
         </div>
@@ -17,17 +17,24 @@
                 <th>Interests</th>
                 <th>Send time</th>
                 <th>Budget</th>
+                <th>Make List</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($signups as $signup)
+            @foreach($signups->filter->isNew() as $signup)
                 <tr>
                     <td>{{ $signup->sender }}</td>
                     <td>{{ $signup->recipient }}</td>
                     <td>{{ $signup->birthday->toFormattedDateString() }}</td>
                     <td>{{ $signup->interests }}</td>
-                    <td>{{ $signup->birthday->subMonth()->diffForHumans() }}</td>
+                    <td>{{ $signup->sendDate() }}</td>
                     <td>{{ $signup->budget }}</td>
+                    <td>
+                        <form action="/admin/recommendations/{{ $signup->id }}/giftlists" method="POST">
+                            {!! csrf_field() !!}
+                            <button class="gg-btn btn" type="submit">Make List</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
             </tbody>

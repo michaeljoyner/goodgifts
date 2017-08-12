@@ -15,7 +15,7 @@
 @section('content')
     @include('front.partials.socialherolinks')
     <header class="main-hero">
-        <banner-canvas logo="/images/goodforguys.png" colour="#f88008"></banner-canvas>
+        {{--<banner-canvas logo="/images/goodforguys.png" colour="#f88008"></banner-canvas>--}}
     </header>
     <div class="text-block">
         <p class="hero-tagline">Oh hey there, sexy.</p>

@@ -1,0 +1,20 @@
+.gift-list-writeup-editor {
+  background: $white;
+  padding: 10px;
+  margin: 30px auto;
+
+  form {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  textarea {
+    min-height: 300px;
+    resize: none;
+  }
+
+  button {
+    display: block;
+    margin: 15px 0 15px auto;
+  }
+}

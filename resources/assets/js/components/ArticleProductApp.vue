@@ -20,7 +20,7 @@
             </form>
         </div>
         <div class="products-list-section article-products-component">
-            <div v-for="product in products" class="article-product-outer">
+            <div v-for="product in products" :key="product.id" class="article-product-outer">
                 <div class="article-product">
                     <img :src="product.image" alt="" width="80px">
                     <p class="title">{{ product.title }}</p>

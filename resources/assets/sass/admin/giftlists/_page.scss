@@ -1,0 +1,49 @@
+.list-request-section {
+  background: $white;
+  padding: 10px;
+  margin-bottom: 30px;
+
+
+
+  .data-list-strip {
+    display: flex;
+
+    &:not(:last-of-type) {
+      padding-bottom: 20px;
+    }
+
+    & > * {
+      width: 33%;
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: auto;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .label-text {
+        text-transform: uppercase;
+        font-size: 80%;
+        color: $brand_primary;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.mentioned-interests {
+  background: $white;
+  padding: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .label-text {
+    text-transform: uppercase;
+    font-size: 80%;
+    color: $brand_primary;
+    margin-bottom: 0;
+  }
+}

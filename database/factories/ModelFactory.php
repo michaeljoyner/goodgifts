@@ -80,3 +80,25 @@ $factory->define(App\Tags\Tag::class, function (Faker\Generator $faker) {
         'tag' => $faker->word
     ];
 });
+
+$factory->define(App\Suggestions\Suggestion::class, function (Faker\Generator $faker) {
+    return [
+        'article_id' => function() {
+            return factory(\App\Articles\Article::class)->create()->id;
+        },
+        'product_id' => function () {
+            return factory(\App\Products\Product::class)->create()->id;
+        },
+        'what'       => $faker->sentence,
+        'why'        => $faker->sentence
+    ];
+});
+
+$factory->define(App\GiftLists\GiftList::class, function (Faker\Generator $faker) {
+    return [
+        'request_id' => function() {
+            return factory(\App\Recommendations\Request::class)->create()->id;
+        },
+        'writeup' => $faker->paragraph
+    ];
+});

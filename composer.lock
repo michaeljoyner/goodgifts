@@ -1078,25 +1078,25 @@
         },
         {
             "name": "hemp/presenter",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidhemphill/presenter.git",
-                "reference": "88281b12b5e421364799cceda7b377c15ac35d41"
+                "reference": "69f11bdbcd1859c395f5b921f01db3829e7bc59e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidhemphill/presenter/zipball/88281b12b5e421364799cceda7b377c15ac35d41",
-                "reference": "88281b12b5e421364799cceda7b377c15ac35d41",
+                "url": "https://api.github.com/repos/davidhemphill/presenter/zipball/69f11bdbcd1859c395f5b921f01db3829e7bc59e",
+                "reference": "69f11bdbcd1859c395f5b921f01db3829e7bc59e",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "~5.1|~5.2|~5.3"
+                "illuminate/support": "~5.1|~5.2|~5.3|~5.4|~5.5"
             },
             "require-dev": {
                 "graham-campbell/testbench": "^3.2",
                 "graham-campbell/testbench-core": "^1.1",
-                "illuminate/database": "~5.1|~5.2|~5.3",
+                "illuminate/database": "~5.1|~5.2|~5.3|~5.4|~5.5",
                 "mockery/mockery": "^1.0@dev",
                 "phpunit/phpunit": "~4.0"
             },
@@ -1118,7 +1118,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-10-01 15:12:56"
+            "time": "2017-07-24 02:15:42"
         },
         {
             "name": "intervention/image",
@@ -5283,12 +5283,12 @@
             "version": "0.9.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/padraic/mockery.git",
+                "url": "https://github.com/mockery/mockery.git",
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/6fdb61243844dc924071d3404bb23994ea0b6856",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/6fdb61243844dc924071d3404bb23994ea0b6856",
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856",
                 "shasum": ""
             },

@@ -1,0 +1,28 @@
+.gift-list-article {
+  display: flex;
+  padding: 10px;
+  border: 1px solid $brand_dark;
+  margin-bottom: 2em;
+
+  .image-box {
+    width: 200px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+
+  .details {
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding-left: 30px;
+    .title {
+      font-family: $sans_serif;
+    }
+  }
+}

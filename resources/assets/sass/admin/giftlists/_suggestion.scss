@@ -1,0 +1,41 @@
+.suggestion-component {
+  display: flex;
+  border: 1px solid $brand_primary;
+  margin: 2em auto;
+
+  .image-box {
+    width: 100px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .text-box {
+    padding: 10px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    position: relative;
+
+    p {
+      margin: 5px 0;
+    }
+
+    .remove-link {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      text-transform: uppercase;
+      color: $brand_blue;
+    }
+  }
+}

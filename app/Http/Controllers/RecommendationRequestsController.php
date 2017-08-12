@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Tags\Tag;
 use Illuminate\Http\Request;
 
 class RecommendationRequestsController extends Controller
@@ -9,7 +10,8 @@ class RecommendationRequestsController extends Controller
 
     public function show()
     {
-        return view('front.recommendations.signup');
+        $interests = Tag::orderBy('tag')->get();
+        return view('front.recommendations.signup', ['interests' => $interests]);
     }
 
     public function store()

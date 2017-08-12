@@ -4,6 +4,7 @@ Route::get('/', 'PagesController@home');
 Route::get('/articles/{slug}', 'PagesController@article');
 Route::get('/articles/{slug}/plain-text', 'ArticleTextController@show')->middleware('auth.basic');
 
+Route::get('/lists/{slug}', 'GiftListsController@show');
 
 
 Route::get('recommendations/signup', 'RecommendationRequestsController@show')->middleware('auth');
@@ -65,6 +66,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
 
     Route::put('products/{product}/tags', 'ProductTagsController@store');
 
+
+
     Route::get('tags', 'TagsController@index');
 
     Route::post('issues/batchupdate/{issue}/resolve', 'BatchUpdateIssueResolvingController@handle');
@@ -80,6 +83,24 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::delete('cards/{card}', 'CardsController@delete');
 
     Route::get('recommendations/requests', 'RecommendationRequestsController@index');
+    Route::post('recommendations/{request}/giftlists', 'GiftListsController@store');
+    Route::get('giftlists', 'GiftListsController@index');
+    Route::get('giftlists/{list}', 'GiftListsController@show');
+    Route::post('giftlists/{list}', 'GiftListsController@update');
+
+
+    Route::get('services/giftlists/{list}/suggestions', 'GiftListSuggestionsController@index');
+    Route::post('giftlists/{list}/suggestions/{suggestion}', 'GiftListSuggestionsController@store');
+    Route::delete('giftlists/{list}/suggestions/{suggestion}', 'GiftListSuggestionsController@delete');
+
+    Route::get('giftlists/{list}/articles', 'GiftListArticlesController@index');
+    Route::post('giftlists/{list}/articles/{article}', 'GiftListArticlesController@store');
+    Route::delete('giftlists/{list}/articles/{article}', 'GiftListArticlesController@delete');
+
+    Route::post('giftlists/{list}/approved', 'ApprovedGiftListsController@store');
+
+    Route::post('services/suggestions/search/tags', 'SuggestionsTagSearchController@index');
+    Route::post('services/suggestions/search/name', 'SuggestionsNameSearchController@index');
 
     Route::post('services/products/lookup', 'ProductLookupController@show');
     Route::get('services/products/similar/{itemid}', 'SimilarProductsController@index');

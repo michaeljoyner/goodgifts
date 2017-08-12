@@ -182,7 +182,7 @@
                     <p>Tell us what makes him tick. We have given a few options to get you thinking, but don't shy to add some more. The more you give us, the more we can give you. We don't  judge.</p>
                 </div>
                 <div class="form-input-box">
-                    <interests-chooser :interest-list="['swimming', 'jumping', 'yoga', 'badminton', 'naked wrestling', 'sharks', 'coffee and tea', 'drinking', 'dogs', 'cats', 'donkeys']"></interests-chooser>
+                    <interests-chooser :interest-list='{{ json_encode($interests->pluck('tag')->all()) }}'></interests-chooser>
                 </div>
             </div>
             <div class="form-section">
