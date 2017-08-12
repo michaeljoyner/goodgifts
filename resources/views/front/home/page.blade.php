@@ -14,14 +14,11 @@
 
 @section('content')
     @include('front.partials.socialherolinks')
-    <header class="main-hero">
-        {{--<banner-canvas logo="/images/goodforguys.png" colour="#f88008"></banner-canvas>--}}
-    </header>
+    <header class="main-hero"></header>
     <div class="text-block">
-        <p class="hero-tagline">Oh hey there, sexy.</p>
-        <p class="hero-sub-tag">Yeah, we do gifts. Really cool ones, too.</p>
-        <p class="hero-sub-tag">Check out our gift guides in the pics below.</p>
-        <p class="hero-sub-tag">But for the real honey, get a free custom gift list &mdash; all the best gifts sent straight to you, just when you need it.</p>
+        <p class="hero-tagline">The search is almost over.</p>
+        <p class="hero-sub-tag">Whatever makes him tick, we’ll find him a gift.</p>
+        <p class="hero-sub-tag">Click on the pics below for a little taste of what we do. But for the real honey, get a free, custom made gift list sent directly to you. All the best gifts, just when you need it.</p>
     </div>
     <div class="article-grid">
         @foreach($articles as $article)

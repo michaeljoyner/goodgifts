@@ -32,4 +32,39 @@
       margin: 0;
     }
   }
+
+  .prompt {
+
+  }
+
+  .social-begging {
+    margin: 50px 0;
+
+    p {
+      font-family: $sans_serif;
+      color: $brand_dark;
+      font-size: 1.2em;
+      text-align: center;
+      margin: 0;
+    }
+
+    .icons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        margin: 0 10px;
+
+        svg path {
+          fill: $brand_dark;
+        }
+
+        &:hover svg path {
+          fill: $brand_primary;
+        }
+      }
+    }
+  }
 }

@@ -12,7 +12,7 @@ class PresentedRequest extends Presenter
 
     public function getSenderAttribute()
     {
-        return $this->model->sender ?: 'Hey';
+        return $this->model->sender ?: 'you beautiful creature';
     }
 
     public function getRecipientAttribute()

@@ -21,8 +21,18 @@
     flex-grow: 1;
     flex-shrink: 1;
     padding-left: 30px;
+
+    p {
+      margin: 0.5em 0;
+    }
+
     .title {
       font-family: $sans_serif;
+      margin-top: 0;
+
+      &:hover {
+        color: $brand_primary;
+      }
     }
   }
 }

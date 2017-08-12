@@ -26,7 +26,9 @@ class GiftListPresenter extends Presenter
 
     public function getInterestsAttribute()
     {
-        $interests = explode(',', $this->model->request->interests);
+        $interests = collect(explode(',', $this->model->request->interests))->map(function($interest) {
+            return mb_strtolower($interest);
+        })->all();
         return join(', ', $interests);
     }
 }
