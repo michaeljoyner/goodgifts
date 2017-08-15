@@ -205,6 +205,9 @@
     }
 
     .interest-options {
+      min-height: 150px;
+      padding-bottom: 30px;
+      position: relative;
       .potential-interest {
         white-space: nowrap;
         display: inline-block;
@@ -226,14 +229,19 @@
         }
       }
 
-      .paginator-link {
+      .paginator-buttons {
         display: flex;
         justify-content: flex-end;
-        a {
-          text-transform: uppercase;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        button {
           color: $brand_blue;
-          text-decoration: none;
-          font-size: 70%;
+          font-size: 100%;
+          font-weight: 900;
+          margin-right: 20px;
+          background: none;
+          border: none;
         }
       }
     }

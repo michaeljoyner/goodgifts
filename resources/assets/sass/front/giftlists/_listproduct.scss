@@ -3,6 +3,10 @@
   border: 1px solid $brand_primary;
   padding: 10px;
 
+  @include respond-to(phone) {
+    display: block;
+  }
+
   .image-box {
     flex-grow: 0;
     flex-shrink: 0;
@@ -12,6 +16,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include respond-to(phone) {
+      margin: 0 auto;
+    }
     img {
       max-height: 200px;
       max-width: 100%;
@@ -25,6 +33,10 @@
     flex-shrink: 1;
     flex-basis: auto;
     padding-left: 30px;
+
+    @include respond-to(phone) {
+      padding-left: 0;
+    }
 
     .title {
       font-family: $sans_serif;
@@ -44,6 +56,10 @@
       text-transform: uppercase;
       font-size: 80%;
       margin-top: 5px;
+
+      @include respond-to(phone) {
+        position: static;
+      }
 
       &:hover {
         .vendor-name {

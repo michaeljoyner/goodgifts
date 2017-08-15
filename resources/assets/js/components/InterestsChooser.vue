@@ -18,8 +18,9 @@
                   class="potential-interest"
                   :class="{'used': selected_interests.indexOf(interest) !== -1}"
             >{{ interest }}</span>
-            <div class="paginator-link" v-show="interestList.length > page_length">
-                <a @click.prevent="changePage">see more interests</a>
+            <div class="paginator-buttons" v-show="interestList.length > page_length">
+                <button class="prev" @click.prevent="prevPage">&larr;</button>
+                <button class="next" @click.prevent="nextPage">&rarr;</button>
             </div>
         </div>
         <div class="add-interests">
@@ -80,12 +81,20 @@
                 this.custom = '';
             },
 
-            changePage() {
+            nextPage() {
                 if ((this.page * this.page_length) < this.interestList.length) {
                     return this.page++;
                 }
 
                 this.page = 1;
+            },
+
+            prevPage() {
+              if(this.page === 1) {
+                  return this.page = Math.ceil(this.interestList.length / this.page_length);
+              }
+
+              this.page--;
             },
 
             removeFromSelected(interest) {
