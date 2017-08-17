@@ -6,10 +6,11 @@
   max-height: 360px;
   background-image: url(./images/ggfg_banner.jpg);
   background-size: cover;
-  background-position-y: center;
+  background-position: center;
 
   @include respond-to(phone) {
     height: 60vw;
+    background-image: url(./images/ggfg_banner_mobile.jpg);
   }
 }
 

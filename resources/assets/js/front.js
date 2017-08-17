@@ -13,11 +13,8 @@ require('./frontstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 Vue.component('modal', require('./components/Modal.vue'));
-Vue.component('reminder-signup', require('./components/ReminderSignupForm.vue'));
-Vue.component('giftlist-request-form', require('./components/GiftListRequestForm.vue'));
 Vue.component('interests-chooser', require('./components/InterestsChooser.vue'));
 Vue.component('article-preview', require('./components/ArticlePreview.vue'));
-Vue.component('banner-canvas', require('./components/Banner.vue'));
 
 
 window.eventHub = new Vue();
