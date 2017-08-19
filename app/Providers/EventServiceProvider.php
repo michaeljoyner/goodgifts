@@ -26,6 +26,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\CardDeleted' => [
             'App\Listeners\ClearDeletedCardProduct'
+        ],
+        'App\Events\GiftListCreated' => [
+            'App\Listeners\NotifyAdminOfNewGiftList'
         ]
     ];
 

@@ -42,6 +42,10 @@ return [
 
     'sitemap' => [
         'filename' => (env('SITEMAP_NAME', 'sitemap.xml'))
+    ],
+
+    'slack' => [
+        'msg_webhook' => env('SLACK_MSG_URL')
     ]
 
 ];

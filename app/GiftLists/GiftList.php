@@ -3,6 +3,7 @@
 namespace App\GiftLists;
 
 use App\Articles\Article;
+use App\Events\GiftListCreated;
 use App\Notifications\GiftListPublished;
 use App\Recommendations\Request;
 use App\Suggestions\Suggestion;
@@ -21,6 +22,10 @@ class GiftList extends Model
     protected $fillable = ['writeup', 'approved', 'sent'];
 
     protected $casts = ['approved' => 'boolean', 'sent' => 'boolean'];
+
+    protected $events = [
+        'created' => GiftListCreated::class
+    ];
 
     public function routeNotificationForMail()
     {
