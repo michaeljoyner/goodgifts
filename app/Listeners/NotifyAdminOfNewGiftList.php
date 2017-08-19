@@ -19,9 +19,9 @@ class NotifyAdminOfNewGiftList
 
     public function handle(GiftListCreated $event)
     {
-//        if (!app()->environment('production')) {
-//            return;
-//        }
+        if (!app()->environment('production')) {
+            return;
+        }
 
         User::all()->each(function ($user) use ($event) {
             $user->notify(new GiftListCreatedNotification($event->list));
