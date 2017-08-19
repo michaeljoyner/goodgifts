@@ -38,16 +38,55 @@ class TagsTest extends TestCase
     /**
      *@test
      */
-    public function a_list_of_all_tags_can_be_fetched()
+    public function a_list_of_all_tags_can_be_fetched_with_their_product_counts()
     {
         $this->disableExceptionHandling();
-        factory(Tag::class, 10)->create();
+        $productA = factory(Product::class)->create();
+        $productB = factory(Product::class)->create();
+        $productC = factory(Product::class)->create();
+        $tagA = factory(Tag::class)->create();
+        $tagB = factory(Tag::class)->create();
+        $tagC = factory(Tag::class)->create();
+        $tagD = factory(Tag::class)->create();
+
+        $productA->tags()->attach($tagA->id);
+        $productA->tags()->attach($tagB->id);
+        $productB->tags()->attach($tagB->id);
+        $productC->tags()->attach($tagB->id);
+        $productC->tags()->attach($tagC->id);
+        $productA->tags()->attach($tagC->id);
+        $productC->tags()->attach($tagD->id);
+
 
         $response = $this->asLoggedInUser()->json('GET', '/admin/tags');
         $response->assertStatus(200);
+        $fetched_tags = $response->decodeResponseJson();
 
-        $this->assertEquals(Tag::all()->map(function($tag) {
-            return ['id' => $tag->id, 'name' => $tag->tag];
-        })->toArray(), $response->decodeResponseJson());
+        $expected = [
+            ['id' => $tagA->id, 'name' => $tagA->tag, 'product_count' => 1],
+            ['id' => $tagB->id, 'name' => $tagB->tag, 'product_count' => 3],
+            ['id' => $tagC->id, 'name' => $tagC->tag, 'product_count' => 2],
+            ['id' => $tagD->id, 'name' => $tagD->tag, 'product_count' => 1],
+        ];
+
+        $this->assertEquals($expected, $fetched_tags);
+    }
+
+    /**
+     *@test
+     */
+    public function multiple_tags_can_be_deleted()
+    {
+        $this->disableExceptionHandling();
+        $tags = factory(Tag::class, 5)->create();
+
+        $response = $this->asLoggedInUser()->json('POST', '/admin/services/tags/deleted', [
+            'tags' => $tags->pluck('id')->all()
+        ]);
+        $response->assertStatus(200);
+
+        $tags->each(function($tag) {
+            $this->assertDatabaseMissing('tags', ['id' => $tag->id]);
+        });
     }
 }

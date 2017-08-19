@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/admin">
-                <img src="{{ asset('images/logos/glogo.png') }}" alt="logo" width="35px"/>
+                <img src="{{ asset('images/logos/ggfg_symbol_red.png') }}" alt="logo" width="35px"/>
             </a>
         </div>
 

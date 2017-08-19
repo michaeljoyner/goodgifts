@@ -90,7 +90,6 @@ class GiftListsTest extends TestCase
         $list->approve();
 
         $identifier = $list->fresh()->slug;
-        dd($identifier);
         $this->assertNotNull($identifier);
     }
 

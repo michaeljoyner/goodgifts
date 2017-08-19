@@ -35,7 +35,7 @@ class RequestPresenterTest extends TestCase
 
         $presenter = present($request, PresentedRequest::class);
 
-        $this->assertEquals('Hey', $presenter->sender);
+        $this->assertEquals('you beautiful creature', $presenter->sender);
     }
 
     /**

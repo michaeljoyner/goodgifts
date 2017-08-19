@@ -68,6 +68,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
 
 
 
+    Route::get('tags/manager', 'TagsManagerController@show');
     Route::get('tags', 'TagsController@index');
 
     Route::post('issues/batchupdate/{issue}/resolve', 'BatchUpdateIssueResolvingController@handle');
@@ -111,5 +112,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::get('services/cards/index', 'CardsIndexController@index');
 
     Route::get('services/analytics/visitors', 'AnalyticsController@visitors');
+
+    Route::post('services/tags/deleted', 'TagsController@delete');
 
 });

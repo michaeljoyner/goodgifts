@@ -34,6 +34,7 @@ Vue.component('list-maker', require('./components/ListMaker.vue'));
 Vue.component('gift-suggestion', require('./components/Suggestion.vue'));
 Vue.component('list-writeup', require('./components/GiftListWriteupEditor.vue'));
 Vue.component('giftlist-articles', require('./components/GiftListArticles.vue'));
+Vue.component('tag-manager', require('./components/TagManager.vue'));
 
 window.eventHub = new Vue();
 
