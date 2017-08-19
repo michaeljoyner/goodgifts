@@ -21,6 +21,10 @@ class Request extends Model
 
     public function setBirthdayAttribute($birthday)
     {
+        if($birthday instanceof Carbon) {
+            return $this->attributes['birthday'] = $birthday;
+        }
+
         $this->attributes['birthday'] = $this->nextBirthday($birthday);
     }
 

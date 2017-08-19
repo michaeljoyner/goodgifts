@@ -9,6 +9,7 @@
             <p>WHAT: {{ suggestion.what }}</p>
             <p>WHY: {{ suggestion.why }}</p>
             <p>PRICE: US${{ suggestion.product.price }}</p>
+            <p v-show="!removable" class="remove-link" @click="addToList">Add to List</p>
             <p v-show="removable" class="remove-link" @click="removeSuggestion">Remove</p>
         </div>
     </div>
@@ -29,6 +30,10 @@
                 if(this.removable) {
                     this.$emit('remove-suggestion')
                 }
+            },
+
+            addToList() {
+                this.$emit('add-suggestion', this.suggestion.id);
             }
         }
     }

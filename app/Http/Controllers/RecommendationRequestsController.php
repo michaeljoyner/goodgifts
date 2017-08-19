@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Recommendations\Request as RecommendationRequest;
 use App\Tags\Tag;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,9 @@ class RecommendationRequestsController extends Controller
             'birthday_month' => ['required', 'regex:/^(0[1-9]|1[0-2])$/']
         ]);
 
-        \App\Recommendations\Request::create(array_merge(request()->only('email', 'interests', 'sender', 'recipient', 'budget', 'age_group'), ['birthday' => request('birthday_month') . '-' . request('birthday_day')]));
+        $recommendation_request = RecommendationRequest::create(array_merge(request()->only('email', 'interests', 'sender', 'recipient', 'budget', 'age_group'), ['birthday' => request('birthday_month') . '-' . request('birthday_day')]));
+
+        $recommendation_request->createGiftList();
 
         return redirect('/recommendations/thanks');
     }

@@ -137,4 +137,17 @@ class RequestTest extends TestCase
         $this->assertEquals('US$1500', $huge->budgetLimit());
         $this->assertEquals('No limit', $limitless->budgetLimit());
     }
+
+    /**
+     *@test
+     */
+    public function setting_the_birthday_attribute_to_a_carbon_instance_will_set_the_date_directly()
+    {
+        $request = factory(Request::class)->create();
+
+        $request->birthday = Carbon::parse('-2 days');
+        $request->save();
+
+        $this->assertEquals(Carbon::parse('-2 days')->format('Y-m-d'), $request->birthday->format('Y-m-d'));
+    }
 }

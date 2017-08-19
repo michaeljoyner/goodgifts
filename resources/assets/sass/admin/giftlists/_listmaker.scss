@@ -10,6 +10,8 @@
 
   .tabs-container {
     width: 45%;
+    max-height: 700px;
+    overflow-y: auto;
   }
 
   .tabs-nav {

@@ -1,4 +1,9 @@
 .suggestion-component {
+
+  &.selected {
+    display: none;
+  }
+
   display: flex;
   border: 1px solid $brand_primary;
   margin: 2em auto;

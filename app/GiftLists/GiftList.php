@@ -3,21 +3,29 @@
 namespace App\GiftLists;
 
 use App\Articles\Article;
+use App\Notifications\GiftListPublished;
 use App\Recommendations\Request;
 use App\Suggestions\Suggestion;
+use Carbon\Carbon;
 use Hemp\Presenter\Presentable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Ramsey\Uuid\Uuid;
 
 class GiftList extends Model
 {
-    use Presentable;
+    use Presentable, Notifiable;
 
     protected $table = 'gift_lists';
 
-    protected $fillable = ['writeup'];
+    protected $fillable = ['writeup', 'approved', 'sent'];
 
-    protected $casts = ['approved' => 'boolean'];
+    protected $casts = ['approved' => 'boolean', 'sent' => 'boolean'];
+
+    public function routeNotificationForMail()
+    {
+        return $this->request->email;
+    }
 
     public function request()
     {
@@ -82,5 +90,44 @@ class GiftList extends Model
     public static function withSlug($slug)
     {
         return static::where('slug', $slug)->firstOrFail();
+    }
+
+    public function scopeOutstanding($query)
+    {
+        return $query->where('sent', 0)->whereHas('request', function ($inner_query) {
+            $inner_query->where('birthday', '>=', Carbon::today());
+        });
+    }
+
+    public function scopeUrgent($query)
+    {
+        return $query->outstanding()->whereHas('request', function ($inner_query) {
+            $inner_query->where('birthday', '<', Carbon::today()->addDays(27));
+        });
+    }
+
+    public function scopeUpcoming($query)
+    {
+        return $query->outstanding()->whereHas('request', function ($inner_query) {
+            $inner_query->where('birthday', '<', Carbon::today()->addDays(55))
+                ->where('birthday', '>=', Carbon::today()->addDays(27));
+        });
+    }
+
+    public function scopeDue($query)
+    {
+        return $query
+            ->outstanding()
+            ->where('approved', 1)
+            ->whereHas('request', function ($inner_query) {
+                $inner_query->where('birthday', '<', Carbon::today()->addDays(21));
+            });
+    }
+
+    public function sendNotification()
+    {
+        $this->notify(new GiftListPublished($this));
+        $this->sent = true;
+        $this->save();
     }
 }

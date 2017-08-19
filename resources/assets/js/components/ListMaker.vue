@@ -15,6 +15,8 @@
                         <gift-suggestion v-for="suggestion in defaultSuggestions"
                                          :key="`default_${suggestion.id}`"
                                          :suggestion="suggestion"
+                                         @add-suggestion="addSuggestionToList"
+                                         :class="{'selected': itemIsInList(suggestion)}"
                         ></gift-suggestion>
                     </div>
                     <div class="list-tab" v-show="tab === 'tags'">
@@ -30,6 +32,8 @@
                         <gift-suggestion v-for="suggestion in tag_matches"
                                          :key="`tagged_${suggestion.id}`"
                                          :suggestion="suggestion"
+                                         @add-suggestion="addSuggestionToList"
+                                         :class="{'selected': itemIsInList(suggestion)}"
                         ></gift-suggestion>
                     </div>
                     <div class="list-tab" v-show="tab === 'name'">
@@ -45,6 +49,8 @@
                         <gift-suggestion v-for="suggestion in name_matches"
                                          :key="`name_${suggestion.id}`"
                                          :suggestion="suggestion"
+                                         @add-suggestion="addSuggestionToList"
+                                         :class="{'selected': itemIsInList(suggestion)}"
                         ></gift-suggestion>
                     </div>
                 </div>
@@ -164,6 +170,10 @@
             itemDropped(event) {
                 const item_id = parseInt(event.dataTransfer.getData('text/plain'));
                 this.addSuggestionToList(item_id);
+            },
+
+            itemIsInList(suggestion) {
+                return this.current_gift_list.find(item => item.id === suggestion.id);
             }
         }
     }

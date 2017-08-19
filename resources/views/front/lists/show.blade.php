@@ -1,5 +1,9 @@
 @extends('front.base')
 
+@section('head')
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+@endsection
+
 @section('content')
     @include('front.partials.standardheader')
     <div class="gift-list-page-container">

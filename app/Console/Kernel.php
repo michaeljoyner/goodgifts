@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\GenerateSitemap;
+use App\Console\Commands\SendListNotifications;
 use App\Console\Commands\SyncMentionedProducts;
 use App\Console\Commands\UpdateArticleProducts;
 use App\Console\Commands\UpdateProducts;
@@ -20,7 +21,8 @@ class Kernel extends ConsoleKernel
         SyncMentionedProducts::class,
         GenerateSitemap::class,
         UpdateProducts::class,
-        UpdateArticleProducts::class
+        UpdateArticleProducts::class,
+        SendListNotifications::class
     ];
 
     /**

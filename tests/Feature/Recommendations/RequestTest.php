@@ -45,6 +45,35 @@ class RequestTest extends TestCase
     }
 
     /**
+     *@test
+     */
+    public function a_successfully_submitted_request_results_in_a_new_gift_list_being_created()
+    {
+        $this->disableExceptionHandling();
+
+        $response = $this->post('/recommendations/request', [
+            'email'     => 'joe@example.com',
+            'sender'    => 'Joe Soap',
+            'recipient' => 'Junior Soap',
+            'birthday_day'  => Carbon::now()->addMonths(1)->format('d'),
+            'birthday_month' => Carbon::now()->addMonths(1)->format('m'),
+            'interests' => 'running,jumping,masturbating',
+            'age_group' => 'mature'
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertSessionMissing('errors');
+
+        $this->assertCount(1, Request::all());
+        $request = Request::first();
+
+        $this->assertDatabaseHas('gift_lists', [
+            'request_id'     => $request->id,
+            'writeup'    => null,
+        ]);
+    }
+
+    /**
      * @test
      */
     public function a_request_requires_an_email()

@@ -9,6 +9,7 @@ use App\GiftLists\GiftList;
 use App\Products\Product;
 use App\Recommendations\Request;
 use App\Suggestions\Suggestion;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
@@ -106,4 +107,118 @@ class GiftListsTest extends TestCase
 
         $this->assertTrue($list->is($fetched));
     }
+
+    /**
+     *@test
+     */
+    public function gift_lists_can_be_scoped_to_urgent_which_means_will_be_sent_within_a_week()
+    {
+        $requestA = factory(Request::class)->create(['birthday' => Carbon::parse('+23 days')->format('m-d')]);
+        $requestB = factory(Request::class)->create(['birthday' => Carbon::parse('+26 days')->format('m-d')]);
+        $requestC = factory(Request::class)->create(['birthday' => Carbon::parse('+32 days')->format('m-d')]);
+
+        $requestA->createGiftList();
+        $requestB->createGiftList();
+        $requestC->createGiftList();
+
+        $urgent = GiftList::urgent()->get();
+
+        $this->assertCount(2, $urgent);
+        $this->assertContains($requestA->id, $urgent->pluck('request_id')->all());
+        $this->assertContains($requestB->id, $urgent->pluck('request_id')->all());
+        $this->assertNotContains($requestC->id, $urgent->pluck('request_id')->all());
+    }
+
+    /**
+     *@test
+     */
+    public function gift_lists_can_be_scoped_to_upcoming_which_is_not_urgent_but_within_the_next_five_weeks()
+    {
+        $requestA = factory(Request::class)->create(['birthday' => Carbon::parse('+23 days')->format('m-d')]);
+        $requestB = factory(Request::class)->create(['birthday' => Carbon::parse('+36 days')->format('m-d')]);
+        $requestC = factory(Request::class)->create(['birthday' => Carbon::parse('+42 days')->format('m-d')]);
+        $requestD = factory(Request::class)->create(['birthday' => Carbon::parse('+92 days')->format('m-d')]);
+
+        $requestA->createGiftList();
+        $requestB->createGiftList();
+        $requestC->createGiftList();
+        $requestD->createGiftList();
+
+        $urgent = GiftList::upcoming()->get();
+
+        $this->assertCount(2, $urgent);
+        $this->assertNotContains($requestA->id, $urgent->pluck('request_id')->all());
+        $this->assertContains($requestB->id, $urgent->pluck('request_id')->all());
+        $this->assertContains($requestC->id, $urgent->pluck('request_id')->all());
+        $this->assertNotContains($requestD->id, $urgent->pluck('request_id')->all());
+    }
+
+    /**
+     *@test
+     */
+    public function gift_lists_can_be_scoped_to_outstanding_meaning_the_birthday_has_not_passed_and_the_list_is_unsent()
+    {
+        $requestA = factory(Request::class)->create(['birthday' => Carbon::parse('-20 days')]);
+        $requestB = factory(Request::class)->create(['birthday' => Carbon::parse('-3 days')]);
+        $requestC = factory(Request::class)->create(['birthday' => Carbon::parse('+42 days')]);
+        $requestD = factory(Request::class)->create(['birthday' => Carbon::parse('+92 days')]);
+        $requestE = factory(Request::class)->create(['birthday' => Carbon::parse('+92 days')]);
+
+        $requestA->createGiftList();
+        $requestB->createGiftList();
+        $requestC->createGiftList();
+        $requestD->createGiftList();
+        $sent = $requestE->createGiftList();
+        $sent->update(['sent' => true]);
+
+        $outstanding = GiftList::outstanding()->get();
+
+        $this->assertCount(2, $outstanding);
+        $this->assertNotContains($requestA->id, $outstanding->pluck('request_id')->all());
+        $this->assertNotContains($requestB->id, $outstanding->pluck('request_id')->all());
+        $this->assertContains($requestC->id, $outstanding->pluck('request_id')->all());
+        $this->assertContains($requestD->id, $outstanding->pluck('request_id')->all());
+    }
+
+    /**
+     *@test
+     */
+    public function lists_can_be_scoped_as_due_which_means_they_are_unsent_approved_and_due()
+    {
+        $requestA = factory(Request::class)->create(['birthday' => Carbon::parse('-3 days')]);
+        $requestB = factory(Request::class)->create(['birthday' => Carbon::parse('+3 days')]);
+        $requestC = factory(Request::class)->create(['birthday' => Carbon::parse('+20 days')]);
+        $requestD = factory(Request::class)->create(['birthday' => Carbon::parse('+22 days')]);
+        $requestE = factory(Request::class)->create(['birthday' => Carbon::parse('+20 days')]);
+        $requestF = factory(Request::class)->create(['birthday' => Carbon::parse('+20 days')]);
+
+        $listA = $requestA->createGiftList();
+        $listB = $requestB->createGiftList();
+        $listC = $requestC->createGiftList();
+        $listD = $requestD->createGiftList();
+        $listE = $requestD->createGiftList();
+        $listF = $requestD->createGiftList();
+
+        collect([$listA, $listB, $listC, $listD])->each(function($list) {
+            $list->approved = true;
+            $list->sent = false;
+            $list->save();
+        });
+
+        $listE->update(['approved' => true, 'sent' => false]);
+        $listF->update(['approved' => false, 'sent' => true]);
+
+
+
+        $due = GiftList::due()->get();
+
+        $this->assertCount(2, $due);
+        $this->assertNotContains($requestA->id, $due->pluck('request_id')->all());
+        $this->assertContains($requestB->id, $due->pluck('request_id')->all());
+        $this->assertContains($requestC->id, $due->pluck('request_id')->all());
+        $this->assertNotContains($requestD->id, $due->pluck('request_id')->all());
+        $this->assertNotContains($requestE->id, $due->pluck('request_id')->all());
+        $this->assertNotContains($requestF->id, $due->pluck('request_id')->all());
+    }
+
 }
