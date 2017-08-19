@@ -46,6 +46,7 @@
                         <li><a href="/admin/giftlists">Current Lists</a></li>
                     </ul>
                 </li>
+                <li><a href="/admin/tags/manager">Tags</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

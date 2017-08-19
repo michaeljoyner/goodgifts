@@ -11,7 +11,7 @@
             <div v-for="tag in ordered_tags" class="tag-checkbox">
                 <label :for="`tag_${tag.id}`">
                     <input type="checkbox" :id="`tag_${tag.id}`" :value="tag.id" v-model="selected_tags">
-                    <span>{{ tag.name }} ({{ tag.product_count }})</span>
+                    <span>{{ tag.name.toLowerCase() }} ({{ tag.product_count }})</span>
                 </label>
             </div>
         </div>
