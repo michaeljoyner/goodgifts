@@ -150,4 +150,30 @@ class RequestTest extends TestCase
 
         $this->assertEquals(Carbon::parse('-2 days')->format('Y-m-d'), $request->birthday->format('Y-m-d'));
     }
+
+    /**
+     *@test
+     */
+    public function deleting_a_request_will_delete_any_attached_gift_lists()
+    {
+        $request = factory(Request::class)->create();
+
+        $listA = $request->createGiftList();
+        $listB = $request->createGiftList();
+
+        $request->delete();
+
+        $this->assertNull($listA->fresh());
+        $this->assertNull($listB->fresh());
+    }
+
+    /**
+     *@test
+     */
+    public function a_request_is_automatically_assigned_an_unsubscribe_token_when_created()
+    {
+        $request = factory(Request::class)->create();
+
+        $this->assertNotNull($request->unsubscribe_token);
+    }
 }

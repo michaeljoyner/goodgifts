@@ -18,13 +18,19 @@ class GiftListNotificationsTest extends TestCase
 {
     use DatabaseMigrations;
 
+    public function setUp()
+    {
+        parent::setUp();
+
+        Notification::fake();
+    }
+
     /**
      * @test
      */
     public function due_gift_lists_are_correctly_notified()
     {
         $this->disableExceptionHandling();
-        Notification::fake();
 
         $request = factory(Request::class)->create([
             'birthday' => Carbon::parse('+19 days'),
@@ -51,7 +57,6 @@ class GiftListNotificationsTest extends TestCase
     {
         $this->asLoggedInUser();
         $this->disableExceptionHandling();
-        Notification::fake();
 
         $request = factory(Request::class)->create([
             'birthday' => Carbon::parse('+3 months'),

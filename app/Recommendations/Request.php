@@ -2,6 +2,7 @@
 
 namespace App\Recommendations;
 
+use App\Events\RecommendationRequestDeleted;
 use App\Events\RecommendationRequested;
 use App\GiftLists\GiftList;
 use Carbon\Carbon;
@@ -16,7 +17,8 @@ class Request extends Model
     protected $dates = ['birthday'];
 
     protected $events = [
-        'created' => RecommendationRequested::class
+        'created' => RecommendationRequested::class,
+        'deleting' => RecommendationRequestDeleted::class
     ];
 
     public function setBirthdayAttribute($birthday)

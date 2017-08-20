@@ -6,4 +6,6 @@ We’ll will be in touch again {{ $request->mail_date }} with the complete list,
 Have a great day, {{ $request->sender }}.
 
 goodgiftsforguys.com
+
+[Unsubscribe]({{ url('/lists/unsubscribe/' . $request->unsubscribe_token) }})
 @endcomponent

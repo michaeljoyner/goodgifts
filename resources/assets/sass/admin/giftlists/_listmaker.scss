@@ -35,6 +35,8 @@
 
   .current-list-container {
     width: 45%;
+    max-height: 700px;
+    overflow-y: auto;
 
     & > p {
       text-transform: uppercase;

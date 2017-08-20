@@ -31,8 +31,6 @@ class GiftListCreated extends Notification
     {
         $presented_list = $this->list->present(GiftListPresenter::class);
         return (new SlackMessage)
-            ->from('Good Gifts For Guys')
-            ->image('https://goodgiftsforguys.com/android-chrome-192x192.png')
             ->success()
             ->content('A new gift list has been requested!')
             ->attachment(function ($attachment) use ($presented_list) {
@@ -40,7 +38,7 @@ class GiftListCreated extends Notification
                     ->fields([
                         'Sender' => $presented_list->requested_by,
                         'For' => $presented_list->for,
-                        'Via' => $presented_list->budget,
+                        'Budget' => $presented_list->budget,
                         'Due By' => $presented_list->request->sendDate(),
                     ]);
             });

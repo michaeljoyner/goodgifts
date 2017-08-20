@@ -19,6 +19,7 @@ class EventServiceProvider extends ServiceProvider
             IssueDeletedListener::class,
         ],
         'App\Events\RecommendationRequested' => [
+            'App\Listeners\AssignUnsubscribeToken',
             'App\Listeners\SendRecommendationSignupWelcome'
         ],
         'App\Events\IssueCreated' => [
@@ -29,6 +30,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\GiftListCreated' => [
             'App\Listeners\NotifyAdminOfNewGiftList'
+        ],
+        'App\Events\RecommendationRequestDeleted' => [
+            'App\Listeners\ClearDeletingRequestsGiftLists'
         ]
     ];
 

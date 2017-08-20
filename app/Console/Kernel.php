@@ -34,14 +34,14 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('sitemap:generate')->dailyAt('13:00');
-        $schedule->command('article_products:sync')->dailyAt('14:00');
-        $schedule->command('products:update')->dailyAt('15:00');
-        $schedule->command('article_products:update')->dailyAt('16:00');
+//        $schedule->command('article_products:sync')->dailyAt('14:00');
+//        $schedule->command('products:update')->dailyAt('15:00');
+//        $schedule->command('article_products:update')->dailyAt('16:00');
         $schedule->command('backup:clean')->daily()->at('01:00');
         $schedule->command('backup:run')->daily()->at('02:00');
-        $schedule->command('article_products:sync')->dailyAt('03:00');
-        $schedule->command('products:update')->dailyAt('04:00');
-        $schedule->command('article_products:update')->dailyAt('05:00');
+//        $schedule->command('article_products:sync')->dailyAt('03:00');
+//        $schedule->command('products:update')->dailyAt('04:00');
+//        $schedule->command('article_products:update')->dailyAt('05:00');
     }
 
     /**

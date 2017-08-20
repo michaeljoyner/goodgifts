@@ -4,7 +4,8 @@ Route::get('/', 'PagesController@home');
 Route::get('/articles/{slug}', 'PagesController@article');
 Route::get('/articles/{slug}/plain-text', 'ArticleTextController@show')->middleware('auth.basic');
 
-Route::get('/lists/{slug}', 'GiftListsController@show');
+Route::get('lists/unsubscribe/{slug}', 'GiftListSubscriptionController@delete');
+Route::get('lists/{slug}', 'GiftListsController@show');
 
 
 Route::get('recommendations/signup', 'RecommendationRequestsController@show')->middleware('auth');

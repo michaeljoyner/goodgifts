@@ -9,4 +9,6 @@ Check your List
 
 Thanks,<br>
 {{ config('app.name') }}
+
+[Unsubscribe]({{ url('/lists/unsubscribe/' . $list->request->unsubscribe_token) }})
 @endcomponent

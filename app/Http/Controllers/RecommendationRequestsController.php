@@ -11,7 +11,7 @@ class RecommendationRequestsController extends Controller
 
     public function show()
     {
-        $interests = Tag::orderBy('tag')->get();
+        $interests = Tag::withCount('products')->orderBy('products_count', 'desc')->orderBy('tag')->get();
         return view('front.recommendations.signup', ['interests' => $interests]);
     }
 

@@ -8,7 +8,7 @@
             <span v-for="selected in selected_interests"
                   class="chosen-interest"
             >
-                <span>{{ selected }}</span>
+                <span>{{ selected.toLowerCase() }}</span>
                 <span @click="removeFromSelected(selected)">&times;</span>
             </span>
         </div>
@@ -17,7 +17,7 @@
                   @click="addInterest(interest)"
                   class="potential-interest"
                   :class="{'used': selected_interests.indexOf(interest) !== -1}"
-            >{{ interest }}</span>
+            >{{ interest.toLowerCase() }}</span>
             <div class="paginator-buttons" v-show="interestList.length > page_length">
                 <button class="prev" @click.prevent="prevPage">&larr;</button>
                 <button class="next" @click.prevent="nextPage">&rarr;</button>

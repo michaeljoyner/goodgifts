@@ -6,11 +6,19 @@ namespace Tests\Feature\GiftLists;
 
 use App\GiftLists\GiftList;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
 class GiftListApprovalTest extends TestCase
 {
     use DatabaseMigrations;
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        Notification::fake();
+    }
 
     /**
      *@test
