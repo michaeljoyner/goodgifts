@@ -6,7 +6,7 @@
 
 @section('head')
     @include('front.partials.ogmeta', [
-        'ogImage' => '/images/assets/fb_image.png',
+        'ogImage' => '/images/logos/fb_logo.png',
         'ogTitle' => 'Good Gifts For Guys | Great gift ideas for the men in your life.',
         'ogDescription' => 'Here at Good Gifts For Guys, we are all about ideas. Ideas that you can use to help find that perfect gift, for any kind od man in your life, from the boyish beach bro to the dedicated dog lover and many, many more.'
     ])
