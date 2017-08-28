@@ -2,11 +2,27 @@
 
 @section('content')
     <header class="gg-page-header">
-        <h1 class="header-title">New Gift List Requests</h1>
+        <h1 class="header-title">Incoming Requests</h1>
         <div class="page-actions">
 
         </div>
     </header>
+    <section class="list-request-section">
+        <div class="data-list-strip">
+            <div>
+                <p class="label-text">Last 7 Days</p>
+                <p class="value-text">{{ $counts['week'] }}</p>
+            </div>
+            <div>
+                <p class="label-text">Last 30 Days</p>
+                <p class="value-text">{{ $counts['month'] }}</p>
+            </div>
+            <div>
+                <p class="label-text">Last 90 Days</p>
+                <p class="value-text">{{ $counts['three_months'] }}</p>
+            </div>
+        </div>
+    </section>
     <section class="recommendation-requests-list">
         <table class="table table-responsive">
             <thead>
@@ -17,11 +33,10 @@
                 <th>Interests</th>
                 <th>Send time</th>
                 <th>Budget</th>
-                <th>Make List</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($signups->filter->isNew() as $signup)
+            @foreach($signups as $signup)
                 <tr>
                     <td>{{ $signup->sender }}</td>
                     <td>{{ $signup->recipient }}</td>
@@ -29,12 +44,6 @@
                     <td>{{ $signup->interests }}</td>
                     <td>{{ $signup->sendDate() }}</td>
                     <td>{{ $signup->budget }}</td>
-                    <td>
-                        <form action="/admin/recommendations/{{ $signup->id }}/giftlists" method="POST">
-                            {!! csrf_field() !!}
-                            <button class="gg-btn btn" type="submit">Make List</button>
-                        </form>
-                    </td>
                 </tr>
             @endforeach
             </tbody>

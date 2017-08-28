@@ -99,4 +99,9 @@ class Request extends Model
 
         return $limits[$this->budget] ?? 'Unknown';
     }
+
+    public static function countFromRecentDays($days)
+    {
+        return static::where('created_at', '>=', Carbon::today()->subDays($days))->count();
+    }
 }

@@ -176,4 +176,22 @@ class RequestTest extends TestCase
 
         $this->assertNotNull($request->unsubscribe_token);
     }
+
+    /**
+     *@test
+     */
+    public function it_knows_how_many_requests_were_made_in_the_last_amount_of_given_days()
+    {
+        factory(Request::class)->create(['created_at' => Carbon::parse('-5 days')]);
+        factory(Request::class)->create(['created_at' => Carbon::parse('-6 days')]);
+        factory(Request::class)->create(['created_at' => Carbon::parse('-10 days')]);
+        factory(Request::class)->create(['created_at' => Carbon::parse('-20 days')]);
+        factory(Request::class)->create(['created_at' => Carbon::parse('-25 days')]);
+        factory(Request::class)->create(['created_at' => Carbon::parse('-40 days')]);
+        factory(Request::class)->create(['created_at' => Carbon::parse('-100 days')]);
+
+        $this->assertEquals(2, Request::countFromRecentDays(7));
+        $this->assertEquals(5, Request::countFromRecentDays(30));
+        $this->assertEquals(6, Request::countFromRecentDays(90));
+    }
 }
