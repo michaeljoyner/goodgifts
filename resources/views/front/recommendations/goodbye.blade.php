@@ -3,9 +3,9 @@
 @section('content')
     @include('front.partials.standardheader')
     <div class="thanks-container">
-        <h1>It's been good knowing you</h1>
-        <p class="thanks-sub-title">Don't worry, we'll be okay.</p>
-        <p>We hate to see you go, but heck, we understand. Some things just weren't made to last. This could be good for all of us, give us a chance to grow and move on. Once we stop crying that is. You heartless creature. Was one more email really so hard on you?</p>
-        <p>Never contact me again.</p>
+        <h1>So long, and thanks for all the fish.</h1>
+        <p>Sorry it didn't work out for us. But we'll always be here if you need us. Just call, anytime.</p>
+        <p>Toodles.</p>
+	<p>goodgiftsforguys.com</p>
     </div>
 @endsection
