@@ -7,6 +7,11 @@
             <button class="btn gg-btn" @click="uncheckAll">Uncheck All</button>
             <button class="btn gg-btn" @click="showModal = true" :disabled="! hasSelected">Delete Selected Tags</button>
         </div>
+        <div class="sort-options">
+            <p>Sort:</p>
+            <span @click="order = 'alphabet'">Alphabetically</span>
+            <span @click="order = 'usage'">By Usage</span>
+        </div>
         <div class="tags-list">
             <div v-for="tag in ordered_tags" class="tag-checkbox">
                 <label :for="`tag_${tag.id}`">
@@ -38,12 +43,18 @@
             return {
                 tags: [],
                 selected_tags: [],
-                showModal: false
+                showModal: false,
+                order: 'alphabet'
             };
         },
 
         computed: {
             ordered_tags() {
+                if(this.order === 'usage') {
+                    console.log('sorting');
+                    return this.tags.sort((a,b) => b.product_count - a.product_count);
+                }
+                console.log('sorting abc');
                 return this.tags.sort((a, b) => {
                     const nameA = a.name.toUpperCase();
                     const nameB = b.name.toUpperCase();

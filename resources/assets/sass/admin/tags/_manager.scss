@@ -20,4 +20,8 @@
     margin: 10px 0;
     font-size: 1.2em;
   }
+  .sort-options {
+    p { display: inline; }
+    span { color: $brand_primary; padding-left: 20px; text-decoration: underline;}
+  }
 }

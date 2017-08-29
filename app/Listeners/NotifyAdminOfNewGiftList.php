@@ -19,6 +19,8 @@ class NotifyAdminOfNewGiftList
 
     public function handle(GiftListCreated $event)
     {
-        User::first()->notify(new GiftListCreatedNotification($event->list));
+        if(User::first()) {
+            User::first()->notify(new GiftListCreatedNotification($event->list));
+        }
     }
 }

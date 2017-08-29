@@ -7,6 +7,7 @@ namespace Tests\Feature\Recommendations;
 use App\Mail\SignupWelcomeMail;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
 class RequestSignupEventsTest extends TestCase
@@ -19,6 +20,7 @@ class RequestSignupEventsTest extends TestCase
     public function when_a_signup_request_is_created_an_email_is_sent()
     {
         Mail::fake();
+        Notification::fake();
 
         $this->disableExceptionHandling();
 

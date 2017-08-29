@@ -10,7 +10,8 @@ use Tests\TestCase;
 class GoogleAnalyticsDataTest extends TestCase
 {
     /**
-     *@test
+     * @test
+     * @integration
      */
     public function it_returns_the_correct_structure_for_visitors_and_page_views()
     {

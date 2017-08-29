@@ -69,6 +69,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
 
 
 
+    Route::get('tags/issues', 'TaggingIssuesController@show');
     Route::get('tags/manager', 'TagsManagerController@show');
     Route::get('tags', 'TagsController@index');
 

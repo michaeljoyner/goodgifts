@@ -170,7 +170,6 @@ return [
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         Spatie\Sitemap\SitemapServiceProvider::class,
-        SendPulse\SendPulseLaravel\SendPulseLaravelServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
         Spatie\Analytics\AnalyticsServiceProvider::class,
         Hemp\Presenter\PresenterServiceProvider::class,

@@ -4,11 +4,19 @@ namespace Tests\Feature\Issues;
 
 use App\Issues\Issue;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
 class IssuesTest extends TestCase
 {
     use DatabaseMigrations;
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        Notification::fake();
+    }
 
     /**
      *@test

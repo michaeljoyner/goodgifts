@@ -46,7 +46,19 @@
                         <li><a href="/admin/giftlists">Current Lists</a></li>
                     </ul>
                 </li>
-                <li><a href="/admin/tags/manager">Tags</a></li>
+                <li class="dropdown">
+                    <a href="#"
+                       class="dropdown-toggle"
+                       data-toggle="dropdown"
+                       role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false"
+                    >Tags and Stuff <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/tags/manager">Tag Manager</a></li>
+                        <li><a href="/admin/tags/issues">Tagging and Product Issues</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

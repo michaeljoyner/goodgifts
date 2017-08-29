@@ -2,6 +2,7 @@
 
 namespace App\Suggestions;
 
+use App\Articles\Article;
 use App\Products\Product;
 use App\Tags\Tag;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +14,11 @@ class Suggestion extends Model
     public function product()
     {
         return $this->belongsTo(Product::class, 'product_id');
+    }
+
+    public function article()
+    {
+        return $this->belongsTo(Article::class, 'article_id');
     }
 
     public static function forTags($tagNames)

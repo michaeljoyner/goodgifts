@@ -7,11 +7,19 @@ namespace Tests\Feature\Recommendations;
 use App\Recommendations\Request;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
 class RequestTest extends TestCase
 {
     use DatabaseMigrations;
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        Notification::fake();
+    }
 
     /**
      * @test

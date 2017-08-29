@@ -9,11 +9,19 @@ use App\Issues\UnavailableProductIssue;
 use App\Products\Product;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
 class UnavailableProductIssuesTest extends TestCase
 {
     use DatabaseMigrations;
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        Notification::fake();
+    }
 
     /**
      *@test

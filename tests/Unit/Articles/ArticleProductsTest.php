@@ -134,6 +134,7 @@ class ArticleProductsTest extends TestCase
 
         $article->attachProducts($products);
 
+
         $this->assertContains($products->first()->id, $article->fresh()->products->pluck('id')->toArray());
         $this->assertContains($products->last()->id, $article->fresh()->products->pluck('id')->toArray());
     }
