@@ -41,9 +41,9 @@ class NotifyOfProductUpdateIssue extends Notification
     public function toSlack($notifiable)
     {
         return (new SlackMessage)
+            ->to('#issues')
             ->error()
             ->content(class_basename($this->issue->issue_type))
-            ->to('#issues')
             ->attachment(function ($attachment) {
                 $attachment->title('It is an issue', url('/admin/issues/' . $this->issue->id))
                     ->content($this->issue->message);
