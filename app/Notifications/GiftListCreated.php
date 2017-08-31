@@ -33,7 +33,7 @@ class GiftListCreated extends Notification
         return (new SlackMessage)
             ->success()
             ->content('A new gift list has been requested!')
-            ->channel('signups')
+            ->to('#signups')
             ->attachment(function ($attachment) use ($presented_list) {
                 $attachment->title('GiftList #' . $presented_list->id)
                     ->fields([

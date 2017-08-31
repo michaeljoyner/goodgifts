@@ -43,7 +43,7 @@ class NotifyOfProductUpdateIssue extends Notification
         return (new SlackMessage)
             ->error()
             ->content(class_basename($this->issue->issue_type))
-            ->channel('issues')
+            ->to('#issues')
             ->attachment(function ($attachment) {
                 $attachment->title('It is an issue', url('/admin/issues/' . $this->issue->id))
                     ->content($this->issue->message);
