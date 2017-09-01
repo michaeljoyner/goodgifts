@@ -23,7 +23,7 @@ class GiftList extends Model
 
     protected $casts = ['approved' => 'boolean', 'sent' => 'boolean'];
 
-    protected $events = [
+    protected $dispatchesEvents = [
         'created' => GiftListCreated::class
     ];
 

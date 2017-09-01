@@ -16,7 +16,7 @@ class Request extends Model
 
     protected $dates = ['birthday'];
 
-    protected $events = [
+    protected $dispatchesEvents = [
         'created' => RecommendationRequested::class,
         'deleting' => RecommendationRequestDeleted::class
     ];

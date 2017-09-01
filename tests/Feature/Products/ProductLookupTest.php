@@ -70,8 +70,7 @@ class ProductLookupTest extends TestCase
         $response = $this->asLoggedInUser()->json('POST', '/admin/services/products/lookup', ['itemid' => '']);
 
         $response->assertStatus(422);
-        $response->assertJsonStructure([
-            'itemid'
-        ]);
+
+        $this->assertArrayHasKey('itemid', $response->decodeResponseJson()['errors']);
     }
 }

@@ -18,10 +18,11 @@ class ArticleImagesTest extends TestCase
      */
     public function an_image_may_be_uploaded_to_an_article()
     {
+        $this->disableExceptionHandling();
         $article = factory(Article::class)->create();
 
         $response = $this->asLoggedInUser()->json('POST', '/admin/articles/' . $article->id . '/images', [
-            'image' => UploadedFile::fake()->image('test-upload.jpg')
+            'image' => UploadedFile::fake()->image('test-upload.jpg', 100, 100)->size(100)
         ]);
 
         $response->assertStatus(200);

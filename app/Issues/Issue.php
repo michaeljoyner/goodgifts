@@ -12,7 +12,7 @@ class Issue extends Model
 
     protected $fillable = ['message', 'issue_id', 'issue_type'];
 
-    protected $events = [
+    protected $dispatchesEvents = [
         'deleting' => IssueDeleted::class,
         'created' => IssueCreated::class,
     ];

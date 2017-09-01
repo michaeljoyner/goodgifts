@@ -54,7 +54,8 @@ class ArticlePublishingTest extends TestCase
         $response = $this->asLoggedInUser()->json('POST', '/admin/articles/' . $article->id . '/publish', []);
 
         $response->assertStatus(422);
-        $response->assertJsonStructure(['publish']);
+        $this->assertArrayHasKey('publish', $response->decodeResponseJson()['errors']);
+
     }
 
     /**
@@ -92,6 +93,7 @@ class ArticlePublishingTest extends TestCase
             ]);
 
         $response->assertStatus(422);
-        $response->assertJsonStructure(['published_on']);
+        $this->assertArrayHasKey('published_on', $response->decodeResponseJson()['errors']);
+
     }
 }

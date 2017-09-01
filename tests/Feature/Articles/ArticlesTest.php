@@ -65,6 +65,7 @@ class ArticlesTest extends TestCase
      */
     public function an_article_is_correctly_updated()
     {
+        $this->disableExceptionHandling();
         $article = factory(Article::class)->create();
         $revisedData = ['title' => 'An updated title', 'description' => 'A more concise description'];
 

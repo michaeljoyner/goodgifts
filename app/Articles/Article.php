@@ -12,6 +12,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\MediaLibrary\Media;
 use Symfony\Component\DomCrawler\Crawler;
 
 class Article extends Model implements HasMediaConversions
@@ -26,7 +27,7 @@ class Article extends Model implements HasMediaConversions
 
     protected $dates = ['published_on', 'body_updated_on'];
 
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
             ->setManipulations(['w' => 500, 'h' => 333, 'fit' => 'crop', 'fm' => 'src'])
@@ -83,7 +84,7 @@ class Article extends Model implements HasMediaConversions
 
     public function addImage($image)
     {
-        return $this->addMedia($image)->preservingOriginal()->toCollection();
+        return $this->addMedia($image)->preservingOriginal()->toMediaCollection();
     }
 
     public function setTitleImage($image)

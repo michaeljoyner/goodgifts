@@ -12,7 +12,7 @@ class Card extends Model
 
     protected $fillable = ['product_id'];
 
-    protected $events = [
+    protected $dispatchesEvents = [
         'deleted' => CardDeleted::class
     ];
 

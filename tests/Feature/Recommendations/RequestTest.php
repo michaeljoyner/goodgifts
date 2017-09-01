@@ -94,7 +94,7 @@ class RequestTest extends TestCase
         ]);
 
         $response->assertStatus(422);
-        $response->assertJsonStructure(['email']);
+        $this->assertArrayHasKey('email', $response->decodeResponseJson()['errors']);
         $this->assertCount(0, Request::all());
     }
 
@@ -111,7 +111,8 @@ class RequestTest extends TestCase
         ]);
 
         $response->assertStatus(422);
-        $response->assertJsonStructure(['birthday_month', 'birthday_day']);
+        $this->assertArrayHasKey('birthday_month', $response->decodeResponseJson()['errors']);
+        $this->assertArrayHasKey('birthday_day', $response->decodeResponseJson()['errors']);
         $this->assertCount(0, Request::all());
     }
 
@@ -129,7 +130,8 @@ class RequestTest extends TestCase
         ]);
 
         $response->assertStatus(422);
-        $response->assertJsonStructure(['birthday_month', 'birthday_day']);
+        $this->assertArrayHasKey('birthday_month', $response->decodeResponseJson()['errors']);
+        $this->assertArrayHasKey('birthday_day', $response->decodeResponseJson()['errors']);
         $this->assertCount(0, Request::all());
     }
 
@@ -146,7 +148,7 @@ class RequestTest extends TestCase
         ]);
 
         $response->assertStatus(422);
-        $response->assertJsonStructure(['interests']);
+        $this->assertArrayHasKey('interests', $response->decodeResponseJson()['errors']);
         $this->assertCount(0, Request::all());
     }
 }
