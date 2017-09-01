@@ -10,6 +10,7 @@ use App\Products\ProductHtml;
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 use Spatie\MediaLibrary\Media;
@@ -30,11 +31,13 @@ class Article extends Model implements HasMediaConversions
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
-            ->setManipulations(['w' => 500, 'h' => 333, 'fit' => 'crop', 'fm' => 'src'])
-            ->performOnCollections('default');
+            ->fit(Manipulations::FIT_CROP, 500, 300)
+            ->keepOriginalImageFormat()
+            ->optimize();
         $this->addMediaConversion('web')
-            ->setManipulations(['w' => 800, 'h' => 500, 'fit' => 'max', 'fm' => 'src'])
-            ->performOnCollections('default');
+            ->fit(Manipulations::FIT_CROP, 800, 500)
+            ->keepOriginalImageFormat()
+            ->optimize();
     }
 
     public function sluggable()
