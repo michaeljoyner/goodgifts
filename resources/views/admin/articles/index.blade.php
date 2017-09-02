@@ -12,7 +12,10 @@
     <section class="articles-index-list">
         <ul class="list-group">
             @foreach($articles as $article)
-            <li class="list-group-item"><a href="/admin/articles/{{ $article->id }}">{{ $article->title }}</a></li>
+            <li class="list-group-item clearfix">
+                <a href="/admin/articles/{{ $article->id }}">{{ $article->title }}</a>
+                <span class="pull-right">Gifts For {{ $article->target }}</span>
+            </li>
             @endforeach
         </ul>
         {!! $articles->links() !!}
