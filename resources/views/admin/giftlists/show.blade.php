@@ -48,7 +48,7 @@
     </div>
     <list-maker list-id="{{ $list->id }}"
                 :default-suggestions='{{ json_encode($list->defaultSuggestions()->toArray()) }}'
-                :current-list='{{ json_encode($list->suggestionList()) }}'
+                :current-list='{{ json_encode($list->picks->map->toJsonableArray()) }}'
     ></list-maker>
     <list-writeup sender="{{ $list->request->sender ?: 'this fella' }}"
                   list-id="{{ $list->id }}"

@@ -22,7 +22,7 @@ class Article extends Model implements HasMediaConversions
 
     const DEFAULT_TITLE_IMG = '/images/defaults/article.jpg';
 
-    protected $fillable = ['title', 'description', 'body', 'intro'];
+    protected $fillable = ['title', 'description', 'body', 'intro', 'target'];
 
     protected $casts = ['published' => 'boolean'];
 

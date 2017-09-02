@@ -1,5 +1,9 @@
 .suggestion-component {
 
+  &.pending {
+    background: $light_grey;
+  }
+
   &.selected {
     display: none;
   }
@@ -41,6 +45,28 @@
       right: 10px;
       text-transform: uppercase;
       color: $brand_blue;
+    }
+  }
+}
+
+.gift-list-pick-component {
+
+  .top-pick-check {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border: 1px solid $brand_dark;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .4s;
+    transform: scale(1);
+
+    &.waiting {
+      transform: scale(0);
     }
   }
 }

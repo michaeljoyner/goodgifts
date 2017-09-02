@@ -83,7 +83,7 @@ $factory->define(App\Tags\Tag::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Suggestions\Suggestion::class, function (Faker\Generator $faker) {
     return [
-        'article_id' => function() {
+        'article_id' => function () {
             return factory(\App\Articles\Article::class)->create()->id;
         },
         'product_id' => function () {
@@ -96,9 +96,21 @@ $factory->define(App\Suggestions\Suggestion::class, function (Faker\Generator $f
 
 $factory->define(App\GiftLists\GiftList::class, function (Faker\Generator $faker) {
     return [
-        'request_id' => function() {
+        'request_id' => function () {
             return factory(\App\Recommendations\Request::class)->create()->id;
         },
-        'writeup' => $faker->paragraph
+        'writeup'    => $faker->paragraph
+    ];
+});
+
+$factory->define(App\GiftLists\Pick::class, function (Faker\Generator $faker) {
+    return [
+        'gift_list_id'  => function () {
+            return factory(\App\GiftLists\GiftList::class)->create()->id;
+        },
+        'suggestion_id' => function () {
+            return factory(\App\Suggestions\Suggestion::class)->create()->id;
+        },
+        'top_pick'      => false,
     ];
 });

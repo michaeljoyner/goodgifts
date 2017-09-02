@@ -37,6 +37,18 @@ class GiftList extends Model
         return $this->belongsTo(Request::class, 'request_id');
     }
 
+    public function picks()
+    {
+        return $this->hasMany(Pick::class, 'gift_list_id');
+    }
+
+    public function topPicks()
+    {
+        return $this->picks->filter(function($pick) {
+            return $pick->top_pick;
+        })->shuffle();
+    }
+
     public function suggestions()
     {
         return $this->belongsToMany(Suggestion::class);
@@ -49,9 +61,25 @@ class GiftList extends Model
 
     public function addSuggestion($suggestion)
     {
-        $id = $suggestion instanceof Suggestion ? $suggestion->id : $suggestion;
+        $suggestion_id = $suggestion instanceof Suggestion ? $suggestion->id : $suggestion;
 
-        return $this->suggestions()->attach($id);
+        return Pick::create([
+            'suggestion_id' => $suggestion_id,
+            'gift_list_id' => $this->id,
+            'top_pick' => false,
+        ]);
+    }
+
+    public function makeSuggestionTopPick($suggestion_id)
+    {
+        return tap($this->getSuggestedPick($suggestion_id), function($pick) {
+            $pick->update(['top_pick' => true]);
+        });
+    }
+
+    protected function getSuggestedPick($suggestion_id)
+    {
+        return $this->picks()->where('suggestion_id', $suggestion_id)->first();
     }
 
     public function removeSuggestion($suggestion)
@@ -131,7 +159,7 @@ class GiftList extends Model
 
     public function sendNotification()
     {
-        $this->notify(new GiftListPublished($this));
+        $this->notify(new GiftListPublished($this->present(GiftListNotificationPresenter::class)));
         $this->sent = true;
         $this->save();
     }

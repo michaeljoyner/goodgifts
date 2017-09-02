@@ -38,7 +38,7 @@ class ArticlesController extends Controller
     public function update(Request $request, Article $article)
     {
         $this->validate($request, ['title' => 'required|max:255', 'description' => 'required']);
-        $article->update($request->only(['title', 'description', 'intro']));
+        $article->update($request->only(['title', 'description', 'intro', 'target']));
         return redirect('admin/articles/' . $article->id);
     }
 }

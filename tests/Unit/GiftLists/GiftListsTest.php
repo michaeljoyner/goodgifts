@@ -6,6 +6,7 @@ namespace Tests\Unit\GiftLists;
 
 use App\Articles\Article;
 use App\GiftLists\GiftList;
+use App\GiftLists\Pick;
 use App\Products\Product;
 use App\Recommendations\Request;
 use App\Suggestions\Suggestion;
@@ -227,6 +228,23 @@ class GiftListsTest extends TestCase
         $this->assertNotContains($requestD->id, $due->pluck('request_id')->all());
         $this->assertNotContains($requestE->id, $due->pluck('request_id')->all());
         $this->assertNotContains($requestF->id, $due->pluck('request_id')->all());
+    }
+
+    /**
+     *@test
+     */
+    public function a_list_can_query_its_top_picks()
+    {
+        $list = factory(GiftList::class)->create();
+        $top_picks = factory(Pick::class, 3)->create(['gift_list_id' => $list->id, 'top_pick' => true]);
+        $other_picks = factory(Pick::class, 5)->create(['gift_list_id' => $list->id, 'top_pick' => false]);
+
+        $topPicks = $list->topPicks();
+
+        $this->assertCount(3, $topPicks);
+        $topPicks->each(function($pick) use ($top_picks) {
+            $this->assertTrue($top_picks->contains($pick));
+        });
     }
 
 }

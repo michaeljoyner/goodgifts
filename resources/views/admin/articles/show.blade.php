@@ -12,6 +12,7 @@
         </div>
     </header>
     <section class="article-show">
+        <p class="lead"><strong>Gifts For: </strong>{{ $article->target }}</p>
         <div class="row">
             <div class="col-md-7">
                 <div class="article-overview">

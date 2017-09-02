@@ -31,7 +31,7 @@ class GiftListPublished extends Notification
 
     public function toMail($notifiable)
     {
-        return (new MailMessage)->subject('Do you know what you have just done?')->markdown('emails.giftlists.published', ['list' => $this->list]);
+        return (new MailMessage)->subject($this->list->subject_line)->markdown('emails.giftlists.published', ['list' => $this->list]);
     }
 
     /**

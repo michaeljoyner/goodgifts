@@ -100,6 +100,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::post('giftlists/{list}/articles/{article}', 'GiftListArticlesController@store');
     Route::delete('giftlists/{list}/articles/{article}', 'GiftListArticlesController@delete');
 
+    Route::post('top-picks', 'TopPicksController@store');
+    Route::delete('top-picks/{pick}', 'TopPicksController@delete');
+
     Route::post('giftlists/{list}/approved', 'ApprovedGiftListsController@store');
 
     Route::post('services/suggestions/search/tags', 'SuggestionsTagSearchController@index');
@@ -116,5 +119,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::get('services/analytics/visitors', 'AnalyticsController@visitors');
 
     Route::post('services/tags/deleted', 'TagsController@delete');
+
+    Route::get('services/giftlists/{list}/picks', 'GiftListPicksServiceController@index');
 
 });

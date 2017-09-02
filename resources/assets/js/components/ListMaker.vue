@@ -63,12 +63,11 @@
                      @dragenter="dragEnterBox($event)"
                      @drop="itemDropped($event)"
                 >
-                    <gift-suggestion v-for="suggestion in current_gift_list"
-                                     :key="`current_${suggestion.id}`"
-                                     :suggestion="suggestion"
-                                     :removable="true"
-                                     @remove-suggestion="removeSuggestionFromList(suggestion)"
-                    ></gift-suggestion>
+                    <gift-list-pick v-for="pick in current_gift_list"
+                                     :key="`current_${pick.id}`"
+                                     :pick="pick"
+                                     @remove-pick="removeSuggestionFromList(pick)"
+                    ></gift-list-pick>
                 </div>
             </div>
         </div>
@@ -95,14 +94,14 @@
 
         mounted() {
             this.current_gift_list = this.currentList || [];
-            eventHub.$on('suggestion-added', () => this.fetchCurrentList);
-            eventHub.$on('suggestion-removed', () => this.fetchCurrentList);
+            eventHub.$on('suggestion-added', () => this.fetchCurrentList());
+            eventHub.$on('suggestion-removed', () => this.fetchCurrentList());
         },
 
         methods: {
 
             fetchCurrentList() {
-                this.$http.get(`/admin/services/giftlists/${this.listId}/suggestions`)
+                this.$http.get(`/admin/services/giftlists/${this.listId}/picks`)
                     .then(({data}) => this.current_gift_list = data)
                     .catch(err => console.log(err));
             },
@@ -140,7 +139,17 @@
                     suggestion = this.name_matches.find(item => item.id === suggestion_id);
                 }
 
-                this.current_gift_list.push(suggestion);
+                this.current_gift_list.push({
+                    id: null,
+                    list_id: null,
+                    suggestion_id: suggestion_id,
+                    top_pick: false,
+                    product_name:   suggestion.product.title,
+                    product_image:  suggestion.product.image,
+                    price:          suggestion.product.price,
+                    what:           suggestion.what,
+                    why:            suggestion.why,
+                });
                 this.$http.post(`/admin/giftlists/${this.listId}/suggestions/${suggestion_id}`)
                     .then(() => eventHub.$emit('suggestion-added'))
                     .catch(err => console.log(err));
@@ -148,7 +157,7 @@
 
             removeSuggestionFromList(suggestion) {
                 this.current_gift_list.splice(this.current_gift_list.indexOf(suggestion), 1);
-                this.$http.delete(`/admin/giftlists/${this.listId}/suggestions/${suggestion.id}`)
+                this.$http.delete(`/admin/giftlists/${this.listId}/suggestions/${suggestion.suggestion_id}`)
                     .then(() => eventHub.$emit('suggestion-removed'))
                     .catch(err => console.log(err));
             },

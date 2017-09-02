@@ -5,6 +5,7 @@ namespace Tests\Unit\GiftLists;
 
 
 use App\GiftLists\GiftList;
+use App\GiftLists\Pick;
 use App\Suggestions\Suggestion;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Notification;
@@ -29,7 +30,12 @@ class GiftListSuggestionsTest extends TestCase
         $list = factory(GiftList::class)->create();
         $suggestion = factory(Suggestion::class)->create();
 
-        $list->addSuggestion($suggestion);
+        $pick = $list->addSuggestion($suggestion);
+
+        $this->assertInstanceOf(Pick::class, $pick);
+        $this->assertEquals($list->id, $pick->gift_list_id, 'does not have list id');
+        $this->assertEquals($suggestion->id, $pick->suggestion_id, 'does not have suggestion id');
+        $this->assertFalse($pick->top_pick);
 
         $this->assertCount(1, $list->fresh()->suggestions);
         $this->assertEquals($suggestion->id, $list->fresh()->suggestions->first()->id);

@@ -67,7 +67,11 @@ class ArticlesTest extends TestCase
     {
         $this->disableExceptionHandling();
         $article = factory(Article::class)->create();
-        $revisedData = ['title' => 'An updated title', 'description' => 'A more concise description'];
+        $revisedData = [
+            'title' => 'An updated title',
+            'description' => 'A more concise description',
+            'target' => 'A gullible fool'
+        ];
 
         $response = $this->asLoggedInUser()->post('/admin/articles/' . $article->id, $revisedData);
 

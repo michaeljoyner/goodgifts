@@ -7,6 +7,13 @@
         @endif
         <input type="text" name="title" value="{{ old('title') ?? $article->title }}" class="form-control">
     </div>
+    <div class="form-group{{ $errors->has('target') ? ' has-error' : '' }}">
+        <label for="target">Target: </label>
+        @if($errors->has('target'))
+        <span class="error-message">{{ $errors->first('target') }}</span>
+        @endif
+        <input type="text" name="target" value="{{ old('target') ?? $article->target }}" class="form-control">
+    </div>
     <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
         <label for="description">Description: </label>
         @if($errors->has('description'))
