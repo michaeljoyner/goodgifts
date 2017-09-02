@@ -22,7 +22,8 @@ class ArticlesTest extends TestCase
         $articleData = [
             'title'       => 'The Test Title of all Time',
             'description' => 'The best test description ever',
-            'intro'       => 'This is the intro to the test article'
+            'intro'       => 'This is the intro to the test article',
+            'target'      => 'A real sucker'
         ];
         $response = $this->asLoggedInUser()->post('/admin/articles', $articleData);
 
@@ -68,9 +69,9 @@ class ArticlesTest extends TestCase
         $this->disableExceptionHandling();
         $article = factory(Article::class)->create();
         $revisedData = [
-            'title' => 'An updated title',
+            'title'       => 'An updated title',
             'description' => 'A more concise description',
-            'target' => 'A gullible fool'
+            'target'      => 'A gullible fool'
         ];
 
         $response = $this->asLoggedInUser()->post('/admin/articles/' . $article->id, $revisedData);
