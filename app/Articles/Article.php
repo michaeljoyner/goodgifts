@@ -248,5 +248,17 @@ class Article extends Model implements HasMediaConversions
         return $this->interests->pluck('interest')->contains($interest);
     }
 
+    public function toPreviewArray()
+    {
+        return [
+            'title' => $this->title,
+            'image' => $this->titleImage('thumb'),
+            'article_link' => '/articles/' . $this->slug,
+            'intro' => $this->intro,
+            'target' => $this->target,
+            'is_real' => true
+        ];
+    }
+
 
 }

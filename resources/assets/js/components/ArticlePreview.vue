@@ -3,7 +3,7 @@
 <template>
     <div class="article-preview-component home-article-card" :class="{'opened': showModal}">
         <div class="article-preview-card-face" @click="showModal = true" :class="`grad-${grad}`">
-            <p class="card-face-opener">Gifts for</p>
+            <p class="card-face-opener">{{ is_real ? 'Gifts for' : 'A List for' }}</p>
             <p class="article-target">{{ article_target }}</p>
         </div>
         <modal :show="showModal">
@@ -17,7 +17,7 @@
                 <div class="preview-detail">
                     <h4 class="preview-title">{{ title }}</h4>
                     <p class="preview-text">{{ preview_text }}</p>
-                    <a :href="article_link" class="action-button btn-block restricted">Check it out</a>
+                    <a :href="article_link" v-if="is_real" class="action-button btn-block restricted">Check it out</a>
                 </div>
             </div>
             <div slot="footer">
@@ -30,7 +30,7 @@
 
 <script type="text/babel">
     export default {
-        props: ['title', 'image', 'preview_text', 'article_link', 'article_target', 'grad'],
+        props: ['title', 'image', 'preview_text', 'article_link', 'article_target', 'grad', 'is_real'],
 
         data() {
             return {

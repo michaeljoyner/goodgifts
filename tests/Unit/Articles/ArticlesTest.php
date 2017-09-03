@@ -192,4 +192,27 @@ class ArticlesTest extends TestCase
 
         $this->assertCount(0, $results);
     }
+
+    /**
+     *@test
+     */
+    public function an_article_can_present_itself_as_a_preview_array()
+    {
+        $article = factory(Article::class)->create([
+            'title' => 'TEST TITLE',
+            'intro' => 'TEST INTRO',
+            'target' => 'TEST TARGET'
+        ]);
+
+        $expected = [
+            'title' => 'TEST TITLE',
+            'image' => Article::DEFAULT_TITLE_IMG,
+            'article_link' => '/articles/test-title',
+            'intro' => 'TEST INTRO',
+            'target' => 'TEST TARGET',
+            'is_real' => true
+        ];
+
+        $this->assertEquals($expected, $article->toPreviewArray());
+    }
 }

@@ -26,24 +26,15 @@
     </div>
     <div class="article-grid">
         @foreach($articles as $article)
-            <article-preview image="{{ $article->titleImage('thumb') }}"
-                             title="{{ $article->title }}"
-                             article_target="{{ $article->target }}"
-                             preview_text="{{ $article->intro }}"
-                             article_link="/articles/{{ $article->slug }}"
+            <article-preview image="{{ $article['image'] }}"
+                             title="{{ $article['title'] }}"
+                             article_target="{{ $article['target'] }}"
+                             preview_text="{{ $article['intro'] }}"
+                             article_link="/articles/{{ $article['article_link'] }}"
                              grad="{{ ($loop->index % 20) + 1 }}"
+                             :is_real="{{ $article['is_real'] ? 'true' : 'false' }}"
             ></article-preview>
         @endforeach
-        @if($articles->count() % 3 !== 0)
-            <div class="article-grid-filler for-non-mobile">
-                <a href="/recommendations/signup">Get a custom list</a>
-            </div>
-        @endif
-        @if($articles->count() % 2 !== 0)
-            <div class="article-grid-filler mobile-only">
-                <a href="/recommendations/signup">Get a custom list</a>
-            </div>
-        @endif
     </div>
 
 @endsection
