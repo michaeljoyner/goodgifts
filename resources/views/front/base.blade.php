@@ -41,7 +41,7 @@
     @yield('content')
     @include('front.partials.footer')
 </div>
-<script src="{{ mix('js/front.js') }}"></script>
+<script async src="{{ mix('js/front.js') }}"></script>
 @yield('bodyscripts')
 @if(app()->environment('production'))
 <script>
