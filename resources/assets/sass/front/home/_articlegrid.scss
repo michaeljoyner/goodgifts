@@ -4,6 +4,11 @@
   max-width: 1200px;
   margin: 1em auto;
 
+  @include respond-to(phone) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
   .home-article-card {
     flex-basis: 30%;
     flex-grow: 1;
@@ -12,8 +17,8 @@
     margin: 10px;
 
     @include respond-to(phone) {
-      flex-basis: 33%;
-      max-width: 50%;
+      flex-basis: 100%;
+      max-width: 100%;
     }
 
     .image-wrapper {

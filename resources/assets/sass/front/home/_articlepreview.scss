@@ -102,6 +102,18 @@
     padding: 0 0 10px 10px;
     position: relative;
 
+    @include respond-to(phone) {
+      min-height: 100px;
+
+      .article-target {
+        font-size: 1em;
+      }
+
+      .card-face-opener {
+        font-size: 1em;
+      }
+    }
+
     background: $white;
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba($brand_dark, .4);
