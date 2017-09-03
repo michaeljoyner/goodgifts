@@ -28,8 +28,10 @@
         @foreach($articles as $article)
             <article-preview image="{{ $article->titleImage('thumb') }}"
                              title="{{ $article->title }}"
+                             article_target="{{ $article->target }}"
                              preview_text="{{ $article->intro }}"
                              article_link="/articles/{{ $article->slug }}"
+                             grad="{{ ($loop->index % 20) + 1 }}"
             ></article-preview>
         @endforeach
         @if($articles->count() % 3 !== 0)

@@ -9,7 +9,7 @@
     flex-grow: 1;
     flex-shrink: 1;
     max-width: 33%;
-    margin: 2px;
+    margin: 10px;
 
     @include respond-to(phone) {
       flex-basis: 33%;

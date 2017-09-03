@@ -1,9 +1,10 @@
 <style></style>
 
 <template>
-    <div class="article-preview-component home-article-card">
-        <div class="image-wrapper">
-            <img :src="image" :alt="title" @click="showModal = true">
+    <div class="article-preview-component home-article-card" :class="{'opened': showModal}">
+        <div class="article-preview-card-face" @click="showModal = true" :class="`grad-${grad}`">
+            <p class="card-face-opener">Gifts for</p>
+            <p class="article-target">{{ article_target }}</p>
         </div>
         <modal :show="showModal">
             <div slot="header">
@@ -29,7 +30,7 @@
 
 <script type="text/babel">
     export default {
-        props: ['title', 'image', 'preview_text', 'article_link'],
+        props: ['title', 'image', 'preview_text', 'article_link', 'article_target', 'grad'],
 
         data() {
             return {

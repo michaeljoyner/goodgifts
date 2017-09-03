@@ -1,5 +1,6 @@
 .article-preview-component {
 
+
   .modal-container {
     padding: 0;
     max-height: 100vh;
@@ -7,17 +8,6 @@
   }
 
   .modal-header {
-    //display: flex;
-    //justify-content: flex-end;
-    //align-items: center;
-    //background: $brand_primary;
-    //margin: 0;
-    //padding: 15px 20px;
-    //
-    //.close-btn {
-    //  font-size: 1.5em;
-    //  cursor: pointer;
-    //}
     background: $brand_primary;
     height: 10px;
   }
@@ -98,6 +88,82 @@
       &:hover {
         color: $brand_dark;
       }
+    }
+  }
+
+  .article-preview-card-face {
+    min-height: 160px;
+    font-family: $sans_serif;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 0 0 10px 10px;
+    position: relative;
+
+    background: $white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba($brand_dark, .4);
+    transition: .3s;
+
+    &:hover {
+      transform: translate3d(0,-2px,0);
+      box-shadow: 2px 4px 5px rgba($brand_dark, .7);
+    }
+
+    //&:hover {
+    //  background: $brand_dark;
+    //
+    //  .card-face-opener {
+    //    color: $white;
+    //  }
+    //
+    //  .article-target {
+    //    color: $white;
+    //  }
+    //}
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 10px;
+      width: 100%;
+      //background-image: linear-gradient(120deg, red, blue);
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    //border: 6px solid;
+    //border-image: linear-gradient(120deg, red, blue) 6 6 stretch;
+
+    .card-face-opener {
+      //span {
+      //  display: inline-block;
+      //  position: relative;
+      //  color: $mid-grey;
+      //
+      //  &:after {
+      //    content: '';
+      //    position: absolute;
+      //    height: 6px;
+      //    width: 100%;
+      //    left: 0;
+      //    background-image: linear-gradient(120deg, red, blue);
+      //    bottom: -3px;
+      //    border-radius: 3px;
+      //  }
+      //}
+      color: $light_grey;
+      margin: 0 0 0 0;
+      font-size: 120%;
+
+    }
+
+    .article-target {
+      font-size: 120%;
+      margin: 0;
     }
   }
 }
