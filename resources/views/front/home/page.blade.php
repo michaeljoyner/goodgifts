@@ -30,7 +30,7 @@
                              title="{{ $article['title'] }}"
                              article_target="{{ $article['target'] }}"
                              preview_text="{{ $article['intro'] }}"
-                             article_link="/articles/{{ $article['article_link'] }}"
+                             article_link="{{ $article['article_link'] }}"
                              grad="{{ ($loop->index % 20) + 1 }}"
                              :is_real="{{ $article['is_real'] ? 'true' : 'false' }}"
             ></article-preview>
