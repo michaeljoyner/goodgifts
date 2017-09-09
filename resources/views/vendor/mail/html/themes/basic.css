@@ -7,7 +7,7 @@ body, body *:not(html):not(style):not(br):not(tr):not(code) {
 }
 
 body {
-    background-color: #de830a;
+    background-color: #20e3b2;
     color: #74787e;
     height: 100%;
     line-height: 1.4;
@@ -77,7 +77,7 @@ img {
 /* Layout */
 
 .wrapper {
-    background-color: #de830a;
+    background-color: #20e3b2;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -205,7 +205,7 @@ img {
 .button {
     border-radius: 3px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
-    color: #de830a;
+    color: #20e3b2;
     display: inline-block;
     text-decoration: none;
     -webkit-text-size-adjust: none;

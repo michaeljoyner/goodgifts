@@ -42,6 +42,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('article_products:sync')->dailyAt('03:00');
         $schedule->command('products:update')->dailyAt('04:00');
         $schedule->command('article_products:update')->dailyAt('05:00');
+        $schedule->command('giftlists:notify')->dailyAt('05:30');
     }
 
     /**
