@@ -6,6 +6,9 @@
  */
 
 require('./frontstrap');
+import jump from "jump.js";
+
+window.jump = jump;
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -37,3 +40,10 @@ const app = new Vue({
         }
     }
 });
+
+if(document.querySelector('.inspire')) {
+    document.querySelector('.inspire').addEventListener('click', (ev) => {
+        ev.preventDefault();
+        jump('#articles');
+    })
+}

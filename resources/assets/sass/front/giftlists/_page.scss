@@ -82,4 +82,30 @@
       }
     }
   }
+
+  .hit-em-again {
+    p {
+      font-family: $sans_serif;
+      text-align: center;
+    }
+
+    a {
+      width: 12em;
+      display: block;
+      margin: 30px auto;
+      height: 40px;
+      background: linear-gradient(darken($brand_dark, 5%), $brand_dark);
+      color: $brand_primary;
+      font-family: $sans_serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+
+      &:hover {
+        background: linear-gradient(darken($brand_primary, 5%), $brand_primary);
+        color: $brand_dark;
+      }
+    }
+  }
 }

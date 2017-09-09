@@ -1,7 +1,7 @@
 .main-footer {
   width: 100%;
   min-height: 150px;
-  background: $brand_dark;
+  background: $brand_dark_secondary;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,8 +11,8 @@
 
 
   p {
-    text-shadow: 0 0 5px $brand_primary;
-    color: $brand_dark;
+    //text-shadow: 0 0 5px $brand_primary;
+    color: $brand_primary;
     font-family: $sans_serif;
     font-size: 4em;
     text-align: center;

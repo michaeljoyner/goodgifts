@@ -1,16 +1,132 @@
 .main-hero {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 40px;
+  padding: 0;
   height: 30vw;
   max-height: 360px;
-  background-image: url(./images/ggfg_banner.jpg);
-  background-size: cover;
-  background-position: center;
+  background-image: url(./images/ggfg_logo_seethrough.png);
+  background-size: 12rem;
+  background-position: 15px 40px;
+  background-repeat: no-repeat;
+
+  @include respond-to(largetablet) {
+    min-height: 320px;
+  }
+
+
+
+  .hero-text {
+    overflow-x: hidden;
+    margin-top: 40px;
+    max-width: 630px;
+    min-height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 30px 30px 0;
+
+
+    @include respond-to(phone) {
+      margin: 12rem auto 3px;
+      width: 90%;
+      justify-content: flex-start;
+      padding: 0;
+    }
+
+    @include respond-to(largetablet) {
+      max-width: 480px;
+      justify-content: flex-start;
+      padding-top: 40px;
+    }
+
+    .fuck-censorship {
+      padding-left: 1px;
+
+      @include respond-to(phone) {
+        svg {
+          height: 20px;
+        }
+      }
+
+      @include respond-to(largetablet) {
+        svg {
+          height: 22px;
+        }
+      }
+    }
+
+  }
+
+  .hero-tagline {
+    margin: 0;
+    font-family: $sans_serif;
+    font-size: 2.3em;
+    color: lighten($brand_dark, 20%);
+    color: $brand_dark;
+    animation-name: slideUpIn;
+    animation-fill-mode: forwards;
+    animation-duration: 1.8s;
+    animation-timing-function: ease-out;
+    opacity: 0;
+    transform: translate3d(0,0,0);
+
+    @include respond-to(phone) {
+      font-size: 1.5em;
+      margin: 0 auto;
+      padding-right: 0;
+    }
+
+    @include respond-to(largetablet) {
+      font-size: 1.8em;
+    }
+
+    //@include respond-to(largetablet) {
+    //  padding-right: 20px;
+    //}
+  }
+
+  .hero-sub-tag {
+    //margin: 50px 0 0 0;
+    font-family: $sans_serif;
+    color: $mid-grey;
+    font-size: 1.2em;
+    line-height: 1.5;
+
+
+    //@include respond-to(largetablet) {
+    //  padding-right: 20px;
+    //}
+
+    @include respond-to(phone) {
+      font-size: 80%;
+      text-align: center;
+    }
+
+    @include respond-to(largetablet) {
+      font-size: 1.1em;
+    }
+  }
 
   @include respond-to(phone) {
-    height: 60vw;
-    background-image: url(./images/ggfg_banner_mobile.jpg);
+    height: auto;
+    background-position: center 1rem;
+    background-size: 10rem;
   }
+
+  .text-block {
+    padding-top: 30px;
+    padding-right: 30px;
+
+
+  }
+}
+
+@keyframes slideUpIn {
+  from {opacity: 1; transform: translate3d(-100%, 0, 0);}
+  to {opacity: 1; transform: translate3d(0, 0, 0);}
 }
 

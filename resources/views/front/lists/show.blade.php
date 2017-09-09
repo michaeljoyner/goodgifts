@@ -52,6 +52,10 @@
                 </div>
             @endforeach
         </div>
+        <div class="hit-em-again">
+            <p>Want more like this?</p>
+            <a href="/recommendations/signup">Get another list</a>
+        </div>
         <div class="social-begging">
             <p>Like what we do?</p>
             <p>Help us spread the word.</p>
