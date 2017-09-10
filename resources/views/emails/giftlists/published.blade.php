@@ -9,8 +9,8 @@ Here is a little taster of his list. An aperitif, if you will.
 @component('mail::panel')
     @foreach($list->topPicks()->take(3) as $pick)
     <br>
-    *What*: {{ $pick->suggestion->what }}<br>
-    *Why*: {{ $pick->suggestion->why }}<br>
+    **What**: {{ $pick->suggestion->what }}<br>
+    **Why**: {{ $pick->suggestion->why }}<br>
     @endforeach
 @endcomponent
 
