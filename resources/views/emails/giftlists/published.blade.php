@@ -5,14 +5,12 @@
 
 Here is a little taster of his list. An aperitif, if you will.
 
-
+@foreach($list->topPicks()->take(3) as $pick)
 @component('mail::panel')
-    @foreach($list->topPicks()->take(3) as $pick)
-    <br>
     **What**: {{ $pick->suggestion->what }}<br>
     **Why**: {{ $pick->suggestion->why }}<br>
-    @endforeach
 @endcomponent
+@endforeach
 
 Just hit the link below to get see the full list, along with actual products, links, prices and more. It couldn't be easier.
 
