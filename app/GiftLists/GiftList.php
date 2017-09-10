@@ -44,9 +44,23 @@ class GiftList extends Model
 
     public function topPicks()
     {
+        if($this->topPickCount() < 1) {
+            return $this->takeThreeRandomPicks();
+        }
+
         return $this->picks->filter(function($pick) {
             return $pick->top_pick;
         })->shuffle();
+    }
+
+    protected function takeThreeRandomPicks()
+    {
+        return $this->picks->shuffle()->take(3);
+    }
+
+    public function topPickCount()
+    {
+        return $this->picks()->where('top_pick', true)->count();
     }
 
     public function suggestions()

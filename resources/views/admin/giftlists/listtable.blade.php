@@ -4,7 +4,7 @@
         <th>#</th>
         <th>Due By</th>
         <th>Requested By</th>
-        <th>Prod/Article/Text</th>
+        <th>Prod/Article/Text/Top Picks</th>
         <th>Go go go</th>
         <th>Approved</th>
     </tr>
@@ -31,6 +31,11 @@
                 @else
                     @include('svgicons.mood-sad-solid')
                 @endif
+                    @if($list->topPickCount() > 3)
+                        @include('svgicons.mood-happy-solid')
+                    @else
+                        @include('svgicons.mood-sad-solid')
+                    @endif
             </td>
             <td>
                 <a href="/admin/giftlists/{{ $list->id }}" class="btn gg-btn">Work it</a>

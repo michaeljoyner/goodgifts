@@ -247,4 +247,32 @@ class GiftListsTest extends TestCase
         });
     }
 
+    /**
+     *@test
+     */
+    public function a_list_with_no_top_picks_marked_will_return_three_random_picks()
+    {
+        $list = factory(GiftList::class)->create();
+        $picks = factory(Pick::class, 6)->create(['gift_list_id' => $list->id, 'top_pick' => false]);
+
+        $topPicks = $list->topPicks();
+
+        $this->assertCount(3, $topPicks);
+        $topPicks->each(function($pick) use ($picks) {
+            $this->assertTrue($picks->contains($pick));
+        });
+    }
+
+    /**
+     *@test
+     */
+    public function a_list_can_tell_how_many_top_picks_it_has()
+    {
+        $list = factory(GiftList::class)->create();
+        factory(Pick::class, 3)->create(['gift_list_id' => $list->id, 'top_pick' => true]);
+        factory(Pick::class, 5)->create(['gift_list_id' => $list->id, 'top_pick' => false]);
+
+        $this->assertEquals(3, $list->topPickCount());
+    }
+
 }
