@@ -8,7 +8,7 @@ Route::get('lists/unsubscribe/{slug}', 'GiftListSubscriptionController@delete');
 Route::get('lists/{slug}', 'GiftListsController@show');
 
 
-Route::get('recommendations/signup', 'RecommendationRequestsController@show')->middleware('auth');
+Route::get('recommendations/signup', 'RecommendationRequestsController@show');
 Route::post('recommendations/request', 'RecommendationRequestsController@store');
 Route::get('recommendations/thanks', 'RecommendationRequestsController@thanks');
 
