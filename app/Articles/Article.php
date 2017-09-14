@@ -219,6 +219,25 @@ class Article extends Model implements HasMediaConversions
         $this->save();
     }
 
+    public function replaceProductInBody($originalAsArray, $replacement)
+    {
+        try {
+            $html = $this->body;
+            $crawler = new Crawler();
+            $crawler->addHtmlContent(html_entity_decode($html));
+            $query = '//*[@data-amzn-id="' . $originalAsArray['itemid'] . '"]';
+            $newproduct = $crawler->filterXPath($query);
+            $newproduct->getNode(0)->nodeValue = $this->makeProductHtml($replacement->toArray());
+            $newbody = $this->reformattedCrawlerHtml($crawler->html());
+        } catch (\Exception $e) {
+            ArticleUpdateIssue::create(['product_id' => $replacement->id, 'article_id' => $this->id]);
+            return;
+        }
+
+        $this->body = str_replace($originalAsArray['link'], $replacement->link, $newbody);
+        $this->save();
+    }
+
     protected function makeProductHtml($product)
     {
         return htmlspecialchars(ProductHtml::innerFor($product));

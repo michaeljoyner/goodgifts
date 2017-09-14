@@ -5,14 +5,16 @@ namespace Tests\Unit\Articles;
 
 
 use App\Articles\Article;
+use App\Products\Product;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Http\UploadedFile;
+use Tests\MakesArticlesWithProducts;
 use Tests\TestCase;
 
 class ArticlesTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseMigrations, MakesArticlesWithProducts;
     /**
      *@test
      */
@@ -214,5 +216,69 @@ class ArticlesTest extends TestCase
         ];
 
         $this->assertEquals($expected, $article->toPreviewArray());
+    }
+
+    /**
+     *@test
+     */
+    public function an_article_can_replace_an_article_in_its_body()
+    {
+        $productA = factory(Product::class)->create([
+            'itemid'      => 'AAAAAAAAAA',
+            'title'       => 'A Product',
+            'description' => 'A Description',
+            'link'        => 'A-link',
+            'image'       => 'A-image',
+            'price'       => '$AAA'
+        ]);
+        $productB = factory(Product::class)->create([
+            'itemid'      => 'BBBBBBBBBB',
+            'title'       => 'B Product',
+            'description' => 'B Description',
+            'link'        => 'B-link',
+            'image'       => 'B-image',
+            'price'       => '$BBB',
+            'available'   => true
+        ]);
+
+        $article = $this->makeArticleWithProducts([$productA->toArray()]);
+        $article->attachProducts(collect($productA));
+
+        $article->replaceProductInBody($productA->toArray(), $productB);
+
+        $this->assertContains('B Product', $article->fresh()->body);
+        $this->assertContains('B-link', $article->fresh()->body);
+        $this->assertContains('B-image', $article->fresh()->body);
+    }
+
+    /**
+     *@test
+     */
+    public function replacing_a_product_also_replaces_its_text_links()
+    {
+        $productA = factory(Product::class)->create([
+            'itemid'      => 'AAAAAAAAAA',
+            'title'       => 'A Product',
+            'description' => 'A Description',
+            'link'        => 'A-link',
+            'image'       => 'A-image',
+            'price'       => '$AAA'
+        ]);
+        $productB = factory(Product::class)->create([
+            'itemid'      => 'BBBBBBBBBB',
+            'title'       => 'B Product',
+            'description' => 'B Description',
+            'link'        => 'B-link',
+            'image'       => 'B-image',
+            'price'       => '$BBB',
+            'available'   => true
+        ]);
+
+        $article = $this->makeArticleWithProducts([$productA->toArray()]);
+        $article->attachProducts(collect($productA));
+
+        $article->replaceProductInBody($productA->toArray(), $productB);
+
+        $this->assertNotContains('A-link', $article->fresh()->body);
     }
 }

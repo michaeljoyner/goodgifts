@@ -15,6 +15,8 @@ class Product extends Model
 
     protected $fillable = ['title', 'itemid', 'price', 'description', 'link', 'image', 'available'];
 
+    protected $casts = ['available' => 'boolean'];
+
     public function articles()
     {
         return $this->belongsToMany(Article::class);
@@ -36,5 +38,21 @@ class Product extends Model
     public function suggestions()
     {
         return $this->hasMany(Suggestion::class, 'product_id');
+    }
+
+    public function replaceWith(Product $product)
+    {
+        $original_item = $this->toArray();
+        $this->update([
+            'itemid' => $product->itemid,
+            'title' => $product->title,
+            'image' => $product->image,
+            'description' => $product->description,
+            'price' => $product->price,
+            'link' => $product->link,
+            'available' => $product->available
+        ]);
+
+        $this->articles->each->replaceProductInBody($original_item, $this->fresh());
     }
 }

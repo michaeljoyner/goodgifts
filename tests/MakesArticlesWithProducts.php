@@ -41,7 +41,7 @@ trait MakesArticlesWithProducts
         $products = collect($products)->map(function ($product) {
             $str = '';
             $str .= '<h4>A product sub title</h4>';
-            $str .= '<p>This is some product information and text that might be interpreted by someone as an invitation to by some of their good from a store online, kidding, it is just dummy text.</p>';
+            $str .= '<p>This is some product information and text that might be interpreted by someone as an invitation to by some of their good from a store online, kidding, <a href="' . $product['link'] . '" class="amzn-text-link">A product text link</a> it is just dummy text.</p>';
             $str .= $this->makeProductHtml($product);
             return $str;
         })->toArray();

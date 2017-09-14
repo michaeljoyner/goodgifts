@@ -65,7 +65,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
 
     Route::get('interests', 'InterestsController@index');
 
+    Route::post('products/{product}', 'ProductsController@update');
     Route::put('products/{product}/tags', 'ProductTagsController@store');
+
+    Route::get('products/{product}/swap', 'ProductSwapController@show');
 
 
 

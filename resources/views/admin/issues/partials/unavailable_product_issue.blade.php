@@ -2,6 +2,7 @@
 <div class="unavailable-product-card">
     <img src="{{ $issue->issue->product->image }}" alt="">
     <p>{{ $issue->issue->product->title }}</p>
+    <a href="/admin/products/{{ $issue->issue->product->id }}/swap" class="btn">Replace</a>
     <a href="{{ $issue->issue->product->link }}" class="btn" target="_blank">See on Amazon</a>
     <a href="/admin/products/{{ $issue->issue->product->id }}/similar" class="btn">Check Similar Shit</a>
     @include('admin.partials.deletebutton', [
