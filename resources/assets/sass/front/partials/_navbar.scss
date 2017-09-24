@@ -1,0 +1,34 @@
+.main-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  background: $brand_dark;
+
+  .branding {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    display: flex;
+    align-items: center;
+
+    img {
+
+    }
+  }
+
+  nav {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: $brand_primary;
+      font-family: $sans_serif;
+    }
+  }
+}

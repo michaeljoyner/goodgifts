@@ -1,0 +1,37 @@
+section.reminder {
+  background-color: $brand_primary;
+  padding: 50px 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+
+  .heading {
+    text-align: center;
+    font-family: $sans_serif;
+    font-size: 2em;
+    color: $brand_dark;
+  }
+  .text-block {
+    width: 50%;
+    padding: 20px;
+    padding-left: 60px;
+
+    .main-cta {
+      margin-left: 0;
+    }
+
+    p {
+      width: 80%;
+      margin: 40px 0;
+      font-size: 1.2em;
+    }
+  }
+
+  .screen-shot {
+    position: absolute;
+    top: 180px;
+    left: 60%;
+    width: 45%;
+  }
+
+}

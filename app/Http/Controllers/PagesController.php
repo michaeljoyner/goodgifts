@@ -35,4 +35,9 @@ class PagesController extends Controller
 
         return view('front.articles.page')->with(compact('article'));
     }
+
+    public function playground()
+    {
+        return view('front.playground');
+    }
 }

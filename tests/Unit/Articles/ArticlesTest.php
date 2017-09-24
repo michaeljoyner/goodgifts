@@ -256,11 +256,13 @@ class ArticlesTest extends TestCase
      */
     public function replacing_a_product_also_replaces_its_text_links()
     {
+        $linkA = 'https://www.amazon.com/JBL-Splash-Portable-Bluetooth-Speaker/dp/B0145EVLCC?psc=1&SubscriptionId=AKIAIYHMBBZCAVFTSEKQ&tag=goodgifts0c-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B0145EVLMM';
+        $linkB = 'https://www.amazon.com/JBL-Splash-Portable-Bluetooth-Speaker/dp/B0145EVLMM?psc=1&SubscriptionId=AKIAIYHMBBZCAVFTSEKQ&tag=goodgifts0c-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B0145EVLMM';
         $productA = factory(Product::class)->create([
             'itemid'      => 'AAAAAAAAAA',
             'title'       => 'A Product',
             'description' => 'A Description',
-            'link'        => 'A-link',
+            'link'        => $linkA,
             'image'       => 'A-image',
             'price'       => '$AAA'
         ]);
@@ -268,7 +270,7 @@ class ArticlesTest extends TestCase
             'itemid'      => 'BBBBBBBBBB',
             'title'       => 'B Product',
             'description' => 'B Description',
-            'link'        => 'B-link',
+            'link'        => $linkB,
             'image'       => 'B-image',
             'price'       => '$BBB',
             'available'   => true
@@ -279,6 +281,7 @@ class ArticlesTest extends TestCase
 
         $article->replaceProductInBody($productA->toArray(), $productB);
 
-        $this->assertNotContains('A-link', $article->fresh()->body);
+        $this->assertNotContains($linkA, $article->fresh()->body);
+        $this->assertContains($linkB, $article->fresh()->body);
     }
 }

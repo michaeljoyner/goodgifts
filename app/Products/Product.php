@@ -5,6 +5,7 @@ namespace App\Products;
 
 
 use App\Articles\Article;
+use App\Events\ProductReplaced;
 use App\Suggestions\Suggestion;
 use App\Tags\Tag;
 use Illuminate\Database\Eloquent\Model;
@@ -54,5 +55,6 @@ class Product extends Model
         ]);
 
         $this->articles->each->replaceProductInBody($original_item, $this->fresh());
+        event(new ProductReplaced($this));
     }
 }

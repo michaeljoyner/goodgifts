@@ -5,10 +5,6 @@
     <a href="/admin/products/{{ $issue->issue->product->id }}/swap" class="btn">Replace</a>
     <a href="{{ $issue->issue->product->link }}" class="btn" target="_blank">See on Amazon</a>
     <a href="/admin/products/{{ $issue->issue->product->id }}/similar" class="btn">Check Similar Shit</a>
-    @include('admin.partials.deletebutton', [
-        'objectName' => $issue->issue->product->title,
-        'deleteFormAction' => '/admin/products/' . $issue->issue->product->id
-    ])
 </div>
 @if($issue->issue->product->articles->count() > 0)
     <p>This product is associated with these articles:</p>

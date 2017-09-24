@@ -4,10 +4,12 @@
 namespace Tests\Feature\Products;
 
 
+use App\Issues\Issue;
 use App\Products\FakeLookup;
 use App\Products\Lookup;
 use App\Products\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Notification;
 use Tests\MakesArticlesWithProducts;
 use Tests\TestCase;
 
@@ -17,6 +19,8 @@ class ProductReplacementTest extends TestCase
 
     public function setUp()
     {
+        Notification::fake();
+
         parent::setUp();
 
         $this->app->bind(Lookup::class, function() {
@@ -115,5 +119,30 @@ class ProductReplacementTest extends TestCase
         $this->assertEquals('Fake image', $response_data['image']);
         $this->assertEquals('Fake price', $response_data['price']);
         $this->assertEquals('Fake link', $response_data['link']);
+    }
+
+    /**
+     *@test
+     */
+    public function replacing_a_product_successfully_will_remove_any_unavailable_product_issues_for_the_product()
+    {
+        $this->disableExceptionHandling();
+        $product = factory(Product::class)->create([
+            'itemid'      => '0000000000',
+        ]);
+
+        $issue = Issue::createUnavailableProductIssue('Product not available', ['product_id' => $product->id]);
+
+        $response = $this->asLoggedInUser()->json('POST', '/admin/products/' . $product->id, [
+            'amazon_id' => 'XXXXXXXXXX'
+        ]);
+        $response->assertStatus(200);
+
+        $this->assertDatabaseHas('products', [
+            'id' => $product->id,
+            'itemid' => 'XXXXXXXXXX',
+        ]);
+
+        $this->assertDatabaseMissing('issues', ['id' => $issue->id]);
     }
 }

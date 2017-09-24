@@ -5,20 +5,20 @@
 
   &:hover {
     .colour-fill {
-      fill: $brand_primary;
+      fill: $white;
     }
 
     .colour-stroke {
-      stroke: $brand_primary;
+      stroke: $white;
     }
   }
 
   .colour-fill {
-    fill: $brand_dark;
+    fill: $brand_primary;
   }
 
   .colour-stroke {
-    stroke: $brand_dark;
+    stroke: $brand_primary;
   }
 }
 

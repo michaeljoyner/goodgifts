@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Events\IssueDeleted;
+use App\Events\ProductReplaced;
+use App\Listeners\ClearReplacedProductIssues;
 use App\Listeners\IssueDeletedListener;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -33,6 +35,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\RecommendationRequestDeleted' => [
             'App\Listeners\ClearDeletingRequestsGiftLists'
+        ],
+        ProductReplaced::class => [
+            ClearReplacedProductIssues::class
         ]
     ];
 
