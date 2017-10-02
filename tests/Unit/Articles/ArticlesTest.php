@@ -284,4 +284,39 @@ class ArticlesTest extends TestCase
         $this->assertNotContains($linkA, $article->fresh()->body);
         $this->assertContains($linkB, $article->fresh()->body);
     }
+
+
+    /**
+     *@test
+     */
+    public function updating_the_product_completely_removes_the_old_item_id_in_the_article()
+    {
+        $productA = factory(Product::class)->create([
+            'itemid'      => 'AAAAAAAAAA',
+            'title'       => 'A Product',
+            'description' => 'A Description',
+            'link'        => 'A-link',
+            'image'       => 'A-image',
+            'price'       => '$AAA'
+        ]);
+        $productB = factory(Product::class)->create([
+            'itemid'      => 'BBBBBBBBBB',
+            'title'       => 'B Product',
+            'description' => 'B Description',
+            'link'        => 'B-link',
+            'image'       => 'B-image',
+            'price'       => '$BBB',
+            'available'   => true
+        ]);
+
+        $article = $this->makeArticleWithProducts([$productA->toArray()]);
+        $article->attachProducts(collect($productA));
+
+        $article->replaceProductInBody($productA->toArray(), $productB);
+
+        $this->assertContains('B Product', $article->fresh()->body);
+        $this->assertContains('B-link', $article->fresh()->body);
+        $this->assertContains('B-image', $article->fresh()->body);
+        $this->assertNotContains('AAAAAAAAAA', $article->fresh()->body);
+    }
 }

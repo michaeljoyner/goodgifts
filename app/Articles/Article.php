@@ -227,6 +227,7 @@ class Article extends Model implements HasMediaConversions
             $crawler->addHtmlContent(html_entity_decode($html));
             $query = '//*[@data-amzn-id="' . $originalAsArray['itemid'] . '"]';
             $newproduct = $crawler->filterXPath($query);
+            $newproduct->getNode(0)->setAttribute('data-amzn-id', $replacement->itemid);
             $newproduct->getNode(0)->nodeValue = $this->makeProductHtml($replacement->toArray());
             $newbody = $this->reformattedCrawlerHtml($crawler->html());
         } catch (\Exception $e) {
