@@ -28,40 +28,6 @@
       }
     }
 
-
   }
 
-  .article-grid-filler {
-    background: $brand_dark;
-    flex-grow: 1;
-    margin: 2px;
-
-    &.mobile-only {
-      display: none;
-    }
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    a {
-      font-family: $sans_serif;
-      color: $brand_primary;
-      padding: 30px;
-
-      &:hover {
-        color: $brand_blue;
-      }
-    }
-  }
-
-  @include respond-to(phone) {
-    .article-grid-filler.for-non-mobile {
-      display: none;
-    }
-
-    .article-grid-filler.mobile-only {
-      display: flex;
-    }
-  }
 }
