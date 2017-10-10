@@ -27,19 +27,6 @@
                        role="button"
                        aria-haspopup="true"
                        aria-expanded="false"
-                    >Cards <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/admin/cards">View</a></li>
-                        <li><a href="/admin/cards/search">Search</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#"
-                       class="dropdown-toggle"
-                       data-toggle="dropdown"
-                       role="button"
-                       aria-haspopup="true"
-                       aria-expanded="false"
                     >Gift Lists <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/admin/recommendations/requests">New Requests</a></li>
