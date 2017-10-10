@@ -13,9 +13,9 @@ class FakeLookup implements Lookup
         return collect($ids)->map(function($itemId) {
             return new Product([
                 'title' => 'Fake title',
-                'link' => 'Fake link',
+                'link' => 'http://example.com/fake-link/dp/' . $itemId,
                 'description' => 'Fake description',
-                'image' => 'Fake image',
+                'image' => 'http://example.com/fake-image.jpg',
                 'price' => 'Fake price',
                 'itemid' => $itemId,
                 'available' => true

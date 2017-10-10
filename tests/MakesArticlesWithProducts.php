@@ -46,7 +46,7 @@ trait MakesArticlesWithProducts
             return $str;
         })->toArray();
 
-        $body = implode('', $products);
+        $body = str_replace(PHP_EOL, '', implode('', $products));
 
         return factory(Article::class)->create(['body' => $body]);
     }

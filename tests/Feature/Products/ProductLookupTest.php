@@ -36,10 +36,10 @@ class ProductLookupTest extends TestCase
 
         $this->assertContains([
             'title'       => 'Fake title',
-            'link'        => 'Fake link',
+            'link'        => 'http://example.com/fake-link/dp/TEST123',
             'description' => 'Fake description',
             'price'       => 'Fake price',
-            'image'       => 'Fake image',
+            'image'       => 'http://example.com/fake-image.jpg',
             'itemid'      => 'TEST123',
             'available'   => true
         ], $results);

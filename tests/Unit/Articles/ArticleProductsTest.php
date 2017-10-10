@@ -33,10 +33,11 @@ class ArticleProductsTest extends TestCase
         $article->updateBodyWithProduct($updatedProduct);
 
         $updatedHtml = $this->getProductHtml($updatedProduct->toArray());
+        $fresh_body = str_replace(PHP_EOL, '', $article->fresh()->body);
 
-        $this->assertContains($updatedHtml, $article->fresh()->body);
-        $this->assertContains('ABC456',$article->fresh()->body);
-        $this->assertContains('ABC789',$article->fresh()->body);
+        $this->assertContains(ProductHtml::innerFor($updatedProduct->toArray()), $fresh_body);
+        $this->assertContains('ABC456',$fresh_body);
+        $this->assertContains('ABC789',$fresh_body);
 
     }
 
@@ -66,8 +67,9 @@ class ArticleProductsTest extends TestCase
         $article->updateBodyWithProduct($updatedProduct);
 
         $updatedHtml = $this->getProductHtml($updatedProduct->toArray());
+        $fresh_body = str_replace(PHP_EOL, '', $article->fresh()->body);
 
-        $this->assertContains($updatedHtml, $article->fresh()->body);
+        $this->assertContains($updatedHtml, $fresh_body);
     }
     
     /**
@@ -96,9 +98,10 @@ class ArticleProductsTest extends TestCase
         ]);
 
         $article->updateBodyWithProduct($updatedProduct);
+        $fresh_body = str_replace(PHP_EOL, '', $article->fresh()->body);
 
-        $this->assertContains($this->getProductHtml($updatedProduct->toArray()), $article->fresh()->body);
-        $this->assertNotContains('Â', $article->fresh()->body);
+        $this->assertContains($this->getProductHtml($updatedProduct->toArray()), $fresh_body);
+        $this->assertNotContains('Â', $fresh_body);
 
 
     }
@@ -119,9 +122,10 @@ class ArticleProductsTest extends TestCase
         $article = factory(Article::class)->create(['body' => $articleBody]);
 
         $article->updateBodyWithProduct($updatedProduct);
+        $fresh_body = str_replace(PHP_EOL, '', $article->fresh()->body);
 
-        $this->assertContains($this->getProductHtml($updatedProduct->toArray()), $article->fresh()->body);
-        $this->assertNotContains('Â', $article->fresh()->body);
+        $this->assertContains($this->getProductHtml($updatedProduct->toArray()), $fresh_body);
+        $this->assertNotContains('Â', $fresh_body);
     }
 
     /**

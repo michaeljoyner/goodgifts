@@ -43,7 +43,7 @@ class Product extends Model
 
     public function replaceWith(Product $product)
     {
-        $original_item = $this->toArray();
+        $original_item = clone $this;
         $this->update([
             'itemid' => $product->itemid,
             'title' => $product->title,

@@ -51,9 +51,9 @@ class ProductReplacementTest extends TestCase
         $this->assertDatabaseHas('products', [
             'id' => $product->id,
             'title' => 'Fake title',
-            'link' => 'Fake link',
+            'link' => 'http://example.com/fake-link/dp/XXXXXXXXXX',
             'description' => 'Fake description',
-            'image' => 'Fake image',
+            'image' => 'http://example.com/fake-image.jpg',
             'price' => 'Fake price',
             'itemid' => 'XXXXXXXXXX',
             'available' => true
@@ -85,8 +85,8 @@ class ProductReplacementTest extends TestCase
         $response->assertStatus(200);
 
         $this->assertContains('Fake title', $article->fresh()->body);
-        $this->assertContains('Fake link', $article->fresh()->body);
-        $this->assertContains('Fake image', $article->fresh()->body);
+        $this->assertContains('http://example.com/fake-link/dp/XXXXXXXXXX', $article->fresh()->body);
+        $this->assertContains('http://example.com/fake-image.jpg', $article->fresh()->body);
     }
 
     /**
@@ -116,9 +116,9 @@ class ProductReplacementTest extends TestCase
         $this->assertEquals($product->id, $response_data['id']);
         $this->assertEquals('XXXXXXXXXX', $response_data['itemid']);
         $this->assertEquals('Fake title', $response_data['title']);
-        $this->assertEquals('Fake image', $response_data['image']);
+        $this->assertEquals('http://example.com/fake-image.jpg', $response_data['image']);
         $this->assertEquals('Fake price', $response_data['price']);
-        $this->assertEquals('Fake link', $response_data['link']);
+        $this->assertEquals('http://example.com/fake-link/dp/XXXXXXXXXX', $response_data['link']);
     }
 
     /**

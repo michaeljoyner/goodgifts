@@ -39,13 +39,13 @@ class ProductUpdatesTest extends TestCase
         $product2 = Product::where('itemid', 'ITEMID2')->first();
 
         $this->assertEquals('Fake title', $product1->title);
-        $this->assertEquals('Fake link', $product1->link);
+        $this->assertEquals('http://example.com/fake-link/dp/ITEMID1', $product1->link);
         $this->assertEquals('Fake price', $product1->price);
-        $this->assertEquals('Fake image', $product1->image);
+        $this->assertEquals('http://example.com/fake-image.jpg', $product1->image);
 
         $this->assertEquals('Fake title', $product2->title);
-        $this->assertEquals('Fake link', $product2->link);
+        $this->assertEquals('http://example.com/fake-link/dp/ITEMID2', $product2->link);
         $this->assertEquals('Fake price', $product2->price);
-        $this->assertEquals('Fake image', $product2->image);
+        $this->assertEquals('http://example.com/fake-image.jpg', $product2->image);
     }
 }

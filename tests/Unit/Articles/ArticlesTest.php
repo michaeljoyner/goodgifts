@@ -244,7 +244,7 @@ class ArticlesTest extends TestCase
         $article = $this->makeArticleWithProducts([$productA->toArray()]);
         $article->attachProducts(collect($productA));
 
-        $article->replaceProductInBody($productA->toArray(), $productB);
+        $article->replaceProductInBody($productA, $productB);
 
         $this->assertContains('B Product', $article->fresh()->body);
         $this->assertContains('B-link', $article->fresh()->body);
@@ -256,8 +256,8 @@ class ArticlesTest extends TestCase
      */
     public function replacing_a_product_also_replaces_its_text_links()
     {
-        $linkA = 'https://www.amazon.com/JBL-Splash-Portable-Bluetooth-Speaker/dp/B0145EVLCC?psc=1&SubscriptionId=AKIAIYHMBBZCAVFTSEKQ&tag=goodgifts0c-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B0145EVLMM';
-        $linkB = 'https://www.amazon.com/JBL-Splash-Portable-Bluetooth-Speaker/dp/B0145EVLMM?psc=1&SubscriptionId=AKIAIYHMBBZCAVFTSEKQ&tag=goodgifts0c-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B0145EVLMM';
+        $linkA = 'https://www.amazon.com/JBL-Splash-Portable-Bluetooth-Speaker/dp/AAAAAAAAAA?psc=1&SubscriptionId=AKIAIYHMBBZCAVFTSEKQ&tag=goodgifts0c-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B0145EVLMM';
+        $linkB = 'https://www.amazon.com/JBL-Splash-Portable-Bluetooth-Speaker/dp/BBBBBBBBBB?psc=1&SubscriptionId=AKIAIYHMBBZCAVFTSEKQ&tag=goodgifts0c-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B0145EVLMM';
         $productA = factory(Product::class)->create([
             'itemid'      => 'AAAAAAAAAA',
             'title'       => 'A Product',
@@ -279,7 +279,7 @@ class ArticlesTest extends TestCase
         $article = $this->makeArticleWithProducts([$productA->toArray()]);
         $article->attachProducts(collect($productA));
 
-        $article->replaceProductInBody($productA->toArray(), $productB);
+        $article->replaceProductInBody($productA, $productB);
 
         $this->assertNotContains($linkA, $article->fresh()->body);
         $this->assertContains($linkB, $article->fresh()->body);
@@ -312,7 +312,7 @@ class ArticlesTest extends TestCase
         $article = $this->makeArticleWithProducts([$productA->toArray()]);
         $article->attachProducts(collect($productA));
 
-        $article->replaceProductInBody($productA->toArray(), $productB);
+        $article->replaceProductInBody($productA, $productB);
 
         $this->assertContains('B Product', $article->fresh()->body);
         $this->assertContains('B-link', $article->fresh()->body);

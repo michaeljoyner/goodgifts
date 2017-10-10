@@ -6,7 +6,6 @@ use App\Interests\Interest;
 use App\Issues\ArticleUpdateIssue;
 use App\Products\Lookup;
 use App\Products\Product;
-use App\Products\ProductHtml;
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
@@ -201,54 +200,20 @@ class Article extends Model implements HasMediaConversions
 
     public function updateBodyWithProduct($product)
     {
-        try {
-            $html = $this->body;
-            $crawler = new Crawler();
-            $crawler->addHtmlContent(html_entity_decode($html));
-            $query = '//*[@data-amzn-id="' . $product->itemid . '"]';
-            $newproduct = $crawler->filterXPath($query);
-            $newproduct->getNode(0)->nodeValue = $this->makeProductHtml($product->toArray());
-            $newbody = $this->reformattedCrawlerHtml($crawler->html());
-        } catch (\Exception $e) {
-            ArticleUpdateIssue::create(['product_id' => $product->id, 'article_id' => $this->id]);
-            return;
-        }
-
-
-        $this->body = $newbody;
-        $this->save();
+        $this->replaceProductInBody($product, $product);
     }
 
-    public function replaceProductInBody($originalAsArray, $replacement)
+    public function replaceProductInBody($original, $replacement)
     {
         try {
-            $html = $this->body;
-            $crawler = new Crawler();
-            $crawler->addHtmlContent(html_entity_decode($html));
-            $query = '//*[@data-amzn-id="' . $originalAsArray['itemid'] . '"]';
-            $newproduct = $crawler->filterXPath($query);
-            $newproduct->getNode(0)->setAttribute('data-amzn-id', $replacement->itemid);
-            $newproduct->getNode(0)->nodeValue = $this->makeProductHtml($replacement->toArray());
-            $newbody = $this->reformattedCrawlerHtml($crawler->html());
+            $new_body = ArticleBody::html($this->body)->replaceProductCard($original, $replacement);
+            $new_body = ArticleBody::html($new_body)->updateTextLink($original->itemid, $replacement->link);
+            $this->body = $new_body;
+            $this->save();
         } catch (\Exception $e) {
             ArticleUpdateIssue::create(['product_id' => $replacement->id, 'article_id' => $this->id]);
             return;
         }
-
-        $this->body = str_replace($originalAsArray['link'], $replacement->link, $newbody);
-        $this->save();
-    }
-
-    protected function makeProductHtml($product)
-    {
-        return htmlspecialchars(ProductHtml::innerFor($product));
-    }
-
-    protected function reformattedCrawlerHtml($html)
-    {
-        $html = html_entity_decode($html);
-
-        return mb_substr($html, 6, -7);
     }
 
     public function interests()
