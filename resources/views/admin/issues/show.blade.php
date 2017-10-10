@@ -5,7 +5,7 @@
         <h1 class="header-title">{{ ucwords(str_replace('_', ' ', snake_case(class_basename($issue->issue_type)))) }}</h1>
         <div class="page-actions">
             @include('admin.partials.deletebutton', [
-                'objectName' => $issue->isue_type,
+                'objectName' => $issue->issue_type,
                 'deleteFormAction' => '/admin/issues/' . $issue->id
             ])
         </div>

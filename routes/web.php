@@ -71,6 +71,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::put('products/{product}/tags', 'ProductTagsController@store');
 
     Route::get('products/{product}/swap', 'ProductSwapController@show');
+    
+    Route::delete('orphan-products', 'OrphanProductsController@delete');
 
 
 
