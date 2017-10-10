@@ -25,6 +25,7 @@
                     <img :src="product.image" alt="" width="80px">
                     <p class="title">{{ product.title }}</p>
                     <span>{{ product.price }}</span>
+                    <a :href="`/admin/products/${product.id}/swap`" class="btn">Replace</a>
                     <a :href="product.link" class="btn" target="_blank">Amazon</a>
                     <button class="btn btn-red" @click="removeProduct(product)">Remove</button>
                 </div>
@@ -33,6 +34,13 @@
                                 :reason-what="product.pivot.what"
                                 :reason-why="product.pivot.why"
                 ></product-reason>
+                <div class="product-tag-box">
+                    <item-tagger
+                        :sync-url="`/admin/products/${product.id}/tags`"
+                        :initial-tags="product.tags.map(p => p.tag)"
+                        tag-type="product"
+                    ></item-tagger>
+                </div>
             </div>
         </div>
     </div>

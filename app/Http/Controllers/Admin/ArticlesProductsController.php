@@ -13,7 +13,7 @@ class ArticlesProductsController extends Controller
 {
     public function index(Article $article)
     {
-        return $article->products;
+        return $article->products()->with('tags')->get();
     }
 
     public function show(Article $article)
