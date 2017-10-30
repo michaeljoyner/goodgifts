@@ -1,4 +1,4 @@
-@extends('front.base')
+@extends('front.base', ['pageName' => 'col-body-bg'])
 
 @section('title')
     Personalised Gift Lists
@@ -13,10 +13,10 @@
 @endsection
 
 @section('content')
-    @include('front.partials.standardheader')
-    <section class="signup-page-main-section">
-        <div class="lead-text">
-            <h1>Just a custom list. Just in time.</h1>
+    @include('front.partials.navbar')
+    <section class="mw7 center-ns mh3-ns">
+        <div class="mt5 mh3 mh0-ns">
+            <p class="strong-font f4 f3-ns">Just a custom list. Just in time.</p>
             <p>We'll find the best gifts based on his interests and send them to you 20 days before you need it.</p>
             <p>If you don't have 20 days, we'll act fast.</p>
             <p>We just need a budget, a date, and a few things he likes to get us started.</p>
@@ -24,28 +24,28 @@
         </div>
         <form class="signup-form" action="/recommendations/request" method="POST">
             {!! csrf_field() !!}
-            <div class="form-section">
-                <div class="form-text-box">
-                    <h3>About You</h3>
-                    <p>What should we call you, where should we send the list and how much are you willing to spend?</p>
+            <div class="col-w-bg pa4  shadow-4 flex-ns justify-between">
+                <div class="w-100 w-40-ns">
+                    <h3 class="di col-gr">About You</h3>
+                    <p class="f6 lh-title">What should we call you, where should we send the list and how much are you willing to spend?</p>
                 </div>
-                <div class="form-input-box">
-                    <div class="form-group{{ $errors->has('sender') ? ' has-error' : '' }}">
-                        <label for="sender">Your Name</label>
+                <div class="w-100 w-40-ns">
+                    <div class="mv3 {{ $errors->has('sender') ? ' has-error' : '' }}">
+                        <label class="f6" for="sender">Your Name</label>
                         @if($errors->has('sender'))
                         <span class="error-message">{{ $errors->first('sender') }}</span>
                         @endif
-                        <input type="text" name="sender" value="{{ old('sender') }}" class="form-control">
+                        <input type="text" name="sender" value="{{ old('sender') }}" class="w-100 ba b--solid lh-copy">
                     </div>
-                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <label for="email">Your Email</label>
+                    <div class="mv3 {{ $errors->has('email') ? ' has-error' : '' }}">
+                        <label class="f6" for="email">Your Email</label>
                         @if($errors->has('email'))
                         <span class="error-message">{{ $errors->first('email') }}</span>
                         @endif
-                        <input type="text" name="email" value="{{ old('email') }}" class="form-control" required>
+                        <input type="text" name="email" value="{{ old('email') }}" class="w-100 ba b--solid lh-copy" required>
                     </div>
-                    <div class="form-group">
-                        <label>Your Budget</label>
+                    <div class="mv3 f6 lh-copy">
+                        <label class="f6 lh-copy">Your Budget</label>
                         <div class="gg-radio-option">
                             <input type="radio" name="budget" id="low_budget" value="low">
                             <label for="low_budget">
@@ -79,21 +79,21 @@
                     </div>
                 </div>
             </div>
-            <div class="form-section">
-                <div class="form-text-box">
-                    <h3>About Him</h3>
-                    <p>Who is the gift for, when will you give him the gift and what age group does he fit into?</p>
+            <div class="col-w-bg pa4 mv4 shadow-4 flex-ns justify-between">
+                <div class="w-100 w-40-ns">
+                    <h3 class="di col-gr">About Him</h3>
+                    <p class="f6 lh-title">Who is the gift for, when will you give him the gift and what age group does he fit into?</p>
                 </div>
-                <div class="form-input-box">
-                    <div class="form-group{{ $errors->has('recipient') ? ' has-error' : '' }}">
-                        <label for="recipient">His Name</label>
+                <div class="w-100 w-40-ns">
+                    <div class="mv3 {{ $errors->has('recipient') ? ' has-error' : '' }}">
+                        <label class="f6" for="recipient">His Name</label>
                         @if($errors->has('recipient'))
                         <span class="error-message">{{ $errors->first('recipient') }}</span>
                         @endif
-                        <input type="text" name="recipient" value="{{ old('recipient') }}" class="form-control">
+                        <input type="text" name="recipient" value="{{ old('recipient') }}" class="w-100 ba b--solid lh-copy">
                     </div>
                     <div class="form-group{{ $errors->has('birthday') ? ' has-error' : '' }}">
-                        <label for="birthday">His big day</label><br>
+                        <label class="f6" for="birthday">His big day</label><br>
                         <span class="error-message"></span>
                         <div class="style-select month">
                             <select name="birthday_month" id="month">
@@ -147,8 +147,8 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group{{ $errors->has('age_group') ? ' has-error' : '' }}">
-                        <label>His Age group</label>
+                    <div class="mv3 f6 lh-copy {{ $errors->has('age_group') ? ' has-error' : '' }}">
+                        <label class="f6">His Age group</label>
                         <div class="gg-radio-option">
                             <input type="radio" name="age_group" id="young" value="young">
                             <label for="young">
@@ -176,26 +176,30 @@
                     </div>
                 </div>
             </div>
-            <div class="form-section">
-                <div class="form-text-box">
-                    <h3>What's his thing?</h3>
-                    <p>Tell us what makes him tick. We have given a few options to get you thinking, but don't shy to add some more. The more you give us, the more we can give you. We don't  judge.</p>
+            <div class="col-w-bg pa4 shadow-4 flex-ns justify-between">
+                <div class="w-100 w-40-ns">
+                    <h3 class="di col-gr">What's his thing?</h3>
+                    <p class="f6 lh-title">Tell us what makes him tick. We have given a few options to get you thinking, but don't shy to add some more. The more you give us, the more we can give you. We don't  judge.</p>
                 </div>
-                <div class="form-input-box">
+                <div class="w-100 w-40-ns">
                     <interests-chooser :interest-list='{{ json_encode($interests->pluck('tag')->all()) }}'></interests-chooser>
                 </div>
             </div>
-            <div class="form-section">
-                <div class="form-text-box">
-                    <h3>Let's do this</h3>
-                    <p>We'll get on to that list ASAP! In the meantime, don't be shy to add a few more guys and get your gift shopping for the year done.</p>
+            <div class="col-w-bg shadow-4 pa4 mv4 flex-ns justify-between">
+                <div class="w-100 w-40-ns">
+                    <h3 class="di col-gr">Let's do this</h3>
+                    <p class="f6 lh-title">We'll get on to that list ASAP! In the meantime, don't be shy to add a few more guys and get your gift shopping for the year done.</p>
                 </div>
-                <div class="form-input-box submit-box">
+                <div class="w-100 w-40-ns submit-box">
                     <button class="form-cta-button" type="submit">Make my list</button>
                 </div>
             </div>
         </form>
     </section>
+
+@endsection
+
+@section('bodyscripts')
     <script type="text/javascript">
         /* <![CDATA[ */
         var google_conversion_id = 858669646;

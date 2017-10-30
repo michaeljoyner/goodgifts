@@ -6,9 +6,10 @@
  */
 
 require('./frontstrap');
-import jump from "jump.js";
 
-window.jump = jump;
+import Flickity from "flickity";
+window.Flickity = Flickity;
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -18,6 +19,7 @@ window.jump = jump;
 Vue.component('modal', require('./components/Modal.vue'));
 Vue.component('interests-chooser', require('./components/InterestsChooser.vue'));
 Vue.component('article-preview', require('./components/ArticlePreview.vue'));
+Vue.component('gifts-app', require('./components/GiftsApp.vue'));
 
 
 window.eventHub = new Vue();
@@ -41,9 +43,3 @@ const app = new Vue({
     }
 });
 
-if(document.querySelector('.inspire')) {
-    document.querySelector('.inspire').addEventListener('click', (ev) => {
-        ev.preventDefault();
-        jump('#articles');
-    })
-}

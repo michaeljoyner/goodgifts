@@ -1,4 +1,4 @@
-<svg class="social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.02 54.02">
+<svg class="{{ $classNames ?? '' }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.02 54.02">
     <title>facebook</title>
     <path class="colour-stroke" fill="none" stroke="#2e2e34" stroke-miterlimit="10" stroke-width="3px"
           d="M27,52.52A25.51,25.51,0,1,0,1.5,27,25.51,25.51,0,0,0,27,52.52"/>

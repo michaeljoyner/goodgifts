@@ -35,6 +35,8 @@ Vue.component('giftlist-articles', require('./components/GiftListArticles.vue'))
 Vue.component('tag-manager', require('./components/TagManager.vue'));
 Vue.component('gift-list-pick', require('./components/GiftListPick.vue'));
 Vue.component('product-swap', require('./components/ProductSwap.vue'));
+Vue.component('product-finder', require('./components/ProductFinder.vue'));
+Vue.component('featured-products', require('./components/FeaturedProducts.vue'));
 
 window.eventHub = new Vue();
 

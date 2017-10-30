@@ -58,7 +58,7 @@ class TagsTest extends TestCase
         $productC->tags()->attach($tagD->id);
 
 
-        $response = $this->asLoggedInUser()->json('GET', '/admin/tags');
+        $response = $this->asLoggedInUser()->json('GET', '/tags');
         $response->assertStatus(200);
         $fetched_tags = $response->decodeResponseJson();
 
@@ -71,6 +71,7 @@ class TagsTest extends TestCase
 
         $this->assertEquals($expected, $fetched_tags);
     }
+
 
     /**
      *@test
