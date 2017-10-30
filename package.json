@@ -17,6 +17,7 @@
   "dependencies": {
     "chart.js": "^2.5.0",
     "color": "^2.0.0",
+    "flickity": "^2.0.10",
     "jump.js": "^1.0.2",
     "moment": "^2.18.0",
     "sweetalert": "^1.1.3",

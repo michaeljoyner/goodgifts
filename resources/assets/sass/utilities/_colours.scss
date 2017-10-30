@@ -34,11 +34,23 @@
   background-color: $white;
 }
 
+.col-op-bg {
+  background-color: rgba(255,255,255,.4);
+}
+
 .col-gr {
   color: $mid-grey;
 }
 
+.col-gr-bg {
+  background-color: $light_grey;
+}
+
 .col-gr-l {
   color: $light_grey;
+}
+
+.col-body-bg {
+  background-color: $body-bg;
 }
 

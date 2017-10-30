@@ -31,6 +31,13 @@ Route::get('playground', 'PagesController@playground')->middleware('auth');
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('guides', 'PagesController@guides');
+Route::get('gifts', 'PagesController@gifts');
+
+Route::get('services/products', 'ProductServiceController@index');
+
+Route::get('tags', 'Admin\TagsController@index');
+
 
 
 
@@ -72,11 +79,15 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
 
     Route::get('products/{product}/swap', 'ProductSwapController@show');
 
+    Route::get('featured-products', 'FeaturedProductsController@index');
+    Route::post('featured-products', 'FeaturedProductsController@store');
+    Route::delete('featured-products/{product}', 'FeaturedProductsController@delete');
+
 
 
     Route::get('tags/issues', 'TaggingIssuesController@show');
     Route::get('tags/manager', 'TagsManagerController@show');
-    Route::get('tags', 'TagsController@index');
+
 
     Route::post('issues/batchupdate/{issue}/resolve', 'BatchUpdateIssueResolvingController@handle');
     Route::post('issues/incompleteupdate/{issue}/resolve', 'IncompleteUpdateIssueResolvingController@handle');
@@ -126,5 +137,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::post('services/tags/deleted', 'TagsController@delete');
 
     Route::get('services/giftlists/{list}/picks', 'GiftListPicksServiceController@index');
+
+    Route::get('services/featured-products', 'FeaturedProductsServiceController@index');
 
 });

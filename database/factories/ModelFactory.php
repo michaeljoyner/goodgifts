@@ -62,18 +62,6 @@ $factory->define(App\Recommendations\Request::class, function (Faker\Generator $
     ];
 });
 
-$factory->define(App\Products\SuitedProduct::class, function (Faker\Generator $faker) {
-    return [
-        'article_id' => function () {
-            return factory(\App\Articles\Article::class)->create()->id;
-        },
-        'product_id' => function () {
-            return factory(\App\Products\Product::class)->create()->id;
-        },
-        'what'       => $faker->sentence,
-        'why'        => $faker->sentence
-    ];
-});
 
 $factory->define(App\Tags\Tag::class, function (Faker\Generator $faker) {
     return [

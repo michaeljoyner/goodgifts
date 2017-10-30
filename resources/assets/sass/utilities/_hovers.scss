@@ -1,0 +1,35 @@
+.hov-p {
+  &:hover {
+    color: $brand_primary;
+  }
+}
+
+.hov-p-bg {
+  &:hover {
+    background-color: $brand_primary;
+  }
+}
+
+.hov-w {
+  &:hover {
+    color: $white;
+  }
+}
+
+.hov-w-bg {
+  &:hover {
+    background-color: $white;
+  }
+}
+
+.hov-d {
+  &:hover {
+   color: $brand_dark;
+  }
+}
+
+.hov-d-bg {
+  &:hover {
+    background-color: $brand_dark;
+  }
+}

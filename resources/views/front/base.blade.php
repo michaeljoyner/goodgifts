@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -33,14 +33,14 @@
                    src="https://www.facebook.com/tr?id=1930525960496398&ev=PageView&noscript=1"
         /></noscript>
 </head>
-<body class="@yield('bodyclass', 'scripted') {{ $pageName ?? '' }}">
+<body class="@yield('bodyclass', 'scripted') {{ $pageName ?? '' }} min-h-100 flex flex-column justify-between pt5 pt6-ns">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 <div class="main-container" id="app">
     @yield('content')
-    @include('front.partials.footer')
 </div>
+@include('front.partials.footer')
 <script async src="{{ mix('js/front.js') }}"></script>
 @yield('bodyscripts')
 @if(app()->environment('production'))

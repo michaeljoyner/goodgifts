@@ -4,7 +4,10 @@
 namespace Tests\Feature\Products;
 
 
+use App\Articles\Article;
 use App\Products\Product;
+use App\Suggestions\Suggestion;
+use App\Tags\Tag;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 

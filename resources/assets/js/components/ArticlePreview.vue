@@ -1,9 +1,9 @@
 <template>
-    <div class="article-preview-component home-article-card"
+    <div class="article-preview-component home-article-card w-30-ns w-90 center mv3"
          :class="{'opened': showModal}">
-        <div class="col-w-bg h4 flex flex-column justify-end items-start strong-font br2 relative article-preview-card-face"
+        <div class="col-w-bg h3 h4-ns flex flex-column justify-end items-start strong-font br2 relative article-preview-card-face col-body-bg"
              @click="showModal = true"
-             :class="`grad-${grad}`">
+             :class="">
             <p class="pl2 ma0 col-gr-l">{{ is_real ? 'Gifts for' : 'A List for' }}</p>
             <p class="pb2 pl2 ma0 f5 f4-ns">{{ article_target }}</p>
         </div>
@@ -17,12 +17,12 @@
                     <p class="body-font mt2 f6">{{ preview_text }}</p>
                     <a :href="article_link"
                        v-if="is_real"
-                       class="col-p-bg mv3 strong-font f6 ttu pa2">Check it out</a>
+                       class="col-p-bg col-d mv3 strong-font link f6 ttu pa2">Check it out</a>
                 </div>
             </div>
             <div slot="footer" class="col-p-bg flex justify-around pv3 items-center">
-                <a class="col-d strong-font ttu f6" href="/recommendations/signup">Get a custom list</a>
-                <a class="col-d strong-font ttu f6" href="#"
+                <a class="col-d strong-font ttu f6 link" href="/recommendations/signup">Get a custom list</a>
+                <a class="col-d strong-font ttu f6 link" href="#"
                    @click.stop.prevent="showModal = false">Close</a>
             </div>
         </modal>
@@ -69,6 +69,7 @@
             width: 100%;
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
+            background-color: $brand-primary;
         }
     }
 </style>
