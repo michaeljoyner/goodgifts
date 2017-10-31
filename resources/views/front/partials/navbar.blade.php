@@ -12,7 +12,7 @@
 
     </nav>
     <div class="dn flex-ns items-center order-1 order-2-ns">
-        <a class="link col-p hov-p mh2 di" href="#">@include('svgicons.social.facebook-f')</a>
-        <a class="link col-p hov-p mh2 di" href="#">@include('svgicons.social.instagram')</a>
+        <a class="link col-p hov-p mh2 di" href="https://www.facebook.com/goodgiftsforguys/">@include('svgicons.social.facebook-f')</a>
+        <a class="link col-p hov-p mh2 di" href="https://www.instagram.com/good_gifts_for_guys/">@include('svgicons.social.instagram')</a>
     </div>
 </div>

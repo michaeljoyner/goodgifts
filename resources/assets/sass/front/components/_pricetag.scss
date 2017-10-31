@@ -1,0 +1,58 @@
+.price-tag {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 4px;
+  text-align: right;
+  text-transform: uppercase;
+  font-size: 80%;
+  margin-top: 5px;
+
+  @include respond-to(phone) {
+    position: static;
+  }
+
+  &:hover {
+    .vendor-name {
+      color: $brand_blue;
+    }
+
+    .inner-price {
+      color: $brand_blue;
+    }
+  }
+
+  span {
+    //padding: 2px;
+    position: relative;
+    display: inline-block;
+    height: 1.15rem;
+    line-height: 1.15rem;
+    vertical-align: top;
+  }
+
+  .vendor-name {
+    background: $brand_dark;
+    color: $brand_primary;
+    padding-left: 8px;
+
+    &::after {
+      content: '';
+      height: 0;
+      font-size: 0px;
+      line-height: 0;
+      border-right: 1.15rem solid $brand_primary;
+      border-bottom: 1.15rem solid $brand_dark;
+      width: 0;
+      display: inline-block;
+      line-height: 0;
+      vertical-align: bottom;
+    }
+  }
+
+  .inner-price {
+    background: $brand_primary;
+    color: $brand_dark;
+    padding-right: 8px;
+  }
+}
