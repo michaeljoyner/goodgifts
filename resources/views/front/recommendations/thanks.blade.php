@@ -11,6 +11,5 @@
             <a class="inline-flex mt4 items-center ba bw2 pa2 strong-font ttu mr3 link col-d hov-p" href="/">Back to the site</a>
             <a class="inline-flex mt4 items-center ba bw2 pa2 strong-font ttu mr3 link col-d hov-p" href="/recommendations/signup">Add another guy</a>
         </div>
-        {{--<img class="logo" src="/images/logos/ggfg_symbol_red.png" alt="">--}}
     </div>
 @endsection
