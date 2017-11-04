@@ -29,7 +29,7 @@
                     <h3 class="di col-gr">About You</h3>
                     <p class="f6 lh-title">What should we call you, where should we send the list and how much are you willing to spend?</p>
                 </div>
-                <div class="w-100 w-40-ns">
+                <div class="w-100 w-50-ns">
                     <div class="mv3 {{ $errors->has('sender') ? ' has-error' : '' }}">
                         <label class="f6" for="sender">Your Name</label>
                         @if($errors->has('sender'))
@@ -84,7 +84,7 @@
                     <h3 class="di col-gr">About Him</h3>
                     <p class="f6 lh-title">Who is the gift for, when will you give him the gift and what age group does he fit into?</p>
                 </div>
-                <div class="w-100 w-40-ns">
+                <div class="w-100 w-50-ns">
                     <div class="mv3 {{ $errors->has('recipient') ? ' has-error' : '' }}">
                         <label class="f6" for="recipient">His Name</label>
                         @if($errors->has('recipient'))
@@ -181,7 +181,7 @@
                     <h3 class="di col-gr">What's his thing?</h3>
                     <p class="f6 lh-title">Tell us what makes him tick. We have given a few options to get you thinking, but don't shy to add some more. The more you give us, the more we can give you. We don't  judge.</p>
                 </div>
-                <div class="w-100 w-40-ns">
+                <div class="w-100 w-50-ns">
                     <interests-chooser :interest-list='{{ json_encode($interests->pluck('tag')->all()) }}'></interests-chooser>
                 </div>
             </div>
@@ -190,7 +190,7 @@
                     <h3 class="di col-gr">Let's do this</h3>
                     <p class="f6 lh-title">We'll get on to that list ASAP! In the meantime, don't be shy to add a few more guys and get your gift shopping for the year done.</p>
                 </div>
-                <div class="w-100 w-40-ns submit-box">
+                <div class="w-100 w-50-ns submit-box">
                     <button class="form-cta-button" type="submit">Make my list</button>
                 </div>
             </div>
