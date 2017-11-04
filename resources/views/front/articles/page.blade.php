@@ -22,7 +22,7 @@
         </div>
         @include('front.partials.sharing_icons')
         <img src="{{ $article->titleImage('web') }}" class="db w-100 mw-800 center mv4" alt="{{ $article->title }}">
-        <div class="mw-800 lh-title center-ns mh3 f6 f5-ns article-body">
+        <div class="mw-800 lh-copy center-ns mh3 f6 f5-ns article-body">
             {!! $article->body !!}
         </div>
         @include('front.partials.sharing_icons')
