@@ -17,36 +17,10 @@
 @import "front/components/pricetag";
 
 
-//@import "front/partials/footer";
-//@import "front/partials/svgicons";
-//@import "front/partials/pageheader";
-//@import "front/partials/svg_social_icons";
-//@import "front/partials/socilaherolinks";
-//@import "front/partials/buttons";
-//@import "front/partials/navbar";
 
 @import "front/base";
-//@import "front/home/hero";
-//@import "front/home/article";
-//@import "front/home/articlegrid";
-//@import "front/home/articlepreview";
-@import "front/home/page";
-//@import "front/home/text-colours";
-//@import "front/home/reminder";
-//@import "front/home/humans";
 
-//articles
+@import "front/home/page";
 @import "front/articles/page";
 @import "front/articles/amazoncard";
-
-//recommendations
-//@import "front/recommendations/signupmodal";
-//@import "front/recommendations/signupad";
 @import "front/recommendations/signuppage";
-//@import "front/recommendations/thanks";
-
-//giftlists
-//@import "front/giftlists/listproduct";
-//@import "front/giftlists/suggestionlist";
-//@import "front/giftlists/page";
-//@import "front/giftlists/article";
