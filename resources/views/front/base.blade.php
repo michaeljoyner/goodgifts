@@ -33,7 +33,7 @@
                    src="https://www.facebook.com/tr?id=1930525960496398&ev=PageView&noscript=1"
         /></noscript>
 </head>
-<body class="@yield('bodyclass', 'scripted') {{ $pageName ?? '' }} min-h-100 flex flex-column justify-between pt5 pt6-ns">
+<body class="@yield('bodyclass', 'scripted') {{ $pageName ?? '' }} min-h-100 flex flex-column justify-between pt4 pt5-ns">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->

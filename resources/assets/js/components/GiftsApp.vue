@@ -1,7 +1,7 @@
 <template>
     <div class="mt4">
         <div class="flex-ns ba b--black-30">
-            <div class="br b--black-30 pa2 pr4 w5">
+            <div class="br b--black-30 pa2 pr4-ns w5-ns">
                 <p class="strong-font">For this budget:</p>
                 <div class="nowrap">
                     <input name="budget"
@@ -94,14 +94,14 @@
                 </div>
             </div>
         </div>
-        <div class="flex-ns flex-wrap justify-around mw8 mh2 mh4-ns mv5">
+        <div class="flex-ns flex-wrap justify-around mw8 mh2 mh4-ns mv5 center-ns">
 
             <div v-for="product in matching_products"
                  :key="product.id"
                  class="w-25-l w-40-m flex flex-column items-center pa3 col-p ba b--black-30 ma3 col-w-bg">
                 <a :href="product.link" class="link">
                     <p class="col-d strong-font tc">{{ product.suggestions[0].what }}</p>
-                    <div class="w4 h4 flex justify-center items-center">
+                    <div class="w4 h4 flex justify-center items-center center">
                         <img :src="product.image"
                              :alt="product.title"
                              class="mw-100 product-image"

@@ -1,4 +1,4 @@
-<div class="main-navbar flex flex-nowrap justify-between col-p shadow-1 col-w-bg z-999 fixed w-100 top-0">
+<div class="main-navbar ph2 ph4-ns flex flex-nowrap justify-between col-p shadow-1 col-w-bg z-999 fixed w-100 top-0">
     <div class="branding flex justify-center items-center ml1 ml3-ns order-0">
         <a href="/">
             <img src="/images/logos/navbar.png"
