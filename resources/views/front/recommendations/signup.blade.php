@@ -15,7 +15,7 @@
 @section('content')
     @include('front.partials.navbar')
     <section class="mw7 center-l mh3-ns">
-        <div class="mt5 mh3 mh0-ns">
+        <div class="mt2 mh3 mh0-ns">
             <p class="strong-font f4 f3-ns">Just a custom list. Just in time.</p>
             <p>We'll find the best gifts based on his interests and send them to you 20 days before you need it.</p>
             <p>If you don't have 20 days, we'll act fast.</p>

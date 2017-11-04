@@ -5,7 +5,7 @@
             <p class="mw6 center lh-copy">In a hurry? Check out our arsenal of hand-picked gift ideas.</p>
             <p class="mw6 center lh-copy">Filter through hundreds of great gift ideas using your budget and his
                                           interests to find the perfect gift right now.</p>
-            <div class="mw6 tc center">
+            <div class="mw6 tc tl-ns center">
                 <a class="inline-flex mt4 items-center ba bw2 pa2 strong-font ttu mr3 link col-d hov-p db center"
                    href="/gifts">
                     @include('svgicons.hero.gift-card', ['classNames' => 'mr2'])

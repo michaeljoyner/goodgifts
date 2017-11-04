@@ -1,4 +1,4 @@
-<section class="db flex-ns justify-between-ns pv4">
+<section class="db flex-ns justify-between-ns pb4">
     <div class="w-40-m w-50-l flex db-ns justify-center items-center">
         <img src="/images/logos/ggfg_logo_seethrough.png"
              alt="Goodgiftsforguys logo" class="db w-50-l w-80 w6-ns mb3 mb5-ns">
