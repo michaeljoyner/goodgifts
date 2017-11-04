@@ -67,14 +67,19 @@
             <div class="flex-auto pa2">
                 <p class="strong-font">And these interests:</p>
                 <div class="flex justify-between items-stretch">
-                    <div @click="prevPage" class="flex items-center page-arrow w3-ns justify-center"  :class="{'disabled': on_first_page}">
+                    <div @click="prevPage"
+                         class="flex items-center page-arrow w3-ns justify-center"
+                         :class="{'disabled': on_first_page}">
                         <svg xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 17.5 20.15" height="20px">
+                             viewBox="0 0 17.5 20.15"
+                             height="20px">
                             <path d="M.23,9.71,16.8.06a.47.47,0,0,1,.7.4V19.68a.47.47,0,0,1-.7.4L.23,10.52A.47.47,0,0,1,.23,9.71Z"/>
                         </svg>
                     </div>
                     <div class="flex-auto mh2 mh4-ns">
-                        <div v-for="(chunk, index) in chunked_interests" :key="index" v-show="page === index">
+                        <div v-for="(chunk, index) in chunked_interests"
+                             :key="index"
+                             v-show="page === index">
                         <span v-for="interest in chunk"
                               :key="interest.id"
                               class="interest col-gr-bg ttl f6 br2 pa1 ma1 ma2-ns dib f7 f6-m f5-l"
@@ -84,7 +89,9 @@
                         </div>
                     </div>
 
-                    <div @click="nextPage" class="flex items-center page-arrow w3-ns justify-center" :class="{'disabled': on_last_page}">
+                    <div @click="nextPage"
+                         class="flex items-center page-arrow w3-ns justify-center"
+                         :class="{'disabled': on_last_page}">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 17.5 20.15"
                              height="20px">
@@ -99,7 +106,10 @@
             <div v-for="product in matching_products"
                  :key="product.id"
                  class="w-25-l w-40-m flex flex-column items-center pa3 col-p ba b--black-30 ma3 col-w-bg">
-                <a :href="product.link" class="link">
+                <a :href="product.link"
+                   target="_blank"
+                   rel="noopener"
+                   class="link">
                     <p class="col-d strong-font tc">{{ product.suggestions[0].what }}</p>
                     <div class="w4 h4 flex justify-center items-center center">
                         <img :src="product.image"
@@ -119,6 +129,8 @@
 
 <script type="text/babel">
 
+    import {shuffle} from "lodash";
+
     export default {
 
         data() {
@@ -134,15 +146,18 @@
 
         computed: {
             matching_products() {
-                return this.products
-                           .filter(product => this.productIsInBudget(product))
-                           .filter(product => this.productHasSelectedTag(product));
+                const matches = this.products
+                                    .filter(product => this.productIsInBudget(product))
+                                    .filter(product => this.productHasSelectedTag(product));
+
+                return shuffle(matches);
             },
 
             chunked_interests() {
                 const partitionArray = (array, size) => array.map((e, i) => (i % size === 0) ? array.slice(i, i + size) : null).filter((e) => e);
+                const sorted_interests = this.interests.sort((a, b) => b.product_count - a.product_count);
 
-                return partitionArray(this.interests, this.page_length);
+                return partitionArray(sorted_interests, this.page_length);
             },
 
             on_first_page() {
@@ -201,13 +216,13 @@
             nextPage() {
                 const total_pages = Math.ceil(this.interests.length / this.page_length);
 
-                if((this.page + 1) < total_pages) {
+                if ((this.page + 1) < total_pages) {
                     this.page++;
                 }
             },
 
             prevPage() {
-                if(this.page > 0) {
+                if (this.page > 0) {
                     this.page--;
                 }
             },
@@ -309,7 +324,6 @@
             color: $brand_dark;
             padding-right: 8px;
         }
-
 
     }
 
