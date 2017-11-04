@@ -3,7 +3,7 @@
 <template>
     <div class="interest-tagger-component">
         <h4 class="component-title">{{ this.tagType === 'article' ? 'Article Interests' : 'Product Tags' }}</h4>
-        <p class="lead" v-show="!interests.length">This item currently has no interests</p>
+        <p class="" v-show="!interests.length">This item currently has no tags</p>
         <div class="current-interests">
             <div v-for="interest in interests">
                 <span>{{ interest }}</span>

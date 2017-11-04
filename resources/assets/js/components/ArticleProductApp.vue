@@ -76,6 +76,7 @@
             },
 
             onSuccess(data) {
+                console.log(data);
                 this.products = data;
                 this.amazon_product_link = '';
             },

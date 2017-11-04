@@ -42,7 +42,7 @@ class ArticlesProductsController extends Controller
             return Product::where('itemid', $itemid)->first()->id;
         })->toArray());
 
-        return $article->fresh()->products;
+        return $article->fresh()->products()->with('tags')->get();
     }
 
     public function remove(Article $article, Product $product)

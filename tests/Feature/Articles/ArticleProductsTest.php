@@ -57,6 +57,26 @@ class ArticleProductsTest extends TestCase
     }
 
     /**
+     *@test
+     */
+    public function successfully_adding_a_product_responds_with_the_products_with_tags()
+    {
+        $this->disableExceptionHandling();
+        $this->app->bind(\App\Products\Lookup::class, function ($app) {
+            return new FakeLookup();
+        });
+        $article = factory(Article::class)->create();
+        $productUrl = 'https://amazon.com/a-test-product/dp/B00TEST123/go-get-me';
+
+        $response = $this->asLoggedInUser()
+                         ->post('/admin/articles/' . $article->id . '/products', ['item_ids' => $productUrl]);
+        $response->assertStatus(200);
+        $reponseData = $response->decodeResponseJson();
+
+        $this->assertArrayHasKey('tags', $reponseData[0]);
+    }
+
+    /**
      * @test
      */
     public function a_product_that_already_exists_in_the_database_does_not_need_to_be_looked_up()
