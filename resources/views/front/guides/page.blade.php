@@ -1,5 +1,17 @@
 @extends('front.base', ['pageName' => ''])
 
+@section('title')
+    The Ultimate Gift Guides for Guys
+@endsection
+
+@section('head')
+    @include('front.partials.ogmeta', [
+        'ogImage' => url('/images/assets/fb_image.png'),
+        'ogTitle' => 'The Ultimate Gift Guides for Guys',
+        'ogDescription' => 'A broad collection of in-depth guides for finding a gift for a particular kind of guy. There is something for everyone.'
+    ])
+@endsection
+
 @section('content')
     @include('front.partials.navbar')
     <header>
