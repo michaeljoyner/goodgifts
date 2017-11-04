@@ -46,6 +46,7 @@
                         <li><a href="/admin/tags/issues">Tagging and Product Issues</a></li>
                     </ul>
                 </li>
+                <li><a href="/admin/featured-products">Featured Products</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

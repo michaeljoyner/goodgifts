@@ -104,7 +104,6 @@
         <div class="flex-ns flex-wrap justify-around mw8 mh2 mh4-ns mv5 center-ns">
             <p v-show="!matching_products.length && selected_interests.length" class="measure-wide center-ns mh3 strong-font col-gr lh-copy">Sorry, we couldn't match any ideas with the given interests and budget. We have failed you and we'll strive to be better. Promise.</p>
             <p v-show="! selected_interests.length" class="tc measure-wide center-ns mh3 strong-font col-gr lh-copy">Select some interests above to get started.</p>
-
             <div v-for="product in matching_products"
                  :key="product.id"
                  class="w-25-l w-40-m flex flex-column items-center pa3 col-p ba b--black-30 ma3 col-w-bg">
