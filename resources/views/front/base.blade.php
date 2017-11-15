@@ -42,6 +42,12 @@
 </div>
 @include('front.partials.footer')
 <script async src="{{ mix('js/front.js') }}"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-858669646');
+</script>
 @yield('bodyscripts')
 @if(app()->environment('production'))
 <script>
@@ -49,6 +55,7 @@
     ga('create','UA-51468211-10','auto');ga('send','pageview')
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-858669646"></script>
 @endif
 
 </body>

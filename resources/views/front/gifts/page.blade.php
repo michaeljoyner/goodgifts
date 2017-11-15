@@ -20,3 +20,9 @@
     </header>
     <gifts-app></gifts-app>
 @endsection
+
+@section('bodyscripts')
+    <script>
+        gtag('event', 'conversion', {'send_to': 'AW-858669646/U0qnCPbcpnkQzoS5mQM'});
+    </script>
+@endsection
