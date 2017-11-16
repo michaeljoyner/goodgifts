@@ -2,9 +2,8 @@
     <div class="flex-ns justify-between">
         <div class="w-50-ns mh3 ml0-ns mr3-ns order-0 order-1-ns">
             <p class="f2 mw6 center mt0 strong-font tc tl-ns">Need something now?</p>
-            <p class="mw6 center lh-copy">In a hurry? Check out our arsenal of hand-picked gift ideas.</p>
-            <p class="mw6 center lh-copy">Filter through hundreds of great gift ideas using your budget and his
-                                          interests to find the perfect gift right now.</p>
+            <p class="mw6 center lh-copy">We’ve got hundreds of fun, original and affordable gifts for you to check out.</p>
+            <p class="mw6 center lh-copy">Just choose your budget and click a few interests to find the best gifts for him right now.</p>
             <div class="mw6 tc tl-ns center">
                 <a class="inline-flex mt4 items-center ba bw2 pa2 strong-font ttu mr3 link col-d hov-p db center"
                    href="/gifts">
