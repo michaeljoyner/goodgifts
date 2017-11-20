@@ -26,7 +26,7 @@
             @foreach($list->suggestionList() as $item)
                 <div class="flex-ns col-p ba col-w-bg pa2 mv3">
                     <div class="flex center justify-center items-center w200p h200p mr4">
-                        <a href="{{ $item->product->link }}"><img src="{{ $item->product->image }}" alt="" class="w-100"></a>
+                        <a href="{{ $item->product->link }}"><img src="{{ $item->product->image }}" alt="" class="mw-100 maxh-150"></a>
                     </div>
                     <div class="relative flex-auto">
                         <p class="f4-ns strong-font col-d">{{ $item->what }}</p>
